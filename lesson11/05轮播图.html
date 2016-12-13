@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #content {
+            height: 250px;
+            width: 220px;
+            margin: 50px auto;
+        }
+
+        #nav li {
+            float: left;
+            width: 55px;
+            height: 30px;
+            background-color: #666666;
+            color: #ffffff;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #nav li.select {
+            background-color: #993399;
+        }
+
+        #main {
+            width: 220px;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        #main li {
+            width: 220px;
+            height: 220px;
+            display: none;
+        }
+
+        #main li img {
+            width: 220px;
+            height: 220px;
+            display: block;
+        }
+
+        #main li.select {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <ul id="nav">
+        <li class="select">内容一</li>
+        <li>内容二</li>
+        <li>内容三</li>
+        <li>内容四</li>
+    </ul>
+    <ul id="main">
+        <li class="select"><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/3.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+    </ul>
+</div>
+</body>
+<script>
+    var navLi = document.getElementById("nav").getElementsByTagName("li"); //找到nav中的li
+    var mainLi = document.getElementById("main").getElementsByTagName("li");//找到main中的li
+    for (var i = 0; i < navLi.length; i++) {
+//        navLi[i].setAttribute("data-index",i);
+        navLi[i].index = i;
+        navLi[i].onmouseover = function () {
+            for (var j = 0; j < navLi.length; j++) {
+                navLi[j].className = "";
+                mainLi[j].className = "";
+            }
+            this.className = "select";//哪一个 就仅仅只有哪一个有该样式
+            var index = this.index;
+            mainLi[index].className = "select";
+
+        }
+    }
+
+</script>
+</html>

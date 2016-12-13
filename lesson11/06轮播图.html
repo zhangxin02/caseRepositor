@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #content {
+            height: 250px;
+            width: 220px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #nav {
+            position: absolute;
+            height: 30px;
+            width: 220px;
+            bottom: 60px;
+            right: 20px;
+            z-index: 10;
+            border-radius: 8px;
+            background-color: #cdcdcd;
+            opacity: 0.8;
+        }
+
+        #nav li {
+            float: left;
+            width: 30px;
+            height: 30px;
+            color: #ffffff;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-left: 20px;
+            background-color: #680023;
+        }
+
+        #nav li.select {
+            background-color: #993399;
+        }
+
+        #main {
+            width: 220px;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        #main li {
+            width: 220px;
+            height: 220px;
+            display: none;
+        }
+
+        #main li img {
+            width: 220px;
+            height: 220px;
+            display: block;
+        }
+
+        #main li.select {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <ul id="nav">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul id="main">
+        <li class="select"><img src="images/1.jpg"></li>
+        <li><img src="images/2.jpg"></li>
+        <li><img src="images/3.jpg"></li>
+        <li><img src="images/4.jpg"></li>
+    </ul>
+</div>
+</body>
+<script>
+
+
+    var navLi = document.getElementById("nav").getElementsByTagName("li"); //找到nav中的li
+    var mainLi = document.getElementById("main").getElementsByTagName("li");//找到main中的li
+    var index = 0;
+    var timer;
+    var length = navLi.length;
+    timer = setInterval(function () {
+        index++;
+        if (index == length) { //到达最大长度时  换成0
+            index = 0;
+        }
+        show(index);
+    }, 1000);
+
+    for (var i = 0; i < navLi.length; i++) {
+        navLi[i].index = i;
+        navLi[i].onmouseover = function () {
+            clearInterval(timer);
+            for (var j = 0; j < navLi.length; j++) {
+                navLi[j].className = "";
+                mainLi[j].className = "";
+            }
+            this.className = "select";//哪一个 就仅仅只有哪一个有该样式
+            index = this.index;
+            mainLi[index].className = "select";
+
+        }
+        navLi[i].onmouseout = function () {
+            timer = setInterval(function () {
+                index++;
+                if (index == length) { //到达最大长度时  换成0
+                    index = 0;
+                }
+                show(index);
+            }, 1000);
+        }
+    }
+
+
+    function show(index) {
+        for (var j = 0; j < navLi.length; j++) {
+            navLi[j].className = "";
+            mainLi[j].className = "";
+        }
+        navLi[index].className = "select";//哪一个 就仅仅只有哪一个有该样式
+        mainLi[index].className = "select";
+    }
+
+</script>
+</html>

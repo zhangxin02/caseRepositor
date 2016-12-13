@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>补充</title>
+</head>
+<body>
+<div id="div" name="div">
+    <input type="text"/>
+</div>
+</body>
+<script>
+    var div = document.getElementById("div");
+    //    div.innerHTML = div.innerHTML +"<span>大家好 我是span标签</span>";
+    //    var  span = document.createElement("span");
+    //    var text = document.createTextNode("大家好 我是span");
+    //    span.id="span";
+    //    span.appendChild(text);
+    //    div.appendChild(span);
+    //    div.childNodes[0].nodeValue ="<span>aaaa</span>";  nodeValue只能操作文本节点  并且不能转译html标签
+
+    div.attributes;  //表示所有属性的集合是一个{}
+
+
+    //    var  attr = {"id":"111","name":"3333"};  //{}就表示一个对象  对象里面的内容可以点出来 也可以使用下标
+    //   erson = {""}alert(attr.name);var pr
+    var person = {"name": "leson", "yuwen": 100, "shuxue": 59, "yingwen": 55};
+    var person2 = {"name": "lil", "yuwen": 100, "shuxue": 59, "yingwen": 55};
+    var score = [person, person2];
+
+    var score = [
+        {"name": "leson", "yuwen": 100, "shuxue": 59, "yingwen": 55},
+        {
+            "name": "lil",
+            "yuwen": 100,
+            "shuxue": 59,
+            "yingwen": 55
+        }]
+    alert(score[0].name + score[0]["yuwen"]);
+</script>
+
+</html>

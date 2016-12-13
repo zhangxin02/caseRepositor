@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offsetParent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #parent{
+            height: 300px;
+            width: 300px;
+            border: 1px solid red;
+            margin: 50px  auto;
+            position: relative;
+        }
+        #parent #child{
+            position: absolute;
+            height: 150px;
+            width: 150px;
+            border: 1px solid yellow;
+            left: 75px;
+            top: 75px;
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div id="child"></div>
+</div>
+</body>
+<script>
+    var child = document.querySelector("#child");
+//  alert(child.offsetHeight);
+   alert( window.getComputedStyle(child)["height"])
+
+//写一个无缝滚动
+ // 封装一个函数
+    $("div span span ")//找出第一个div下面的第一个span中的第一个span
+    $("#div")//找出id名为div元素
+    $(".div")//找出class名为div的元素
+
+
+
+</script>
+</html>

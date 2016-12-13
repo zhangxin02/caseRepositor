@@ -1,0 +1,15 @@
+说一说 你学到DOM的哪里知识点
+ 增   createElement  createTextNode   innerHTML  innerText   appendChild  insertBefore  cloneNode
+      setAttribute  nodeValue
+
+ 删   removeChild   removeAttribute
+      innerHTML
+
+ 改   setAttribute  replaceChild   innerHTML  value
+
+ 查  innerHTML getElementsByTagName   ByClassName Id   getAttribute  firstChild  lastChild children parent
+     nextElemenSibling(nextSibling) previousElementSibling(previousSibling)
+     window.getComputedStyle(obj)[attr](obj.currentStyle["attr"])
+     attributies[0] document.querySelector  document.querySelector
+
+

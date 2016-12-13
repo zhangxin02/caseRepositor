@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>4</li>
+    <li>11</li>
+    <li>8</li>
+    <li>10</li>
+    <li>22</li>
+    <li>17</li>
+    <li>33</li>
+    <li>1</li>
+</ul>
+</body>
+<script>
+    //    var list = [<li>4</li>, 11, 8, 10, 22, 17, 33, 1];
+    //    list.sort(function(a,b){
+    //        return a-b
+    //    });
+    //把伪数组 转成真的数组  然后排序 放到ul中
+    var allList = document.getElementsByTagName("ul")[0].getElementsByTagName("li");//伪数组
+    var list = [];
+    for (var i = 0; i < allList.length; i++) {
+        list.push(allList[i]);
+    }
+
+    list.sort(function (a, b) {
+        return a.innerHTML - b.innerHTML;
+    });
+
+    for (var i = 0; i < list.length; i++) {
+        document.getElementsByTagName("ul")[0].appendChild(list[i]);
+    }
+
+</script>
+</html>

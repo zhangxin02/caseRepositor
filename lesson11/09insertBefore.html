@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+</body>
+<script>
+    var ulList = document.getElementsByTagName("ul")[0];
+    var firstULFirstLi = ulList.getElementsByTagName("li")[0];
+   var li = document.createElement("li");
+    var text = document.createTextNode("3");
+    li.appendChild(text);
+   ulList.insertBefore(li,firstULFirstLi);  //把li放到指定元素的前面
+
+
+
+
+
+</script>
+</html>

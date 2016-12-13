@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>千锋
+</div>
+</body>
+<script>
+    // 点击div  div中显示input  input的内容是原来div中的内容
+    //然后可以编辑input框   最后input框失去焦点后  div中显示input框的内容
+    var div = document.getElementsByTagName("div")[0];
+    div.onclick = function () {
+//        alert("aaa");
+        var html = this.innerHTML;//获取原来div中的内容
+        var input = document.createElement("input");  //创造一个input
+//        var text  = document.createTextNode(html);
+        input.value = html;  //设置input中的内容
+        this.innerHTML = "";   //先把div的内容清空
+        this.appendChild(input);//再把input 放入div中
+
+        input.onclick = function (e) { //取消事件 冒泡 让点击input的事件 不要传递给父元素
+            var evt = window.event || e;
+            evt.stopPropagation();
+        }
+        input.onblur = function () { //失去焦点的事件
+            var html = input.value; //获取文本框的内容太
+            div.innerHTML = html;//然后把内容放入div中
+        }
+    }
+
+
+</script>
+</html>

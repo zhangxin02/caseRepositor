@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>补充查询</title>
+</head>
+<body>
+<span id="div">1111</span>
+<span class="div">22222</span>
+<div class="div">33333</div>
+</body>
+<script>
+     var  div = document.querySelector(".div");
+//    alert(div.innerHTML);
+    //querySelector 返回的一个对象不是一个集合  即使里面是元素  样式 也只返回结果集中的第一个数
+    //参数区分  id 和class    id前面加#   class前面加.
+
+    var span = document.querySelectorAll("span");
+    //参数都区分 id class  但是返回的结果都是集合
+
+
+
+</script>
+</html>

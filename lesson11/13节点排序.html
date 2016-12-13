@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li data-price="4">商品 特价4</li>
+    <li data-price="11">商品 特价11</li>
+    <li data-price="8">商品 特价8</li>
+    <li data-price="10">商品 特价10</li>
+    <li data-price="22">商品 特价22</li>
+    <li data-price="17">商品 特价17</li>
+    <li data-price="33">商品 特价33</li>
+    <li data-price="1">商品 特价1</li>
+</ul>
+</body>
+<script>
+    var allList = document.getElementsByTagName("ul")[0].getElementsByTagName("li");//伪数组
+    var list = [];
+    for (var i = 0; i < allList.length; i++) {
+        list.push(allList[i]);
+    }
+    list.sort(function (a, b) {
+        return a.getAttribute("data-price") - b.getAttribute("data-price");
+    });
+    for (var i = 0; i < list.length; i++) {
+        document.getElementsByTagName("ul")[0].appendChild(list[i]);
+    }
+</script>
+</html>

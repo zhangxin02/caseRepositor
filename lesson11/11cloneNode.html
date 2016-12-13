@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+</body>
+<script>
+    var ulList = document.getElementsByTagName("ul")[0];
+    var firstULFirstLi = ulList.getElementsByTagName("li")[0];
+    firstULFirstLi.onclick = function(){
+        alert("第一个li被点击了");
+    }
+
+    document.body.appendChild(firstULFirstLi.cloneNode(true));
+    //cloneNode默认是false  只能克隆元素本身 不能克隆里面的内容
+    //               true    只能元素和内容  但是不能带走事件
+
+</script>
+</html>

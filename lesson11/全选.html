@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" class="check-all"/>全选</br>
+<input type="checkbox" class="check"/>听歌
+<input type="checkbox" class="check"/>跳舞
+<input type="checkbox" class="check"/>篮球
+<input type="checkbox" class="check"/>足球
+
+</body>
+<script>
+    var checkAll = document.getElementsByClassName("check-all")[0];
+    var checkList = document.getElementsByClassName("check");
+    checkAll.onclick = function () {
+        for (var i = 0; i < checkList.length; i++) {
+            checkList[i].checked = this.checked;
+        }
+    };
+
+</script>
+</html>
