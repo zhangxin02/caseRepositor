@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+</head>
+<body style="height: 100%;width: 100%;">
+<input id="content" type="text"/>
+<button id="btn">提交</button>
+<span id="result"></span>
+</body>
+<script>
+
+    var result = document.getElementById("result");
+    var btn = document.querySelector("#btn")
+
+    btn.onclick = function () {
+        result.innerHTML = document.querySelector("#content").value;
+    }
+
+
+    //键盘事件中  判断按下的是哪一个键
+    document.onkeydown = function (e) {
+        var evt = window.event || e;
+        var code = evt.which || evt.keyCode; //判断按下的是哪个键
+//      alert(code);
+//      enter键 表示13
+        if (evt.altKey && code == 13) {
+            btn.onclick();
+        }
+//        alert("键盘被按下了");
+    }
+
+</script>
+</html>

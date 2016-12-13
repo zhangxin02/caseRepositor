@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body style="width: 2000px;height: 2000px">
+
+<div style="width: 500px;height: 500px;left: 200px;border: 1px solid red;position: absolute"></div>
+
+</body>
+<script>
+    //x  y
+    document.body.onclick = function (e) {
+
+        var evt = window.event || e;
+
+//        var pageX = evt.pageX;//在一个相对定位中的相对距离 表示水平方向
+////        var offsetY = evt.offsetY;
+//        //获取滚动条的距离
+//        alert(pageX);
+
+        var screenX = evt.screenX;//相对与屏幕的位置
+//        var offsetY = evt.offsetY;
+        //获取滚动条的距离
+        alert(screenX);
+
+    }
+
+</script>
+</html>

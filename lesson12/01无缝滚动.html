@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            width: 760px;
+            height: 110px;
+            margin: 50px auto;
+            border: 1px solid #993399;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #main ul {
+            position: absolute;
+            width: 1520px;
+            height: 110px;
+            list-style: none;
+        }
+
+        #main ul li {
+            width: 190px;
+            height: 110px;
+            float: left;
+        }
+
+        #main ul li img {
+            width: 190px;
+            height: 110px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <ul>
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+        <li><img src="img/4.jpg"/></li>
+        <li><img src="img/1.jpg"/></li>
+        <li><img src="img/2.jpg"/></li>
+        <li><img src="img/3.jpg"/></li>
+        <li><img src="img/4.jpg"/></li>
+    </ul>
+</div>
+
+<button id="left">左边</button>
+<button id="right">右边</button>
+</body>
+<script>
+
+    var speed = 10;//设置位移量
+    var timer; //设置定时器
+    var main = document.querySelector("#main")//获取显示区域的最大宽度
+    //    var maxWidth = parseInt(getStyleAttr(main, "width")); //获取最大宽度
+    //    alert(maxWidth);
+    var ul = main.querySelector("ul");
+    var maxWidth = ul.offsetWidth / 2; //最大的宽度
+    var left = document.querySelector("#left");
+    var right = document.querySelector("#right");
+    left.onclick = function () {
+        speed = -10;
+    }
+    right.onclick = function () {
+        speed = 10;
+    }
+    ul.onmouseover = function () {
+        clearInterval(timer);
+    }
+    ul.onmouseout = function () {
+        move();
+    }
+    move();
+    function move() { //设置启动函数
+        clearInterval(timer);
+        timer = setInterval(function () {
+//            ul.style.left = parseInt(window.getComputedStyle(ul)["left"]) + speed + "px";//offsetleft = 0   left = -20 ；
+            if (ul.offsetLeft == -maxWidth) {
+                ul.style.left = 0;
+            }
+            if (ul.offsetLeft == 0) {
+                ul.style.left = -maxWidth + "px";
+            }
+            ul.style.left = ul.offsetLeft + speed + "px";
+        }, 100);
+    }
+    function getStyleAttr(obj, attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(obj)[attr];
+        } else {
+            return obj.currentStyle[attr];
+        }
+    }
+
+</script>
+</html>

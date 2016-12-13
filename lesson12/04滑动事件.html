@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body style="width: 2000px;height: 2000px">
+
+<div style="width: 500px;height: 500px;left: 200px;border: 1px solid red;position: absolute"></div>
+
+</body>
+<script>
+    //x  y
+    document.onclick = function (e) {
+
+        var evt = window.event || e;
+
+        var clientX = evt.clientX;//可视区域内 离左边的距离
+        var clinetY = evt.clientY;//可视区域内  离上边的距离
+        //获取滚动条的距离
+        var scrollX = document.body.scrollLeft; //获取滚动条 滚离左边的距离
+        var scrollY = document.body.scrollTop; //获取滚动条 距离上边的距离
+
+        //点击的实际位置 等于 可视位置+滚动条 隐藏的位置
+
+        alert("距离左边为" + (clientX + scrollX) + "距离上边为" + (clinetY + scrollY));
+    }
+
+</script>
+</html>

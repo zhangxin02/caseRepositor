@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    document.onclick = function (e) {
+        //alert(window.event);
+        //alert(e);
+        var evt = window.event || e; //事件的兼容
+        alert(evt.button); // button 表示鼠标事件类型  0   1  2  (分别表示左 中 右)
+    }
+</script>
+</html>

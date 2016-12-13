@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+</head>
+<body>
+<input id="content" type="text"/>
+<span>您还可以输入<span id="num" style="color: red">10</span>个字</span>
+</body>
+<script>
+    var input = document.getElementById("content"); //获取input
+    var numSpan = document.querySelector("#num"); //获取numspan
+    var maxNum = Number(numSpan.innerHTML);
+    input.onkeydown = input.onkeyup = function () { //给input绑定一个键盘按下之后松开的事件
+        //每次按下的时候  计算还剩余多个字
+        var length = input.value.length; //文本框中内容的长度
+        if (length > maxNum) {
+            input.value = input.value.substring(0, maxNum); //当长度过长时 进行截取
+        } else {
+            var balance = maxNum - length;// 剩余的长度
+            numSpan.innerHTML = balance; //重新显示剩余的数值
+        }
+    }
+    //当长度过长的时候 进行截取
+    //当长度满足条件的时候   进行剩余长度的计算
+</script>
+</html>
