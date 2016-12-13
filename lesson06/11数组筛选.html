@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用的函数</title>
+</head>
+<body>
+
+</body>
+<script src="arr.js"></script>
+<script>
+    var arr = [1, 3, 5, 9, 55, 7, 555];
+    //找出arr中大于20的数
+    for (var i = 0; i < arr.length; i++) { //只要一循环就能找到每一个数
+        //找到每一个数之后 就能判断每一个数是否符合条件
+        var num = arr[i];
+        if (num <=20) {  //满足条件的num才能放入
+            arr.splice(i,1);
+            i--;
+        }
+    }
+    alert(arr);
+
+
+</script>
+</html>

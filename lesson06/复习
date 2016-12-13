@@ -1,0 +1,135 @@
+1：git的使用 函数的加减乘除  for while  do  while  函数的封装 函数的自增自减
+1：js的组成 函数的选择语句   六大类 数字 boolean object  undefined string    选择语句  if
+   循环for  while   do while
+    函数的类型   递归  匿名函数
+    数组 push  splice
+1：git上传
+   函数  NaN  Number  String
+   循环  while  do while   for     if语句
+   函数 有参数无返  无参有返回  无参有返回值
+   数组  length  push
+1：git发布网站到新浪云
+   js的起源和作用
+   js的组成  js放的位置 三个地方 已经执行顺序
+   js的输出  alert   document.write    console.log
+   js的数据类型
+            Number String  Boolean  function object  undefined NaN null
+            // document.getElementById("input").value;
+          变量的命名规则
+                    只能数字字母$_组成 不能以数字开头  不能使用关键字
+        检查数据类型    typeof
+        检测结果是否为NaN   isNaN
+       类型的转换
+                  显式转化(强制转换)
+                    Number  String  Boolean
+                  隐式转化(局部转换或者不带关键字)
+                    parseInt  parseFloat
+                     -   *   /  %
+        基本的数学计算
+                     +    -   *    /  %
+                    Math.floor()
+                    Math.ceil()
+                    Math.round()
+                    Math.random()  //可以取区间段的值  最小值+Math.random()*(最大值减去最小值)
+                    Math.pow(x,y) //x的y次方 y个x相差
+                     var num =  i++; var num = ++i;
+                      +=;
+
+         判断语言
+                    if else
+                    switch  case  break  default  break;
+                    三元运算符(三目运算符) 表达式结果 ?执行体1 :执行体2
+
+                    if的这个()中能够进行boolean的转换
+                    if(0)  if(undefined)   if("")  if(null)   ||   if(" ")
+
+                    if(true)
+                      dododo
+                     else
+                      edoedoedo
+                      alert("aaaaa")
+
+                      注意尽量不要省略{}
+
+                      注意switch的穿透
+
+          循环语句
+                      while  //循环求和
+                            // 循环中结合判断语句
+
+                      while(表达式){
+                      执行体;
+                      }
+
+                      do {
+                      执行体
+                      }while(表达式)
+
+                      var i= 0;
+                      var sum =0
+                      for(;i<10;i++){
+                      }
+
+                      for(初始值;表达式;变量的迭代){
+                            执行体
+                      }
+                      //从5米到0.1米  每次高度下降到原高度的30% 问多少次
+                      for(var h =50,i=0;h>=10;i++){
+                            h = 0.3*h
+                      }
+                      alert(i);
+
+                      continue ;跳过当次循环 开始下一次循环
+                      break;结束剩余的全部循环
+
+
+                      多层循环
+                            打印三角形   乘法表
+
+           函数
+                         主要一个封装的功能
+
+                       接收参数  给予 返回值
+                       函数的参数 非必须
+                       返回值 也非必须
+
+                       function  show(num1,num2,num3){
+                         执行体
+                         alert(num1);
+                        //alert(arguments[0])
+                       }
+                       show("66666","7777","8888");
+                       函数的调用
+                            函数名+()
+                       执行体 使用的形参 必须在()中有
+
+                       返回值
+                          return
+
+                        函数的释放
+                          alert(函数名())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

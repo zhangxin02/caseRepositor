@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的排序</title>
+</head>
+<body>
+
+</body>
+<script>
+    //数组排序 本质就是数组交换位置
+    var arr = [5, 9,1, 10, 2, 3];  //比较下标[2] 和[3]的数 如果大于就交换  小于就不变
+    for (var i = 0; i < arr.length - 1; i++) {
+        for (var j = i + 1; j < arr.length; j++) {
+            /*
+            var num = arr[i];
+            var num1 = arr[j];
+            if (num > num1) {
+                var temp = num;
+                arr[i] = num1;
+                arr[j] = temp;
+            }
+            */
+            if (arr[i]-arr[j]>=0){
+                var temp = arr[i];
+                arr[i]  = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    //冒泡排序
+    alert(arr);
+    //比较5跟后面每一个数的大小  如果 5比后面的数大 就与后面的数 交换位置 // 0的时候比较 5
+    //arr[0] 跟arr[1]  arr[0]>arr[1]  [5, 9, 7, 10, 3, 2]
+    //arr[0] 跟arr[2]  arr[0]>arr[2]  [5, 9, 7, 10, 3, 2]
+    //arr[0]跟arr[3]   arr[0]>arr[3]   [5, 9, 7, 10, 3, 2]
+    //arr[0]跟arr[4]   arr[0]>arr[4]   [3,9,7,10,5,2]
+    //arr[0]跟arr[5]    arr[0]>arr[5]  [2,9,7,10,5,3]
+    //第二轮  [2,9,7,10,5,3]                            //1的时候比较  4
+    //arr[1] 跟arr[2]  arr[1]>arr[2]  [2,7,9,10,5,3]
+    //arr[1]跟arr[3]   arr[1]>arr[3]   [2,7,9,10,5,3]
+    //arr[1]跟arr[4]   arr[1]>arr[4]   [2,5,9,10,7,3]
+    //arr[1]跟arr[5]    arr[1]>arr[5]  [2,3,9,10,7,5]
+    //第三轮 [2,3,9,10,7,5]                              //2的时候比较  3
+    //arr[2]跟arr[3]   arr[2]>arr[3]   [2,3,9,10,7,5]
+    //arr[2]跟arr[4]   arr[2]>arr[4]    [2,3,7,10,9,5]
+    //arr[2]跟arr[5]    arr[2]>arr[5]  [2,3,5,10,9,7]
+    //第四轮 [2,3,5,10,9,7]                             //3的时候比较  2
+    //arr[3]跟arr[4]   arr[3]>arr[4]    [2,3,5,9,10,7]
+    //arr[3]跟arr[5]    arr[3]>arr[5]  [2,3,5,7,10,9]
+    //第五轮  [2,3,5,7,10,9]                             //4的时候比较  1
+    //arr[4]跟arr[5]    arr[4]>arr[5]  [2,3,5,7,9,10]
+
+
+</script>
+</html>

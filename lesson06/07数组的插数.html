@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var arr = [1, 3, 5, 7, 9];
+    //如何把4按照指定顺序的插入到数组中
+    //第一步找到4的位置   循环的找出 第一个比4大的数
+    var num = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] >= num) {
+            break;
+        }
+    }
+
+    //第二步  把i到length-1的下标 全部往后移动一位
+    //    var   arr1= [1, 3, 5, 7, 9];
+    //    var   arr2 = [1, 3,4, 5, 7, 9]
+    for (var j = arr.length - 1; j >= i; j--) {
+
+        // arr = [1, 3, 5, 7,, 9]
+        // arr = [1,3,5,,7,9]
+        // arr = [1,3,,5,7,9]
+
+        var temp = arr[j + 1];
+        arr[j + 1] = arr[j];
+        arr[j] = temp;
+    }
+    arr[i] = num;
+
+    alert(arr);
+
+
+</script>
+</html>

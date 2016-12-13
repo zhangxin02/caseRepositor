@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    for(var i in arr){
+    //        alert(arr[i]);
+    //    }
+    //concat连接两个数组
+    /*
+     var arr = [1, 2, 5, 9, 11];
+     var arr2 = [7, 8, 10];
+     var arr1 = arr.concat(arr2);
+     alert(arr1);
+     */
+    //every  判断数组中的每一个元素 是否都满足  只要有一个不满足 就返回false  全部满足就返回true;
+    var score = [1,2,3,4,5];
+    //   alert( score.every(function(index){
+    //        return  index > 60;
+    //    }))
+    ////filter用于筛选
+    //    alert(score.filter(function(index){
+    //        return index;
+    //    }))
+    ////indexOf返回指定元素的位置   如果没有则返回-1
+    // alert(  score.indexOf(70));
+
+    //可以直接遍历出数组中每一个的值
+    //    score.map(function(index){
+    //        alert(index);
+    //    })
+
+
+    //截取  slice(start ,end) 包含start  不包含end   如果只有一个start 表示从star开始截取到最后一位
+    //   alert( score.slice(1));
+
+
+    //只要有一个满足 就返回true
+    // alert(   score.some(function(index){
+    //        return  index>90
+    //    }))
+
+    //   alert(typeof score.toString())
+    //    alert(score.valueOf())
+
+    Array.prototype.sum = function () {
+        //this  就指向score
+        var sum = 0
+        for (var i = 0; i < this.length; i++) {
+            sum += this[i];
+        }
+        return sum
+    }
+ alert(score.sum());
+
+
+</script>
+</html>
