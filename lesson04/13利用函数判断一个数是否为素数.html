@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function  isPrime(num){
+        //var num = num;
+       // var flag = true;
+        for (var i = 2; i < num; i++) {
+            if (num % i == 0) {
+               // flag = false;
+                return false;
+                break;
+            }
+        }
+        return true;
+    }
+
+
+    var  num = 11 ;
+   if (isPrime(num)){
+       alert(num+"是一个素数");
+   }else{
+       alert(num+"不是一个素数");
+   }
+
+</script>
+</html>

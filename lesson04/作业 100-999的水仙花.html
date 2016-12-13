@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水仙花数</title>
+</head>
+<body>
+</body>
+<script>
+    //水仙花数
+    //数  = 数各个位置数的立法  和  153 = 1*1 *1  + 5 * 5  * 5  + 3*3*3
+    for (var i = 100; i <= 999; i++) {
+        //第一步取出每个位置上的数
+        var num1 = i % 10;
+        var num2 = parseInt(i % 100 / 10);
+        var num3 = Math.floor(i / 100);
+        if (Math.pow(num1, 3) + Math.pow(num2, 3) + Math.pow(num3, 3) == i) {
+            document.write(i+" ");
+        }
+    }
+    document.write("为水仙花数")
+
+
+</script>
+</html>

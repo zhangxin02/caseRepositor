@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+第一个数:<input id="num3" type="text">
+第二个数:<input id="num4" type="text">
+<button type="button" id="btn">求和</button>
+<button type="button" id="reset">清空</button>
+<span id="result"></span>
+</body>
+<script src="sum.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+    var reset = document.getElementById("reset");
+    var num1 = document.getElementById("num3");
+    var num2 = document.getElementById("num4");
+    var span = document.getElementById("result");
+
+
+
+
+    btn.onclick = function () {
+        var result = sum2(num1, num2);
+        span.innerHTML = result;
+    }
+
+</script>
+</html>

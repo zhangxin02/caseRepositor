@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function add(num1, num2) {
+        return num1 + num2;
+        alert("我躲在retrun的后面")
+    }
+    add(1,5);
+    function reduce(num1, num2) {
+        return num1 - num2;
+    }
+    function mult(num1, num2) {
+        return num1 * num2;
+    }
+    function division(num1, num2) {
+        return num1 / num2;
+    }
+
+    function calc(num1, num2, opt) {
+        var result = 0;
+        switch (opt) {
+            case "+":
+                result= num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case  "*":
+                result = num1 * num2;
+                 break;
+            default :
+                result = num1 / num2;
+                break;
+        }
+        return  result;
+    }
+    alert(calc(1, 2, "-"));
+
+
+    function getDays(year,month,day){
+
+        return  "天数";
+    }
+
+</script>
+</html>

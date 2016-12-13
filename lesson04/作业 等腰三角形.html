@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>等腰三角行</title>
+</head>
+<body>
+</body>
+<script>
+    //  打印等腰三角形        i       值
+    //        *               1      1     2*i -1
+    //     *  *  *            2      3
+    //  *  *  *  *  *          3     5
+    //* *  *  *  *   *  *      4     7
+
+    for (var i = 1; i < 10; i++) {  //外层控制循环次数
+        for (var k = 1; k <= 10 - 1 - i; k++) {//打印空格
+            document.write("千");
+        }
+        for (var j = 1; j <= 2 * i - 1; j++) { //内层控制每层做的事情  打印实体
+            document.write("锋");
+        }
+        document.write("<br>");
+    }
+
+
+    //  --输出
+    for (var i = 1; i < 10; i++) {  //外层控制循环次数
+        for (var k = 10 - 1 - i; k > 0 ; k--) {//打印空格
+            document.write("千");
+        }
+        for (var j = 1; j <= 2 * i - 1; j++) { //内层控制每层做的事情  打印实体
+            document.write("锋");
+        }
+        document.write("<br>");
+    }
+</script>
+</html>

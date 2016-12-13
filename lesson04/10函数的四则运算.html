@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function add(num1, num2) {
+        return num1 + num2;
+        alert("我躲在retrun的后面")
+    }
+    add(1,5);
+
+    function reduce(num1, num2) {
+        return num1 - num2;
+    }
+    function mult(num1, num2) {
+        return num1 * num2;
+    }
+    function division(num1, num2) {
+        return num1 / num2;
+    }
+
+    function calc(num1, num2, opt) {
+        switch (opt) {
+            case "+":
+                return num1 + num2;
+
+            case "-":
+                return num1 - num2;
+
+            case  "*":
+                return num1 * num2;
+
+            default :
+                return num1 / num2;
+
+        }
+    }
+    alert(calc(1, 2, "+"));
+
+
+</script>
+</html>

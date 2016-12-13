@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn" type="button">点击</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    function say() {
+        alert("我可能会被打");
+    }
+
+    (function () {
+        alert("我被打了");
+    })();
+
+</script>
+</html>

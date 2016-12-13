@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            height: 300px;
+            width: 200px;
+            position: relative;
+        }
+
+        img {
+            height: 300px;
+            width: 200px;
+            display: block;
+            position: relative;
+        }
+
+        nav {
+            list-style: none;
+            position: absolute;
+            z-index: 1000;
+            width: 100px;
+            background-color: #111111;
+            bottom: 10px;
+            right: 20px;
+        }
+
+        nav li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: white;
+            margin-left: 12px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <nav id="nav">
+        <li onclick="changeImg('cc1')"></li>
+        <li onclick="changeImg('cc2')"></li>
+        <li onclick="changeImg('cc3')"></li>
+        <li onclick="changeImg('cc4')"></li>
+    </nav>
+    <img src="img/cc1.jpg" id="img"/>
+</div>
+</body>
+<script>
+    var img = document.getElementById("img");
+    function changeImg(src) {
+        img.src = "img/" + src + ".jpg";
+    }
+</script>
+</html>

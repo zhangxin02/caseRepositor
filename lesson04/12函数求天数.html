@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function getDays(year, month, day) {
+        var year = year; //年份的值
+        var month = month; //月份的值
+        var day = day;//天的值
+        var fedDay = 28;//初始化二月份的天数
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { //判断一个年份是否为闰年
+            fedDay = 29; //如果为闰年 则为29天
+        }
+        var count = 0;//初始化总天数
+        switch (month) {
+            case 12:
+                count += 30;
+            case  11:
+                count += 31;
+            case 10:
+                count += 30;
+            case  9:
+                count += 31;
+            case  8:
+                count += 31;
+            case  7:
+                count += 30;
+            case 6:
+                count += 31;
+            case  5:
+                count += 30;
+            case  4:
+                count = count + 31;
+            case  3:
+                count = count + fedDay;
+            case  2:
+                count = count + 31;
+            default:
+                count = count + day;
+        }
+        return count;
+    }
+    alert(getDays(2000,12,31));
+</script>
+</html>

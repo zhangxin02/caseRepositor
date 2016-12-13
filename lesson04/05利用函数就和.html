@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+第一个数:<input id="num3" type="text">
+第二个数:<input id="num4" type="text">
+<button type="button" id="btn">求和</button>
+<button type="button" id="reset">清空</button>
+<span id="result"></span>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var reset = document.getElementById("reset");
+    var num1 = document.getElementById("num3");
+    var num2 = document.getElementById("num4");
+    var span = document.getElementById("result");
+    btn.onclick = function () {
+        var result = sum(num1, num2);
+        span.innerHTML = result;
+    }
+
+    reset.onclick = function () {
+        clear(num1, num2);
+    }
+
+    function clear(a, b) {
+        a.value = "";
+        b.value = "";
+    }
+
+    function sum(input1, input2) {
+        var value1 = input1.value * 1;//函数内部的变量 先找函数内部 如果内部没有再找外部
+        var value2 = input2.value * 1;
+        var result = value1 + value2;
+        return result;
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+     function say(){
+     alert("你好");
+     }
+     alert(say());
+     */
+    //函数执行完了  会进行释放
+    var num = 8;//全局变量
+    function say() {
+       var num = 3; //局部变量  如果声明一个变量不加var  则表示一个全局变量
+        alert(num);
+    }
+    say();
+    alert(num);
+</script>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调用函数</title>
+</head>
+<body>
+<img src="img/s1.jpg" id="img"/>
+<button id="btn" type="button" onclick="say('img/s3.jpg');">点击</button>
+</body>
+<script>
+    //    var btn = document.getElementById("btn");
+    //    btn.onclick = function () {
+    //        alert("aaaa");
+    //    }
+    var img  =  document.getElementById("img");
+//    alert(img.src);
+
+    var say = function (msg) {
+        img.src = msg;
+    }
+
+</script>
+</html>
