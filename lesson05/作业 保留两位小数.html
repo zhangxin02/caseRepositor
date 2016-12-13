@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*使用js的内置函数 toFixed
+     var float = 12.5353;
+     //    Math.round(float);
+     alert(Number(float.toFixed(2)));
+     */
+
+
+
+    function  getFloatTwo(number){
+        var float =number ;
+        float = float * 100;  //1253.53
+        float = Math.round(float); //1254；
+        float = float /100;
+
+        return float;
+    }
+
+   alert( getFloatTwo(16.7161));
+
+    function  setFloat(number,n){
+        var float = number;
+        //    Math.round(float);
+       return Number(float.toFixed(n));
+    }
+
+    alert(setFloat(15.6666,3));
+</script>
+</html>

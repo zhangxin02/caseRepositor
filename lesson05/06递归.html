@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>递归</title>
+</head>
+<body>
+
+</body>
+<script>
+    //阶乘
+    // 1
+    // 2*1
+    // 3*2*1
+    // 4*3*2*1
+    //用函数来求 第n个数的值
+
+    //result//  1    2      6       24      120     720
+    //i     //  1    2        3       4       5       6         .....n
+    //分析   fn(1) fn(2)    fn(3)   fn(4)    fn(5)   fn(6)      f(n)
+    //         1    2*fn(1)  3*fn(2) 4*fn(3)  5*fn(4) 6*fn(5)    n*fn(n-1)
+
+
+    //   n*fn(n-1);
+    function fn(n) {
+        if (n == 1) {
+            return 1;
+        } else {
+            return n * fn(n - 1);
+        }
+    }
+    //alert(    fn(6));
+    // 斐波拉契数列1      1      2          3         5        8        13         21  递归  斐波拉契数列
+    //          i  1      2      3         4          5        6        7           8
+    //             fn(1)  fn(2)   fn(3)    fn(4)    fn(5)   fn(6)    fn(7)       fn(8)
+    //            1       1     2 =fn(2)+fn(1)
+    //                                   fn(3)+fn(2)
+    //                                           fn(5) = fn(4)+fn(3)
+    //    fn = fn(n-1)+fn(n-2);    出口在哪里 n = 2  return
+
+    function func(n) {  //表示求值
+        if (n <= 2) {
+            return 1;
+        } else {
+            return func(n - 1) + func(n - 2);
+        }
+    }
+
+    function sum(num)  //这里表示求和
+    {
+        var count = 0;
+        for (var i = 1; i <= num; i++) {
+            count += func(i);
+        }
+        return count;
+    }
+
+alert(sum(8));
+
+
+</script>
+</html>

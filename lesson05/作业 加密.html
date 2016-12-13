@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，请编写一个函数，传入原文，输出密文
+
+    function setNum(num) {
+        var unit = ( (num % 10) + 5) % 10;
+        var decade = ( parseInt(num % 1000 % 100 / 10) + 5) % 10;
+        //var  decade = parseInt( num % 100 /10);
+        var hundreds = (parseInt(num % 1000 / 100) + 5) % 10;
+        var thousand = ( parseInt(num / 1000) + 5) % 10;
+        return String(unit) + String(decade) + String(hundreds) + String(thousand);
+    }
+    alert(setNum(9612))
+
+
+    function getNum(num) {
+        var unit = parseInt(num / 1000) >= 5 ? parseInt(num / 1000) - 5 : parseInt(num / 1000) + 5;
+        var decade = parseInt(num % 1000 / 100) >= 5 ? parseInt(num % 1000 / 100) - 5 : parseInt(num % 1000 / 100) + 5;
+        var hundreds = parseInt(num % 1000 % 100 / 10) >= 5 ? parseInt(num % 1000 % 100 / 10) - 5 : parseInt(num % 1000 % 100 / 10) + 5;
+        var thousand = (num % 10) >= 5 ? (num % 10) - 5 : (num % 10) + 5;
+        return (String(thousand) + String(hundreds) + String(decade) + String(unit));
+    }
+    //(x+5)%10 =3  ;x+5的范围  5-14    然后 %10  范围  5 6  7  8  9  0   1 2  3 4
+
+
+</script>
+</html>

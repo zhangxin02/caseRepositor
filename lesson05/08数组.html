@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 数组
+
+    // 刘奶奶喝牛奶
+    //数据就是个一类数的集合
+
+    var arr = [1, 2, 3, 4, 6, 6, 7, 8, 9, 99];//表示了一个数组集合
+    var first = arr[0];  //取数组中的数 使用下标  下标从0开始
+
+    //我们要求数组中 所有数 的和
+    //所有数   就是每一个数
+    //如果获取数组中的数  通过下标放入[]中
+
+    var last = arr[arr.length - 1];
+    var sum = 0;
+    //可以通过循环把里面的每一个数 都找出来
+    for (var i = 0; i <= arr.length - 1; i++) {
+        var num = arr[i];
+        sum = sum + num;
+    }
+    alert(sum);
+
+
+</script>
+</html>

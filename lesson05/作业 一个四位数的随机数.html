@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //随机数
+    //random    // 0 -1
+    //四位    1000      9999   中间相差多少 9999 - 1000   =8999
+
+    //    function getRandom() {
+    //     return     1000 + Math.round(Math.random() * 8999);
+    //    };
+
+    /*
+     var getRandom = function () {
+     return 1000 + Math.round(Math.random() * 8999);
+     }
+     alert(getRandom());
+     */
+
+    //四位数   表示有四个数字连接到一起   每个数字都是从0-9随机产生一个  但是第一位不能为0；
+
+
+    var getRandom = function () {
+        var str = "";
+        for (var i = 0; i < 4; i++) {
+            if (i == 0) {
+                str = str + (1 + Math.round(Math.random() * 8));
+            } else {
+                str = str + Math.floor(Math.random() * 10);
+            }
+        }
+        return  str;
+    }
+
+    alert(getRandom());
+
+</script>
+</html>
