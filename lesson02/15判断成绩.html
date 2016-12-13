@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断成绩</title>
+</head>
+<body>
+</body>
+<script>
+    //随机生成一个0 到100的分数 然后判断成绩
+    var rand = Math.round(Math.random() * 100);
+    if (rand >= 60) {
+        if (rand < 70) {
+            alert(rand + "及格");
+        } else if (rand < 80) {
+            alert(rand + "良好");
+        } else {
+            alert(rand + "优秀");
+        }
+    } else {
+        alert(rand + "不及格");
+    }
+
+</script>
+</html>

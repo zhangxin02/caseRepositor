@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+第一个数:<input id="num1" type="text"/> </br><br>
+第二个数:<input id="num2" type="text"/> <br><br/>
+<button type="button" id="btn">求和</button>
+<span id="result"></span>
+</body>
+<script>
+//    alert(Number("        ")); 结果会是0
+    //点击btn按钮  然后获取num1  和  num2的值   在把两个值相加    最后显示到resutl中去
+    //1:获取btn按钮
+    var bBtn  =  document.getElementById("btn");
+    //alert(typeof  btn); 对象类型  对象就有属性 方法
+    //2:给按钮写一个点击事件
+    bBtn.onclick =  function(){  //去处理我们要做的事情
+        var iInput1 = document.getElementById("num1");//对象
+        var iInput2 = document.getElementById("num2");//对象
+        //带有文本效果的值  全部在value中
+        var  sStr1 = iInput1.value;  //文本框的值是string类型 如果需要当数字使用 则需要转换
+        var  sStr2 = iInput2.value;
+        //计算结果
+        var  nResult = Number(sStr1)+Number(sStr2);//将两个字符串转成number类型  并且获取计算结果
+        //特殊情况
+        //将结果正确显示到指定位置
+        var sSpan  = document.getElementById("result"); //是一个对象
+        //放入结果
+        sSpan.innerHTML ="计算结果为"+nResult;
+    }
+    //代码出了问题 就需要调试
+
+    //NaN的产生  将结果转成数字类型失败时为NaN    NaN ！= NaN
+    //将NaN转成boolean 为false
+
+
+
+</script>
+</html>

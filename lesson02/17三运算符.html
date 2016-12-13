@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    var rand = Math.round(Math.random() * 100);
+    //    if (rand >= 60) {
+    //        if (rand < 70) {
+    //            alert(rand + "及格");
+    //        } else if (rand < 80) {
+    //            alert(rand + "良好");
+    //        } else {
+    //            alert(rand + "优秀");
+    //        }
+    //    } else {
+    //        alert(rand + "不及格");
+    //    }
+    var rand = Math.round(Math.random() * 100);
+
+    var result = rand >=60? (rand<=70?"及格":(rand<=80?"良好":"优秀")):"不及格";
+
+    alert(rand+result);
+</script>
+</html>

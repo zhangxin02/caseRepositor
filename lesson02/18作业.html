@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年月日</title>
+</head>
+<body>
+年<input id="year" type="text"/>
+月<input id="month" type="text" />
+日<input id="day" type="text"/>
+<button id="btn" type="button" onClick="nReturn()">计算</button>
+<span id="result"></span>
+</body>
+<script>
+    //计算日期是当前年的第几天
+	var year=document.getElementById("year");
+	var month=document.getElementById("month");
+	var day=document.getElementById("day");
+	var result=document.getElementById("result");
+	var r;
+	//条件一:  能被4整除并且不能被100整除 平1800闰2000
+    //条件二   能被400整除
+	function nReturn(){
+		//闰年：2月份29天;平年：2月份28天
+		var n2month=((year.value%4==0&&year.value%100!=0)||year.value%400==0)?29:28;		
+		if(month.value%2==0&&month.value!=2){
+				//天数为30
+				r=month.value!=1?30*(month.value-1)+n2month:30;
+			}else{
+				//天数为31天
+				r=month.value!=1?31*(month.value-1)+n2month:31;
+			}			
+			result.innerHTML=r+parseInt(day.value);
+	}
+	
+	/*function nResult(){
+		if((year.value%4==0&&year.value%100!=0)||year.value%400==0){
+			//闰年：2月份29天		
+			if(month.value%2==0&&month.value!=2){
+				//天数为30
+				r=month.value!=1?30*(month.value-1)+29:30;
+			}else{
+				//天数为31天
+				r=month.value!=1?31*(month.value-1)+29:31;
+			}
+	}else{
+		//平年：2月份28天
+		if(month.value%2==0&&month.value!=2){
+			//天数为30天
+			r=month.value!=1?30*(month.value-1)+28:30;
+		}else{
+			//天数为31天
+			r=month.value!=1?31*(month.value-1)+28:31;
+		}
+	}
+		
+		
+		result.innerHTML=r+parseInt(day.value);
+
+}*/
+	
+</script>
+</html>

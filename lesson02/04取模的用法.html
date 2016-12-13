@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //余数
+    //10%7  ;
+    //123分别取百 十  个
+   var  nNum  = 345;
+   //个位如何取值  除以10 取余数
+    var  nNum1 = nNum %10;//3
+   //十位
+   var  nNum2 = (nNum - nNum1 )/10%10; //123 120 12  2;
+    //百位
+    var  nNum3 = (nNum-nNum1-nNum2*10)/100      //120 - 20  100
+    alert(nNum+"的个位是"+nNum1+"十位是"+nNum2+"百位是"+nNum3);
+
+</script>
+</html>

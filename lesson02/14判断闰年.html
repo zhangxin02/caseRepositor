@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //判断闰年
+    //闰年的定义
+    var rand = 2000;
+    // 两个条件满足其一个就表示是闰年
+    //条件一:  能被4整除并且不能被100整除
+    //条件二   能被400整除
+    if ((rand % 4 == 0 && rand % 100 != 0) || (rand % 400 == 0)) {
+        alert(rand + "是闰年");
+    } else {
+        alert(rand + "平年");
+    }
+</script>
+</html>

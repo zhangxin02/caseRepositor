@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //对于数字的常用操作 第一个取整  四舍五入  向下取整  向上取整
+   // var  nNum1 = 154.5; //在js中是一个number类型  但是会分为两种  一种Int 整数  两一个叫做float 小数
+   //
+    /*
+    alert("floor向下取整"+Math.floor(nNum1))  ;
+    alert("floor向上取整"+Math.ceil(nNum1))  ;
+    alert("floor四舍五入"+Math.round(nNum1)) ;
+    */
+    //随机数
+  // alert( Math.random())  ;//随机的产生的一个数  从0到1
+
+    //随机的产生0到100的整数
+
+    //第一步随机  0-100的数
+  var nNum = Math.random()*100; //0-100
+    alert(Math.round(nNum));
+    //随机产生50 -150的整数
+    alert(Math.round(nNum)+50)
+    //产生900到999
+   Math.round(Math.random()*99)+900;
+</script>
+</html>
