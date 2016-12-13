@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<div id="parent" class="aaa">
+    <span id="span">我们必须好好学习</span>
+    <span id="span1">我在你后面 我也会好好学习</span>
+</div>
+</body>
+<script>
+    var div = document.getElementById("parent");
+//    alert(div.id);//1表示元素节点   ? 有些属性 是直接点不出来的  不推荐直接使用点的方式获取属性
+    //nodeType
+    // alert( div.childNodes.length); //高级浏览器下面 找的childNode 会包含空白的文本节点
+
+    div.children[0];
+
+</script>
+</html>

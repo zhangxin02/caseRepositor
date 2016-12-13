@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+            height: 18px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div"></div>
+
+<button id="btn">开始</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var div = document.getElementById("div");
+
+    btn.onclick = function () {
+        //div.style.width = "400px"
+//        alert(getStyleByElement(div,"width"));
+        alert(getStyleByElement(div, "width"));
+    }
+    function getStyleByElement(ele, attr) {  //获取一个元素最终生效的样式
+        if (ele.currentStyle) {//判断是否有该属性 如果有就是ie8  没有就高级浏览器
+            return ele.currentStyle[attr];
+        } else {
+            return window.getComputedStyle(ele)[attr]
+        }
+    }
+
+</script>
+</html>

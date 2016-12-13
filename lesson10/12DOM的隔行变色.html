@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次选择</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>编辑</th>
+    </tr>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>leson</td>
+        <td>28</td>
+        <td>男</td>
+        <td>删除</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>lulu</td>
+        <td>18</td>
+        <td>女</td>
+        <td>删除</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lili</td>
+        <td>16</td>
+        <td>女</td>
+        <td>删除</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>leson</td>
+        <td>28</td>
+        <td>男</td>
+        <td>删除</td>
+    </tr>
+
+    <tr>
+        <td>2</td>
+        <td>lulu</td>
+        <td>18</td>
+        <td>女</td>
+        <td>删除</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>lili</td>
+        <td>16</td>
+        <td>女</td>
+        <td>删除</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<script>
+    //点击一行 获取行的所有内容
+    var table = document.getElementsByTagName("table")[0];//找出页面中的第一个table
+    var tr = table.getElementsByTagName("tr"); //找出页面中指定table下面的所有tr
+    //给所有的tr选择一个点击事件   所有就表示每一个  每一个就需要循环
+    for (var i = 0; i < tr.length; i++) {
+//        if (i % 2 == 0) {
+//            tr[i].style.backgroundColor ="red";
+//        }else{
+//            tr[i].style.backgroundColor = "#cdcdcd";
+//        }
+        tr[i].onmouseover = function () {
+            this.style.backgroundColor = "red";
+        }
+        tr[i].onmouseout = function(){
+            this.style.backgroundColor = "";
+        }
+    }
+
+
+</script>
+</html>

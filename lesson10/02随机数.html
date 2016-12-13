@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var list = [];//构建随机数的 数据源
+    for (var i = 65; i < (65 + 26); i++) { //利用ascii编码
+        var code = String.fromCharCode(i);
+        list.push(code);
+    }
+    for (var i = 97; i < (97 + 26); i++) { //利用ascii编码
+        var code = String.fromCharCode(i);
+        list.push(code);
+    }
+    //把a-z  A-Z放入list中
+    for (var i = 0; i <= 9; i++) {
+        list.push(i);
+    }
+    //把0-9放入list中
+
+    //从list中随机的取四个数
+    //随机的取一个数 就是随机取一个list的下标   0 -  list.length-1
+
+    //    var rand = Math.round(Math.random() * (list.length - 1)); //随机的下标
+
+    //var num = list[rand] //随机的取一个
+
+    var str = "";
+    for (var i = 0; i < 4; i++) {
+        var rand = Math.round(Math.random() * (list.length - 1)); //随机的下标
+        var num = list[rand];
+        if (str.indexOf(num) == -1) {  //判断是否存在
+            str += num;
+        } else {
+            i--;  //如果存在 就继续执行
+        }
+
+
+    }
+    alert(str);
+
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请输入随机数<input id="num1" type="text"/><span id="result"></span>
+<button id="btn" type="button">判断输入的随机数是否正确</button>
+
+</body>
+<script>
+    var span = document.getElementById("result");
+    var btn = document.getElementById("btn");
+    var input = document.getElementById("num1");
+    var colorList = ["red", "yellow", "pink", "green", "blue", "black", "orange"];
+    showRandom();
+    //点击的时候  随机数应该刷新
+    span.onclick = function () {
+        showRandom();
+    }
+    //点击按钮判断输入是否相等
+    btn.onclick = function () {
+        var txtNum = input.value.trim().toLocaleLowerCase();  //获取文本框的值 全部转化为小写
+        var spanNum = span.innerHTML.toLocaleLowerCase();
+        if (txtNum == spanNum) {
+            alert("填写正确");
+        } else {
+            alert("填写有误");
+            showRandom();
+            input.value = "";
+        }
+    }
+    function showRandom() { //设置随机数和颜色
+        span.innerHTML = setRandom(4, true);//设置随机数
+        span.style.color = colorList[Math.round(Math.random() * (colorList.length - 1))]; //设置随机的颜色
+    }
+    /**
+     *
+     * @param length
+     * @param isRepeat
+     * @returns {string}
+     */
+    function setRandom(length, isRepeat) {
+        var list = [];//构建随机数的 数据源
+        for (var i = 65; i < (65 + 26); i++) { //利用ascii编码
+            var code = String.fromCharCode(i);
+            list.push(code);
+        }
+        for (var i = 97; i < (97 + 26); i++) { //利用ascii编码
+            var code = String.fromCharCode(i);
+            list.push(code);
+        }
+        //把a-z  A-Z放入list中
+        for (var i = 0; i <= 9; i++) {
+            list.push(i);
+        }
+
+        var str = "";
+        for (var i = 0; i < length; i++) {
+            var rand = Math.round(Math.random() * (list.length - 1)); //随机的下标
+            var num = list[rand];
+            str += num;
+            if (!isRepeat) {
+                list.splice(rand, 1);//把num在list中删除
+            }
+        }
+        return str;
+    }
+</script>
+</html>

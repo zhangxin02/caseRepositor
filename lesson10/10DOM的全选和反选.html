@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+
+<input type="checkbox" class="check-all" id="checkAll"/>全选 <br><br>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+</body>
+<script>
+
+
+    var check = document.getElementsByClassName("check"); //选出了所有classname为check的元素
+    var checkAll = document.getElementById("checkAll");//全选的按钮
+    checkAll.onclick = function () {
+        //   alert(checkAll.checked);
+        //  alert(this === checkAll);  谁调用该函数 this指向谁
+        // 五种函数  this的四种指向  三种继承方式
+        var status = this.checked; //点击之后的状态
+        //让所有的input的状态跟点击的input的状态一样
+        for (var i in check) {
+            check[i].checked = status;
+        }
+    }
+
+
+    //每一个check都需要绑定一个点击事件
+    for (var i in check) { //找到出每一个
+        check[i].onclick = function () {  //每一个的点击事件
+            if (!this.checked) {
+                checkAll.checked = false;
+            } else { //去统计check中被选中的个数
+                if (isCheckAll()) {
+                    checkAll.checked = true;
+                }
+            }
+        }
+    }
+
+    function isCheckAll() {  //判断所有的check是否被选中
+        //只要下面的任何一个check 没有被选中   全选就取消   记录所有check的个数 如果有一个没有被选中  则取消反选
+        var count = check.length;
+        var countChecked = 0;
+//        for (var i in check) {   使用伪数组  能够访问到内部原型的属性
+//            var status = check[i].checked;
+//            if (status) {
+//                countChecked++;
+//            }
+//        }
+        for (var i = 0; i < check.length; i++) {
+            var status = check[i].checked;
+            if (status) {
+                countChecked++;
+            }
+        }
+        if (count == countChecked) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+</html>

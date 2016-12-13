@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            height: 18px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div style="border: 1px dotted #cdcdcd;width: 100px">
+    <div id="div" style="width: 0px"></div>
+</div>
+<span id="result">0%</span>
+<button id="btn">开始</button>
+</body>
+<script>
+    var div = document.getElementById("div");
+    var btn = document.getElementById("btn");
+    var result = document.getElementById("result");
+    var timer;
+    btn.onclick = function () {
+        timer = setInterval(function () {
+            div.style.width = parseInt(div.style.width) + 1 + "px";
+            result.innerHTML = parseInt(div.style.width) + "%";
+            if (parseInt(div.style.width) == 100) {
+                clearInterval(timer);
+            }
+        }, 100);
+    }
+    //进度条
+    //第一要知道 总的长度   ---  结束定时器
+    //每次变化的长度   ----   改变进度条
+    //变化后的长度  -----  计算已经走完的长度
+
+</script>
+</html>

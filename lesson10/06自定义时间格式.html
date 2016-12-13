@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义时间格式</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    function showDate(format) {
+        var str = "";
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+
+        if (!format) {
+            str = year + "年" + month + "月" + day + "日";
+        } else if (format.indexOf("-") != -1) {
+            str = year + "-" + month + "-" + day;
+        } else {
+            str = year + "/" + month + "/" + day;
+        }
+        return str;
+    }
+//    alert(showDate("yyyy-dd-mm"));
+</script>
+</html>

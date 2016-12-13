@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+        }
+
+        .red {
+            height: 18px;
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+
+<button id="btn1">开始</button>
+<button id="red" data-color="red">红</button>
+<button id="yellow" data-color="yellow">黄</button>
+<button id="green" data-color="green">绿</button>
+</body>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("red");
+    var btn3 = document.getElementById("yellow");
+    var btn4 = document.getElementById("green");
+    btn1.onclick = function () {
+//        var color= getStyleByElement(this,"backgroundColor");
+//        alert(color); 该方法无效  因为返回的颜色 是rgb格式
+        var id = this.getAttribute("data-id");
+//        document.getElementById(id).style.backgroundColor = "black";
+        document.getElementById(id).style.display = "none";
+    }
+    btn2.onclick = function () {
+        setColor(this);
+    }
+    btn3.onclick = function () {
+        setColor(this);
+    }
+
+    btn4.onclick = function () {
+        setColor(this);
+    }
+
+    function setColor(obj) {  //封装一个函数  去改变btn1的样式
+        var color = obj.getAttribute("data-color");  //获取自定义属性
+        btn1.style.backgroundColor = color;
+        btn1.setAttribute("data-id", obj.id); //设置 自定义属性
+    }
+    function getStyleByElement(ele, attr) {  //获取一个元素最终生效的样式
+        if (ele.getComputedStyle) {//判断是否有该属性 如果有就是ie8  没有就高级浏览器
+            return window.getComputedStyle(ele)[attr]
+        } else {
+            return ele.currentStyle[attr];
+        }
+    }
+
+</script>
+</html>

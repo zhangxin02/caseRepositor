@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+        }
+
+        .red {
+            height: 18px;
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div>
+    <button data-color="red">红</button>
+    <button id="yellow" data-color="yellow">黄</button>
+    <button data-color="green">绿</button>
+</div>
+</body>
+<script>
+    var btn3 = document.getElementById("yellow");
+    //点击黄的按钮 让前后的按钮都变成黄色
+    //    btn3.nextSibling.style.backgroundColor = "yellow";
+    //    btn3.nextElementSibling.style.backgroundColor = "yellow";
+    previous(btn3).style.backgroundColor = "green";
+
+    function previous(ele) {
+        if (ele.previousElementSibling) {
+            return ele.previousElementSibling;
+        } else {
+            return ele.previousSibling;
+        }
+    }
+
+</script>
+</html>

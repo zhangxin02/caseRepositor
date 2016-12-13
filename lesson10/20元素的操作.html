@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            width: 200px;
+        }
+
+        .red {
+            height: 18px;
+            background-color: red;
+        }
+
+        .yellow {
+            background-color: yellow;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="div">
+    1212212121
+    <!--<span id="span" class="red">2212121</span>-->
+</div>
+</body>
+<script>
+    var div = document.getElementById("div");
+    var span = document.createElement("span");
+    span.style.color = "red";
+    span.className = "class";
+    span.id = "span";
+    //    span.innerHTML = "大家好";
+    var text = document.createTextNode("大家好");
+    span.appendChild(text);
+    span.onclick = function () {
+//        this.style.color = "yellow";
+//        div.innerHTML = ""
+        div.removeChild(this);
+    }
+    div.appendChild(span);
+    //   div.innerHTML ="<span style='color: red'>aaaa</span>"
+
+</script>
+</html>

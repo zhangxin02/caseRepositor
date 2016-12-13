@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+<input type="checkbox">没有用的checkbox<br>
+<input type="checkbox" class="check-all check" id="checkAll"/>全选 <br><br>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+<input type="checkbox" class="check"/>
+</body>
+<script>
+
+//    var allInput = document.getElementsByTagName("input");//获取所有的input标签
+    var allInput = document.getElementsByClassName("check"); //选出了所有classname为check的元素
+    var checkAll = document.getElementById("checkAll");//全选的按钮
+    checkAll.onclick = function () {
+        //   alert(checkAll.checked);
+        //  alert(this === checkAll);  谁调用该函数 this指向谁
+        // 五种函数  this的四种指向  三种继承方式
+        var status = this.checked; //点击之后的状态
+        //让所有的input的状态跟点击的input的状态一样
+        for (var i in allInput) {
+            allInput[i].checked = status;
+        }
+    }
+
+
+</script>
+</html>
