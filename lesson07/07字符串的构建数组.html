@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名: <input id="username"  style="width: 500px" placeholder="用户名只能以数字字母下划线$组成 不能以数字开头  并且长度在6-10之间"/>
+<button id="btn">提交</button>
+</body>
+<script>
+
+
+    var list = [];
+
+    //能够作为变量名的字符全部放到一个集合中去
+    for (var i = 97; i < (97 + 26); i++) { //找到ascii码的范围  然后在把对应的码转换成字符
+        var char = String.fromCharCode(i);
+        list.push(char);
+    }
+    for (var i = 65; i < (65 + 26); i++) { //找到ascii码的范围  然后在把对应的码转换成字符
+        var char = String.fromCharCode(i);
+        list.push(char);
+    }
+    for (var i = 0; i <= 9; i++) { //把0-9放入
+        list.push(i);
+    }
+    list.push("$");
+    list.push("_");
+
+
+</script>
+</html>

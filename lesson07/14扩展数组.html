@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="username"/>
+<button id="btn" type="button">获取成绩</button>
+<span id="result">
+
+</span>
+</body>
+<script>
+    var score = [["翠翠", 80, 80, 80], ["薇薇", 85, 85, 85], ["贝贝", 80, 80, 80], ["翠翠", 60, 60, 60]];
+    //    alert(score[0][0])
+    //    score[0][1]
+    //    score[0][2]
+    //    score[0][3]
+    var btn = document.getElementById("btn");
+    var input = document.getElementById("username");
+    var result = document.getElementById("result");
+
+    btn.onclick = function () {
+        var username = input.value;
+        result.innerHTML = ""
+        //找到每一个小数组
+        for (var i = 0; i < score.length; i++) {
+            var list = score[i]; //找到小数组之后 在找里面的第一个元素   如果值与username相等
+            var sName = list[0]; //表示用户
+            if (sName == username) {
+                var sum = list[1] + list[2] + list[3];
+                result.innerHTML += "语数外分别为" + list[1] + "," + list[2] + "," + list[3] + "总分" + sum + "<br>";
+                result.style.color = "red";
+            }
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    //["b","c"]
+    //["a","b","c"]
+    // a abc   acb
+    //b  bac   bca
+    //c cab   cba
+
+//     b c  bac  bca
+//    a c   a b c   a cb
+//    ab    a c b   c ab
+
+
+    function fn(arr) {
+        if (arr.length == 2) {
+            return [arr[0] + arr[1], arr[1] + arr[0]]
+        } else {
+            var temp = [];
+            for (var i = 0; i < arr.length; i++) {
+                var num = arr.splice(i, 1)[0];  // num = a arr = ["b","c"]
+                var balanceList = fn(arr);//["bc","cb"]
+                for (var k = 0; k < balanceList.length; k++) {
+                    temp.push(num+balanceList[k]);//a+"bc"  ;  a+"cb"
+                }
+                //操作完成后对数组进行复原
+                arr.splice(i,0,num);
+            }
+            return temp;
+        }
+    }
+    var arr = ["a", "b", "c","d","e","f","g","h"]
+     document.write(fn(arr));
+</script>
+</html>

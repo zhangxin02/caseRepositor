@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "aaaabbbccccddddaaaa";  //abcd的每一个元素在str中出现的次数
+    //压缩统计  a4b3c4d4a4
+    //  a8b3c4d4
+    //第一步去重复项
+    var temp = "";
+    for (var i = 0; i < str.length; i++) {//利用循环找出每一个数
+        var char = str.charAt(i); //表示每一个数
+        if (temp.indexOf(char) == -1) {//判断每一个数是否在temp中出现过
+            temp += char;  //没有出现就放入
+        }
+    }
+    //看没有重复的数 在有重复的数中出现的次数
+    var str1 = "";
+    for (var i = 0; i < temp.length; i++) {
+        var code = temp.charAt(i);  //把code跟str中每一个元素进行比较  如果相等就统计
+        var count = 0
+        for (var k = 0; k < str.length; k++) {
+            if (code == str.charAt(k)) {
+                count++;
+            }
+        }
+        str1 += code + count;
+    }
+    document.write(str1);
+
+
+</script>
+</html>

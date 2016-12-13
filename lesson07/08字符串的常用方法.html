@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "千锋教育我们教育在千锋学习教育";
+    //判断教育在字符串中是否出现过
+    //alert(str.indexOf("教育",3));
+    //统计"教育"在str出现的次数
+    var char = "教育";
+    for (var i = 0, count = 0; i < str.length; i++) {
+        var index = str.indexOf(char, i);// i 等于0的时候  index= 2
+        if (index == i) {
+            count++;
+        }
+    }
+    //当i=0的时候  index    =   2
+    //当i=1的时候   index   =    2
+    //当i=2的时候   index =   2     count++
+    //当i=3的时候  index   =   6
+    //当i = 4的时候  index = 6
+    //当i = 5 的时候  index = 6
+    //当i = 6的时候  index  = 6   count++
+
+
+</script>
+</html>

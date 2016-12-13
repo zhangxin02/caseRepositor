@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "aaaabbbaaaaccccbbbbdddd";  //abcd的每一个元素在str中出现的次数
+    //
+
+    var tempStr = "";
+    //找出一个数 然后看后面的数跟他是否相等
+    var code = str.charAt(0);  //    a
+    var count = 0;
+    for (var i = 0; i < str.length; i++) {
+        var index = str.indexOf(code, i); // 查找元素的索引
+        if (i == index) {
+            count++;
+            if (i == str.length - 1) {  //最后一位没有比较的对象 所以要特殊处理一下
+                tempStr += code + count;
+            }
+        } else {
+            tempStr += code + count;//统计已经寻找过的元素
+            code = str.charAt(i);
+            count = 1;
+        }
+    }
+    document.write(tempStr);
+
+
+</script>
+</html>

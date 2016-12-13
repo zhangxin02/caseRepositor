@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "aaaabbbccccdddd";
+    //去除重复项   abcd
+
+    var temp = "";
+    for (var i = 0; i < str.length; i++) {//利用循环找出每一个数
+        var char = str.charAt(i); //表示每一个数
+        if (temp.indexOf(char) == -1) {//判断每一个数是否在temp中出现过
+            temp +=char;  //没有出现就放入
+        }
+    }
+    alert(temp);
+
+    var arr  = [11,22,11,33,22];
+    var list =[];
+    for (var i = 0; i < arr.length; i++) {//利用循环找出每一个数
+        var char = arr[i]; //表示每一个数
+        if (list.indexOf(char) == -1) {//判断每一个数是否在temp中出现过
+//            temp +=char;  //没有出现就放入
+            list.push(char);
+        }
+    }
+    alert(list);
+
+</script>
+</html>

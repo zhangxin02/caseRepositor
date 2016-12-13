@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "aaabbbaaaaccccbbbbdddd";  //abcd的每一个元素在str中出现的次数
+    var tempStr = "";
+    for (var i = 0; i < str.length; i++) {
+        var code = str.charAt(i); //a
+        for (var k = i, count = 0; k < str.length; k++) {
+            if (str.charAt(k) == code) {
+                count++;
+                if (k == str.length - 1) {
+                    i = k;
+                    break;
+                }
+            } else {
+                i = k - 1;
+                break;
+            }
+        }
+        tempStr += code + count;
+    }
+    alert(tempStr);
+
+
+</script>
+</html>

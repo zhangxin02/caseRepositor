@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+时：<input type="text" id="hour"/>
+分：<input type="text" id="second"/>
+秒：<input type="text" id="minute"/>
+<input type="button" value="开始" id="btnstart"/>
+<input type="button" value="结束" id="btnend"/>
+<span id="result"></span>
+</body>
+<script>
+/*var str =['zx','xx','ww'];
+var result=document.getElementById("result");
+var btnstart=document.getElementById("btnstart");
+var getName=function(){
+	result.innerHTML=str[parseInt(Math.random()*str.length)];
+}
+var timer;
+btnstart.onclick=function(){
+	if(this.value=="开始"){
+		this.value="结束";
+		timer=setInterval(getName,100);
+	}else{
+		this.value="开始";
+		clearInterval(timer);
+	}
+}
+*/
+
+
+/*var minute=document.getElementById("minute");
+var second=document.getElementById("second");
+var hour=document.getElementById("hour");*/
+/*var btnstart=document.getElementById("btnstart");
+var btnend=document.getElementById("btnend");
+var result=document.getElementById("result");
+var count=0;
+var timer;
+var i=1;
+btnstart.onclick=function(){
+	i++;
+	if(i%2==0){
+		this.value="结束";
+		timer=setInterval(function(){
+		count++;
+		var minute=count%60;
+		var second=parseInt((count%(60*60))/60);
+		var hour=parseInt(count/(60*60));
+		result.innerHTML=hour+"时"+second+"分"+minute+"秒";
+	},1000);
+	}else{
+		this.value="开始";
+		clearInterval(timer);
+	}
+	
+}
+
+btnend.onclick=function(){
+	clearInterval(timer);
+}
+*/
+
+/*var timer;
+function show(){
+	alert("aaaa");
+}
+setTimeout(show,1000);*/
+
+
+
+
+    //    function show() {
+    //        document.write("bbbbbb");
+    //    }
+    //
+    //    setInterval(show, 1000);
+ /*   var i = 0;
+    var timer = setInterval(function () {
+        i++;
+        document.write(i);
+        if (i == 10) {
+            clearInterval(timer);
+        }
+    }, 1000)
+  //第一个计时*/
+
+/*var minute=document.getElementById("minute");
+var second=document.getElementById("second");
+var hour=document.getElementById("hour");
+var btn=document.getElementById("btn");
+btn.onclick=function(){
+	setInterval(function(){
+		minute.value++;
+		if(minute.value==6){
+			second.value++;
+			minute.value=0;			
+		}
+		if(second.value==2){
+			hour.value++;
+			second.value=0;
+		}
+	},1000);
+}*/
+
+
+
+
+
+/*var str = "千锋教育我们教育在千锋学习教育";
+for(var i=0,count=0;i<str.length;i++){
+	if(str.indexOf("教育",i)==i){
+		count++;	
+	}	
+}
+alert(count);*/
+
+/*var str = "aaaabbbccccddddaaaa";
+var tempstr="";
+var code=str.charAt(0);
+var count=0;
+for(var i=0;i<str.length;i++){
+	var index=str.indexOf(code,i);
+	if(index==i){
+		count++;
+		if(i==str.length-1){
+			tempstr+=code+count;
+		}	
+	}else{
+		tempstr+=code+count;	
+		code=str.charAt(i);
+		count=1;
+	}
+}
+document.write(tempstr);*/
+
+/*var str = "aaaabbbccccddddaaaa"; 
+var tempstr="";
+var temp="";
+for(var i=0,count=0;i<str.length;i++){
+	if(temp.indexOf(str.charAt(i))==-1){
+		temp+=str.charAt(i);	
+	}
+}
+for(var i=0;i<temp.length;i++){
+	var code=temp.charAt(i);
+	var count=0;
+	for(var j=0;j<str.length;j++){
+		if(code==str.charAt(i)){
+			count++;
+		}	
+	}	
+	tempstr+=code+count;
+}
+document.write(tempstr)*/
+
+/*var timer;
+function start(){
+		alert("sss");
+		clearInterval(timer);
+}
+timer=setInterval(start,1000);*/
+
+/*var today;
+var result=document.getElementById("result");
+var timer=setInterval(function(){today=new Date();result.innerHTML=today;},1000)
+*/
+
+
+var str="aaabbbccca";
+var sEndStr="";
+var code=str.charAt(0);
+for(var i=0,count=0;i<str.length;i++){	
+	var index=str.indexOf(code,i);
+	if(index==i){
+		count++;		
+	}else{
+		sEndStr+=code+count;
+		code=str.charAt(i);
+		count=1;
+	}
+	if(i==str.length-1){
+		sEndStr+=code+count;	
+	}
+}
+document.write(sEndStr);
+
+/*var result=document.getElementById("result");
+var arr=['a','b','c','d'];
+function x(arr){
+	if(arr.length==1){
+		return arr;	
+	}else if(arr.length==2){
+		return [arr[0]+arr[1],arr[1]+arr[0]]	
+	}else{
+		var temp=[];
+		for(var i=0;i<arr.length;i++){
+			var code=arr.splice(i,1)[0];
+			var m=x(arr);
+			for(var j=0;j<m.length;j++){
+				temp.push(code+m[j]);	
+			}	
+			arr.splice(i,0,code);
+		}	
+		return temp;
+	}
+}
+result.innerHTML=x(arr);*/
+
+
+</script>
+</html>
