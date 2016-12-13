@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+<span id="result"></span>
+</body>
+<script>
+
+    var span = document.getElementById("result");
+    //倒计时  首先要有两个时间  一个为当前时间 一个为结束时间
+    var endDate = new Date(2016, 11, 12);  //带有，号的格式 YYYY,MM(从0开始),DD
+    var startDate = new Date();
+    //    var  endDate = new  Date("12 12 2016"); MM  dd  YYYY
+    var times = Math.abs(startDate - endDate);//abs表示取绝对值  两个时间的时间差单位为毫秒
+    var allSecond = parseInt(times / 1000); //60
+    var showTime = function () {
+        //allSecond--; 写在前面会有一秒的误差
+            var sec = allSecond % 60;
+            var min = parseInt((allSecond % (60 * 60)) / 60);
+            var hour = parseInt(allSecond % (24 * 60 * 60) / (60 * 60));
+            var day = parseInt(allSecond / (24 * 60 * 60));
+            span.innerHTML = day + "天" + hour + "小时" + min + "分" + sec + "秒";
+        allSecond--;
+    }
+    showTime();
+    setInterval(showTime, 1000)
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+</head>
+<body>
+<span id="result"></span>
+</body>
+<script>
+    /*
+     var span = document.getElementById("result");
+     var endDate = setDate(2016/12/12)
+     var date = parseInt((endDate -startDate)/1000);
+     var day =parseInt(date/(24*60*60));
+     var hours = parseInt(date%(24*60*60)/(3600));
+     var minutes = parseInt(date%(60*60)/(60));
+     var seconds = parseInt(date%60);
+     var time = setInterval(function (){
+     var startDate = new Date();
+     span.innerHTML = day +"天"+hours+"时"+minutes+"分"+seconds+"秒"
+     },1000);
+     time();
+     */
+    var span = document.getElementById("result");
+    //倒计时  首先要有两个时间  一个为当前时间 一个为结束时间
+    var startDate = new Date();
+    //    var  endDate = new  Date("12 12 2016"); MM  dd  YYYY
+    var endDate = new Date(2016, 11, 12);  //带有，号的格式 YYYY,MM(从0开始),DD
+
+    //    var endDate = new Date();
+    //        endDate.setMonth(11);
+    //        endDate.setDate(12);
+    //    alert(endDate);
+    //求两个时间的 时间差
+    var times = Math.abs(startDate - endDate);//abs表示取绝对值  两个时间的时间差单位为毫秒
+    //  alert( (startDate.getTime() - endDate.getTime()) == -times);
+    //132
+    //再把毫秒 转成 秒
+    var allSecond = parseInt(times / 1000);
+    //秒
+    var sec = allSecond % 60;
+    var min = parseInt((allSecond % (60 * 60)) / 60);
+    var hour = parseInt(allSecond % (24 * 60 * 60) / (60 * 60));
+    var day = parseInt(allSecond / (24 * 60 * 60));
+
+    span.innerHTML = day + "天" + hour + "小时" + min + "分" + sec + "秒";
+
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navigator</title>
+</head>
+<body>
+</body>
+<script>
+    if (isApp()) {
+        alert("移动端访问")
+    } else {
+        alert("pc端访问")
+    }
+    function isApp() {
+        var flag = false; //设置初始值
+        var userAgent = window.navigator.userAgent;//获取用户代理信息
+        var app = ["Android", "iPhone", "iPad", "Windows Phone", "BB"]; //app的种类
+        //判断app的种类 是否在userAgent中出现过
+        for (var i = 0; i < app.length; i++) {
+            var catg = app[i];
+            if (userAgent.indexOf(catg) != -1) {
+                flag = true;
+                break
+            }
+        }
+        return flag;
+    }
+
+
+
+</script>
+</html>

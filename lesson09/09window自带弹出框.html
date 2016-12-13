@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="del">删除</button>
+</body>
+<script>
+    //
+    //window.alert("我是弹出框") ;
+    var btn = document.getElementById("del");
+    btn.onclick = function () { //点击之后提示 是否删除
+        if (confirm("您确定要删除我吗?")) {
+            btn.style["display"] = "none";
+            btn.style.display = "none";
+        //alert(typeof  btn.style)
+        }
+    }
+
+</script>
+</html>

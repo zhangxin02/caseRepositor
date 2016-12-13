@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>location</title>
+</head>
+
+<script>
+    window.onload = function(){
+        var btn = document.getElementById("btn");
+        var input = document.getElementById("username");//用户名
+        var inputAge = document.getElementById("age");//年龄
+        var inputSex = document.getElementById("male"); //性别男
+        var inputForward = document.getElementById("forward"); //向前的按钮
+        var inputRefresh = document.getElementById("refresh");//刷新按钮
+        //input.value = "aaaa"; window.location=
+        // alert(input.value); window.location
+        // 冗余
+        btn.onclick = function () {
+            var username = input.value;
+            var age = inputAge.value;
+            var sex = inputSex.checked ? 1 : 0;
+            if (!isNaN(age)) {
+                window.location = "06history.html?username=" + username + "&age=" + age + "&sex=" + sex;
+            } else {
+                alert("年龄要为数字");
+            }
+
+        }
+
+        //向前的按钮
+        inputForward.onclick = function () {
+//        window.history.forward();
+            window.history.go(1)
+        }
+
+        inputRefresh.onclick = function () {
+            window.location.reload();
+        }
+    }
+</script>
+
+<body>
+用户名:<input id="username" type="text"><br><br>
+年龄:<input id="age" type="text"><br><br>
+性别:<input type="radio" name="sex" id="male" value="1"> <label for="male">男 </label> <input type="radio" name="sex"
+                                                                                           id="female" value="0"> <label
+        for="female" contenteditable="true">女 </label><br><br>
+<button id="btn">点击前往下一个页面</button>
+<button id="forward">向前</button>
+<button id="refresh">刷新</button>
+</body>
+<!--<script>-->
+
+<!--</script>-->
+</html>

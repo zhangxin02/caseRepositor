@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="login">点击登陆</button>
+</body>
+<script>
+    //
+    //window.alert("我是弹出框") ;
+    var btn = document.getElementById("login");
+
+    alert(Boolean(" "))
+
+    btn.onclick = function () { //点击之后提示 是否删除
+//        if (confirm("您确定要删除我吗?")) {
+//            btn.style["display"] = "none";
+//            btn.style.display = "none";
+//        //alert(typeof  btn.style)
+//        }
+//        if (prompt("请输入您的用户名")){
+//        }
+        var result = prompt("请输入您的用户名", "请用英文");
+//        alert(Boolean(result));
+        if (result) {
+            btn.innerHTML = result;
+        }else{
+            btn.innerHTML = "值无效"
+        }
+
+    }
+
+</script>
+</html>

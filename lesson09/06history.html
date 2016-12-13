@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>history</title>
+</head>
+<body>
+<span id="username">您的</span>
+<button id="back" type="button">返回</button>
+</body>
+<script>
+    var span = document.getElementById("username");
+    var btn = document.getElementById("back");
+    /* 方法一 使用href 然后去截取
+     var loc = window.location.href;//"http://localhost:63342/1608/lesson09/06history.html?aaaa" 获取浏览地址
+     var index = loc.indexOf("?"); //找到?号的位置
+     var username = loc.substring(index+1);  //截取问号 后面的数据
+     */
+    /*
+     var loc= window.location.search;// "?aaaa"；
+     var username = loc.substring(1);
+     span.innerHTML = username;
+     */
+    /*
+     var loc = window.location.search;   //?dalei&29
+     var str = loc.substring(1); //第一步先把?干掉  dalei&29
+     var index = str.indexOf("&");
+     var username = str.substring(0, index);
+     var age = str.substring(index + 1);
+     span.innerHTML = username + "今年" + age + "岁";
+     */
+    var loc = window.location.search.substring(1); //username=dalei&age=29&sex=1
+    var list = loc.split("&");// [username=dalei,age=29,sex=1]
+    var username = list[0].split("=")[1]; //username = dalei   [username,dalei]
+    var age = list[1].split("=")[1];
+    var sex = list[2].split("=")[1] == 1 ? "男" : "女";
+    span.innerHTML = username + "今年" + age + "岁" + sex;
+    btn.onclick = function () {
+//        window.history.back();
+        window.history.go(-1);
+    }
+</script>
+</html>
