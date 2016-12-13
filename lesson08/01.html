@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+    var str = "aaabbbbcccdddd";//压缩统计  a3b4c3d3
+    var list="";
+    var code=str.charAt(0);
+    for(var i= 0,count=0;i<str.length;i++){
+        var temp=str.indexOf(code,i);
+        if(temp==i){
+            count++;
+            if(i==str.length-1){
+                list+=code+count;
+            }
+        }else{
+            list+=code+count;
+            count=1;
+            code=str.charAt(i);
+        }
+    }
+document.write(list);
+</script>
+</html>

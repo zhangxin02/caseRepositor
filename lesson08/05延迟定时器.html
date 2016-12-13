@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+    //    var  show = function(){
+    //        alert("aaa");
+    //    }
+    //    show();//先执行一次
+    //    setInterval(show,2000);//因为定时器中的方法是延迟执行
+
+    var timer;
+    var show = function () {
+        alert("aaa");
+        clearInterval(timer);
+    }
+    var timer = setInterval(show, 2000);//因为定时器中的方法是延迟执行
+</script>
+</html>

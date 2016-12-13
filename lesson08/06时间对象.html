@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间对象</title>
+</head>
+<body>
+<span id="result"></span>
+</body>
+<script>
+
+    var span = document.getElementById("result");
+
+    //倒计时
+    var date = new Date(); //第一个功能声明一个时间对象  第二个功能把当前的时间赋值
+    //    document.write(date);
+    var year = date.getFullYear();  //年份
+    var month = date.getMonth() + 1;//月  月份从0开始到11结束
+    var day = date.getDate();//日
+
+    var hour = date.getHours(); //时
+    var min = date.getMinutes(); //分
+    var sec = date.getSeconds();//秒
+
+    var week = date.getDay();  //星期
+
+    var weekList = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
+    span.innerHTML  = year + "年" + month + "月" + day + "日"+hour + "时" + min + "分" + sec + "秒" +weekList[week]
+
+
+   //让时间动态的显示
+</script>
+</html>

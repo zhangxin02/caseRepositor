@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="result">   </span>
+</body>
+<script>
+
+    // 132
+    // 2 是总的数 除以10  取余数
+    //3 是总的数 除以100 （10*10）然后去余数  最后将余数去除以  10 然后取整
+    //1 是总的数  除以100取整
+
+    // 100秒等于多少分 多少秒  0时1分40秒
+
+    //1000秒等于多少分 多少秒  0时 16分40秒
+
+    //时分秒  总的秒数除以（60*60）取整 时  总的秒数 除以 （60*60）取余数  然后余数 除以60  取整   分(总的秒数除以60 取余数) 秒
+
+    var timer;
+    //  alert(timer == null);  相等
+
+    var span = document.getElementById("result");
+    var i = 0;
+    timer = setInterval(function () {
+        i++;
+        var hour = parseInt(i / (60 * 60));//取时
+        var min = parseInt((i % (60 * 60)) / 60);//取分
+        var second = i % 60;//取秒
+        if (hour == 0 && min == 0) {
+            span.innerHTML = second + "秒";
+        }
+
+        if (hour == 0 && min != 0) {
+            span.innerHTML = min + "分" + second + "秒";
+        }
+
+        if (hour != 0 && min != 0) {
+            span.innerHTML = hour + "时" + min + "分" + second + "秒";
+        }
+
+    }, 10);
+
+
+</script>
+</html>

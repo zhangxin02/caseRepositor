@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="start">开始</button>
+<button id="stop">停止</button>
+<span id="result">   </span>
+</body>
+<script>
+    var timer;
+    var span = document.getElementById("result");
+    var stop = document.getElementById("stop");
+    var start = document.getElementById("start");
+    var i = 0;
+    start.onclick = function () {
+
+        clearInterval(timer);//开始定时器前 要结束定时器
+        timer = setInterval(function () {
+            i++;
+            var hour = parseInt(i / (60 * 60));//取时
+            var min = parseInt((i % (60 * 60)) / 60);//取分
+            var second = i % 60;//取秒
+            if (hour == 0 && min == 0) {
+                span.innerHTML = second + "秒";
+            }
+            if (hour == 0 && min != 0) {
+                span.innerHTML = min + "分" + second + "秒";
+            }
+            if (hour != 0 && min != 0) {
+                span.innerHTML = hour + "时" + min + "分" + second + "秒";
+            }
+
+        }, 10);
+    }
+
+    stop.onclick = function(){
+        clearInterval(timer)
+    }
+
+
+</script>
+</html>

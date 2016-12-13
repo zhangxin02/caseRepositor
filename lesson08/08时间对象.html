@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>时间对象</title>
+</head>
+<body>
+<span id="result">
+    <!--aaaa-->
+</span>
+</body>
+<script>
+    //    alert("0"+1);
+    //如何往span中 放入一张图片
+    var span = document.getElementById("result");
+    //  span.innerHTML ="<img src='img/0.png' />";
+    //   span.innerHTML = span.innerHTML +"<img src='img/1.png' />"
+
+    var showTime = function () {
+        var date = new Date();
+        var hour = date.getHours() <= 9 ? "0" + date.getHours() : String(date.getHours());//获取时分秒
+        var min = date.getMinutes() <= 9 ? "0" + date.getMinutes() : String(date.getMinutes());
+        var sec = date.getSeconds() <= 9 ? "0" + date.getSeconds() : String(date.getSeconds());
+//        str = "'b'c"+"defg"
+        var strHour = "<img src='img/" + hour.charAt(0) + ".png'   />" + "<img src=img/" + hour.charAt(1) + ".png />:";
+        var strMin = "<img src=img/" + min.charAt(0) + ".png />" + "<img src=img/" + min.charAt(1) + ".png />:";
+        var strSec = "<img src=img/" + sec.charAt(0) + ".png />" + "<img src=img/" + sec.charAt(1) + ".png />";
+        span.innerHTML = strHour + strMin + strSec;
+//        span.innerHTML = "<img src='img/" + hour.charAt(0) + ".png' /><img src='img/" + hour.charAt(1) + ".png' />:<img src='img/" + min.charAt(0) + ".png' /><img src='img/" + min.charAt(1) + ".png' />:<img src='img/" + sec.charAt(0) + ".png' /><img src='img/" + sec.charAt(1) + ".png' />"
+//        var img = new Image();
+//        img.src = "img/0.png";
+//        span.appendChild(img);
+    }
+    showTime();
+    setInterval(showTime, 1000);
+    //00:00:00
+    //    var span = document.getElementById("result");
+    //    setInterval(function () {
+    //        //倒计时
+    //        var date = new Date(); //第一个功能声明一个时间对象  第二个功能把当前的时间赋值
+    //        var hour = date.getHours(); //时
+    //        var min = date.getMinutes(); //分
+    //        var sec = date.getSeconds();//秒
+    //        span.innerHTML = year + "年" + month + "月" + day + "日" + hour + "时" + min + "分" + sec + "秒" + weekList[week]
+    //    }, 1000);
+
+
+    //让时间动态的显示
+
+    var num = 5;
+    var str = "aaaaa'a" + num + "a'bbbbbb";
+</script>
+</html>

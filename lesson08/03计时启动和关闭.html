@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="start">开始</button>
+<span id="result">   </span>
+</body>
+<script>
+    var timer;//写成全局的变量 在多个函数中都可以使用
+    var span = document.getElementById("result");
+    var start = document.getElementById("start");
+    var count = 0;
+    var i = 0
+    start.onclick = function () {  //绑定点击事件
+        count++;//每次点击统计一下
+        if (count % 2 != 0) {  //判断奇数次点击 还是偶数次点击
+            start.innerHTML = "暂停";
+            timer = setInterval(function () { //开始计时
+                i++;
+                var hour = parseInt(i / (60 * 60));//取时
+                var min = parseInt((i % (60 * 60)) / 60);//取分
+                var second = i % 60;//取秒
+                if (hour == 0 && min == 0) {
+                    span.innerHTML = second + "秒";
+                }
+                if (hour == 0 && min != 0) {
+                    span.innerHTML = min + "分" + second + "秒";
+                }
+                if (hour != 0 && min != 0) {
+                    span.innerHTML = hour + "时" + min + "分" + second + "秒";
+                }
+            }, 1000);
+        } else {
+            start.innerHTML = "开始";
+            clearInterval(timer);//结束定时器
+        }
+    }
+</script>
+</html>
