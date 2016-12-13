@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环</title>
+</head>
+<body>
+</body>
+<script>
+    //重复的做一件事情叫做循环
+    //不结束的循环叫做死循环
+    //求1 到10的和   //有一个循环 1 +2 + 3  +4 + 5 + 6  +7 +8 +9 +10
+    var start = 1;
+    var end = 10;
+    var count = 0;
+    do {
+        if(start %2 == 0){
+            count += start;
+            document.write(start+" ");
+        }
+        start = start +1;//执行  2
+
+    } while (start <= end);
+    
+    document.write("的和"+count);
+    //输出100以内的7的倍数  再四个一行输出
+//    7  14  21  28
+//    35 42 49  56
+
+    //    while (start <= end) {  //
+    //        document.write(start+" ");
+    //        count = count +start;
+    //        start = start +1; //start += 1;
+    //    }
+    //    document.write("<br>");
+    //    document.write("1到10的和为"+count);
+
+</script>
+</html>

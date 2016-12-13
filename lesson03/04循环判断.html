@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 找出1  - 100 之间能够被7 整除的数  然后再把四个一组输出
+    var i = 1; //初始化数值
+    var count = 0;
+    while (i <= 100) { //逻辑判断
+        if (i % 7 == 0) { //找到被7整除的
+
+            document.write(i + " ");  //四个一组输出  表示每四个之后 就要换一行
+            count++; //统计输出的次数
+
+            if (count % 4 == 0) {
+                document.write("<br>");
+            }
+
+        }
+        i++;//数值变化  数字自增
+    }
+    document.write("总共有" + count + "个有效数字")
+
+
+</script>
+</html>

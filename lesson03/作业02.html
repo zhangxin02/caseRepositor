@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>年月日统计</title>
+</head>
+<body>
+年<input id="year" type="text"/>
+月<input id="month" type="text"/>
+日<input id="day" type="text"/>
+<button id="btn" type="button">计算</button>
+<span id="result"></span>
+</body>
+<script>
+    //点击计算按钮  然后根据年月日去计算   该日期在当年是第几天
+    //年份控制 控制二月的天数  平年28天  闰年29天   月份  控制大小月 30   31    天：表示在该月的第几天
+    //  1月10  那么就不需要看年份  月份 直接看day
+    //2月10    需要看一月份的天数  +  day
+    //3月10    需要看一月份的天数   +2月份的天数（又需要看年份） +day
+    var btn = document.getElementById("btn"); //找到计算的按钮
+    var iYear = document.getElementById("year");//找到year的文本框
+    var iMonth = document.getElementById("month");//找到month的文本框
+    var iDay = document.getElementById("day");//找到day的文本框
+    var result = document.getElementById("result");//找到span的文本框
+
+    btn.onclick = function () { //假设用户三个文本框都输入了内容并且都是合法的
+        var year = iYear.value * 1; //年份的值
+        var month = iMonth.value * 1; //月份的值
+        var day = iDay.value * 1;//天的值
+        var fedDay = 28;//初始化二月份的天数
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) { //判断一个年份是否为闰年
+            fedDay = 29; //如果为闰年 则为29天
+        }
+        var count = 0;//初始化总天数
+        switch (month) {
+            case  1:
+                count = day;
+                break;
+            case  2:
+                count = 31 + day;
+                break;
+            case  3:
+                count = 31 + fedDay + day;
+                break
+            case  4:
+                count = 31 + fedDay + 31 + day;
+                break;
+            case  5:
+                count = 30 + 31 + fedDay + 31 + day;
+                break;
+            case  6:
+                count = 31 + 30 + 31 + fedDay + 31 + day;
+                break
+            case  7:
+                count = 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break;
+            case  8:
+                count = 31 + 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break;
+            case  9:
+                count = 31 + 31 + 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break
+            case  10:
+                count = 30+ 31 + 31 + 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break;
+            case  11:
+                count = 31 + 30+ 31 + 31 + 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break;
+            default :
+                count = 30 +31 + 30+ 31 + 31 + 30 + 31 + 30 + 31 + fedDay + 31 + day;
+                break
+        }
+        result.innerHTML = count;
+    }
+
+
+</script>
+</html>

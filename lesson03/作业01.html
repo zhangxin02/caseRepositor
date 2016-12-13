@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>身高体重计算</title>
+</head>
+<body>
+身高:<input id="height" type="text"/>cm<br><br>
+体重:<input id="weight" type="text">kg<br><br>
+<span id="result"></span><br><br>
+<button id="btn" type="button">计算结果</button>
+</body>
+<script>
+    //点击 按钮   获取身高  体重的值 然后根据表达式计算出结果
+    var btn = document.getElementById("btn");//找到该元素对象
+    var result = document.getElementById("result");
+    btn.onclick = function () {
+        var nHeight = document.getElementById("height").value / 100; //获取身高 单位cm 将厘米转化成m
+        var nWeight = document.getElementById("weight").value; //获取体重
+
+        var value = nWeight / Math.pow(nHeight, 2);   //根据计算表达式 体重 除以身高的平方
+
+        if (value > 32) {
+            result.innerHTML = "非常肥胖";
+        } else if (value > 28) {//因为能进入到这里  那么结果肯定会小于等于32
+            result.innerHTML = "肥胖";
+        } else if (value >= 25) {
+            result.innerHTML = "过重";
+        } else if (value >=18.5) {
+            result.innerHTML = "正常体重";
+        }else{
+            result.innerHTML = "过轻";
+        }
+    }
+
+</script>
+</html>

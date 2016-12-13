@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    for (var i = 1000, count = 0; i <= 2000; i++) {
+        if ((i % 4 == 0 && i % 100 != 0) || (i % 400 == 0)) {
+            count++;
+            document.write(i + " ");
+            if (count %4 ==0){
+                document.write("<br>")
+            }
+        }
+    }
+</script>
+</html>
