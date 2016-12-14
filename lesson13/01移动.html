@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #big {
+            width: 400px;
+            height: 550px;
+            border: 1px solid #cdcdcd;
+            position: relative;
+            margin: 50px auto;
+            background: url("images/bg.jpg");
+            overflow: hidden;
+        }
+
+        #small {
+            width: 98px;
+            height: 122px;
+            position: absolute;
+            background: url("images/me.png") center/cover;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="big">
+    <div id="small"></div>
+</div>
+</body>
+<script>
+    var big = document.querySelector("#big");//飞机的飞行区域
+    var plan = document.querySelector("#small");//飞机对象
+    var maxWidth = parseInt(getStyleAttr(big, "width"));  //飞行的最大区域  就等于big的宽度
+    var maxHeight = parseInt(getStyleAttr(big, "height"));   //飞行的最大高度  就等于big的高度
+    var planWidth = parseInt(getStyleAttr(plan, "width"));   //飞机自身的宽的
+    var planHeight = parseInt(getStyleAttr(plan, "height"));   //飞机自身的高
+    var speed = 4; //设置飞机的移动速度
+    var bulletSpeed = 2; //设置子弹的速度
+    var maxMoveWidth = maxWidth - planWidth;
+    var maxMoveHeight = maxHeight - planHeight;
+    var bullHeight = 18; //子弹的高度
+    var bullWidth = 8;//子弹的宽度
+    var bulletList = [];//子弹的集合
+    var plain1Height = 36;//敌机1的高度
+    var plain1Width = 60;//敌机1的宽度
+    var maxPlain1left = maxWidth - plain1Width;//敌机距离左边的最大距离
+    var plain1List = []; //敌机的集合
+    var plainSpeed = 1;//敌机降落的速度
+
+
+
+    initPlan(); //初始化飞机的位置
+    bullet();//初始化子弹
+    bulletFly();//让子弹飞
+    plain1();//产生敌机
+    plain1Fly();//敌机降落
+
+    function initPlan() {//初始化飞机的位置
+        plan.style.bottom = 0; //设置到最下面
+        plan.style.left = (maxWidth - planWidth) / 2 + "px";
+    }
+    function plain1Fly() {//让敌机降落
+
+        setInterval(function(){
+            for (var i = 0; i < plain1List.length; i++) {
+                var plain1 =plain1List[i];
+                if (plain1.offsetTop >= maxHeight){
+                    big.removeChild(plain1);
+                    plain1List.splice(i,1);
+                }else{
+                plain1.style.top =   plain1.offsetTop + plainSpeed + "px";
+                }
+            }
+        },10)
+    }
+
+
+    function plain1() { //产生敌机
+        var plain = document.createElement("img");
+        plain.src = "images/plain1.png";
+        plain.style.height = plain1Height + "px";
+        plain.style.width = plain1Width + "px";
+        plain.style.position = "absolute";
+        var randLeft = Math.round(Math.random() * maxPlain1left);//随机的产生敌机的位置
+        plain.style.left = randLeft + "px";
+        big.appendChild(plain);
+        plain1List[plain1List.length] = plain;  //将产生的敌机放入集合
+
+        var plain = document.createElement("img");
+        plain.src = "images/plain1.png";
+        plain.style.height = plain1Height + "px";
+        plain.style.width = plain1Width + "px";
+        plain.style.position = "absolute";
+        var randLeft = Math.round(Math.random() * maxPlain1left);//随机的产生敌机的位置
+        plain.style.left = randLeft + "px";
+        big.appendChild(plain);
+        plain1List[plain1List.length] = plain;  //将产生的敌机放入集合
+//        plain1List.push(plain);
+        setTimeout(plain1, 1000);
+//        var plain = document.createElement("img");
+//        plain.src = "images/plain1.png";
+//        plain.style.height = plain1Height + "px";
+//        plain.style.width = plain1Width + "px";
+//        plain.style.position = "absolute";
+//        var randLeft = Math.round(Math.random()*maxPlain1left);//随机的产生敌机的位置
+//        plain.style.left= randLeft +"px";
+//        big.appendChild(plain);
+
+
+    }
+
+    function bullet() { //产生子弹
+        var bull = document.createElement("img");
+        bull.src = "images/bullet.png";
+        bull.style.height = bullHeight + "px";
+        bull.style.width = bullWidth + "px";
+        bull.style.position = "absolute";
+        //获取飞机的位置
+        var position = getPlanPositon();
+        //设置子弹的位置
+        bull.style.left = position.x + (planWidth / 2) - (bullWidth / 2) + "px";//飞机左边的位置+飞机的一半宽度-减去子弹宽度的一半
+        bull.style.top = position.y - (bullHeight) + "px";//飞机距离上面的高度 减去子弹的高度
+        big.appendChild(bull);
+        bulletList.push(bull);//将构建的子弹放入 子弹的集合中
+        setTimeout(bullet, 300);
+    }
+    function bulletFly() {//子弹处理
+        for (var i = 0; i < bulletList.length; i++) {
+            var bullet = bulletList[i];//获取每一个子弹
+            //当子弹到达临界值的时候  让子弹消息(从DOM里面直接删除)
+            if (parseInt(bullet.style.top) <= -bullHeight) { //让子弹完全出去的时候
+                big.removeChild(bullet); //从容器删除  dom的删除
+                bulletList.splice(i, 1);//delete只删除值 不删除位置  splice可以删除位置和值
+            } else {
+                console.log(bulletList.length);
+                bullet.style.top = bullet.offsetTop - bulletSpeed + "px";
+            }
+        }
+        setTimeout(bulletFly, 10);
+    }
+
+
+    function getPlanPositon() {//获取飞机的位置
+        var left = parseInt(getStyleAttr(plan, "left"));
+        var top = parseInt(getStyleAttr(plan, "top"));
+        return {"x": left, "y": top};//利用对象返回
+    }
+
+    //写一个键盘事件  上下左右的控制飞机运动
+    document.onkeydown = function (e) {
+        var evt = window.event || e;
+        var code = evt.which || evt.keyCode; //左37  上 38  右 39  下 40
+        switch (code) {
+            case 37://左边
+                if (plan.offsetLeft <= 0) {//左边的临界值 是0
+                    plan.style.left = 0;
+                } else {
+                    plan.style.left = plan.offsetLeft - speed + "px";
+                }
+                break;
+            case 38://上移
+                if (plan.offsetTop <= 0) {
+                    plan.style.top = 0;
+                } else {
+                    plan.style.top = plan.offsetTop - speed + "px";
+                }
+                break;
+            case 39://右移动
+                if (plan.offsetLeft >= maxMoveWidth) {
+                    plan.style.left = maxMoveWidth + "px";
+                } else {
+                    plan.style.left = plan.offsetLeft + speed + "px";
+                }
+                break;
+            case 40: //下移动
+                if (plan.offsetTop >= maxMoveHeight) {
+                    plan.style.top = maxMoveHeight + "px";
+                } else {
+                    plan.style.top = plan.offsetTop + speed + "px";
+                }
+                break;
+        }
+
+
+    }
+
+
+    function getStyleAttr(ele, attr) { //获取style中的属性值
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(ele)[attr];
+        } else {
+            return ele.currentStyle[attr];
+        }
+    }
+    /*
+    *
+    * 碰撞两个点
+    * 第一个点  子弹与敌机 发生碰撞  碰撞就是坐标有接触
+    * 第二个点  敌机与飞机 发生碰撞  碰撞就是坐标有接触
+    *
+    * */
+
+
+</script>
+</html>

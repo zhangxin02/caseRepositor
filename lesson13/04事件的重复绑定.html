@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的重复绑定</title>
+</head>
+<body>
+<button id="btn" type="button">点击</button>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    btn.onclick = function () {
+        alert("1111111");
+    }
+    btn.onclick = function (e) { //给一个按钮绑定一个点击事件
+        alert("按钮被点击了")
+    }
+
+
+</script>
+</html>

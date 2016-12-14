@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .default {
+            color: #FF0000;
+        }
+    </style>
+</head>
+<body>
+<input id="message" type="text"/>
+<button type="button" id="btn">提交</button>
+</body>
+<script>
+
+    //点一下 就不让点了   在过五秒  又可以点了
+    var btn = document.getElementById("btn");//获取该按钮
+    function btnClick() {
+        alert("我被打了 不能再打了");
+        btn.disabled = "disabled";
+        btn.className = "default";
+        btn.onclick = null; //处理5秒之后 事件可以点击
+        var i = 5;
+        var timer = setInterval(function () {
+            i--;
+            if (i == 0) {
+                clearInterval(timer);//清除定时器
+                btn.removeAttribute("disabled");
+                btn.className = "";
+                //事件需要重新绑定
+                btn.onclick = btnClick;
+            }
+        }, 1000)
+    }
+    btn.onclick = btnClick;
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #red {
+            height: 500px;
+            width: 500px;
+            position: relative;
+            border: 1px solid #FF0000;
+            margin: 50px auto;
+        }
+
+        #yellow {
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            border: 1px solid yellow;
+            left: 100px;
+            top: 100px;
+        }
+
+        #green {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            border: 1px solid green;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="red">
+    <div id="yellow">
+        <div id="green"></div>
+    </div>
+</div>
+</body>
+<script>
+    var red = document.getElementById("red");
+    var yellow = document.getElementById("yellow");
+    var green = document.getElementById("green");
+    red.addEventListener("click", function (e) { //红色绑定事件
+//        var evt = window.event || e;
+//        if(evt.stopPropagation){
+//            evt.stopPropagation();
+//        }else{
+//            evt.cancelBubble = true;
+//        }
+        alert("红色");
+    }, true);
+    yellow.addEventListener("click", function (e) {
+        var evt = window.event || e;
+        if(evt.stopPropagation){
+            evt.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+        }
+        alert("黄色");
+
+    }, true);
+    green.addEventListener("click", function (e) {
+        var evt = window.event || e;
+        if(evt.stopPropagation){
+            evt.stopPropagation();
+        }else{
+            evt.cancelBubble = true;
+        }
+        alert("绿色");
+    }, true);
+</script>
+</html>

@@ -27,6 +27,9 @@
         var scrollX = document.body.scrollLeft || document.documentElement.scrollLeft; //获取滚动条 滚离左边的距离
         var scrollY = document.body.scrollTop || document.documentElement.scrollTop; //获取滚动条 距离上边的距离
 
+//就与pageX 一样,但是pageX 会有兼容
+
+
         //点击的实际位置 等于 可视位置+滚动条 隐藏的位置
 
         alert("距离左边为" + (clientX + scrollX) + "距离上边为" + (clinetY + scrollY));

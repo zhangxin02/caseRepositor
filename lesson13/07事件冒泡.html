@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #red {
+            height: 500px;
+            width: 500px;
+            position: relative;
+            border: 1px solid #FF0000;
+            margin: 50px auto;
+        }
+
+        #yellow {
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            border: 1px solid yellow;
+            left: 100px;
+            top: 100px;
+        }
+
+        #green {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            border: 1px solid green;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="red">
+    <div id="yellow">
+        <div id="green"></div>
+    </div>
+</div>
+</body>
+<script>
+    var red = document.getElementById("red");
+    var yellow = document.getElementById("yellow");
+    var green = document.getElementById("green");
+    red.onclick = function () {
+        alert("红色框被点击了");
+    }
+    yellow.onclick = function (e) {
+        var evt = window.event || e;
+        evt.stopPropagation();
+        alert("黄色框被点击了");
+    }
+    green.onclick = function (e) {
+        var evt = window.event ||e;
+        evt.stopPropagation();
+        alert("绿色框被点击了");
+    }
+
+</script>
+</html>
