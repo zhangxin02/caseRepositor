@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="username"/>
+<input id="pwd">
+<button type="button" id="btn">登陆</button>
+<span id="result"></span>
+</body>
+<script>
+    var btn = document.getElementById("btn");
+    var result = document.getElementById("result");
+    var person1 = {"username": 'leson', "pwd": '123d'};
+    var person2 = {"username": 'lulu', "pwd": '456d'};
+
+    var list = [person1, person2]
+
+    var list2 = [{"username": 'leson', "pwd": '123d'}, {"username": 'lulu', "pwd": '456d'}];
+
+   var str = ' [{"username": "leson", "pwd": "123d"}, {"username": "lulu", "pwd": "456d"}]';
+
+   var list3 = JSON.parse(str);
+
+//    alert(list3[0]["username"]);
+
+    btn.onclick = function () {
+        //进行请求
+        var req = new XMLHttpRequest();  //建立一个请求对象
+        //打开请求
+        req.open("get", "source.js", true);
+        //发送请求
+        req.send();
+        //监听状态
+        req.onreadystatechange = function () {
+//            console.log(req.readyState);
+//            console.log(req.status);
+            if (req.readyState == 4 && req.status == 200) { //两个状态同时满足
+               var str = req.responseText; //接收返回来的字符串
+               var list = JSON.parse(str) ;
+                for (var i = 0 ;i<list.length;i++){
+               alert( list[i]["username"]);
+                }
+            }
+        }
+    }
+
+    //验证用户名和密码
+    //第一步验证用户名是否存在  -----
+    //第二步验证用户名和密码是否匹配   ----
+
+</script>
+</html>

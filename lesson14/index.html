@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            height: 500px;
+            width: 400px;
+            margin: 10px auto;
+            position: relative;
+        }
+
+        #write {
+            height: 50px;
+            width: 400px;
+            margin-bottom: 20px;
+            background-color: #cdcdcd;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        #write #message {
+            width: 300px;
+            height: 20px;
+        }
+
+        #show {
+            position: relative;
+            width: 100%;
+            background-color: rgba(99, 88, 250, 0.4);
+        }
+
+        #show .content {
+            width: 400px;
+            margin-bottom: 10px;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        #bigBg {
+            height: 100%;
+            width: 100%;
+            background-color: rgba(22, 22, 22, 0.3);
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #bigContent {
+            position: absolute;
+            width: 200px;
+            height: 300px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="write">
+        <input type="text" id="message"/>
+        <button type="button" id="btn">提交</button>
+    </div>
+    <div id="show">
+
+        <!--<div id="content_1" class="content">-->
+        <!--<div class="time">显示时间 2016年12月15日 </div>-->
+        <!--<div >留言内容 <button id="reply_1">回复</button></div>-->
+        <!--<div> 回复内容</div>-->
+        <!--</div>-->
+
+    </div>
+</div>
+
+<div id="bigBg">
+    <div id="bigContent">
+        <textarea rows="20" cols="40" id="replyMessage"></textarea>
+        <button id="reply">回复</button>
+    </div>
+</div>
+
+</body>
+<script>
+    //一个文本框 一个按钮  然后点击之后  将内容显示
+    //点击提交  在指定的内容中 创建一个新的div块
+    var showContent = document.querySelector("#show");//内容区域
+    var btn = document.querySelector("#btn");//按钮
+    var messageInput = document.querySelector("#message");//文本框
+    var bigBg = document.querySelector("#bigBg"); //弹出层
+    var reply = document.querySelector("#reply");//回复的按钮
+    var replyMessageInput = document.querySelector("#replyMessage");
+
+    reply.onclick = function () { //弹出层回复的事件
+        var replyMessage = replyMessageInput.value;
+        var targetId = reply.getAttribute("target_id");//找到回复内容 将要去的地方
+        var parent = document.querySelector("#" + targetId);
+        var div = document.createElement("div");
+        div.innerHTML = "回复:"+replyMessage;
+        parent.appendChild(div);
+        replyMessageInput.value = "";
+        bigBg.style.display = "none";
+    }
+
+
+    btn.onclick = function () { //留言的事件
+        var message = messageInput.value; //文本内容
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        var strDate = "显示时间 " + year + "年" + month + "月" + day + "日";
+
+        var div = document.createElement("div");
+        div.className = "content";
+        var length = showContent.querySelectorAll(".content").length
+        div.id = "content_" + length;//编号自增长 根据div中content的个数  来设置id
+        showContent.appendChild(div);
+        var timeDiv = document.createElement("div"); //显示时间的div
+        timeDiv.className = "time";
+        timeDiv.innerHTML = strDate;  //显示时间div中的内容
+        div.appendChild(timeDiv);
+
+        var leaveDiv = document.createElement("div"); //留言的内容
+        leaveDiv.innerHTML = message;//放入留言的内容
+
+        var button = document.createElement("button"); //点击回复的按钮
+        button.innerHTML = "提交";
+        button.setAttribute("target_id", "content_" + length); //绑定父元素的Id
+        //等下来点这个button的时候 我们就知道了这个button是属于谁的    知道了button是属于谁的  那么就可以把回复的内容 丢给谁
+        button.onclick = function () { //点击回复按钮 弹出回复层
+            bigBg.style.display = "block";
+            var targetId = this.getAttribute("target_id");
+            //显示弹出层的时候 告诉弹出层 我来自哪里  等一下你回复的 就把他回到哪里去
+            reply.setAttribute("target_id", targetId);
+
+        }
+        leaveDiv.appendChild(button); //把button放入留言内容
+        div.appendChild(leaveDiv);//把留言内容放入 指定的div
+
+    }
+
+
+</script>
+</html>
