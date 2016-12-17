@@ -13,14 +13,14 @@
     for(var i= 0,count=0;i<str.length;i++){
         var temp=str.indexOf(code,i);
         if(temp==i){
-            count++;
-            if(i==str.length-1){
-                list+=code+count;
-            }
+            count++;            
         }else{
             list+=code+count;
             count=1;
             code=str.charAt(i);
+        }
+        if(i==str.length-1){
+                list+=code+count;
         }
     }
 document.write(list);
