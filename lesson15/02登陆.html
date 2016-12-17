@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名:<input id="username" type="text"/><br><br>
+密 码:<input id="pwd" type="text"><br><br>
+<button type="button" id="btn">登陆</button>
+</body>
+<script>
+
+    //    char c= 'c';
+    //    String  s = "ssssss";
+    //    Int  i = 23;
+console.log("欢迎加入千锋")
+console.log("aaaa@qq.com")
+    var btn = document.getElementById("btn");//按钮
+    var usernameInput = document.getElementById("username");//用户名
+    var pwdInput = document.getElementById("pwd");//密码
+    btn.onclick = function () {
+        var req = new XMLHttpRequest(); //新建一个http请求
+        req.open("get", "userinfoList.json", true); //简历链接
+        req.send(); //发送
+        req.onreadystatechange = function () {
+            if (req.readyState == 4 && req.status == 200) {//发送完毕和响应完毕
+                var text = req.responseText;
+                var list = JSON.parse(text);// [{},{},{}]
+                //判断输入的用户名 是否存在
+                var username = usernameInput.value.trim();//获取用户名 并且去除前后的空格
+                //把username跟集合中的每一个用户名比较  如果不存在  就告知不存
+                var flag = false;//默认用户名不存在
+                for (var i = 0; i < list.length; i++) {
+                    var userName = list[i]["name"];
+                    if (userName == username) {//这样判断输入的用户名是否存在
+                        flag = true; //说明该用户存在
+                        //如果存在就判断密码是否正确
+                        var pwd = pwdInput.value;  //用户名输入的密码
+                        var PWD = list[i]["pwd"];//数据库中的密码
+                        if (pwd == PWD) {
+                            alert("用户名和密码正确");
+                            location.href = "http://www.baidu.com";
+                        } else {
+                            alert("用户名和密码不匹配")
+                        }
+                    }
+                    break;//默认用户名不能重复
+                }
+                if (!flag) {
+                    alert(username + "不存在");
+                }
+            }
+
+
+
+        }
+
+    }
+</script>
+</html>

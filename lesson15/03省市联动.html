@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="province">
+    <!--<option value="湖北">湖北</option>-->
+    <!--<option value="湖北1">湖北1</option>-->
+    <!--<option value="湖北2">湖北2</option>-->
+    <!--<option value="湖北3">湖北3</option>-->
+</select>
+</body>
+<script>
+    //第一步把死的变成活的
+    //要有活数据 去替换  死数据
+    //活数据来源于  city.json中的province ["湖北","湖南","河南"]
+    var pro = document.getElementById("province"); //获取select
+    //    pro.innerHTML = "<option value='湖北'>湖北</option><option value='湖北'>湖北</option><option value='湖北'>湖北</option>";
+    //找数据
+    var req = new XMLHttpRequest(); //建立请求
+    req.open("get", "city.json", true); //打开地址
+    req.onreadystatechange = function () { //设置监听
+        if (req.readyState == 4 && req.status == 200) {
+            var text = req.responseText;
+            var list = JSON.parse(text);//找到了所有的集合
+            for (var i = 0; i < list.length; i++) {
+                var p = list[i]["province"];//找到省份
+//                alert(p);
+                var option= document.createElement("option");
+                var textNode = document.createTextNode(p);
+                option.value =p;
+                option.appendChild(textNode);
+                pro.appendChild(option);
+            }
+
+        }
+    }
+    req.send();//发送
+
+
+</script>
+
+</html>

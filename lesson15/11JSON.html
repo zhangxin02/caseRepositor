@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="input"/>
+</body>
+<script>
+    var obj = {
+        "name": "leson", "say": function () {
+//        alert("我是大雷的函数");
+            return "dalai"
+        }
+    };
+    obj.name = "aaaa";
+    //alert( obj.say());
+
+    var input = document.getElementById("input");
+    input.value = "ccccc";
+    input.onclick = function () {
+
+    };
+
+    //  var ajax = function(){
+    //
+    //    }
+
+    var leson = {
+        ajax: function (json) {
+//            alert(json.type);
+//            alert(json.url);
+//            json.callback("ajax请求完毕")
+            var req = new XMLHttpRequest();
+            req.open(json.type, json.url, true);
+            req.send();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    var text = req.responseText;
+                    json.callback(text);
+                }
+            }
+
+        }
+    }
+//    var  ajax = function (json) {
+////            alert(json.type);
+////            alert(json.url);
+////            json.callback("ajax请求完毕")
+//        var req = new XMLHttpRequest();
+//        req.open(json.type, json.url, true);
+//        req.send();
+//        req.onreadystatechange = function () {
+//            if (req.readyState == 4 && req.status == 200) {
+//                var text = req.responseText;
+//                json.callback(text);
+//            }
+//        }
+//
+//    }
+
+
+
+    leson.ajax({
+        "type": "get",
+        "url": "userinfo.json",
+        callback: function (result) {
+            var json = JSON.parse(result);
+            alert(json.name);
+        }
+    });
+
+
+</script>
+</html>

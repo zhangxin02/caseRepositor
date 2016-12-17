@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数</title>
+</head>
+<body>
+
+</body>
+<script>
+    //    var show= function(result){
+    //        alert(result);
+    //    }
+
+    function ajax(type, url, show) {
+        var req = new XMLHttpRequest();
+        req.open(type, url, true);
+        req.send();
+        req.onreadystatechange = function () {  //监听状态的改变
+
+            if (req.readyState == 4 && req.status == 200) {
+//                alert("aaaa")
+                show(req.responseText);
+            }
+        }
+    }
+
+
+    ajax("get", "userinfo.json", function (result) {
+        var json = JSON.parse(result);
+        alert(json.name);
+    });
+
+
+</script>
+</html>

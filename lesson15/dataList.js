@@ -1,0 +1,22 @@
+[
+    {"name": "海皇", "loaction": "上", "hurt": "ad物理","src":"1.jpg"},
+    {"name": "惩戒", "loaction": "下", "hurt": "ad物理","src":"2.jpg"},
+    {"name": "阿狸", "loaction": "中", "hurt": "ap魔法","src":"3.jpg"},
+    {"name": "电耗子", "loaction": "中", "hurt": "ap魔法","src":"4.jpg"},
+    {"name": "女警", "loaction": "下", "hurt": "ad物理","src":"5.jpg"},
+    {"name": "小丑", "loaction": "野", "hurt": "ad物理","src":"6.jpg"},
+    {"name": "龙龟", "loaction": "野", "hurt": "ad物理","src":"7.jpg"},
+    {"name": "时光", "loaction": "下", "hurt": "ap魔法","src":"8.jpg"},
+    {"name": "轮子妈", "loaction": "下", "hurt": "ad物理","src":"9.jpg"},
+    {"name": "妖姬", "loaction": "中", "hurt": "ap魔法","src":"10.jpg"},
+    {"name": "辛巴", "loaction": "下", "hurt": "ap魔法","src":"11.jpg"},
+    {"name": "滑板鞋", "loaction": "下", "hurt": "ad物理","src":"12.jpg"},
+    {"name": "挖掘机", "loaction": "野", "hurt": "ad物理","src":"13.jpg"},
+    {"name": "所典", "loaction": "下", "hurt": "ap魔法","src":"14.jpg"},
+    {"name": "沙皇", "loaction": "中", "hurt": "ap魔法","src":"15.jpg"},
+    {"name": "美人鱼", "loaction": "下", "hurt": "ap魔法","src":"16.jpg"},
+    {"name": "剑魔", "loaction": "上", "hurt": "ad物理","src":"17.jpg"},
+    {"name": "皮城", "loaction": "下", "hurt": "ad物理","src":"18.jpg"},
+    {"name": "艾克", "loaction": "中", "hurt": "ap魔法","src":"19.jpg"},
+    {"name": "劫", "loaction": "中", "hurt": "ad物理","src":"20.jpg"}
+]

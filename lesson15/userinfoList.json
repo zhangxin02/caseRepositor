@@ -1,0 +1,16 @@
+[
+  {
+    "name": "leson",
+    "pwd": 1234
+  },
+  {
+    "name": "lili",
+    "pwd": 1111
+  },
+  {
+    "name": "lulu",
+    "pwd": 2222
+  }
+]
+//["leson","lili","lulu"]
+//[1234,1111,2222]

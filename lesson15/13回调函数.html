@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数</title>
+</head>
+<body>
+
+</body>
+<script>
+
+//    var show = function (result) {  //我是一个普通的匿名函数 我只做显示
+//        alert(result);
+//    }
+
+    function sum(num1, num2,show) {
+//        alert(num1 + num2); alert 是一个内置函数  可不可以 变成一个自定义函数
+        show(num1 + num2);
+    }
+    sum(1, 2,function(result){
+        alert(result);
+    });
+
+
+</script>
+</html>

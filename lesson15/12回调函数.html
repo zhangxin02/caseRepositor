@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回调函数</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+
+    function sum(num1,num2,show){
+        //alert(num1+num2);
+        show(num1+num2);
+    }
+    sum(1,2,function(result){
+        alert(result);
+    });
+
+</script>
+</html>

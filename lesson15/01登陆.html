@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+用户名:<input id="username" type="text"/><br><br>
+密 码:<input id="pwd" type="text"><br><br>
+<button type="button" id="btn">登陆</button>
+</body>
+<script>
+
+//    char c= 'c';
+//    String  s = "ssssss";
+//    Int  i = 23;
+
+    var btn = document.getElementById("btn");//按钮
+    var usernameInput = document.getElementById("username");//用户名
+    var pwdInput = document.getElementById("pwd");//密码
+    btn.onclick = function(){
+        var  req = new XMLHttpRequest(); //新建一个http请求
+        req.open("get","userinfo.json",true); //简历链接
+        req.send(); //发送
+        req.onreadystatechange = function(){
+            if(req.readyState == 4 && req.status == 200){//发送完毕和响应完毕
+                var text = req.responseText;
+//                alert(text);
+                var userinfos = eval("("+text+")") //eval 对字符串具有计算能力
+               // alert(eval("1+3"));
+                var userinfo = JSON.parse(text); //json的标准写法{}  属性和值(value key) 属性名要打上双引号  每个属性和值之间 用逗号区分
+
+            }
+
+        }
+
+    }
+</script>
+</html>
