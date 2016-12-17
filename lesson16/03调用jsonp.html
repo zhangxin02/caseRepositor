@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span id="result"></span>
+</body>
+<script>
+    function say(result){
+//        alert(result);
+        document.querySelector("#result").innerHTML = result["date"]+"我是请求过来的数据";
+    }
+
+
+</script>
+<script src="http://192.168.59.4:8055/js/jsonp.js"></script>
+</html>

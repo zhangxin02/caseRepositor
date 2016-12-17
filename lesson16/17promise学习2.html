@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function runAsync1() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成1');
+                resolve({"name":"leson"});
+            }, 2000);
+        });
+        return p;
+    }
+    function runAsync2() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成2');
+                resolve({"name":"lili"});
+            }, 2000);
+        });
+        return p;
+    }
+
+    function runAsync3() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成3');
+                resolve({"name":"lulu"});
+            }, 2000);
+        });
+        return p;
+    }
+    Promise.all([runAsync1(), runAsync2(), runAsync3()])
+            .then(function(results){
+                console.log(results);
+            });
+</script>
+</html>

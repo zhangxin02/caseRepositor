@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var $ = {
+        ajax: function (json) {
+//            alert(json.type);
+//            alert(json.url);
+//            json.callback("ajax请求完毕")
+            var req = new XMLHttpRequest();
+            req.open(json.type, json.url, true);
+            req.send();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    var text = req.responseText;
+                    json.callback(text);
+                }
+            }
+
+        }
+    }
+
+    $.ajax({
+        type:"get",
+        url:"烧水",
+        callBack:function(result){
+            //得到热水
+            if (result){ //能够获取热水
+                   //就可以去洗衣服
+                $.ajax({
+                    type:"get",
+                    url:"洗衣服",
+                    calllBack:function(reuslt){
+                        if (result){//如果洗完了  就晾起来
+                        }
+                    }
+                })
+
+            }else{
+                alert("水还没有烧开")
+            }
+        }
+
+    })
+
+</script>
+</html>

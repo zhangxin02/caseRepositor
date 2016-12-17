@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+
+
+    var $ = {  //封装的ajax请求
+        ajax: function (json) {
+            var req = new XMLHttpRequest();
+            req.open(json.type, json.url, true);
+            req.send();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    var text = req.responseText;
+                    json.callback(text);
+                }
+            }
+        }
+    }
+
+
+    $.ajax({
+        type: "get",
+        url: "http://api.avatardata.cn/TechNews/Query?key=9e5856406b724b4e9d0b019b1cab7c06&page=1&rows=10",
+        callback: function (result) {
+            alert(result);
+        }
+    })
+
+</script>
+</html>

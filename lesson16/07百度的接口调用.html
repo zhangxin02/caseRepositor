@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul>
+    <!--<li>滴滴打车官网</li>-->
+    <!--<li>滴滴打车官网</li>-->
+    <!--<li> 大麦网</li>-->
+</ul>
+</body>
+<script>
+    var ul = document.querySelector("ul");
+
+    window.baidu = {
+        sug: function (result) {
+            var list = result.s; //["爸爸去哪儿第四季", "爸爸去哪儿4期", "bilibili", "爸爸去哪儿", "宝宝巴士", "包卜", "bbbt", "bbc", "哔哩哔哩动画", "八百比丘尼"]
+            for (var i = 0; i < list.length; i++) {
+//                alert(list[i]);  每一条数据就是list[i]
+                var li = document.createElement("li");
+                li.innerHTML = list[i];
+                ul.appendChild(li);
+            }
+        }
+    }
+    var script = document.createElement("script");
+    script.src = " https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=7777";
+    document.body.appendChild(script);
+
+</script>
+<!--<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=6666"></script>-->
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function runAsync1() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成1');
+                resolve({"name":"leson"});
+            }, 1000);
+        });
+        return p;
+    }
+    function runAsync2() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成2');
+                resolve({"name":"lili"});
+            }, 1000);
+        });
+        return p;
+    }
+
+    function runAsync3() {
+        var p = new Promise(function (resolve, reject) {
+            //做一些异步操作
+            setTimeout(function () {
+                console.log('执行完成3');
+                resolve({"name":"lulu"});
+            }, 3000);
+        });
+        return p;
+    }
+    Promise.race([runAsync1(), runAsync2(), runAsync3()]) //哪一个快的就返回哪一个值
+            .then(function(results){
+                console.log(results);
+            });
+</script>
+</html>

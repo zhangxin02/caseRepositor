@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var promise = new Promise(function(resolve, reject) {
+        if (true){
+            resolve("success");
+        } else {
+            reject("error");
+        }
+    });
+
+    promise.then(function(value) {
+        // success
+        console.log(value)
+    }, function(value) {
+        // failure
+        console.log(value)
+    });
+</script>
+</html>
