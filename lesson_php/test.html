@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<select id="select">
+<option value="office">office</option>
+<option value="family">family</option>
+<option value="jiaotong">jiaotong</option>
+</select>
+
+</body>
+<script>
+var btn = document.getElementById("select");
+btn.onchange = function() {
+            var req = new XMLHttpRequest();
+            var uri = "09.php?content="+this.value;
+            req.open("get",uri,true);
+            req.onreadystatechange= function () {
+                if (req.readyState==4 && req.status==200) {
+                       var result =JSON.parse(req.responseText);  
+                       console.log(result);
+                }
+
+            }
+            req.send();
+}
+</script>
+
+</html>

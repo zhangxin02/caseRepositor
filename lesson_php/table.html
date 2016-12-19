@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<h2>
+教学部
+</h2>
+<table>
+<tr>
+<td>
+leson
+</td>
+<td>
+29
+</td>
+<td>
+男
+</td>
+</tr>   
+</table>
+</body>
+<script>
+
+            var req = new XMLHttpRequest();
+            var uri = "13.php"
+            req.open("get",uri,true);
+            req.onreadystatechange= function () {
+                if (req.readyState==4 && req.status==200) {
+                       var result =JSON.parse(req.responseText);  
+                 //      console.log(result);
+
+           //   var obj= {教学部: Array[3], 宣传部: Array[3], 财务部: Array[3]}
+            for(var i  in result){
+              var header = i; //获取头部
+              var  h2 = document.createElement("h2");
+              h2.innerHTML = header;
+              document.body.appendChild(h2);
+              var  contentList =  result[i];  //这是一个集合
+              for (var j = 0; j < contentList.length; j++) {
+                  var username =  contentList[j][0];
+                  var userage = contentList[j][1];
+                  var usesex =contentList[j][2];
+                   var table = document.createElement("table");
+                   var tr= document.createElement("tr");
+                   document.body.appendChild(table);
+                   table.appendChild(tr);
+
+                   var td1 = document.createElement("td") ;
+                   td1.innerHTML = username;
+                    tr.appendChild(td1);
+
+                   var td2 = document.createElement("td") ;
+                   td2.innerHTML = userage;
+                   tr.appendChild(td2);
+
+                   var td3 = document.createElement("td") ;
+                   td3.innerHTML = usesex;
+                   tr.appendChild(td3);
+
+              }
+
+
+            }
+
+
+                }
+
+            }
+            req.send();
+
+</script>
+
+</html>
