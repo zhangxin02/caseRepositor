@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		用户名: <input id="username" style="width: 500px" placeholder="用户名只能以数字字母下划线$组成 不能以数字开头  并且长度在6-10之间" />
+		<button id="btn">提交</button>
+	</body>
+	<script>
+		//验证输入的内容是否合法
+		var btn = document.getElementById("btn");
+		var input = document.getElementById("username");
+
+		//验证开头不能为数
+		function ckFirstCode() {
+			var p = new Promise(function(resolve, reject) {
+				var firstCode = input.value.charAt(0); //判断第一个字符是否为数字
+				if(!isNaN(firstCode)) {
+					reject("第一个字不能为数字");
+				} else {
+					resolve(input.value)
+				};
+			});
+			return p;
+		}
+		//验证输入长度是否合法
+		function ckTxtLength() {
+			var p = new Promise(function(resolve, reject) {
+				var length = input.value.length;
+				if(length >= 6 && length <= 10) {
+					resolve(input.value)
+				} else {
+					reject("请保证长度在6到10之间")
+				}
+
+			});
+			return p;
+		}
+		//验证输入的内容是否合法
+		function ckContentLegal() {
+			var p = new Promise(function(resolve, reject) {
+				var value = input.value;
+				if(value.indexOf("$")!=-1||value.indexOf("_")!=-1) {
+					reject("不允许使用特殊字符");
+				} else {
+					resolve(input.value)
+				}
+
+			});
+			return p;
+		}
+
+		btn.onclick = function() {
+			ckFirstCode()
+				.then(function() {
+					return ckTxtLength();
+				})
+				.then(function(){
+					return ckContentLegal();
+				})
+				.then(
+					function(resolve) {
+						alert(resolve);
+					},
+					function(reject) {
+						alert(reject);
+					})
+		}
+	</script>
+
+</html>
