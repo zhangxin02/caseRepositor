@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet" />
+		<script src="js/cookie.js"></script>
+		<script src="js/shopCart.js"></script>
+	</head>
+
+	<body>
+		<div class="catbox">
+			<table id="cartTable">
+				<thead>
+					<tr>
+						<th><label>
+            <input class="check-all check" type="checkbox"/>&nbsp;&nbsp;全选</label></th>
+						<th>商品</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>小计</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<div class="foot" id="foot">
+				<a class="fl delete" id="deleteAll" href="javascript:;">清空</a>
+				<div class="fr closing" onclick="getTotal();">结 算</div>
+				<input type="hidden" id="cartTotalPrice" />
+				<div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+				<div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span class="arrow up">︽</span><span class="arrow down">︾</span></div>
+				<div class="selected-view">
+					<div id="selectedViewList" class="clearfix">
+						<div><span>取消选择</span></div>
+					</div>
+					<span class="arrow">◆<span>◆</span></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			var cartTable = document.getElementById("cartTable");			
+			var tbody = cartTable.children[1]; //找到tbody
+			var str = document.cookie;
+			var firstcode = "_goodsId";
+			//var list = []; //将商品的ID存储，商品ID格式规定为4位
+			for(var i = 0; i < str.length; i++) {
+				var index = str.indexOf(firstcode, i);
+				if(index == i) {
+					var gId = str.substring(index - 4, index).trim();
+					//list.push(gId);
+					createDom(tbody, gId);
+				}
+			}
+		</script>
+	</body>
+
+</html>

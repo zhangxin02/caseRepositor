@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div {
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				width: 500px;
+			}
+			
+			input {
+				height: 30px;
+				width: 400px;
+				margin-left: 10px;
+			}
+			
+			button {
+				width: 200px;
+				height: 50px;
+				line-height: 50px;
+				margin-top: 30px;
+				font-size: 18px;
+			}
+		</style>
+		<script src="js/cookie.js"></script>
+	</head>
+
+	<body>
+		<div>
+			商品编号:<input id="goodsId" placeholder="a001" />
+		</div>
+		<div>
+			商品名称:<input id="goodsName" />
+		</div>
+		<div>
+			商品图片:<input id="goodsPic" />
+		</div>
+		<div>
+			商品单价:<input id="goodsPrice" />
+		</div>
+		<div>
+			商品数量:<input id="goodsNum" />
+		</div>
+		<div>
+			<button id="btn">加入购车</button>
+		</div>
+		<script>
+			var goodsId = document.getElementById("goodsId");
+			var goodsName = document.getElementById("goodsName");
+			var goodsPic = document.getElementById("goodsPic");
+			var goodsPrice = document.getElementById("goodsPrice");
+			var goodsNum = document.getElementById("goodsNum");
+			var btn = document.getElementById("btn");
+
+			//a001_goodsId=a001; a001_goodsName=1; a001_goodsPic=1; a001_goodsPrice=1; a001_goodsNum=1"
+			btn.onclick = function() {
+				var id = goodsId.value; //商品唯一标识
+				var getCok = document.cookie;
+				var godId = getCookie(id + "_goodsId"); //得到cookie中的商品Id
+				var godNum = getCookie(id + "_goodsNum"); //得到cookie中的商品数量
+				if(id == godId) { //判断商品是否已经录入过
+					setCookie(id + "_goodsNum", godNum * 1 + goodsNum.value * 1, 3); //直接累加商品
+					setCookie(id + "_goodsPrice", goodsPrice.value, 3); //修改价格，若商家让利的话
+				} else {
+					setCookie(id + "_goodsId", id, 3);
+					setCookie(id + "_goodsName", goodsName.value, 3);
+					setCookie(id + "_goodsPic", goodsPic.value, 3);
+					setCookie(id + "_goodsPrice", goodsPrice.value, 3);
+					setCookie(id + "_goodsNum", goodsNum.value, 3);
+				}
+				
+				console.log(document.cookie);
+			}
+		</script>
+	</body>
+
+</html>

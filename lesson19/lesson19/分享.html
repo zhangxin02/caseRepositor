@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分享</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #main {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background: #ff0000;
+            left: -200px;
+        }
+
+        #main #right {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            left: 200px;
+            top: 75px;;
+            background: #ffff00;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="right">分享</div>
+</div>
+</body>
+<script>
+    var main = document.getElementById("main");
+    var speedX = 2;
+    var timer=null;
+    main.onmouseover = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if (main.offsetLeft >= 0) {
+                clearInterval(timer);
+            } else {
+                main.style.left = main.offsetLeft + speedX + "px";
+            }
+        }, 20);
+    }
+    main.onmouseout = function () {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if (main.offsetLeft <= -200) {
+                clearInterval(timer);
+            } else {
+                main.style.left = main.offsetLeft - speedX + "px";
+            }
+        },20)
+    }
+</script>
+</html>

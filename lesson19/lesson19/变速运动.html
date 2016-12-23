@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变速运动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #circle {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="circle"></div>
+</body>
+<script>
+    //让小球往左边移动200px
+    var traget = document.getElementById("circle");
+    var timer = null;
+    timer = setInterval(function () {
+        var speed = (200-traget.offsetLeft)/10;
+        speed = speed>0?Math.ceil(speed):Math.floor(speed);
+        if (traget.offsetLeft >= 200) {
+            clearInterval(timer);
+        } else {
+            traget.style.left = traget.offsetLeft + speed + "px";
+        }
+    }, 100);
+</script>
+</html>

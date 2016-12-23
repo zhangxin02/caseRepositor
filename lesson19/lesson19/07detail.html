@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/common.css" rel="stylesheet">
+</head>
+<body>
+<div id="warp">
+    <div id="small">
+        <img id="smallImg" src="img/small1.jpg"/>
+        <span id="mark"></span>
+    </div>
+
+    <div id="big">
+        <img id="bigImg" src="img/big1.jpg"/>
+    </div>
+    <ul id="nav">
+
+    </ul>
+</div>
+</body>
+<script src="shop.js"></script>
+<script>
+    var navUL = document.getElementById("nav");
+    var smallImg = document.getElementById("smallImg");
+    var bigImg = document.getElementById("bigImg");
+    var id = window.location.href.split("?")[1].split("=")[1];
+    var req = new XMLHttpRequest();
+    req.open("get", "mockData/catalogue.json", true);
+    req.send();
+    req.onreadystatechange = function () {
+        if (req.readyState == 4 && req.status == 200) {
+            var list = JSON.parse(req.responseText);
+            var str = "";
+            for (var i in list) {
+                var obj = list[i];
+                if (obj["id"] == id) {
+                    var smallList = obj["dataSource"]["smallList"];
+                    var bigList = obj["dataSource"]["bigList"];
+                    for (var j in smallList) {
+
+
+                        var smallSrc = "img/" + smallList[j];
+                        var bigSrc = "img/" + bigList[j];
+                        if (j == 0) {
+                            smallImg.src = smallSrc;
+                            bigImg.src = bigSrc;
+                        }
+                        str += "<li><img src=" + smallSrc + " data-info=" + bigSrc + "/></li>"
+                    }
+                }
+            }
+            navUL.innerHTML = str;
+            show();
+        }
+    }
+</script>
+
+</html>

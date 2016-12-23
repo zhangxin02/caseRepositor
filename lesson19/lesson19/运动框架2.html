@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div {
+            height: 50px;
+            width: 50px;
+            border: 1px solid #ff0000;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+</body>
+<script>
+
+    var div = document.getElementById("div");
+    div.onmouseover = function () {
+        animate(div, {"height": 200, "width": 150, "margin-left": 30, "margin-top": 20}, 10, function () {
+            alert("aaa");
+        });
+    }
+    function animate(obj, json, time, fn) {
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var count = 0;
+            for (var i in json) {
+                var attr = i;
+                var value = json[i];
+                var balanceDistance = getStyleAttr(obj, attr);
+                var speed = (value - balanceDistance) / time;
+                speed = speed >= 0 ? Math.ceil(speed) : Math.floor(speed);
+                if (balanceDistance == value) {
+                    count++;
+                    if (count == getAttrLength(json)) {
+                        clearInterval(obj.timer);
+                        if (fn) {
+                            fn();
+                        }
+                    }
+                } else {
+                    obj.style[attr] = balanceDistance + speed + "px";
+                }
+            }
+        }, 20);
+    }
+    function getAttrLength(json) {
+        var count = 0;
+        for (var i in json) {
+            count++;
+        }
+        return count;
+    }
+
+    function getStyleAttr(obj, attr) {
+        if (obj.currentStyle) {
+            return parseFloat(obj.currentStyle[attr]);
+        } else {
+            return parseFloat(window.getComputedStyle(obj)[attr]);
+        }
+    }
+</script>
+</html>

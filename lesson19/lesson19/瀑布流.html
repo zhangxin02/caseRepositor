@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #warp .box {
+            float: left;
+        }
+
+        #warp .box .content {
+            padding: 10px;
+            box-shadow: 2px 2px 2px 2px #cdcdcd;
+        }
+
+        #warp .box .content img {
+            width: 220px;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div class="box">
+        <div class="content">
+            <img src="image/1.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/2.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+
+    window.onload = function () {
+        var maxWidth = document.documentElement.clientWidth; //屏幕的最大宽度
+        //要知道一个排放几个 那么我就要指定没有个的宽度是多少
+        var boxList = document.getElementsByClassName("box"); //找到了所有的box 因为我要将box进行重新排列
+        var width = getStyleAttr(boxList[0], "width");
+        var num = Math.floor(maxWidth / width);
+        var heightList = [];
+        for (var i = 0; i < boxList.length; i++) {
+            if (i < num) {
+                heightList.push(getStyleAttr(boxList[i], "height"));
+            } else {
+                var minObj = getMinHeight(heightList);
+                var height = minObj.height;
+                var index = minObj.index;
+                boxList[i].style.position = "absolute";
+                boxList[i].style.left = index * width + "px";
+                boxList[i].style.top = height + "px";
+               heightList[index] = height + getStyleAttr(boxList[i], "height");
+            }
+        }
+        function getMinHeight(arr) {
+            var min = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] < min) {
+                    min = arr[i]
+                }
+            }
+            var index = 0;
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] == min) {
+                    index = i;
+                }
+            }
+            return {height: min, index: index};
+        }
+
+
+        function getStyleAttr(obj, attr) {
+            if (obj.currentStyle) {
+                return parseFloat(obj.currentStyle[attr]);
+            } else {
+                return parseFloat(window.getComputedStyle(obj)[attr]);
+            }
+        }
+    }
+</script>
+</html>

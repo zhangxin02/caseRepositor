@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重力加速</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #circle {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="circle"></div>
+</body>
+<script>
+    var circle = document.getElementById("circle");
+	alert(document.documentElement.offsetHeight);
+    var maxTop = document.documentElement.offsetHeight - circle.offsetHeight;
+    var speedY = 5;
+    var speedX = 8;
+    var timer = null;
+    timer = setInterval(function () {
+        circle.style.top = circle.offsetTop + (speedY++) + "px";
+        circle.style.left = circle.offsetLeft +speedX +"px";
+        if (circle.offsetTop >= maxTop) {
+            circle.style.top = maxTop + "px";
+            speedY *= -0.6;
+            if (Math.abs(speedY) <= 2) {
+                clearInterval(timer);
+            }
+        }
+    }, 100);
+    var timer2 =setInterval(function(){
+       speedX>0?--speedX:clearInterval(timer2);
+    },2000)
+</script>
+</html>
