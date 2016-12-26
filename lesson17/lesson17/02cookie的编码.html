@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>什么是cookie</title>
+</head>
+<body>
+用户名:<input id="username" type="text"/>
+昵称:<input id="nickname" type="text"/>
+<button type="button" id="btn">保存</button>
+</body>
+<script>
+    //document.cookie = "username=dalei;expires="+date;
+
+    var btn = document.getElementById("btn");
+    var userInput = document.getElementById("username");
+    var nickInput = document.getElementById("nickname");
+    var username = "大雷";
+//    var esName = escape(username);
+//     alert(unescape(esName));
+
+    btn.onclick = function () {
+        setCookie("username", userInput.value, 7, false);
+        setCookie("nickname", nickInput.value, 7, false);
+
+     alert(  unescape( getCookie("username")));
+    }
+
+    //保存cookie
+    function setCookie(key, value, days, isGlobal) {
+        var date = new Date();
+        date.setDate(date.getDate() + days); //设置的过期时间
+        if (isGlobal) {
+            document.cookie = key + "=" +escape(value) + ";expires=" + date + ";path=/";
+        } else {
+            document.cookie = key + "=" +escape(value) + ";expires=" + date;
+            // document.cookie =key+"="+value+";expires="+date+";domain=.baidu.com";
+        }
+
+    }
+
+
+    function getCookie(key) {
+        var str = document.cookie; //获取全部的cookie值 是一个字符串类型   "username=leson; nickname=大大雷"
+        var list = str.split(";"); //[username=leson,nickname=大大雷];
+        for (var i = 0; i < list.length; i++) {
+            var objStr = list[i]; //username=leson    nickname = 大大雷
+            var minList =objStr.split("="); //["username","leson"]
+            var sKey = minList[0].trim();//username
+            var sValue= minList[1].trim();//leson
+            if (sKey == key){
+                return sValue;
+            }
+        }
+        return "";
+    }
+
+    //    BAIDUID=41245E26551000BA829D5A06C9AC31DC:FG=1; PSTM=1478772852; BIDUPSID=5388DD77ACC3369B4CDC69ECFC73D3C7; pgv_pvi=9806920704; H_PS_PSSID=1451_21089_17001_21554_21670_20929; username=leson; MCITY=-218%3A"
+
+    //    "BAIDUID=41245E26551000BA829D5A06C9AC31DC:FG=1; PSTM=1478772852; BIDUPSID=5388DD77ACC3369B4CDC69ECFC73D3C7; ispeed_lsm=0; pgv_pvi=9806920704; MCITY=-218%3A; BD_HOME=0; H_PS_PSSID=1451_21089_17001_21554_21670_20929; BD_UPN=12314753; username=leson"
+
+</script>
+</html>

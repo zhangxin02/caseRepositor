@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解析cookie</title>
+</head>
+<body>
+
+</body>
+<script>
+    var str = "a0001_id=a0001; a0001_desc=脆脆面; a0001_pic=1.png; a0001_num=100; a0001_price=10; a0002_id=a0002; a0002_desc=康师傅; a0002_pic=2.jpg; a0002_num=100; a0002_price=5";
+
+    //需要从str中找出id a0001 a0002
+    //aaaaabbbbbcccc  a5b5c4
+    //大家好千锋我们都是千锋人
+    //统计千锋在字符串出现的字数
+
+//    var list = ["a0001","a0002"];
+    var idList = [];
+    for (var i = 0 ;i<str.length;i++){
+        var index = str.indexOf("_id",i);
+        if (index ==i){
+            var id = str.substring(index-5,index);
+            idList.push(id);
+        }
+    }
+    console.log(idList);
+
+
+
+
+
+
+//    for(var i = 0 ;i<list.length;i++){
+//        var id= list[i];
+//        var desc = id+"_desc";
+//        var pic = id+"pic"
+//        //在做一个动态添加就完成了
+//
+//    }
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增商品</title>
+</head>
+<body>
+<h2>
+    XXX商品管理系统 --- 入库操作
+</h2><br>
+商品编号:<input id="goodId" type="text"/><br><br>
+商品描述:<input id="goodDesc" type="text"/><br><br>
+商品图片:<input id="goodPic" type="text"/><br><br>
+商品数量:<input id="goodNum" type="text"/><br><br>
+商品单价:<input id="goodPrice" type="text"/><br><br>
+<button id="btn" type="button">入库</button>
+</body>
+<script src="js/cookie.js"></script>
+<script>
+    var btn = document.getElementById("btn");
+    var idInput = document.getElementById("goodId");
+    var descInput = document.getElementById("goodDesc");
+    var picInput = document.getElementById("goodPic");
+    var numInput = document.getElementById("goodNum");
+    var priceInput = document.getElementById("goodPrice");
+
+    btn.onclick = function () {
+        var id = idInput.value;
+        //全新的新增  和  数据的更新
+
+        var str = document.cookie;
+        if (str.indexOf(id) != -1) {
+                var num = getCookie(id+"_num");  //原有的数量
+                var updateNum = Number(num)+Number(numInput.value);
+                var updatePrice = priceInput.value;
+
+            setCookie(id + "_num", updateNum, 7);
+            setCookie(id + "_price", updatePrice, 7);
+
+        } else {
+            setCookie(id + "_id", id, 7);
+            setCookie(id + "_desc", descInput.value, 7);
+            setCookie(id + "_pic", picInput.value, 7);
+            setCookie(id + "_num", numInput.value, 7);
+            setCookie(id + "_price", priceInput.value, 7);
+        }
+    }
+
+
+</script>
+</html>

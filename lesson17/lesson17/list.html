@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>原生JS实现购物车结算功能代码</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<div class="catbox">
+    <table id="cartTable">
+        <thead>
+        <tr>
+            <th><label>
+                <input class="check-all check" type="checkbox"/>&nbsp;&nbsp;全选</label></th>
+            <th>商品</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>小计</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        </tbody>
+    </table>
+    <div class="foot" id="foot">
+        <label class="fl select-all"><input type="checkbox" class="check-all check"/>&nbsp;&nbsp;全选</label>
+        <a class="fl delete" id="deleteAll" href="javascript:;">删除</a>
+        <div class="fr closing" onclick="getTotal();">结 算</div>
+        <input type="hidden" id="cartTotalPrice"/>
+        <div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+        <div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件<span
+                class="arrow up">︽</span><span class="arrow down">︾</span></div>
+        <div class="selected-view">
+            <div id="selectedViewList" class="clearfix">
+                <div><img src="images/1.jpg"><span>取消选择</span></div>
+            </div>
+            <span class="arrow">◆<span>◆</span></span></div>
+    </div>
+</div>
+</body>
+<script src="js/cookie.js"></script>
+<script>
+    //这个页面一打开 就要根据保存的cookie去生成tr
+
+    init();
+
+    function init() {
+        var str = document.cookie;
+        var idList = []; //存放id的编号
+        for (var i = 0; i < str.length; i++) {  //筛选编号
+            var index = str.indexOf("_id", i);
+            if (index == i) {
+                var id = str.substring(index - 5, index);
+                idList.push(id);
+            }
+        }
+        var parent = document.getElementById("cartTable").getElementsByTagName("tbody")[0];
+//        var str = "a0001_id=a0001; a0001_desc=脆脆面; a0001_pic=1.png; a0001_num=100; a0001_price=10; a0002_id=a0002; a0002_desc=康师傅; a0002_pic=2.jpg; a0002_num=100; a0002_price=5";
+        //根据编号去获取具体数据
+        for (var i = 0; i < idList.length; i++) {
+            var id = idList[i];
+            var desc = getCookie(id + "_desc");
+            var pic = getCookie(id + "_pic");
+            var num = getCookie(id + "_num");
+            var price = getCookie(id + "_price");
+
+            var tr = document.createElement("tr");
+
+
+            var td = document.createElement("td");
+            td.className = "checkbox";
+            var input = document.createElement("input");
+            input.type = "checkbox"
+            input.className = "check-one check";
+            td.appendChild(input);
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            td.className = "goods"
+            var img = new Image();
+            img.src = "images/" + pic;
+            td.appendChild(img);
+            var span = document.createElement("span");
+            span.innerHTML = desc;
+            td.appendChild(span);
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            td.className = "price";
+            td.innerHTML = (price * 1).toFixed(2);
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            td.className = "count";
+            var span = document.createElement("span");
+            span.className = "reduce";
+            span.setAttribute("data-num", id + "_num");
+            if (price > 1) {
+                span.innerHTML = "-";
+            }
+            td.appendChild(span);
+            var input = document.createElement("input");
+            input.className = "count-input";
+            input.value = num;
+            td.appendChild(input);
+
+            var span = document.createElement("span");
+            span.className = "add";
+            span.innerHTML = "+";
+            span.setAttribute("data-num", id + "_num");
+            td.appendChild(span);
+
+            tr.appendChild(td);
+
+            var td = document.createElement("td");
+            td.className = "subtotal";
+            td.innerHTML = (num * price).toFixed(2);
+            tr.appendChild(td);
+
+
+            var td = document.createElement("td");
+            td.className = "operation";
+            var span = document.createElement("span");
+            span.className = "delete";
+            span.innerHTML = "删除";
+            span.setAttribute("data-id", id);
+            td.appendChild(span);
+
+            tr.appendChild(td);
+
+            parent.appendChild(tr);
+
+        }
+        /*
+         <tr>
+
+
+
+         <td class="operation"><span class="delete">删除</span></td>
+         </tr>
+         */
+
+    }
+
+
+    //因为+号的样式都一样  并且都执行一样的操作  所以要对每一个加号绑定相同的事件
+    //点击加号 获取相邻的上一个元素(input) 然后把你们的值 +1  然后显示-号
+    // 获取单价  然后与数量进行操作  最后更新小计
+    var addList = document.getElementsByClassName("add"); //找到所有的"+"号按钮
+    for (var i = 0; i < addList.length; i++) {
+        addList[i].onclick = function () {//给每一个按钮绑定点击事件
+//  alert("+号被点击了")
+            var input = previous(this);  //根据+号找到数字文本框
+            input.value = input.value * 1 + 1;
+            var reduce = previous(input); //根据input框 找到减号
+            reduce.innerHTML = "-";
+            var currentParent = this.parentNode; //找到父节点
+            var priceTd = previous(currentParent); //然后根据父节点找到单价
+            var price = priceTd.innerHTML * 1;
+            var subtotalTd = next(currentParent); //根据父节点找到小计
+            subtotalTd.innerHTML = ( price * (input.value * 1)).toFixed(2);//更新小计
+            showTotalAndPrice();
+
+//            alert(this.getAttribute("data-num"));
+            var key = this.getAttribute("data-num");
+            setCookie(key, input.value);
+        }
+    }
+
+
+    var reduceList = document.getElementsByClassName("reduce"); //找到所有的减号
+    for (var i = 0; i < reduceList.length; i++) {
+        reduceList[i].onclick = function () {  //给每一个减号  绑定一个点击事件
+            var input = next(this);  //根据+号找到数字文本框
+            //判断减号("-")号是否出现
+            /*
+             if (input.value == "1") {
+
+             } else {
+             input.value = input.value * 1 - 1;  //更新文本框框
+             var currentParent = this.parentNode; //找到父节点
+             var priceTd = previous(currentParent); //然后根据父节点找到单价
+             var price = priceTd.innerHTML * 1;
+             var subtotalTd = next(currentParent); //根据父节点找到小计
+             subtotalTd.innerHTML = ( price * (input.value * 1)).toFixed(2);//更新小计
+             if (input.value == "1") { //如果数量减少到了1   那么减号不显示
+             this.innerHTML = "";
+             }
+             }
+             */
+            if (input.value != "1") {
+                input.value = input.value * 1 - 1;  //更新文本框框
+                var currentParent = this.parentNode; //找到父节点
+                var priceTd = previous(currentParent); //然后根据父节点找到单价
+                var price = priceTd.innerHTML * 1;
+                var subtotalTd = next(currentParent); //根据父节点找到小计
+                subtotalTd.innerHTML = ( price * (input.value * 1)).toFixed(2);//更新小计
+                if (input.value == "1") { //如果数量减少到了1   那么减号不显示
+                    this.innerHTML = "";
+                }
+                showTotalAndPrice();
+                var key = this.getAttribute("data-num");
+                setCookie(key, input.value);
+            }
+        }
+    }
+
+    //全选
+    //所有样式为check的按钮的状态 都应该跟check-all的状态一样
+    var checkAll = document.getElementsByClassName("check-all")[0];
+    var check = document.getElementsByClassName("check-one");
+    checkAll.onclick = function () {
+        for (var i = 0; i < check.length; i++) {
+            check[i].checked = this.checked;  //保持checke的状态一样
+            /*
+             if (checkAll.checked ==  true){
+             check[i].checked = true;
+             }else {
+             check[i].checked = false;
+             }
+             */
+
+        }
+        showTotalAndPrice();
+    };
+    for (var i = 0; i < check.length; i++) {
+        check[i].onclick = function () {
+            showTotalAndPrice();
+        }
+    }
+
+
+    function showTotalAndPrice() {
+        //根据check的状态去统计所有的数量  和 小计
+        var countTotal = 0;
+        var countPrice = 0;
+        for (var i = 0; i < check.length; i++) {
+            if (check[i].checked == true) {  //如果被选中了 然后获取数量和小计 进行累加
+                //根据checkbox去找数量和小计
+                //先找到tr  然后根据tr再去找td
+                var tr = check[i].parentNode.parentNode; //checkbox的 父辈的父辈
+                //然后在根据tr去找里面的子元素(td)
+//                var count = tr.children[3].children[1].value * 1;
+                //
+//                var count  = tr.getElementsByClassName("count-input")[0].value *1;
+                var count = tr.getElementsByTagName("input")[1].value * 1;
+                countTotal += count;  //数量更新
+                var price = tr.children[4].innerHTML * 1;
+                countPrice += price;
+            }
+        }
+        document.getElementById("selectedTotal").innerHTML = countTotal;
+        document.getElementById("priceTotal").innerHTML = countPrice.toFixed(2);
+    }
+
+    var deleteTr = document.getElementsByClassName("delete"); //删除
+    for (var i = 0; i < deleteTr.length; i++) {
+        deleteTr[i].onclick = function () { //每个删除事件  把tr从 table中删掉
+//            table.removeChild(tr);
+            var tr = this.parentNode.parentNode;
+            var table = tr.parentNode;
+            table.removeChild(tr);
+            showTotalAndPrice();
+            var id = this.getAttribute("data-id");
+            setCookie(id + "_id", "1", -1);
+            setCookie(id + "_desc", "1", -1);
+            setCookie(id + "_pic", "1", -1);
+            setCookie(id + "_num", "2", -1);
+            setCookie(id + "_price", "3", -1);
+
+        }
+    }
+    var deleteAll = document.getElementById("deleteAll");
+    deleteAll.onclick = function () {
+        for (var i = 0; i < check.length; i++) {
+            if (check[i].checked) {
+                var tr = check[i].parentNode.parentNode;
+                var table = tr.parentNode;
+                table.removeChild(tr);
+                i--;
+            }
+        }
+        showTotalAndPrice();
+    }
+
+    //查找指定元素的上一个兄弟节点
+    function previous(ele) {
+        if (ele.previousElementSibling) {
+            return ele.previousElementSibling;
+        } else {
+            return ele.previousSibling;
+        }
+    }
+    //查找指定元素的下一个兄弟节点
+    function next(ele) {
+        if (ele.nextElementSibling) {
+            return ele.nextElementSibling;
+        } else {
+            return ele.nextSibling;
+        }
+    }
+</script>
+</html>

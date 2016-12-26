@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>什么是cookie</title>
+</head>
+<body>
+用户名:<input id="username" type="text"/>
+</body>
+<script>
+//  百度的cookie  "BAIDUID=41245E26551000BA829D5A06C9AC31DC:FG=1; PSTM=1478772852; BIDUPSID=5388DD77ACC3369B4CDC69ECFC73D3C7; ispeed_lsm=0; pgv_pvi=9806920704; MCITY=-218%3A; BD_HOME=0; H_PS_PSSID=1451_21089_17001_21554_21670_20929; BD_UPN=12314753"
+
+//var date= new Date(); //表示今天
+//date.setDate(date.getDate()+3); //表示三天后
+//
+//document.cookie = "username=dalei;expires="+date;
+
+var username= document.cookie.split(";")[0].split("=")[1];
+ document.getElementById("username").value = username ;
+
+
+//设置cookie的属性和值 已经过期时间
+    
+
+</script>
+
+
+</html>
