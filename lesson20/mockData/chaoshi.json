@@ -1,0 +1,41 @@
+{
+  "error_code": "1",
+  "list": [
+    {
+      "itemId": "0001",
+      "desc":"圣诞促销",
+      "smallPic": [
+        "small1.jpg",
+        "small2.jpg",
+        "small3.jpg",
+        "small4.jpg"
+      ],
+      "bigPic": [
+        "big1.jpg",
+        "big2.jpg",
+        "big3.jpg",
+        "big4.jpg"
+      ],
+      "price": 160,
+      "num": 100
+    },
+    {
+      "itemId": "0002",
+      "desc":"元旦促销",
+      "smallPic": [
+        "girlsmall1.jpg",
+        "girlsmall2.jpg",
+        "girlsmall3.jpg",
+        "girlsmall4.jpg"
+      ],
+      "bigPic": [
+        "girlbig1.jpg",
+        "girlbig2.jpg",
+        "girlbig3.jpg",
+        "girlbig4.jpg"
+      ],
+      "price": 320,
+      "num": 10
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #warp {
+            position: relative;
+        }
+
+        #warp .box {
+            float: left;
+        }
+
+        #warp .box .content {
+            padding: 10px;
+            box-shadow: 2px 2px 2px 2px #cdcdcd;
+        }
+
+        #warp .box .content img {
+            width: 220px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="warp">
+    <div class="box">
+        <div class="content">
+            <img src="image/1.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/2.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/3.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/4.jpg"/>
+        </div>
+    </div>
+    <div class="box">
+        <div class="content">
+            <img src="image/5.jpg"/>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="content">
+            <img src="image/6.jpg"/>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    //知道瀑布流是定宽
+    //根据屏幕的宽度  知道一排放几个
+    //那么就可以找到第一排的高度 这是一个集合
+    //找到第一排高度的集合中最矮的一个
+    //找到最矮的那一个 就能找出他的height和left
+    //就可以把第一排下一个 放到最矮的下面  再把当前的元素 高度更新到第一排高度的集合中
+    //在下一个  继续执行上一步操作即可
+
+    window.onload = function () {
+        init();
+    };
+    window.onresize = function () {
+        init();
+    }
+
+    function init() {
+        //第一步需要知道第一排放几个
+        //需要用整个屏幕（浏览器）的宽度  /  单个box的宽度
+        var boxList = document.querySelectorAll(".box");
+        var maxWidth = document.body.scrollWidth || document.documentElement.scrollWidth;
+        // alert(maxWidth);
+        var singleBox = getStyleAttr(boxList[0], "width");
+        var num = Math.floor(maxWidth / singleBox); //第一排放的个数
+        var heightList = [];  //高度的集合
+        for (var i = 0; i < boxList.length; i++) {
+            if (i < num) {
+                boxList[i].style.position = "absolute";
+                boxList[i].style.left = i * singleBox + "px";
+                boxList[i].style.top = 0;
+                heightList[heightList.length] = getStyleAttr(boxList[i], "height");
+            } else {
+                //设置下一个left 和 top  就可以定位成功  找到heightList中 最小的高度（最小的值）
+                var minObj = getMin(heightList);
+                boxList[i].style.position = "absolute";
+//                boxList[i].style.left = minObj.index * singleBox + "px"; //获取最小高度的div 距离左边的值  然后赋值给当前的div
+//                boxList[i].style.top = minObj.height + getStyleAttr(boxList[minObj.index], "marginTop") + "px";
+
+                boxList[i].style.left = getStyleAttr(boxList[minObj.index], "left") + "px"; //获取最小高度的div 距离左边的值  然后赋值给当前的div
+                boxList[i].style.top = minObj.height + getStyleAttr(boxList[minObj.index], "top") + "px";
+                heightList[minObj.index] = minObj.height + getStyleAttr(boxList[i], "height");
+            }
+        }
+    }
+    //找到数组中最小的值
+    function getMin(arr) {
+        var min = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] <= min) {
+                min = arr[i];
+            }
+        }
+//        var index = getMinIndex(arr,min);
+        var index = arr.indexOf(min);
+        return {height: min, index: index};
+    }
+    //找到数组中最小值的索引
+    function getMinIndex(arr, min) {
+        var index = 0;
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] == min) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+    function getStyleAttr(obj, attr) {
+        if (window.getComputedStyle) {
+            return parseInt(window.getComputedStyle(obj)[attr]);
+        } else {
+            return parseInt(obj.currentStyle[attr]);
+        }
+    }
+
+</script>
+</html>
