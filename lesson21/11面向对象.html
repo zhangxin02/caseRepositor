@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+    Array.prototype.min = function () {
+        var min = this[0];
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] < min) {
+                min = this[i];
+            }
+        }
+        return min;
+    }
+    Array.prototype.minAndIndex = function () {
+        var min = this[0];
+        for (var i = 0; i < this.length; i++) {
+            if (this[i] < min) {
+                min = this[i];
+            }
+        }
+        var index = this.indexOf(min);
+        return {value:min,index:index};
+    }
+    var list = [1, 2, 6, 9, -3, 7];
+    alert(list.minAndIndex().index);
+
+    //预习原型链 call  apply
+    //this的指向
+</script>
+</html>

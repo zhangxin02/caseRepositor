@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+            width: 250px;
+            height: 60px;
+            border: 1px solid red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+
+    /**
+     *
+     * @param ele
+     * @param id
+     * @param className
+     * @param innerHTML
+     * @param event
+     * @param fn
+     * @returns {Element}
+     */
+    var dalei = {
+        factory: function (json) {
+            var element = document.createElement(json.ele);
+            element.id = json.id;
+            element.className = json.className;
+            element.innerHTML = json.innerHTML;
+            if (json.event) {element.addEventListener(json.event, json.fn);}
+            json.parent.appendChild(element);
+        }}
+ dalei.factory({
+        ele: "div",
+        id: "content",
+        className: "red",
+        innerHTML: "大雷创造的div",
+        parent: document.body,
+        event: "click",
+        fn: function () {
+            alert("红色div被打了");
+        }
+    });
+
+
+</script>
+</html>

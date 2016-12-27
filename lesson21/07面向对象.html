@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+
+    function car(name, color) {  //工厂模式
+        alert(this  === window);
+//        window.name = name;
+//        window.color = color;
+//        window.say = function () {
+//            alert(window.color + window.name);
+//        }
+//        return window;
+        this.name = name;
+        this.color = color;
+        this.say = function () {
+            alert(this.color + this.name);
+        }
+        return this;
+    }
+    //    object.say();
+    var BMW = car("宝马", "黑色");
+    BMW.say();
+
+    var BYD = car("比亚迪", "白色");
+    BYD.say();
+
+</script>
+</html>

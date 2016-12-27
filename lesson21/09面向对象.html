@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+    "use strict";
+    function car(name, color) {  //工厂模式
+        this.name = name;
+        this.color = color;
+        this.say = function () {
+            alert(this.color + this.name);
+        }
+        return this;
+    }
+    //    object.say();
+    //构造函数   使用new关键字 调用的函数  叫构造函数
+    // 构造函数里面 this指向构造函数本身
+    var BMW = new car("宝马", "黑色");
+    BMW.say();
+
+    var BYD = new car("比亚迪", "白色");
+    BYD.say();
+    //
+    //    window.say();
+</script>
+</html>

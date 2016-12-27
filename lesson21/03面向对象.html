@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+
+    function factory(name, color) {  //工厂模式
+        var car = new Object();
+        car.name = name;
+        car.color = color;
+        car.say = function () {
+            alert(this.color + this.name);
+        }
+        return car;
+    }
+    //    object.say();
+    var BMW = factory("宝马", "黑色");
+    BMW.say();
+
+    var BYD = factory("比亚迪", "白色");
+    BYD.say();
+
+</script>
+</html>

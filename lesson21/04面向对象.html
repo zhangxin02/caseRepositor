@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content" class="yellow">
+    我是div
+</div>
+
+</body>
+<script>
+
+    /**
+     *
+     * @param ele
+     * @param id
+     * @param className
+     * @param innerHTML
+     * @param event
+     * @param fn
+     * @returns {Element}
+     */
+    function factory(ele, id, className, innerHTML, event, fn) {  //工厂模式
+        var element = document.createElement(ele);
+        element.id = id;
+        element.className = className;
+        element.innerHTML = innerHTML;
+        if (event) {
+            element.addEventListener(event, fn);
+        }
+        return element;
+    }
+    var yellowDiv = factory("div", "content", "red", "我是黄色的div", "click", function () {
+        alert("黄色div被点击了");
+    });
+    document.body.appendChild(yellowDiv);
+
+
+</script>
+</html>

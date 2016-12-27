@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="input" type="text"/>
+</body>
+<script>
+    var object = new Object();
+    object.name = "leson";
+    object.age = 29;
+    object.say = function () {
+        alert("我是" + this.name + "今年" + this.age + "岁");
+    }
+    object.say();
+
+
+    //    alert(typeof  object);
+    //对象拥有属性  和 方法
+    //    var input = document.getElementById("input");
+    //    alert(typeof  input);
+    //    alert(input.id);
+    //    input.onfocus = function () {
+    //        alert("我获取了焦点");
+    //    }
+</script>
+</html>
