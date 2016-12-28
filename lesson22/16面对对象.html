@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div id="last">
+    4
+</div>
+</body>
+<script>
+    //利用JS封装常用的DOM操作
+
+    //第一步找元素
+    //    var div = document.querySelectorAll("div");
+    //    for (var i = 0; i < div.length; i++) {
+    //        div[i].style.display = "none";
+    //    }
+    function ele(eleName) {
+        this.element = document.querySelectorAll(eleName);
+        return this;
+    }
+
+    ele.prototype.each = function (fn) {
+        for (var i = 0; i < this.element.length; i++) {
+            fn.apply(this.element[i]);
+        }
+    }
+
+    ele.prototype.hide = function () {
+        this.each(function () {
+            this.style.display = "none";
+        })
+    }
+
+    ele.prototype.show = function () {
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].style.display = "block";
+//        }
+
+        this.each(function () {
+            this.style.display = "block";
+        })
+    }
+    ele.prototype.html = function (html) {
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].innerHTML = html;
+//        }
+        this.each(function () {
+            this.innerHTML = html;
+        })
+    }
+    ele.prototype.className = function (className) {
+//        debugger;
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].className = className;
+//        }
+        this.each(function () {
+            this.className = className;
+        })
+    }
+    ele.prototype.eq = function (index) {
+        var list = [];
+        list[list.length] = this.element[index];
+        this.element = list;
+        return this;
+    }
+    function $(eleName) {
+        return new ele(eleName);
+    }
+    $("div").eq(0).className("red");
+
+
+</script>
+</html>

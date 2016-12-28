@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.red{
+				background: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div>1</div>
+		<div>2
+		<span>2-1</span><span>2-2</span></div>
+		<div>3</div>
+	</body>
+	<script>
+		function init(eleName) {
+			this.elements = document.querySelectorAll(eleName);
+		}
+
+		function $(eleName) {
+			return new init(eleName);
+		}
+		/*
+		 * 为了避免每次都实例化，这里就在一次封装
+		 * var p = new init("div");
+		 * alert(p.elements.length);
+		 * 下次使用的时候就可以直接用$("div")去直接使用了
+		 * $("div").elements.length
+		 */
+
+		/*
+		 * 出现了很多重复的代码，在一次进行封装
+		 * init.prototype.hide=function(){
+			for(var i=0;i<this.elements.length;i++){
+				this.elements[i].style.display = "none";
+			}
+			}
+			init.prototype.show=function(){
+				for(var i=0;i<this.elements.length;i++){
+					this.elements[i].style.display="block";
+				}
+			}
+			$("div").hide();		
+			setTimeout(function(){
+				$("div").show();
+			},1000);
+		* 
+		* */
+
+		init.prototype.each = function(fn) {
+			for(var i = 0; i < this.elements.length; i++) {
+				//fn.call(this.elements[i]);
+				//直接把要处理的东西给调用者，至于如何处理就是调用者做的事情
+				fn.apply(this.elements[i]);
+			}
+		}
+		init.prototype.hide = function() {
+			this.each(function() {
+				this.style.display = "none";
+			});
+			return this;
+		}
+		init.prototype.show = function() {
+			this.each(function() {
+				this.style.display = "block";
+			});
+			return this;
+		}
+		init.prototype.html = function(html) {
+			if(html) {
+				this.each(function() {
+					this.innerHTML = html;
+				});
+			} else {
+				return this.elements[0].innerHTML;
+			}
+			return this;
+		}
+		init.prototype.click=function(fn){
+			var that=this;
+			this.each(function(){
+				this.onclick=function(){
+					//this.innerHTML="sss";因为上面的已经封装了html此时可以直接用
+					//注意这里的this指向,因为我下面要使用到init里面的扩展方法
+					//如果这里直接使用this，那么就会所点击的HTML对象，我们所写的扩展方法都是在init上写的，因此这个指向就不对。alert(this);					
+					fn(that);
+				}
+			});
+		}
+		
+		init.prototype.classname=function(classname){
+			this.each(function(){
+				this.className=classname;
+			});
+			return this;
+		}
+
+		/*
+		 * 此时会出现错误，因为函数一执行完成后，就结束了，因此show()结束后就没办法在使用html()
+		 * 解决此问题就需要将每一个扩展方法都进行返回
+		 * 此时就不会出现该错误
+		$("div").hide();
+		setTimeout(function() {
+			$("div").show().html("sss");//Cannot read property 'html' of undefined
+		}, 1000);
+		*/
+
+		init.prototype.eq = function(index) {
+				var temp = [];
+				temp[temp.length] = this.elements[index];
+				this.elements = temp;
+				return this;
+			}
+			//指定某一个改变其html
+		$("div").eq(0).html("sss");
+
+		//获取属性，直接对现有的方法进行判断
+		//alert($("div").eq(0).html());
+		
+		//添加属性
+		//$("div").eq(1).click();
+		
+		$("div").eq(1).classname("red").click(function(obj){
+			//alert(obj.html());
+			obj.html("zhanginx").classname("");
+		});
+	</script>
+
+</html>

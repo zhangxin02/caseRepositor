@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var person = new Object();
+    person.name = "leson";
+
+    person.constructor.prototype.say = function () {
+        alert("hello" + this.name);
+    }
+
+    person.say();
+
+</script>
+</html>

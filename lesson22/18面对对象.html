@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div>
+ <span>
+     1-1
+ </span>
+    <span>1-2</span>
+    <span>1-2</span>
+
+</div>
+<div>
+ <span>
+     2-1
+ </span>
+    <span>2-2</span>
+    <span>2-2</span>
+</div>
+<div id="last">
+  <span>
+     3-1
+ </span>
+    <span>3-2</span>
+    <span>3-2</span>
+</div>
+</body>
+<script>
+    //利用JS封装常用的DOM操作
+
+    //第一步找元素
+    //    var div = document.querySelectorAll("div");
+    //    for (var i = 0; i < div.length; i++) {
+    //        div[i].style.display = "none";
+    //    }
+    function ele(parent, child) {
+        var context = null;
+        if (!child) {
+            context = document;
+        } else {
+            context = document.querySelector(parent);
+        }
+        this.element = context.querySelectorAll(child);
+        return this;
+    }
+
+    ele.prototype.each = function (fn) {
+        for (var i = 0; i < this.element.length; i++) {
+            fn.apply(this.element[i]);
+        }
+    }
+
+    ele.prototype.hide = function () {
+        this.each(function () {
+            this.style.display = "none";
+        })
+    }
+
+    ele.prototype.show = function () {
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].style.display = "block";
+//        }
+
+        this.each(function () {
+            this.style.display = "block";
+        })
+    }
+    ele.prototype.html = function (html) {
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].innerHTML = html;
+//        }
+        this.each(function () {
+            this.innerHTML = html;
+        });
+        return this;
+
+
+    }
+    ele.prototype.className = function (className) {
+//        debugger;
+//        for (var i = 0; i < this.element.length; i++) {
+//            this.element[i].className = className;
+//        }
+        this.each(function () {
+            this.className = className;
+        });
+        return this;
+    }
+    ele.prototype.click = function (fn) {
+        var that = this;
+        this.each(function () {
+            this.onclick = function () {
+                fn(that);
+            }
+        })
+    }
+    ele.prototype.eq = function (index) {
+        var list = [];
+        list[list.length] = this.element[index];
+        this.element = list;
+        return this;
+    }
+    /**
+     *
+     * @param parent
+     * @param child
+     * @returns {ele}
+     */
+    function $(parent, child) {
+        return new ele(parent, child);
+    }
+
+    //    alert($("div", "span"));
+    $("#last", "span").eq(1).html("全部干掉").className("red").click(function (obj) {
+//        alert(obj);
+        obj.html("点击完 我就变回去了").className("");
+    });
+
+</script>
+</html>

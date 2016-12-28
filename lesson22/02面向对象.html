@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+<!--<button id="btn" onclick="show()">按钮</button>-->
+<button id="btn">按钮</button>
+</body>
+<script>
+    var show = function () {
+        alert(this);
+    }
+    var btn = document.getElementById("btn");
+    //    btn.onclick = (function () {
+    //        alert(this);
+    //    })();
+    btn.onclick = show;
+    //    // 函数属于谁 this指向谁
+    //    window.show = function () {
+    //        alert(this);
+    //    }
+
+
+</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div id="last">
+    4
+</div>
+</body>
+<script>
+    //利用JS封装常用的DOM操作
+    function ele(eleName) {
+        this.elements = document.querySelectorAll(eleName); //返回的是一个集合
+    }
+    ele.prototype.hide = function () {  //找出每一个元素
+        for (var i of this.elements) {
+            i.style.display = "none";
+        }
+        return this;
+    }
+    ele.prototype.show = function () {  //找出每一个元素
+        for (var i of this.elements) {
+            i.style.display = "block";
+        }
+        return this
+    }
+    ele.prototype.className = function (className) {  //找出每一个元素
+        for (var i of this.elements) {
+            i.className = className;
+        }
+        return this;
+    }
+    function $(eleName) {
+        return new ele(eleName)
+    }
+
+    $("div").hide().show().className("red");
+
+</script>
+</html>

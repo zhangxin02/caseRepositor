@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //通过原型 我们可以做到继承和数据共享
+    //对于构造函数而已 直接使用prototype
+    //对于普通的对象   只用内部原型(__proto__) 或者constructor.prototype
+
+    //call/apply
+    "use strict";
+    var person = {name: "leson"};
+    var person1 = {name: "lulu"};
+    //    window.name = "lulu";
+    function say() {
+        alert("hi:" + this.name);
+    }
+    say.apply(person);  //call的第一个参数  就是用来改变 谁调用call 中的this
+    //    function say(json) {
+    //        alert("hi:" + json.name);
+    //    }
+    //    say(person);  //call的第一个参数  就是用来改变 谁调用call 中的this
+
+    //this的四种指向
+    //window
+    //对象
+    //构造函数
+    //call/apply改变this的指向  只向第一个参数
+
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div>
+    4
+</div>
+</body>
+<script>
+    //    var div = document.querySelectorAll("div");
+    //    //如何将所有的div都隐藏
+    //    for (var i = 0; i < div.length; i++) {
+    //        div[i].style.display = "none";
+    //    }
+    //如何对象化
+    HTMLElement.prototype.hide = function () {
+        this.style.display = "none";
+    }
+
+    //    var div = document.querySelectorAll("div")[0];
+    //    alert(div);
+    //    div.hide();
+    var arr = [1, 4, 5];
+    for (var i  in arr) {
+        alert(i);
+    }
+    //给一个对象类型 做扩展和原型的时候 就尽量写到  相近的对象类型上
+</script>
+</html>

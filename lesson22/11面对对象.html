@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div id="last">
+    4
+</div>
+</body>
+<script>
+    //构造函数来实现 页面元素的操作
+    function ele(ele) {
+        this.elements = document.querySelectorAll(ele);
+    }
+
+    ele.prototype.each = function (fn) {
+        for (var i of this.elements) {
+//            i.style.display = "none";
+            fn.call(i);
+        }
+    }
+
+    ele.prototype.hide = function () {
+//        this.element.style.display = "none";
+//        for (var i of this.elements) {
+//            i.style.display = "none";
+//        }
+        this.each(function () {
+            this.style.display = "none";
+        })
+    }
+    ele.prototype.show = function () {
+//        for (var i of this.elements) {
+//            i.style.display = "block";
+//        }
+        this.each(function () {
+            this.style.display = "block";
+        })
+    }
+    ele.prototype.className = function (className) {
+//        for (var i of this.elements) {
+//            i.className = className;
+//        }
+        this.each(function () {
+            this.className = className;
+        })
+    }
+    function $(element) {
+        return new ele(element)
+    }
+    $("div").hide();
+    $("div").className("red");
+    setTimeout(function () {
+        $("div").show();
+    }, 1000)
+</script>
+</html>

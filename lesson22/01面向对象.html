@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+</body>
+<script>
+    Array.prototype.min = function () {
+        return Math.min.apply(null, this);
+    }
+    var arr = [1, 3, 6, -1, 10];
+    //    alert(arr.min());
+    // for(var  i in  arr){
+    // }
+    //    for (var i of arr){
+    //        alert(i);
+    //    }
+    //   arr.forEach(function (value) {
+    //        alert(value);
+    //    })
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div>
+ <span>
+     1-1
+ </span>
+    <span>1-2</span>
+    <span>1-2</span>
+
+</div>
+<div>
+ <span>
+     2-1
+ </span>
+    <span>2-2</span>
+    <span>2-2</span>
+</div>
+<div id="last">
+  <span>
+     3-1
+ </span>
+    <span>3-2</span>
+    <span>3-2</span>
+</div>
+</body>
+<script>
+    var ele = {
+        init: function (json) {
+            this.element = document.querySelectorAll(json.eleName);
+            return this;
+        },
+        each: function (fn) {
+            for (var i = 0; i < this.element.length; i++) {
+                fn.call(this.element[i]);
+            }
+        },
+        hide: function () {
+            this.each(function () {
+                this.style.display = "none";
+            })
+        },
+        show: function () {
+            this.each(function () {
+                this.style.display = "block";
+            })
+        },
+        html: function (html) {
+            this.each(function () {
+                this.innerHTML = html;
+            })
+            return this;
+        },
+        className: function (className) {
+            this.each(function () {
+                this.className = className;
+            })
+        },
+
+    };
+
+    ele.init({eleName: "div"}).html("改变之后变红色").className("red");
+
+</script>
+</html>

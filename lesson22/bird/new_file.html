@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--背景-->
+		<!--<div id="sence" style="border:5px solid orange;width:800px;height:500px;margin:100px auto;background:url(bg.jpg) 0px 0px;position:relative;>-->
+
+		<div id="sence" style="border:5px solid orange;width:800px;height:500px;margin:100px auto;background:url(big.jpg) 0px 0px;position:relative;overflow:hidden;" onClick="jump()">
+
+			<!--小鸟-->
+			<div id="bird" style="background:url(bird_Sprite.png) center center;width:40px;height:28px;position:absolute;top:300px;left:100px"></div>
+			<!--柱子1-->
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:500px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<!--柱子2-->
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:800px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<!--柱子3-->
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1100px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<!--柱子4-->
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1400px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<!--柱子5-->
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1700px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+		</div>
+	</body>
+
+	<script>
+//创建背景对象
+var bg = {
+	x: 0,
+	y: 0,
+	//位移速度
+	vx: -1,
+	vy: 0,
+	//移动方法
+	move: function() {
+		//只进行移动的数值计算
+		this.x += this.vx;
+	},
+	draw: function() {
+		//将移动之后的数据绘制到页面
+		sence.style.backgroundPosition = this.x + 'px 0px';
+	}
+};
+//小鸟对象
+var birdObj = {
+		//位置
+		x: 100,
+		y: 200,
+		//速度
+		vx: 0,
+		vy: 2,
+		//计数器  计算小鸟翅膀计数
+		ct: 0,
+		//翅膀样式
+		flyStyle: 'center',
+		//加速度
+		ax: 0,
+		ay: 0.5,
+		//挥动翅膀
+		fly: function() {
+			//在不同的事件更换小鸟的翅膀背景
+			if(this.ct % 30 == 0) {
+				this.flyStyle = 'top';
+			} else if(this.ct % 20 == 0) {
+				this.flyStyle = 'center';
+			} else if(this.ct % 10 == 0) {
+				this.flyStyle = 'bottom';
+			}
+			//将当前计数+1
+			this.ct++;
+		},
+		//小鸟弹跳的方法
+		jump: function() {
+			this.vy = -10;
+		},
+		//计算移动方法
+		move: function() {
+			//计算速度  速度=加速度*时间
+			this.vy = this.vy + this.ay * 1;
+			//垂直位移  位置=位置+速度*时间
+			this.y = this.y + this.vy * 1;
+		},
+		//绘制小鸟方法
+		draw: function() {
+			//更新翅膀样式
+			bird.style.backgroundPosition = this.flyStyle + ' center';
+			bird.style.top = this.y + 'px';
+		}
+	}
+	//建立管子对象  
+	//获取所有的管子对象5个
+var pipes = document.getElementsByClassName('pipe');
+//创建一个空数组
+var guans = [];
+//遍历所有的管子 创建对象
+for(var i = 0; i < pipes.length; i++) {
+	//创建一个管子的数据对象
+	guans[i] = {
+		//位置
+		x: 500 + 300 * i,
+		//随机y轴位置
+		y: -300 + (Math.round(Math.random() * 100) * (Math.random() > 0.5 ? 1 : -1)),
+		//位移
+		vx: -2,
+		vy: 0,
+		//检测管子是否移出屏幕
+		check: function() {
+			//一旦管子移出屏幕
+			if(this.x <= -65) {
+				//将当前管子移动到其他管子之后，作为最后一根管子
+				this.x = 1500 - 65;
+				//再次重置垂直位置
+				this.y = -300 + (Math.round(Math.random() * 100) * (Math.random() > 0.5 ? 1 : -1));
+			}
+		},
+		//计算
+		move: function() {
+			//计算水平移动
+			this.x += this.vx;
+		},
+		//绘制方法
+		draw: function() {
+				//将当前元素的位置设置在页面中
+				this.pipe.style.top = this.y + 'px';
+				this.pipe.style.left = this.x + 'px';
+			}
+			//将管子的标签对象添加到数据对象中
+	}
+	guans[i].pipe = pipes[i];
+}
+console.log(guans);
+//点击屏幕，触发小鸟调高
+
+function jump() {
+	birdObj.jump();
+}
+
+setInterval(function() {
+	//背景移动
+	bg.move();
+	bg.draw();
+	//管子操作
+	for(var i = 0; i < guans.length; i++) {
+		//检测管子是否到最左侧
+		guans[i].check();
+		//调用没跟管子的计算方法
+		guans[i].move();
+		//将计算完的数据画上去
+		guans[i].draw();
+	}
+	//小鸟操作
+	birdObj.fly();
+	birdObj.move();
+	birdObj.draw();
+}, 1000 / 30);
+
+	</script>
+
+</html>

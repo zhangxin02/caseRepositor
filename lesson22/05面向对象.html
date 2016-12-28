@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var obj = {
+        getName: function () {
+            alert(this.name);
+        }
+    }
+    var leson = {
+        name: "leson",
+        __proto__: obj
+    }
+    leson.getName();
+
+
+    //    var obj2 = {
+    //        getSay: function () {
+    //            alert("hi" + this.name);
+    //        }
+    //    }
+    var obj2 = new Object();
+    obj2.constructor.prototype.getSay = function () {
+        alert("hi" + this.name);
+    }
+    var lulu = new Object();
+    lulu.name = "lulu";
+    lulu.constructor.prototype = obj2;
+    lulu.getSay();
+
+</script>
+</html>

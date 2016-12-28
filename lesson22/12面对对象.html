@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div id="last">
+    4
+</div>
+</body>
+<script>
+    //构造函数来实现 页面元素的操作
+    function ele(ele) {
+        this.elements = document.querySelectorAll(ele);
+    }
+    //遍历元素  然后把每一个元素都可以返回出去
+    ele.prototype.each = function (fn) {
+//        for (var i of this.elements) {
+//            fn.call(i);
+//        }
+        for (var i = 0; i < this.elements.length; i++) {
+            fn.call(this.elements[i]);
+        }
+    }
+    //隐藏
+    ele.prototype.hide = function () {
+        this.each(function () {
+            this.style.display = "none";
+        })
+    }
+    //显示
+    ele.prototype.show = function () {
+        this.each(function () {
+            this.style.display = "block";
+        })
+    }
+    //设置样式
+    ele.prototype.className = function (className) {
+        this.each(function () {
+            this.className = className;
+        })
+    }
+    //设置内容
+    ele.prototype.html = function (html) {
+        this.each(function () {
+            this.innerHTML = html;
+        })
+    }
+    ele.prototype.eq = function (index) {
+        var list = [];
+        list.push(this.elements[index])
+        this.elements = list;
+        return this;
+    }
+    function $(element) {
+        return new ele(element)
+    }
+    $("div").eq(2).html("aaa")
+    //    $("div").hide();
+    //    $("div").className("red");
+    //    setTimeout(function () {
+    //        $("div").show();
+    //    }, 1000)
+</script>
+</html>

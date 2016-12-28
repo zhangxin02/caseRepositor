@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+<div>
+    2
+</div>
+<div>
+    3
+</div>
+<div id="last">
+    4
+</div>
+</body>
+<script>
+    //构造函数来实现 页面元素的操作
+    function ele(ele) {
+        this.element = document.querySelector(ele);
+    }
+    ele.prototype.hide = function () {
+        this.element.style.display = "none";
+    }
+    function $(element) {
+        return new ele(element)
+    }
+    $("div").hide();
+
+</script>
+</html>

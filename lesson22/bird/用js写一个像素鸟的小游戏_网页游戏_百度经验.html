@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://jingyan.baidu.com/album/48a42057e6d3bda925250441.html?picindex=1 -->
+<html><!--STATUS OK--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta charset="utf-8"><title>
+用js写一个像素鸟的小游戏_网页游戏_百度经验</title><link rel="shortcut icon" href="http://jingyan.baidu.com/favicon.ico?v=2" type="image/x-icon"><link rel="icon" sizes="any" mask="" href="https://www.baidu.com/img/baidu.svg">
+<script src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/hm.js"></script><script>
+    window.alogObjectConfig = {
+        sample: '0.12', 
+ 
+        product: '132',  
+        page: '132_1210',  
+ 
+        speed: {
+            sample: '0.12'   
+        },
+ 
+        monkey: {
+            sample: '0.12'   
+        },
+ 
+        exception: { 
+            sample: '0.12'   
+        },
+ 
+        feature: {
+            sample: '0.12'   
+        },
+ 
+        cus: {
+            sample: '0'   
+        },
+ 
+        csp: {
+            sample: '0.12',  
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.baidustatic.com,*.baiduimg.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com,*.baidubce.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    void function(a,b,c,d,e,f,g){if(a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,"https:"===a.location.protocol){if(d="https://gss2.bdstatic.com/70cFsjip0QIZ8tyhnq"+d,!a.alogObjectConfig||!a.alogObjectConfig.sample)return}else d="http://img.baidu.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d,g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>
+
+<meta name="keywords" content="用js写一个像素鸟的小游戏,网页游戏,游戏,游戏/数码">
+
+<meta name="description" content="用js写一个像素鸟的小游戏,通过javacrit这门语言，然后结合html的来写一个简单的小游戏">
+<script type="text/javascript">!function(){var n={},e={};n.context=function(n,r){var t=arguments.length;if(t>1)e[n]=r;else if(1==t){if("object"!=typeof n)return e[n];for(var i in n)n.hasOwnProperty(i)&&(e[i]=n[i])}else if(0==t)return e},"F"in window||(window.F=n)}();;</script><!--[if lt IE 9]><script type="text/javascript" src="/static/common/tool/html5.js"></script><![endif]--><script>var _hmt = _hmt || []; (function() { var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?46c8852ae89f7d9526f0082fafa15edd"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); })();</script><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_sync_css_0_5927623.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_async_css_0_c0c8ce4.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/step_4b9ccdb.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/redbox_9454f10.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/userbar_df8ff91.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/special-msg_ef1eb33.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/go-and-see_d818767.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/douniwan_6ec14e6.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/school2016_b4c6cb1.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/badge_2385538.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/super-2016_46f8488.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/msg_8ee3316.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/amazing-2016_b458231.css"><link rel="stylesheet" type="text/css" href="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/jquery-ui_b267e37.css"><script> 
+	if(typeof(alog) !== 'undefined') {
+		alog('speed.set', 'ht', +new Date); 
+	}
+</script></head>
+<body class=""><header class="header">
+<div class="top clearfix">
+<div class="top-left">
+<a href="http://jingyan.baidu.com/article/48a42057e6d3bda925250441.html" class="back" log="type:2016,module:step,page:index,pos:header_back,action:click,expGroup:G0"></a>
+</div>
+<div class="top-right">
+<ul class="options clearfix">
+<li>
+<a href="javascript:;" id="vote-btn" class="vote" log="type:2016,module:step,page:index,pos:header_vote,action:click">
+<b class="num">0</b>
+<b class="hover-tip">投票</b>
+<b class="tip">已投票</b>
+</a>
+</li>
+<li>
+<a href="javascript:;" id="favor-btn" class="favor" log="type:2016,module:step,page:index,pos:header_favor,action:click">
+<b class="num">0</b>
+<b class="hover-tip">收藏+1</b>
+<b class="tip">已收藏</b>
+</a>
+</li>
+</ul>
+</div>
+<div class="title" id="exp-title" style="left: 215px;">
+<h1>
+用js写一个像素鸟的小游戏
+<div class="audio-wp" data-title="" data-text="" data-for="" style="display: inline-block;">
+<span class="audio-inner">
+<span class="audio-icon"></span><span class="audio-icon-2"></span><span class="audio-icon-3"></span></span>
+<span class="desc">听语音</span>
+</div>
+</h1>
+</div>
+<form action="http://jingyan.baidu.com/search" name="step-search-form" method="get" id="step-search-form" class="step-search-form" style="display: block; left: 886px; width: 330px;">
+<input class="keyword" id="keyword" autocomplete="off" maxlength="256" tabindex="1" size="23" name="word" placeholder="请输入搜索内容" value="" style="width: 250px;">
+<input type="submit" id="submit" class="submit" value="搜索经验">
+</form>
+</div>
+</header>
+<div class="waiting-step-loading" id="waiting-step-loading" style="display: none;">
+<div class="tip-placehoder"></div>
+<div class="loading-tip">
+<p class="exp-tip">
+百度经验</p>
+<p class="loading-data-tip">
+页面数据加载中...</p>
+</div>
+</div>
+<section class="body-wrapper"><section class="body" id="body" style="height: 470px;">
+<div class="step-container">
+<div class="left-cover" id="left-cover" style="height: 470px; width: 215px;">
+<div class="previous-arrow"></div>
+</div>
+<div class="step-play-container" id="step-play-container" style="left: 215px;">
+<div class="step-play-list" id="step-play-list" style="left: -920px;">
+<div class="step-item-container step-item-brief clearfix" id="step-item-0">
+<div class="writer-info left" id="brief-writer-info" style="height: 469px;">
+<div class="place_holder" style="height: 13%"></div>
+<div class="writer-info-inner" style="height: 74%">
+<div class="writer-portrait">
+<a href="http://jingyan.baidu.com/user/npublic?un=%E5%B0%B9%E4%BA%AE%E4%BA%AE%E5%B0%B9%E4%BA%AE%E4%BA%AE" target="_blank" title="尹亮亮尹亮亮" class="writer-portrait-container">
+<img src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/ef0fe5b0b9e4baaee4baaee5b0b9e4baaee4baae952e.jpg" title="尹亮亮尹亮亮" width="87px" height="87px" alt="尹亮亮尹亮亮">
+<div class="portrait-cover"></div>
+</a>
+</div>
+<div class="writer-basic">
+<div class="writer-basic-name">
+尹亮亮尹亮亮
+</div>
+<div class="icon-wrp">
+<div class="icon-huiz">
+</div>
+</div>
+</div>
+</div>
+<div class="place_holder" style="height: 13%"></div>
+</div>
+<div class="brief-info left">
+<div class="place_holder" style="height:9%"></div>
+<div class="brief-info-inner brief-info-inner-withoutimg clearfix" style="height: 70%">
+<div class="brief-info-text left">
+<span class="left-quote" id="brief-left-quote" style="top: 133.5px;"></span>
+<div class="step-text-wrapper brief-text-area" texttype="brief-text-area" id="step-text-wrapper-0" style="position: absolute; top: 133.5px;">
+<p>通过javascript这门语言，然后结合html的来写一个简单的小游戏</p>
+</div>
+<span class="right-quote" id="brief-right-quote" style="display: block; bottom: 133.5px;"></span>
+</div>
+</div>
+<div class="place_holder" style="height: 15%"></div>
+</div>
+</div>
+<div class="step-item-container" id="step-item-1">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/3
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-1">
+<p>背景</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="2" style="height: 346px;">
+<div class="img-cover" style="height: 500px; width: 276px; margin-top: -77px;">
+<div class="inner-img-cover" data-src="21e5582309f79052141afcd009f3d7ca7acbd59c" style="height: 500px; width: 276px;"></div>
+<img src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/b999a9014c086e0691ad84a507087bf40bd1cbd3.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=77d525ba064f78f0800b9bfb49300a83/b999a9014c086e0691ad84a507087bf40bd1cbd3.jpg" _height="500" _width="276"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-2">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">2</span>/3
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-2">
+<p>精灵</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="2" style="height: 346px;">
+<div class="img-cover" style="height: 84px; width: 40px; margin-top: 0px;">
+<div class="inner-img-cover" data-src="d7c9ca3f8794a4c25db35cc50bf41bd5ac6e3908" style="height: 84px; width: 40px;"></div>
+<img src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/838ba61ea8d3fd1f619919d4354e251f94ca5f4f.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=a5986b03e21190ef01fb93d7fe199df7/838ba61ea8d3fd1f619919d4354e251f94ca5f4f.jpg" _height="84" _width="40"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-3">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">3</span>/3
+</h3>
+</header>
+<div class="step-text-wrapper img-text-area" texttype="img-text-area" id="step-text-wrapper-3">
+<p>障碍物</p>
+</div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="2" style="height: 346px;">
+<div class="img-cover" style="height: 450px; width: 60px; margin-top: -52px;">
+<div class="inner-img-cover" data-src="8759287adab44aed70c7050ab61c8701a08bfb10" style="height: 450px; width: 60px;"></div>
+<img src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/72f082025aafa40f154f7533ae64034f79f01956.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=93a5fc554210b912bfc1f7f6f3fffcb5/72f082025aafa40f154f7533ae64034f79f01956.jpg" _height="450" _width="60"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-4">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-textimg-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/1
+</h3>
+<h3 class="step-item-title">
+写html将背景，精灵，障碍物在网页上面给显示出来
+</h3>
+</header>
+<div id="tangram-scrollpanel--TANGRAM$3-main" class="tangram-scrollpanel-main" data-guid="TANGRAM$3" style="width: 270px; height: 283px;"><div id="tangram-scrollpanel--TANGRAM$3" class="tangram-scrollpanel"><div id="tangram-scrollpanel--TANGRAM$3-panel" class="tangram-scrollpanel-panel" style="float: left;"><div class="step-text-wrapper img-text-area-withhead" texttype="img-text-area-withhead" id="step-text-wrapper-4" style="height: 283px; width: 261px;">
+<p>&lt;!--背景--&gt;</p><p>		&lt;div id="sence" style="border:5px solid orange;width:800px;height:500px;margin:100px auto;background:url(bg.jpg) 0px 0px;position:relative;overflow:hidden""&gt;</p><p>			</p><p>			&lt;!--小鸟--&gt;</p><p>			&lt;div id="bird" style="background:url(bird_Sprite.png) center center;width:40px;height:28px;position:absolute;top:300px;left:100px"&gt;&lt;/div&gt;</p><p>			</p><p>			</p><p>			&lt;!--柱子1--&gt;</p><p>			&lt;div class="pipe" style="height:1000px;width:60px;position:absolute;left:500px;top:-300px"&gt;</p><p>					&lt;img src="pipe.png" style="margin-bottom:150px"&gt;</p><p>					&lt;img src="pipe.png"&gt;</p><p>			&lt;/div&gt;</p><p>			</p><p>			&lt;!--柱子2--&gt;</p><p>			&lt;div class="pipe" style="height:1000px;width:60px;position:absolute;left:800px;top:-300px"&gt;</p><p>					&lt;img src="pipe.png" style="margin-bottom:150px"&gt;</p><p>					&lt;img src="pipe.png"&gt;</p><p>			&lt;/div&gt;</p><p>			</p><p>			&lt;!--柱子3--&gt;</p><p>			&lt;div class="pipe" style="height:1000px;width:60px;position:absolute;left:1100px;top:-300px"&gt;</p><p>					&lt;img src="pipe.png" style="margin-bottom:150px"&gt;</p><p>					&lt;img src="pipe.png"&gt;</p><p>			&lt;/div&gt;</p><p>			</p><p>			&lt;!--柱子4--&gt;</p><p>			&lt;div class="pipe" style="height:1000px;width:60px;position:absolute;left:1400px;top:-300px"&gt;</p><p>					&lt;img src="pipe.png" style="margin-bottom:150px"&gt;</p><p>					&lt;img src="pipe.png"&gt;</p><p>			&lt;/div&gt;</p><p>			</p><p>			&lt;!--柱子5--&gt;</p><p>			&lt;div class="pipe" style="height:1000px;width:60px;position:absolute;left:1700px;top:-300px"&gt;</p><p>					&lt;img src="pipe.png" style="margin-bottom:150px"&gt;</p><p>					&lt;img src="pipe.png"&gt;</p><p>			&lt;/div&gt;</p><p>		&lt;/div&gt;</p><p>&lt;!--显示效果如下所示--&gt;</p>
+</div></div><div id="tangram-scrollpanel--TANGRAM$3-overflow-y" class="tangram-scrollpanel-overflow-y" data-guid="TANGRAM$4" style="float: left; width: 9px; height: 283px;"><div id="tangram-scrollbar--TANGRAM$4" class="tangram-scrollbar scrollbar-y" data-guid="TANGRAM$6"><div id="tangram-button--TANGRAM$5" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$5&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-prev scrollbar-y-prev"></div><div id="tangram-scrollbar--TANGRAM$4-track" class="tangram-scrollbar-track scrollbar-y-track" data-guid="TANGRAM$7" style="height: 283px;"><div id="tangram-slider--TANGRAM$7" class="tangram-scrollbar-slider scrollbar-y-slider" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$7&#39;]._mouseDown(event)" style="position:relative;"><div id="tangram-slider--TANGRAM$7-thumb" class="tangram-scrollbar-slider-thumb scrollbar-y-slider-thumb" style="position: absolute; top: 0px; height: 19%;" data-guid="TANGRAM$8"><div id="tangram-button--TANGRAM$8" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$8&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-thumb-btn scrollbar-y-thumb-btn"><div class="tangram-scrollbar-thumb-prev scrollbar-y-thumb-prev"></div><div class="tangram-scrollbar-thumb-track scrollbar-y-thumb-track"></div><div class="tangram-scrollbar-thumb-next scrollbar-y-thumb-next"></div></div></div></div></div><div id="tangram-button--TANGRAM$6" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$6&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-next scrollbar-y-next"></div></div></div></div></div>
+</section>
+<section class="step-img-container left">
+<div class="step-img-wrapper step-one-img" steptype="step-one-img" imgloaded="2" style="height: 346px;">
+<div class="img-cover" style="height: 217px; width: 480px; margin-top: 0px;">
+<div class="inner-img-cover" data-src="8697397f9e2f070849718beeec24b899a801f2ad" style="height: 217px; width: 480px;"></div>
+<img src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/f636afc379310a55d2507f1ab24543a9832610e3.jpg" data-src="https://imgsa.baidu.com/exp/w=480/sign=b7c140e18294a4c20a23e6233ef51bac/f636afc379310a55d2507f1ab24543a9832610e3.jpg" _height="217" _width="480"></div>
+</div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-5">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-text-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/1
+</h3>
+<h3 class="step-item-title">
+js中的一个计时器知识
+</h3>
+</header>
+<section class="text smaller-text-left" id="smaller-text-left-5">
+setInterval（回调函数，时间）其中时间为毫秒数1000等于1s
+</section>
+<section class="text bigger-text-left" id="bigger-text-left-5" style="display: none;">
+setInterval（回调函数，时间）其中时间为毫秒数1000等于1s
+</section>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-6">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-text-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/1
+</h3>
+<h3 class="step-item-title">
+具体的js代码如下
+</h3>
+</header>
+<section class="text smaller-text-left" id="smaller-text-left-6">
+&lt;script&gt;				//创建背景对象		var bg={			x:0,			y:0,			//位移速度			vx:-1,			vy:0,			//移动方法			move:function(){				//只进行移动的数值计算				this.x+=this.vx;			},			draw:function(){				//将移动之后的数据绘制到页面				sence.style.backgroundPosition=this.x+'px 0px';							}					};				//小鸟对象		var b
+</section>
+<section class="text bigger-text-left" id="bigger-text-left-6" style="display: none;">
+&lt;script&gt;				//创建背景对象		var bg={			x:0,			y:0,			//位移速度			vx:-1,			vy:0,			//移动方法			move:function(){				//只进行移动的数值计算				this.x+=this.vx;			},			draw:function(){				//将移动之后的数据绘制到页面				sence.style.backgroundPosition=this.x+'px 0px';							}					};				//小鸟对象		var birdObj={						//位置			x:100,			y:200,			//速度			vx:0,			vy:2,			//计数器 &nbsp;计算小鸟翅膀计数			ct:0,			//翅膀样式			flyStyle:'center',			//加速度			ax:0,			ay:0.5,						//挥动翅膀			
+</section>
+</section>
+<section class="step-text-right-contanier step-smaller-text-right-contanier left">
+<div id="tangram-scrollpanel--TANGRAM$9-main" class="tangram-scrollpanel-main" data-guid="TANGRAM$9" style="width: 375px; height: 336px;"><div id="tangram-scrollpanel--TANGRAM$9" class="tangram-scrollpanel"><div id="tangram-scrollpanel--TANGRAM$9-panel" class="tangram-scrollpanel-panel" style="float: left;"><div class="text smaller-text-right" id="smaller-text-right-6" hasloaded="1" style="height: 336px; width: 366px;">
+irdObj={						//位置			x:100,			y:200,			//速度			vx:0,			vy:2,			//计数器 &nbsp;计算小鸟翅膀计数			ct:0,			//翅膀样式			flyStyle:'center',			//加速度			ax:0,			ay:0.5,						//挥动翅膀			fly:function(){				//在不同的事件更换小鸟的翅膀背景				if(this.ct%30==0){					this.flyStyle='top';									}else if(this.ct%20==0){										this.flyStyle='center';									}else if(this.ct%10==0){										this.flyStyle='bottom';				}								//将当前计数+1				this.ct++;							},						//小鸟弹跳的方法			jump:function(){				this.vy=-10;			},						//计算移动方法			move:function(){				//计算速度 &nbsp;速度=加速度*时间				this.vy=this.vy+this.ay*1;				//垂直位移 &nbsp;位置=位置+速度*时间				this.y=this.y+this.vy*1;							},						//绘制小鸟方法			draw:function(){				//更新翅膀样式				bird.style.backgroundPosition=this.flyStyle +' center';							bird.style.top=this.y+'px';							}					}									//建立管子对象 &nbsp;		//获取所有的管子对象5个		var pipes=document.getElementsByClassName('pipe');				//创建一个空数组		var guans=[];		//遍历所有的管子 创建对象		for(var i=0;i&lt;pipes.length;i++){			//创建一个管子的数据对象			guans[i]={				//位置				x:500+300*i,				//随机y轴位置				y:-300+(Math.round(Math.random()*100)*(Math.random()&gt;0.5?1:-1)),				//位移				vx:-2,				vy:0,				//检测管子是否移出屏幕				check:function (){					//一旦管子移出屏幕					if(this.x&lt;=-65){						//将当前管子移动到其他管子之后，作为最后一根管子						this.x=1500-65;						//再次重置垂直位置						this.y=-300+(Math.round(Math.random()*100)*(Math.random()&gt;0.5?1:-1));					}									},												//计算				move:function(){					//计算水平移动					this.x+=this.vx;				},												//绘制方法				draw:function(){					//将当前元素的位置设置在页面中						this.pipe.style.top=this.y+'px';					this.pipe.style.left=this.x+'px';										}				//将管子的标签对象添加到数据对象中											}			guans[i].pipe=pipes[i];											}				console.log(guans);				//点击屏幕，触发小鸟调高		function jump(){			birdObj.jump();		}								setInterval(function(){			//背景移动			bg.move();			bg.draw();						//管子操作			for(var i=0;i&lt;guans.length;i++){				//检测管子是否到最左侧				guans[i].check();				//调用没跟管子的计算方法				guans[i].move();				//将计算完的数据画上去				guans[i].draw();							}			//小鸟操作			birdObj.fly();			birdObj.move();			birdObj.draw();					},1000/30);		&lt;/script&gt;
+</div></div><div id="tangram-scrollpanel--TANGRAM$9-overflow-y" class="tangram-scrollpanel-overflow-y" data-guid="TANGRAM$10" style="float: left; width: 9px; height: 336px;"><div id="tangram-scrollbar--TANGRAM$10" class="tangram-scrollbar scrollbar-y" data-guid="TANGRAM$12"><div id="tangram-button--TANGRAM$11" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$11&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-prev scrollbar-y-prev"></div><div id="tangram-scrollbar--TANGRAM$10-track" class="tangram-scrollbar-track scrollbar-y-track" data-guid="TANGRAM$13" style="height: 336px;"><div id="tangram-slider--TANGRAM$13" class="tangram-scrollbar-slider scrollbar-y-slider" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$13&#39;]._mouseDown(event)" style="position:relative;"><div id="tangram-slider--TANGRAM$13-thumb" class="tangram-scrollbar-slider-thumb scrollbar-y-slider-thumb" style="position: absolute; top: 0px; height: 36%;" data-guid="TANGRAM$14"><div id="tangram-button--TANGRAM$14" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$14&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-thumb-btn scrollbar-y-thumb-btn"><div class="tangram-scrollbar-thumb-prev scrollbar-y-thumb-prev"></div><div class="tangram-scrollbar-thumb-track scrollbar-y-thumb-track"></div><div class="tangram-scrollbar-thumb-next scrollbar-y-thumb-next"></div></div></div></div></div><div id="tangram-button--TANGRAM$12" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$12&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-next scrollbar-y-next"></div></div></div></div></div>
+</section>
+<section class="step-text-right-contanier step-bigger-text-right-contanier left" style="display: none;">
+<div id="tangram-scrollpanel--TANGRAM$15-main" class="tangram-scrollpanel-main" data-guid="TANGRAM$15" style="width: 375px; height: 448px;"><div id="tangram-scrollpanel--TANGRAM$15" class="tangram-scrollpanel"><div id="tangram-scrollpanel--TANGRAM$15-panel" class="tangram-scrollpanel-panel" style="float: left;"><div class="text bigger-text-right" id="bigger-text-right-6" hasloaded="1" style="height: 448px; width: 366px;">
+fly:function(){				//在不同的事件更换小鸟的翅膀背景				if(this.ct%30==0){					this.flyStyle='top';									}else if(this.ct%20==0){										this.flyStyle='center';									}else if(this.ct%10==0){										this.flyStyle='bottom';				}								//将当前计数+1				this.ct++;							},						//小鸟弹跳的方法			jump:function(){				this.vy=-10;			},						//计算移动方法			move:function(){				//计算速度 &nbsp;速度=加速度*时间				this.vy=this.vy+this.ay*1;				//垂直位移 &nbsp;位置=位置+速度*时间				this.y=this.y+this.vy*1;							},						//绘制小鸟方法			draw:function(){				//更新翅膀样式				bird.style.backgroundPosition=this.flyStyle +' center';							bird.style.top=this.y+'px';							}					}									//建立管子对象 &nbsp;		//获取所有的管子对象5个		var pipes=document.getElementsByClassName('pipe');				//创建一个空数组		var guans=[];		//遍历所有的管子 创建对象		for(var i=0;i&lt;pipes.length;i++){			//创建一个管子的数据对象			guans[i]={				//位置				x:500+300*i,				//随机y轴位置				y:-300+(Math.round(Math.random()*100)*(Math.random()&gt;0.5?1:-1)),				//位移				vx:-2,				vy:0,				//检测管子是否移出屏幕				check:function (){					//一旦管子移出屏幕					if(this.x&lt;=-65){						//将当前管子移动到其他管子之后，作为最后一根管子						this.x=1500-65;						//再次重置垂直位置						this.y=-300+(Math.round(Math.random()*100)*(Math.random()&gt;0.5?1:-1));					}									},												//计算				move:function(){					//计算水平移动					this.x+=this.vx;				},												//绘制方法				draw:function(){					//将当前元素的位置设置在页面中						this.pipe.style.top=this.y+'px';					this.pipe.style.left=this.x+'px';										}				//将管子的标签对象添加到数据对象中											}			guans[i].pipe=pipes[i];											}				console.log(guans);				//点击屏幕，触发小鸟调高		function jump(){			birdObj.jump();		}								setInterval(function(){			//背景移动			bg.move();			bg.draw();						//管子操作			for(var i=0;i&lt;guans.length;i++){				//检测管子是否到最左侧				guans[i].check();				//调用没跟管子的计算方法				guans[i].move();				//将计算完的数据画上去				guans[i].draw();							}			//小鸟操作			birdObj.fly();			birdObj.move();			birdObj.draw();					},1000/30);		&lt;/script&gt;
+</div></div><div id="tangram-scrollpanel--TANGRAM$15-overflow-y" class="tangram-scrollpanel-overflow-y" data-guid="TANGRAM$16" style="float: left; width: 9px; height: 448px;"><div id="tangram-scrollbar--TANGRAM$16" class="tangram-scrollbar scrollbar-y" data-guid="TANGRAM$18"><div id="tangram-button--TANGRAM$17" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$17&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$17&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$17&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$17&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$17&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-prev scrollbar-y-prev"></div><div id="tangram-scrollbar--TANGRAM$16-track" class="tangram-scrollbar-track scrollbar-y-track" data-guid="TANGRAM$19" style="height: 448px;"><div id="tangram-slider--TANGRAM$19" class="tangram-scrollbar-slider scrollbar-y-slider" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$19&#39;]._mouseDown(event)" style="position:relative;"><div id="tangram-slider--TANGRAM$19-thumb" class="tangram-scrollbar-slider-thumb scrollbar-y-slider-thumb" style="position: absolute; top: 0px; height: 52%;" data-guid="TANGRAM$20"><div id="tangram-button--TANGRAM$20" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$20&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$20&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$20&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$20&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$20&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-thumb-btn scrollbar-y-thumb-btn"><div class="tangram-scrollbar-thumb-prev scrollbar-y-thumb-prev"></div><div class="tangram-scrollbar-thumb-track scrollbar-y-thumb-track"></div><div class="tangram-scrollbar-thumb-next scrollbar-y-thumb-next"></div></div></div></div></div><div id="tangram-button--TANGRAM$18" onmouseover="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$18&#39;]._fireEvent(&#39;mouseover&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseout="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$18&#39;]._fireEvent(&#39;mouseout&#39;, &#39;&#39;, &#39;&#39;, event)" onmousedown="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$18&#39;]._fireEvent(&#39;mousedown&#39;, &#39;&#39;, &#39;&#39;, event)" onmouseup="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$18&#39;]._fireEvent(&#39;mouseup&#39;, &#39;&#39;, &#39;&#39;, event)" onclick="window[&#39;$BAIDU$&#39;]._instances[&#39;TANGRAM$18&#39;]._fireEvent(&#39;click&#39;, &#39;&#39;, &#39;&#39;, event)" class="tangram-scrollbar-next scrollbar-y-next"></div></div></div></div></div>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container" id="step-item-7">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-item-text-inner clearfix" style="height:82%">
+<section class="step-text-container left">
+<header>
+<h3 class="step-item-header">
+<span class="current-order-in-step">1</span>/1
+</h3>
+<h3 class="step-item-title">
+再一步改下html的css样式
+</h3>
+</header>
+<section class="text smaller-text-left" id="smaller-text-left-7">
+&lt;div id="sence" style="border:5px solid orange;width:800px;height:500px;margin:100px auto;background:url(bg.jpg) 0px 0px;position:relative;overflow:hidden;" onClick="jump()"&gt;修改下背景的属性，将错过背景的柱子给隐藏掉，同时给一个鼠标点击背景小鸟向上飞的一个事件
+</section>
+<section class="text bigger-text-left" id="bigger-text-left-7" style="display: none;">
+&lt;div id="sence" style="border:5px solid orange;width:800px;height:500px;margin:100px auto;background:url(bg.jpg) 0px 0px;position:relative;overflow:hidden;" onClick="jump()"&gt;修改下背景的属性，将错过背景的柱子给隐藏掉，同时给一个鼠标点击背景小鸟向上飞的一个事件
+</section>
+</section>
+</div>
+<div class="place_holder" style="height: 9%"></div>
+</div>
+<div class="step-item-container step-item-recommand" id="step-item-8">
+<div class="place_holder" style="height:9%"></div>
+<div class="step-recommand-inner" style="height: 72%;">
+<div class="replay">
+<dl class="clearfix">
+<dt class="replay-img left">
+<a class="replay-img-container" href="javascript:;" id="replay-step-e">
+<img class="recommand-img" alt="用js写一个像素鸟的小游戏" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/exp_loading.gif" data-src="https://imgsa.baidu.com/exp/whcrop=160,120/sign=ca1b87299552982205666f81b8ba46fa/b999a9014c086e0691ad84a507087bf40bd1cbd3.jpg" width="160px" height="120px">
+<div class="img-border"></div>
+</a>
+</dt>
+<dd class="replay-title left">
+<h4>
+用js写一个像素鸟的小游戏
+</h4>
+<a href="javascript:;" id="replay-step" class="replay-step">[重新阅读]</a>
+</dd>
+</dl>
+</div>
+<div class="recommand-list clearfix" id="recommend-list-container"></div>
+</div>
+<div class="place_holder" style="height: 14%"></div>
+</div>
+</div>
+</div>
+<div class="right-cover" id="right-cover" style="height: 470px; width: 231px;">
+<div class="next-arrow"></div>
+</div>
+</div>
+<script type="text/javascript">
+    window.PDC && PDC.first_screen && PDC.first_screen();
+</script>
+</section></section><footer class="footer">
+<script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script>
+<div class="step-pager" id="step-pager">
+<ul id="step-pager-list" class="clearfix"><li class="item step" style="display: block;"><a href="javascript:;" class="step-cover" step-index="0">封</a></li><li class="item roman" style="display: block;">I</li><li class="item step" style="display: block;"><a href="javascript:;" class="preview current" data="背景" data-type="0" step-index="1">1</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="精灵" data-type="0" step-index="2">2</a></li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="障碍物" data-type="0" step-index="3">3</a></li><li class="item roman" style="display: block;">II</li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="&lt;!--背景--&gt;		&lt;div..." data-type="0" step-index="4">1</a></li><li class="item roman" style="display: block;">III</li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="setInterval（回调函数，时间）其中时间..." data-type="0" step-index="5">1</a></li><li class="item roman" style="display: block;">IV</li><li class="item step" style="display: block;"><a href="javascript:;" class="preview" data="&lt;script&gt;				//创建背景..." data-type="0" step-index="6">1</a></li><li class="item roman" style="display: block;">V</li><li class="item step" style="display: none;"><a href="javascript:;" class="preview" data="&lt;div id=&quot;sence&amp;q..." data-type="0" step-index="7">1</a></li><li class="item step" style="display: none;"><a href="javascript:;" class="step-last" step-index="8">尾</a></li><li id="next" class="pagenate"><a href="javascript:;">&gt;</a></li><li id="pre" class="pagenate"><a href="javascript:;">&lt;</a></li></ul>
+</div>
+</footer>
+<script type="text/javascript">
+    (function() {
+        //解决ie图片缓存闪烁问题
+        try {
+            document.execCommand("BackgroundImageCache", false, true);
+        } catch(err) {}
+    })();
+    //异步接口集
+    F.context({
+        //与个人相关
+        'submit_follow' : '/submit/follow',
+        'submit_vote' : '/submit/vote',
+        'submit_author' : '/submit/author',
+        'submit_user' : '/submit/user',
+        'submit_favor' : '/submit/favor',
+        'submit_notice' : '/submit/notice',
+        //公共的异步接口部分
+        'common_isLogin' : '/common/isLogin',
+        'common_isVersionExist' : '/common/isVersionExist',
+        'common_isTitleValid' : '/common/isTitleValid',
+        'common_needToTitle' : '/common/needToTitle',
+        'asyncreq' : '/asyncreq',
+        //评论相关
+        'cid' : '33',
+        'submit_comment' : '/submit/comment',
+        'submit_feedback' : '/submit/exp'
+    });
+</script>
+
+<script type="text/javascript">
+        F.context({
+            "BdStoken" : "919548573f895ddb0975688a4dbc2a18",
+            "bdstt" : "1482766695",
+        });
+        F.context('BFEType', '2');
+    </script>
+<script type="text/javascript">
+    var pageId = "jy-album";
+</script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/monkey.jingyan.min.js"></script>
+<script>
+	if(typeof(alog) !== 'undefined'){
+    	alog('speed.set', 'drt', +new Date); 
+    }//请利用js框架在domreday时调用该代码，或在body的尾部
+</script>
+<script>
+    // pc和mobile端会稍有不同，帮助文档中只是PC端的，具体请通过 http://dp.baidu.com/access/editPage 中的“查看监控脚本”来查看
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;if("https:"===a.location.protocol){if(d="https://gss2.bdstatic.com/70cFsjip0QIZ8tyhnq"+d,!k||!l)return}else d="http://img.baidu.com"+d;k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_sync_js_0_dda1b78.js"></script>
+<script type="text/javascript">require.resourceMap({"res":{"common:widget/lib/tangram/fx/move/move.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/fx/move/move_4f6a3cf.js","pkg":"common:p1","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/tangram/fx/create/create.js"]},"common:widget/ui/red-bao/red-bao.js":{"url":"//exp.bdstatic.com/static/common/widget/ui/red-bao/red-bao_5d7852c.js","pkg":"common:p11","deps":["common:widget/lib/tangram/base/base.js","common:widget/ui/dialog/dialog.js"]},"common:widget/lib/tangram/ui/Carousel/Carousel.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/ui/Carousel/Carousel_9ed0987.js","pkg":"common:p2","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/tangram/uiBase/uiBase.js"]},"activity:widget/ui/redbox/redbox.js":{"url":"//exp.bdstatic.com/static/activity/widget/ui/redbox/redbox_58a8c80.js","pkg":"activity:p2","deps":["common:widget/lib/tangram/base/base.js","common:widget/ui/dialog/dialog.js"]},"common-jquery:widget/lib/jquery/jquery.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/lib/jquery/jquery_250bf24.js","pkg":"common-jquery:p1"},"common-jquery:widget/lib/baidutemplate/baidutemplate.min.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/lib/baidutemplate/baidutemplate.min_d875663.js","pkg":"common-jquery:p3"},"common-jquery:widget/js/ui/base/base.js":{"url":"//exp.bdstatic.com/static/common-jquery/widget/js/ui/base/base_366a7b8.js","pkg":"common-jquery:p2","deps":["common-jquery:widget/lib/jquery/jquery.js","common-jquery:widget/js/util/event/event.js"]},"common:widget/lib/tangram/base/base.js":{"url":"//exp.bdstatic.com/static/common/widget/lib/tangram/base/base_e37cc01.js","pkg":"common:p0"},"step:widget/header/header.js":{"url":"http://exp.bdstatic.com/static/step/widget/header/header_ea7e38b.js","pkg":"step:p0","deps":["common:widget/lib/tangram/base/base.js","common:widget/lib/fis/event/event.js","common:widget/ui/log/log.js"]}}});</script><script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_async_js_0_18c6036.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_sync_js_1_f0c6cdb.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/common_sync_js_2_fa2e9a7.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/return_60f55cc.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/framework_3837307.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/more_ee48533.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/base_6a28b58.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/type_1800090.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/querystring_c2860aa.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/url_01e4bf7.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/https_5830888.js"></script>
+<script type="text/javascript" src="./用js写一个像素鸟的小游戏_网页游戏_百度经验_files/step_525160a.js"></script>
+<script type="text/javascript">!function(){require.async("common:widget/baidu-tongji/baidu-tongji.js", function(B){ B.init('36611124782314466907'); });}();
+!function(){require.async('step:widget/header/header.js', function (header) {
+    header.init();
+});
+}();
+!function(){    require.async('step:widget/ui/brand-ads/brand-ads.js',function(ad_log){
+        ad_log.init('');
+    });
+}();
+!function(){    require.async(["common:widget/lib/tangram/base/base.js", "step:widget/pager/pager.js"], function(T, pager){
+        T.dom.ready(function(){
+            pager.init(1);
+        });
+    });
+}();
+!function(){        if(typeof PDC != 'undefined'){
+            PDC.init({
+                is_login   : 1,
+                sample     : 1,
+                product_id : 132,
+                page_id    : 3
+            });
+        }
+        F.context({
+            //请求地址
+            "common":'/common',
+            "uoper": '/uoperation',
+            "edit": '/edit/',
+            "logo": 'http://img.baidu.com/img/iknow/exp/logo_uui.jpg',
+            "comment": '/comment/',
+            "hi": 'http://hiphotos.baidu.com/exp/abpic/item/',//空间缩略图片地址
+            "hiori": 'http://hiphotos.baidu.com/exp/pic/item/',//空间图片地址
+            "ucFollowing": '/user/nuc/following',
+            "ucFavorexp": '/user/nuc/favorexp',
+            "title": '用js写一个像素鸟的小游戏',
+            "isLogin" : 1,
+            "username": '',
+            "writerId": '',
+            "maxFollowVote": 9999999,
+            "eid": '48a42057e6d3bda925250441',
+            "isFavor":0,
+            "expFavorNum": 0,
+            "feedbackSuc": 5,
+            "MAX_SUC_FAIL_TIMES": 999999,
+            "stepPic": {"amount":4,"stepPic":[{"src":"http:\/\/hiphotos.baidu.com\/exp\/pic\/item\/21e5582309f79052141afcd009f3d7ca7acbd59c.jpg","stepIndex":1,"picIndex":1,"picIndexInStep":1,"type":"step"},{"src":"http:\/\/hiphotos.baidu.com\/exp\/pic\/item\/d7c9ca3f8794a4c25db35cc50bf41bd5ac6e3908.jpg","stepIndex":2,"picIndex":2,"picIndexInStep":1,"type":"step"},{"src":"http:\/\/hiphotos.baidu.com\/exp\/pic\/item\/8759287adab44aed70c7050ab61c8701a08bfb10.jpg","stepIndex":3,"picIndex":3,"picIndexInStep":1,"type":"step"},{"src":"http:\/\/hiphotos.baidu.com\/exp\/pic\/item\/8697397f9e2f070849718beeec24b899a801f2ad.jpg","stepIndex":4,"picIndex":4,"picIndexInStep":1,"type":"common"}]},
+            "BdStoken" : "919548573f895ddb0975688a4dbc2a18",
+            "bdstt" : "1482766695",
+            'typeId': 2016
+        });
+        require.async(["common:widget/lib/tangram/base/base.js", "step:widget/ui/adjust-size/adjust-size.js", "step:widget/ui/step-album/step-album.js", "step:widget/ui/vote-favor/vote-favor.js", "step:widget/ui/user-guide/user-guide.js", "common:widget/ui/log/log.js"], function(T, adjustSize, stepAlbum, header, userGuide, log){
+            T.dom.ready(function(){
+                if(T.browser.ie && T.browser.ie == 6){
+                    T.dom.setStyle("waiting-step-loading", "height", T.page.getViewHeight()-75);
+                }
+                if(F.context('isBrandAd')){
+                    adjustSize.init({
+                        'img-text-area-withhead':{
+                            height: 360,
+                            width:270,
+                            spaceHeight:107
+                        }
+                    });
+                }else{
+                    adjustSize.init();
+                }
+                
+                adjustSize.resize(1);
+                T.hide("waiting-step-loading");
+                T.on(window, "resize", function(){
+                    adjustSize.resize();
+                });
+                userGuide.init();
+                stepAlbum.init();
+                header.init("vote-btn", "favor-btn", F.context("isFavor"));
+
+                log.init({
+                    query : 'a',        //需要绑定的标签元素，可选，默认为a标签
+                    evtType : 'click',   //鼠标事件定义，可选，默认是click
+                    type: F.context('typeId'),
+                    page: 'step'
+                });
+
+                //左侧推广位
+                /*LeftPromotion.init({
+                    imgSrc: 'http://jingyan.baidu.com/event/img/hb92X240.gif',
+                    url: 'http://jingyan.baidu.com/activity/hongbao201411?fr=step',
+                    target: 'step-play-container'
+                });*/
+            });
+        });
+
+    }();</script>
+<script> var _trace_page_logid = 2295822476; </script></body></html>

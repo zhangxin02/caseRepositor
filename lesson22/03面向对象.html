@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    Object.prototype.move = function () {
+        alert(this.name+"跑的快");
+    }
+    Object.prototype.price = 1000;
+    //每一个对象 都有一个原型对象
+    function car(name, color) {  //工厂模式
+        this.name = name;
+        this.color = color;
+        this.say();
+        this.move();
+        alert(this.num);
+    }
+    car.prototype.say = function () {
+        alert(this.color + this.name);
+    }
+    var BMW = new car("宝马", "黑色");
+    //    BMW.say();
+    //    BMW.move();
+    //    var BYD = new car("比亚迪", "白色");
+    //    BYD.say();
+</script>
+</html>

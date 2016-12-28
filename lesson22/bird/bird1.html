@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+	#{
+		margin:0;
+		padding: 0;
+	}
+	#sence{
+		border: 5px solid olivedrab;
+		width: 800px;
+		height: 500px;
+		margin: 100px auto;
+		background: url(big.jpg);
+		position: relative;
+
+	}
+	
+	#bird{
+		background: url(bird_Sprite.png) center center;
+		width: 40px;
+		height: 28px;
+		position:absolute;
+		left: 100px;
+		top: 300px;	
+	}
+	
+	#start{
+	width:100px;
+	height:40px;
+	background: rgba(166,66,66,0.3); 
+	font-size: 24px;
+	text-align: center;
+	line-height: 40px;
+	margin: 200px auto;
+	display: block;
+	color: #990033;
+	font-weight: 900;
+	}
+	
+	#stop{
+	width:100px;
+	height:40px;
+	background: rgba(66,166,66,0.3); 
+	font-size: 24px;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+	}
+	
+	#goon{
+	width:100px;
+	height:40px;
+	background: rgba(66,166,66,0.3); 
+	font-size: 24px;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: none;
+	}
+	
+	#restart{
+	width:100px;
+	height:40px;
+	background: rgba(66,166,66,0.3); 
+	font-size: 16px;
+	text-align: center;
+	line-height: 40px;
+	position: absolute;
+	right: 0;
+	top: 40px;
+	display: none;
+	}
+	
+	#score{
+	width:200px;
+	height: 100px;
+	background: rgba(100,100,100,0.5);
+	position: absolute;
+	left: 300px;
+	top: 200px;
+	display: none;
+	text-align: center;
+	line-height: 50px;
+	color: #00FF00;
+	font-size: 26px;
+	}
+	</style>
+	</head>
+	<body>
+		<div id="sence" onClick="jump()">
+			<div id="bird"></div>
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:500px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:800px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1100px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1400px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<div class="pipe" style="height:1000px;width:60px;position:absolute;left:1700px;top:-300px">
+				<img src="pipe.png" style="margin-bottom:150px">
+				<img src="pipe.png">
+			</div>
+			<button id="start">开始</button>
+			<button id="stop">暂停</button>
+			<button id="goon">继续</button>
+			<button id="restart">重新开始</button>
+			<div id="score"></div>
+		</div>
+	</body>
+	<script>
+	var bird=document.getElementById("bird");
+	var birdObj={
+		x:100,
+		y:300,
+		vx:0,
+		vy:1,								//
+		count:0,
+		wing:"center",
+		ax:0,
+		ay:0.5,
+		fly:function(){
+			if(this.count%30==0){
+				this.wing="top";
+			}
+			else if(this.count%20==0){
+				this.wing="center";
+			}
+			else if(this.count%10==0){
+				this.wing="bottom";
+			}
+			this.count++;
+		},
+		jump:function(){
+			this.vy = -6;
+		},
+		move:function(){
+			this.vy=this.vy+this.ay*1;
+			this.y=this.y+this.vy*1;
+		},
+		draw:function(){
+			bird.style.backgroundPosition=this.wing;
+			bird.style.top=this.y+"px";
+			if(parseInt(bird.style.top)>=472||parseInt(bird.style.top)<=0){
+				score.style.display="block";
+				clearInterval(timer);
+				score.innerHTML="<b>game over</b> </br>你的得分为"+score1
+				restart.style.display="block";
+				stop.style.display="none";
+			}
+		}
+	}
+	
+	var sence=document.getElementById("sence");
+	var senceObj={
+		x:0,
+		y:0,
+		vx:-1,
+		vy:0,
+		move: function() {
+			this.x += this.vx;
+		},
+		draw: function() {
+			sence.style.backgroundPosition = this.x + "px 0px";
+		}
+	}
+	
+	var pipe=document.querySelectorAll(".pipe");
+	var list=[];
+	var score1=0;
+	for(var i=0;i<pipe.length;i++){
+		list[i]={
+			x:500+300*i,
+			y:-300+(Math.round(Math.random()*100)*(Math.random() > 0.5 ? 1 : -1)),
+			vx:-2,
+			vy:0,
+			check: function() {
+				if(this.x <= -65) {
+					this.x = 1500 - 65;
+					this.y = -300 + (Math.round(Math.random() * 100) * (Math.random() > 0.5 ? 1 : -1));
+				}
+				if(this.x==100){
+					score1++
+				}	
+				if((birdObj.x+40)>this.x&&(birdObj.x)<(this.x+60)){
+					if(birdObj.y<=(this.y+450)||birdObj.y>=(this.y+600)){
+						score.style.display="block";
+						clearInterval(timer);
+						score.innerHTML="<b>game over</b></br> 你的得分为"+score1
+						restart.style.display="block";
+						stop.style.display="none";
+					}
+				}
+			},
+			move: function() {
+				this.x += this.vx;
+			},
+			draw: function() {
+				this.pipe.style.top = this.y + 'px';
+				this.pipe.style.left = this.x + 'px';
+			}			
+		
+		}
+		list[i].pipe = pipe[i];
+		
+	}
+	
+	
+	
+	
+	function jump() {
+		birdObj.jump();
+	}	
+	
+	var timer=null
+	var start=document.getElementById("start");
+	var stop=document.getElementById("stop");
+	var restart=document.getElementById("restart");
+	var goon=document.getElementById("goon");
+	var score=document.getElementById("score");
+	start.onclick=function(){
+		timer=setInterval(function(){
+			stop.style.display="block";
+			restart.style.display="block";
+			start.style.display="none";
+			birdObj.fly();
+			birdObj.move();
+			birdObj.draw();
+			senceObj.move();
+			senceObj.draw();
+			for(var i = 0; i < pipe.length; i++) {
+				list[i].check();
+				list[i].move();
+				list[i].draw();
+			}		
+		},1000/30)
+	}
+
+	stop.onclick=function(){
+		clearInterval(timer)
+		goon.style.display="block";
+		stop.style.display="none";
+	}
+	
+	goon.onclick=function(){
+		timer=setInterval(function(){
+			stop.style.display="block";
+			restart.style.display="block";
+			start.style.display="none";
+			birdObj.fly();
+			birdObj.move();
+			birdObj.draw();
+			senceObj.move();
+			senceObj.draw();
+			for(var i = 0; i < pipe.length; i++) {
+				list[i].check();
+				list[i].move();
+				list[i].draw();
+			}		
+		},1000/30)
+		stop.style.display="block";
+		goon.style.display="none";
+	}
+	
+	restart.onclick=function(){
+		window.location.reload()
+	}
+	
+	
+	</script>
+</html>
