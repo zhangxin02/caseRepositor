@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">点击我弹出一个对话框</button>
+<button id="btn2">点击我弹出一个对话框</button>
+</body>
+<script>
+    var btn = document.getElementById("btn"); //button元素
+    var btn2 = document.getElementById("btn2"); //button元素
+    var createDiv = (function () {
+        let div;
+        if (!div) {
+            div = document.createElement("div");
+            div.innerHTML = "我是被创造的div";
+            div.style.display = "none";
+            document.body.appendChild(div);
+        }
+        return div;
+    })()
+
+    createDiv.onclick = function () {
+        this.style.display = "none";
+    }
+
+    btn2.onclick = btn.onclick = function () {
+        createDiv.style.display = "block";
+
+    }
+
+
+</script>
+</html>

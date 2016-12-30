@@ -21,6 +21,10 @@
     //    for (var i = 0; i < div.length; i++) {
     //        div[i].style.display = "none";
     //    }
+    //不采取这样
+    Object.prototype.hide = function () {
+        this.style.display = "none";
+    }
     //如何对象化
     HTMLElement.prototype.hide = function () {
         this.style.display = "none";

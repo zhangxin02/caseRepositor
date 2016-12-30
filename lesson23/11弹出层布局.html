@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            position: relative;
+            height: 60px;
+            width: 200px;
+            border-radius: 5px;
+            background: #cdcdcd;
+            color: #ffffff;
+            margin: 50px auto;
+        }
+
+        #content #ok {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 80px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #content #cancle {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 130px;
+            text-align: center;
+            line-height: 20px;
+            background: #009933;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="content" class="show">
+    你确定要删除我吗
+    <span id="ok" data-info="1">确定</span>
+    <span id="cancle" data-info="2">取消</span>
+</div>
+</body>
+</html>

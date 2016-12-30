@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            position: relative;
+            margin: 50px auto;
+            height: 350px;
+            width: 400px;
+        }
+
+        .wrap .nav {
+            list-style: none;
+            width: 400px;
+            height: 50px;
+        }
+
+        .wrap .nav li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            line-height: 50px;
+            text-align: center;
+            background: #cdcdcd;
+        }
+
+        .wrap .nav li.select {
+            background: #00ff00;
+        }
+
+        .wrap .season {
+            position: absolute;
+            height: 300px;
+            width: 400px;
+            display: none;
+        }
+
+        .wrap .season img {
+            height: 300px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav">
+        <li class="select">春</li>
+        <li>夏</li>
+        <li>秋</li>
+        <li>冬</li>
+    </ul>
+    <div class="season" style="display: block">
+        <img src="img/cc01.jpg"/>
+    </div>
+
+    <div class="season">
+        <img src="img/cc02.jpg"/>
+    </div>
+    <div class="season">
+        <img src="img/cc03.jpg"/>
+    </div>
+    <div class="season">
+        <img src="img/cc04.jpg"/>
+    </div>
+</div>
+</body>
+<script src="js/jq.js"></script>
+<script>
+    var navLi = $(".nav", "li");
+    var season = $(".season");
+    for (var i = 0; i < navLi.element.length; i++) {
+        navLi.element[i].index = i;
+        navLi.element[i].onclick = function () {
+            navLi.className(" ");  //将所有的li的样式全部清空
+            navLi.eq(this.index).className("select");
+            season.hide();
+            season.eq(this.index).show();
+        }
+    }
+
+</script>
+</html>

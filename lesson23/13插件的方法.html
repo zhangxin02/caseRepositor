@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            position: relative;
+            height: 60px;
+            width: 200px;
+            border-radius: 5px;
+            background: #cdcdcd;
+            color: #ffffff;
+            margin: 50px auto;
+        }
+
+        #content .ok {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 80px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 20px;
+        }
+        #content .yellow {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 80px;
+            background: yellow;
+            text-align: center;
+            line-height: 20px;
+        }
+        .color{
+            color: red;
+        }
+
+        #content .blue {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 130px;
+            text-align: center;
+            line-height: 20px;
+            background: blue;
+        }
+        #content .ok {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 80px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 20px;
+        }
+
+
+        #content .cancle {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 130px;
+            text-align: center;
+            line-height: 20px;
+            background: #009933;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn">点击</button>
+</body>
+
+
+<script>
+    var btn = document.getElementById("btn");
+    var dialog = {
+        container: null,
+        content: "欢迎使用dialog",
+        btnDesc: {ok: "ok", cancel: "cancel"},
+        btnClass: {okClass:"ok",cancelClass: "cancle"},
+        ok: function () {
+        },
+        cancel: function () {
+        },
+        init: function (json) {
+            this.setDefault(json);
+            this.create();
+        },
+        setDefault: function (json) { //设置一个方法专门去处理 插件的默认值更新
+            for (var i in json) {
+                this[i] = json[i];
+            }
+            return this;
+        },
+        setOK: function () {
+            if (this.btnDesc["ok"]) {
+                var okSpan = document.createElement("span");
+                okSpan.className =this.btnClass["okClass"];
+                okSpan.innerHTML = this.btnDesc["ok"];
+                okSpan.onclick = this.ok;
+                this.container.appendChild(okSpan);
+                var that = this;
+                okSpan.addEventListener("click", function () {
+                    that.hidden();
+                })
+            }
+        },
+        setCancel: function () {
+            if (this.btnDesc["cancel"]) {
+                var okSpan = document.createElement("span");
+                okSpan.className = this.btnClass["cancelClass"];
+                okSpan.innerHTML = this.btnDesc["cancel"];
+                okSpan.onclick = this.cancel;
+                this.container.appendChild(okSpan);
+                var that = this;
+                okSpan.addEventListener("click", function () {
+                    that.hidden();
+                })
+            }
+        },
+        hidden: function () {
+            this.container.className = "hidden";
+        },
+        show: function () {
+            this.container.className = "show";
+        },
+        create: function () {
+            if (!this.isExist("content")) {
+                var div = document.createElement("div");
+                div.id = "content";
+                div.className = "show";
+                div.innerHTML = this.content;
+                document.body.appendChild(div);
+                this.container = div;
+                this.setOK();
+                this.setCancel();
+            } else {
+                this.show();
+            }
+            return this;
+        },
+        isExist: function (id) {
+            if (document.getElementById(id)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    btn.onclick = function () {
+        dialog.init({
+            content: "自定义提示1",
+            btnDesc: {ok:"确定",cancel: "取消"},
+            btnClass: {okClass:"yellow color",cancelClass: "blue color"},
+            cancel: function () {
+                alert("您已取消");
+            }
+        });
+
+        //插件描述
+        //content:提示内容
+        //btnDesc:对象 属性ok 表示确定值  cancel：取消按钮值
+        //btnClass:对象  属性okClass 确定按钮的样式  。。。。
+        //ok :function //ok按钮点之后的回调函数
+        //cancel:function //取消按钮点击之后的函数
+
+    }
+</script>
+</html>

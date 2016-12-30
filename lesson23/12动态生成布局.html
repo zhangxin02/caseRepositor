@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            position: relative;
+            height: 60px;
+            width: 200px;
+            border-radius: 5px;
+            background: #cdcdcd;
+            color: #ffffff;
+            margin: 50px auto;
+        }
+
+        #content #ok {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 80px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        #content #cancle {
+            position: absolute;
+            height: 20px;
+            width: 40px;
+            bottom: 10px;
+            left: 130px;
+            text-align: center;
+            line-height: 20px;
+            background: #009933;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+
+<!--<div id="content" class="show">-->
+<!--你确定要删除我吗-->
+<!--<span id="ok" data-info="1">确定</span>-->
+<!--<span id="cancle" data-info="2">取消</span>-->
+<!--</div>-->
+<button id="btn">点击</button>
+</body>
+
+
+<script>
+    var btn = document.getElementById("btn");
+    var dialog = {
+        content: "欢迎使用dialog",
+        content2: "你好吗",
+        init: function (json) {
+            this.setDefault(json);
+            this.create();
+        },
+        setDefault: function (json) { //设置一个方法专门去处理 插件的默认值更新
+            for (var i in json) {
+                this[i] = json[i];
+            }
+            return this;
+        },
+        create: function () {
+            if (!this.isExist("content")) {
+                var div = document.createElement("div");
+                div.id = "content";
+                div.className = "show";
+                div.innerHTML = this.content + this.content2;
+                document.body.appendChild(div);
+            }
+        },
+        isExist: function (id) {
+            if (document.getElementById(id)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    btn.onclick = function () {
+        dialog.init({
+            content: "自定义提示1",
+            content2: "自定义提示2",
+        });
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            position: relative;
+            margin: 50px auto;
+            height: 350px;
+            width: 400px;
+        }
+
+        .wrap .nav {
+            list-style: none;
+            width: 400px;
+            height: 50px;
+        }
+
+        .wrap .nav li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            line-height: 50px;
+            text-align: center;
+            background: #cdcdcd;
+        }
+
+        .wrap .nav li.select {
+            background: #00ff00;
+        }
+
+        .wrap .season {
+            position: absolute;
+            height: 300px;
+            width: 400px;
+            display: none;
+        }
+
+        .wrap .season img {
+            height: 300px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul class="nav">
+        <li class="select">春</li>
+        <li>夏</li>
+        <li>秋</li>
+        <li>冬</li>
+    </ul>
+    <div class="season" style="display: block">
+        <img src="img/cc01.jpg"/>
+    </div>
+
+    <div class="season">
+        <img src="img/cc02.jpg"/>
+    </div>
+    <div class="season">
+        <img src="img/cc03.jpg"/>
+    </div>
+    <div class="season">
+        <img src="img/cc04.jpg"/>
+    </div>
+</div>
+</body>
+<script>
+    var tab = {
+        navList: document.querySelector(".nav").querySelectorAll("li"),
+        season: document.querySelectorAll(".season"),
+        init: function () {
+            for (var i = 0; i < this.navList.length; i++) {
+                this.navList[i].index = i;
+                var that = this;
+                this.navList[i].onclick = function () {
+                    that.tabClick(this);
+                }
+
+            }
+        },
+        tabClick: function (obj) {
+            for (var i = 0; i < this.navList.length; i++) {
+                this.navList[i].className = "";
+                this.season[i].style.display = "none";
+            }
+            obj.className = "select";
+            this.season[obj.index].style.display = "block";
+        }
+    };
+    tab.init();
+    //选项卡对象
+    //    function tab() {
+    //        this.navList = document.querySelector(".nav").querySelectorAll("li");
+    //        this.season = document.querySelectorAll(".season");
+    //        this.bind(); //做事件的绑定  bind是this调用的 该this指向tab  所以在bind里面this也指向tab
+    //    }
+    //    tab.prototype.bind = function () {
+    //        for (var i = 0; i < this.navList.length; i++) {
+    //            this.navList[i].index = i;
+    //            var that = this;
+    //            this.navList[i].onclick = function () {
+    ////                alert(this);  只要在这个里面使用的this  都指向被调用者  被点击的li
+    //                that.tabClick(this);
+    //            }}}
+    //    tab.prototype.tabClick = function (obj) {
+    //        for (var i = 0; i < this.navList.length; i++) {
+    //            this.navList[i].className = "";
+    //            this.season[i].style.display = "none";
+    //        }
+    //        obj.className = "select";
+    //        this.season[obj.index].style.display = "block";
+    //    }
+    //    new tab();//变成构造函数  构造函数中this只向构造函数本身
+</script>
+</html>

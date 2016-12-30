@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#dialog {
+				width: 200px;
+				height: 100px;
+				text-align: center;
+				border: 1px solid #666666;
+				box-sizing: border-box;
+				border-radius: 10px;
+				padding: 16px 5px 5px;
+				position: relative;
+				margin: 50px auto;
+			}
+			
+			#dialog span {
+				position: absolute;
+				height: 30px;
+				line-height: 30px;
+				width: 50px;
+				border: 1px solid #008800;
+				bottom: 10px;
+				border-radius: 5px;
+			}
+			
+			.ok {
+				left: 20%;
+			}
+			.ok2{
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			
+			.cancle {
+				left: 50%;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<button id="btn">弹出层</button>
+		<!--<div id="dialog">
+			您确定要删除吗？
+			<span class="ok">确认</span>
+			<span class="cancle">取消</span>
+		</div>-->
+		<script>
+			var dialog = {
+				container: null,
+				content: "您确定要删除吗?",
+				spanDesc: {
+					ok: "确认",
+					cancle: "取消"
+				},
+				spanClass: {
+					ok: "ok",
+					cancle: "cancle"
+				},
+				fnOk: function() {},
+				fnCancle: function() {},
+				innt: function(json) {
+					this.setContent(json); //修改属性值
+					this.createDiv(); //创建Div					
+				},
+				setContent: function(json) { //设置各种属性
+					for(var i in json) {
+						this[i] = json[i];
+					}
+					return this;
+				},
+				createOk: function() {
+					var that=this;
+					if(this.spanDesc["ok"]) {//判断是否存在，给出了该值才去创建
+						var span = document.createElement("span");
+						span.className = this.spanClass.ok;
+						span.innerHTML = this.spanDesc.ok;
+						span.onclick = this.fnOk;
+						this.container.appendChild(span);
+						span.addEventListener("click",function(){
+							that.divHide();
+						});
+					}
+
+				},
+				createCancle: function() {
+					var that=this;
+					if(this.spanDesc["cancle"]) {
+						var span = document.createElement("span");
+						span.className = this.spanClass.cancle;
+						span.innerHTML = this.spanDesc.cancle;
+						span.onclick = this.fnCancle;						
+						this.container.appendChild(span);
+						span.addEventListener("click",function(){
+							that.divHide();
+						});
+					}
+
+				},
+				divShow:function(){
+					this.container.style.display="block";
+				},
+				divHide:function(){
+					this.container.style.display="none";
+				},
+				createDiv: function() {
+					if(!document.getElementById("dialog")) {
+						var div = document.createElement("div");
+						div.id = "dialog";
+						div.innerHTML = this.content;
+						this.container = div;
+						document.body.appendChild(div);
+						this.createOk();
+						this.createCancle();
+					}else{
+						this.divShow();//点击确认，取消后将其它隐藏了，在一次点击按钮时就将它显示
+					}
+				}
+			}
+
+			var btn = document.getElementById("btn");
+			btn.onclick = function() {
+				dialog.innt({
+					content: "wqin",
+					spanDesc: {
+						ok: "确认",
+					cancle: "取消"
+					},
+					fnOk: function() {
+						alert("确认sss");
+						//this.divHide();
+					}
+				})
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单例</title>
+</head>
+<body>
+<button id="btn">点击创造一个div</button>
+</body>
+<script>
+
+    var btn = document.getElementById("btn");
+
+    var createDiv = (function () {
+        var div = document.createElement("div");
+        div.innerHTML = "我是大雷创建的div";
+        div.style.display = "none";
+        document.body.appendChild(div);
+        return div;
+    })();
+    var getInstance = function (fn) {
+        var result;
+        return result || (result = fn);
+    }
+
+    var div = getInstance(createDiv);
+    var div2 = getInstance(createDiv);
+    var div3 = getInstance(createDiv);
+    var div4 = getInstance(createDiv);
+    btn.onclick = function () {
+        div.style.display = "block";
+        div2.style.display = "block";
+    }
+    //23种设计模式   工厂和单例
+</script>
+</html>

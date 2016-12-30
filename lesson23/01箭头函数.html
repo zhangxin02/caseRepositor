@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    //babel
+    const score = 60;  //const声明的是一个常量  不能修改  不能重名   是唯一的存在
+    var i = 90;
+    if(i>score){
+        alert("及格");
+        //score = 90;
+    }else{
+        alert("不及格");
+    }
+    //let  const  =>    var of
+    //    function say() {
+    //        let usename = "leson";
+    //        alert(usename);
+    //
+    //    }
+    //
+    //    say();
+
+
+    //    var a = "lulu";
+    //    function fn1() {//
+    ////        alert(this);
+    //        var that = this;
+    //        function test() {
+    //            alert(that.a);
+    //        }
+    //
+    //        return test;
+    //    };
+    //    var obj = {
+    //        a: "lili",
+    //        fn: fn1
+    //    }
+    //    var f = obj.fn();
+    //    f();
+    //var sum=(x, y) => {x++; y--; return x+y}
+
+    //   var sum = (x, y) =>{return x + y};  //箭头就是用来省略function    兼容型比较大
+    // alert(sum(1, 2));
+    //        function fn1() {//
+    //    //        alert(this);
+    //            var that = this;
+    //            function test() {
+    //                alert(that.a);
+    //            }
+    //
+    //            return test;
+    //        };
+    //  var  fn1 = ()=>{alert(this)};
+    //    var fn1 =()=>{alert(this);}
+    //        var  fn1 = function(){
+    //            var that = this;
+    //            return ()=>{alert(that.a) };//=>将函数移到()之后并且用=>来替换函数
+    //        }
+    //    var obj = {
+    //        a: "lili",
+    //        fn: fn1
+    //    }
+    //    var f = obj.fn();
+    //    f();
+
+
+    /*    连个this都指向window
+     var f = obj.fn;
+     var t = f();
+     t();
+     */
+
+    //    var f = obj.fn;
+    //    var t = f();
+    //    t();
+    //
+    //    var f = obj.fn();
+    //    f();
+
+    //第一个指向obj   第二个指向window
+    //    var f = obj.fn();
+    //    f();
+</script>
+</html>
