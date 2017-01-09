@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.select {
+    height: 30px;
+    width: 300px;
+}
+.select2 {
+    height: 30px;
+    width: 300px;
+    position: relative;
+    border: 1px solid #cdcdcd;
+    line-height: 30px;
+    text-align: center;
+}
+.select2 .content {
+    height: 30px;
+    width: 260px;
+    position: absolute;
+    left: 0;
+    border: 0;
+    outline: none;
+}
+
+.select2 .arrow {
+    position: absolute;
+    height: 30px;
+    width: 40px;
+    left: 260px;
+    background: url("../img/icon.png") no-repeat 10px 5px;
+}
+
+.select2 .option {
+    position: absolute;
+    list-style: none;
+    top: 30px;
+    width: 260px;
+    display: none;
+}
+
+.select2 .option li {
+    width: 260px;
+    background-color: rgba(150, 50, 50, 0.2);
+    text-align: left;
+}
+
+.select2 .option li:hover {
+    background-color: rgba(150, 50, 50, 0.3);
+    cursor: pointer;
+}

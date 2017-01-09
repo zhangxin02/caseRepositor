@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>静态的下拉框</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .select {
+            height: 30px;
+            width: 300px;
+            position: relative;
+            margin: 50px auto;
+            border: 1px solid #cdcdcd;
+            line-height: 30px;
+            text-align: center;
+            /*overflow: hidden;*/
+        }
+        .select .content {
+            height: 30px;
+            width: 260px;
+            position: absolute;
+            left: 0;
+            border: 0;
+            outline: none;
+        }
+
+        .select .arrow {
+            position: absolute;
+            height: 30px;
+            width: 40px;
+            left: 260px;
+            background: url("img/icon.png") no-repeat 10px 5px;
+        }
+
+        .select .option {
+            position: absolute;
+            list-style: none;
+            top: 30px;
+            width: 260px;
+            display: none;
+        }
+
+        .select .option li {
+            width: 260px;
+            background-color: rgba(150, 50, 50, 0.2);
+            text-align: left;
+        }
+
+        .select .option li:hover {
+            background-color: rgba(150, 50, 50, 0.3);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="select">
+    <input class="content" type="text" placeholder="请选择省份"/>
+    <span class="arrow"></span>
+    <ul class="option">
+        <li value="湖北">湖北</li>
+        <li value="湖北">湖北</li>
+        <li value="湖南">湖南</li>
+        <li value="河南">河南</li>
+        <li value="河北">河北</li>
+        <li value="湖北">湖北</li>
+        <li value="湖南">湖南</li>
+        <li value="河南">河南</li>
+    </ul>
+</div>
+</body>
+<script>
+    var arrow = document.querySelector(".arrow");
+    var content = document.querySelector(".content");
+    var select = document.querySelector(".option");
+    var selectLi = select.querySelectorAll("li");
+    content.onclick = arrow.onclick = function (e) {
+        var evt = window.event || e;
+        evt.stopPropagation();
+        select.style.display = "block";
+    }
+    selectLi.forEach(function (value) {
+        value.onclick = function (e) {
+            var evt = window.event || e;
+            evt.stopPropagation();
+            debugger;
+            var text = this.innerHTML;
+            content.value = text;
+            select.style.display = "none";
+        }
+    });
+    document.onclick = function () {
+        select.style.display = "none";
+    }
+
+//    Myselect.init(".select");
+</script>
+</html>

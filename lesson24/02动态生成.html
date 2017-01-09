@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>静态的下拉框</title>
+    <link href="css/common.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="select">
+</div>
+</body>
+<script>
+    var parent = document.getElementsByClassName("select")[0];
+    var optionlist = [
+        {value: "河北", text: "河北"},
+        {value: "湖北", text: "湖北"},
+        {value: "湖南", text: "湖南"},
+        {value: "河南", text: "河南"}];
+
+
+    var content = document.createElement("input");
+    content.className = "content";
+    content.placeholder = "请选择省份";
+    parent.appendChild(content);
+    var arrow = document.createElement("span"); //箭头
+    arrow.className = "arrow";
+    parent.appendChild(arrow);
+
+    var option = document.createElement("ul");
+    option.className = "option";
+    optionlist.forEach(function (obj) {
+        var value = obj["value"];
+        var text = obj["text"];
+        var li = document.createElement("li");
+        li.value = value;
+        li.innerHTML = text;
+        option.appendChild(li);
+        li.onclick = function (e) {
+            var evt = window.event || e;
+            evt.stopPropagation();
+            var text = this.innerHTML;
+            content.value = text;
+            option.style.display = "none";
+        }
+
+
+    });
+    parent.appendChild(option);
+    //    var selectLi = select.querySelectorAll("li");
+    content.onclick = arrow.onclick = function (e) {
+        var evt = window.event || e;
+        evt.stopPropagation();
+        option.style.display = "block";
+    }
+
+    document.onclick = function () {
+        option.style.display = "none";
+    }
+
+
+</script>
+</html>

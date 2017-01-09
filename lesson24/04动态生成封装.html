@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>静态的下拉框</title>
+    <link href="css/common.css" type="text/css" rel="stylesheet">
+    <style>
+        div {
+            float: left;
+            width: 300px;
+        }
+        .mySelect {
+            height: 30px;
+
+        }
+        .myCity {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div>省份</div>
+<div class="mySelect">
+</div>
+<div>城市</div>
+<div class="myCity">
+</div>
+<button id="btn">提交</button>
+</body>
+<script src="js/select2.js"></script>
+<script>
+    var data = [
+        {value: "河北", text: "河北"},
+        {value: "湖北", text: "湖北"},
+        {value: "湖南", text: "湖南"},
+        {value: "河南", text: "河南"},
+        {value: "河北", text: "河北"},
+        {value: "湖北", text: "湖北"},
+        {value: "湖南", text: "湖南"},
+        {value: "河南", text: "河南"},];
+    var hubeiCity = [
+        {value: "wuhan", text: "武汉武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},
+        {value: "wuhan", text: "武汉"},];
+
+    var hunanCity = [
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},
+        {value: "wuhan", text: "长沙"},];
+
+    $(".mySelect").select(data, "请选择省份", function (value) {
+        if (value == "湖北"){
+            $(".myCity").select(hubeiCity, "请选择城市");
+        }else{
+            $(".myCity").select(hunanCity, "请选择城市");
+        }
+    });
+    //    var btn = document.getElementById("btn");
+    //    btn.onclick = function () {
+    //        var value1 = $(".mySelect").getValue();
+    //        var value2 = $(".myCity").getValue();
+    //        if (!value2) {
+    //            alert("城市必选")
+    //        }
+    //        if (!value1) {
+    //            alert("省份必选")
+    //        }
+    //    }
+</script>
+</html>
