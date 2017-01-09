@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="cb" type="checkbox">选择
+<button id="btn">点击</button>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var i = 0;
+    $("#btn").click(function () {
+        i++;
+        if (i % 2 != 0) {
+            $("#cb").prop("checked", true);
+        } else {
+            alert($("#cb").prop("checked"));
+            $("#cb").prop("checked", false);
+        }
+    });
+</script>
+</html>
