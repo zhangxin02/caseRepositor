@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="parent" style="position: relative">
+    aaaaaaaaa
+    <div>
+        bbbbbbb
+        <div id="children" style="position: absolute">
+            cccccccc
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //    alert(document.querySelector("#children").offsetParent);
+    $("#children").parent().parent().css({"background":"red"});
+</script>
+</html>

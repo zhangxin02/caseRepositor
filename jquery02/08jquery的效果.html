@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            height: 200px;
+            width: 200px;
+            background-color: rgba(222, 222, 22, 0.8);
+        }
+    </style>
+</head>
+<body>
+<div id="content"></div>
+<button id="btn">点击</button>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var flag = true;
+    $("#btn").click(function () {
+        if (flag) {
+            $("#content").fadeOut(2000);
+            flag = false
+        } else {
+            $("#content").fadeIn(2000);
+            flag = true;
+        }
+    });
+
+
+</script>
+</html>

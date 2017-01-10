@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筛选</title>
+</head>
+<body>
+<div id="div" lang="en-us">我是第一个</div>
+<div class="div2" lang="fff">John hello</div>
+<div lang="fr">我是第三个div
+    <span>我是div中的span标签
+        <div>
+            <span>我是span中span标签</span>
+        </div>
+    </span>
+</div>
+<span>滴滴滴学生卡  </span>
+<input type="text" value="1111">
+<input type="hidden" value="1111">
+<div></div>
+<ul>
+    <li id="aaa_2" class="first" data-info="aaaaa_1">1</li>
+    <li data-info="bbbb_2">2</li>
+    <li id="aaaaa_2" data-info="aaa_3">3</li>
+    <li data-info="dddd_2">7</li>
+    <li><a id="aaa">aaaaa</a></li>
+    <li class="middle">6</li>
+    <li id="dddd">7</li>
+    <li>8</li>
+    <li>9</li>
+    <li class="last">10</li>
+</ul>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //    var i = 2 ;
+    //    $("ul li").eq(i).css("background", "red");
+    //  alert(  $("ul li").first().hasClass("first1"))  返回true or false  可以尝试用原生来实现
+
+    //    $("ul li").filter(".middle").css("background", "red");
+    //    $("ul li[class='middle']").css("background", "red");
+
+    //    $("ul li").filter(function(){
+    //        return $(this).html()=="7";
+    //    }).css("background", "red");
+
+    //   alert( $(".first").eq(0).parent().is("div"));
+    //    var show = function(){
+    //
+    //    }
+    //    alert(show.is("function"))
+
+    //    var list = [];
+    //    $("ul li").map(function () {
+    //        list.push($(this).html());
+    //    });
+    //    alert(list);
+
+    //    var list = $("ul li").map(function () {
+    //        return $(this).html();
+    //    }).get().join("");
+    //    alert(list);
+    //
+    //    $("div").has("span").css({"background":"red"});
+    //    $("ul li").slice(-1).css({"background":"red"});
+
+    //    $("ul").children().eq(0).css({"background":"red"});
+    //      $("ul").find("a").eq(0).css({"background":"red"});
+    //    $("#aaa").closest("ul").css({"background":"red"});
+
+//    $("#div").nextAll().css({"background":"red"});
+//    $("#div").nextUntil("span").css({"background":"red"});
+
+//       $("#dddd").siblings().css({"background":"red"});
+</script>
+</html>

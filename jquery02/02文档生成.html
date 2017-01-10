@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">点击我生成一个红色的div</button>
+<div id="parent" style="width: 200px;height: 200px;border: 1px solid yellow">
+    <div style="width: 20px;height: 20px;background-color: #000CCC" id="blue"></div>
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $("#parent").click(function () {
+        alert("元素被点击了");
+    });
+    $("#btn").click(function () {
+
+
+//        var div = $("<div id='redDiv' style='background-color: red;height: 100px;width: 100px;overflow: hidden'>");
+        //有层级关系的插入  append 插入到最后面   prepend插入到最前面
+        //   $("#parent").prepend(div);
+        // div.prependTo($("#parent"))
+        // $("#parent").append(div);
+        // div.appendTo($("#parent"))
+
+        //同辈的指定插入
+//        $("#parent").after(div);
+//         $("#parent").before(div);
+//          div.insertAfter($("#parent"))
+//        div.insertBefore($("#parent"))
+
+        //新增父元素
+//        $("#parent").wrap(div);
+
+        //移除父元素
+//        $("#blue").unwrap();
+
+        //直接自我销毁元素
+//        $("#blue").remove();
+
+        //拷贝  true连事件一起    false不拷贝事件
+        $("body").append($("#parent").clone(true))
+    });
+</script>
+</html>

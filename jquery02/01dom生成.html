@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">点击我生成一个红色的div</button>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //    $("#btn").on("click",function(){
+    //        alert("你好");
+    //    });
+    //    $(document).on("click","#btn",function(){
+    //        alert("aaaa");
+    //    })
+
+    //类似于原生的绑定方法
+    //    $("#btn").click(function () {
+    //        var div = $("<div>");
+    //        div.css({"background": "red"});
+    //        div.height("100px");
+    //        div.width("100px");
+    //        div.click(function () {
+    //            alert("div被点击完成");
+    //        });
+    //        $("body").append(div);
+    //    });
+    //    标签里面做拼接
+    //        $("#btn").click(function () {
+    //            var div = $("<div id='redDiv' style='background-color: red;height: 100px;width: 100px'>");
+    //            div.click(function () {
+    //                alert("div被点击完成");
+    //            });
+    //            $("body").append(div);
+    //        });
+
+
+    $("#btn").click(function () {
+        var div = $("<div id='redDiv' style='background-color: red;height: 100px;width: 100px'>");
+        $("body").append(div);
+    });
+
+    //    $("#redDiv").click(function () {
+    //        alert("红色的div被点击了")
+    //    });
+    //    $("#redDiv").on("click",function(){
+    //        alert("红色的div被点击了");
+    //    });
+
+    //该方法可以解决动态生成元素的事件绑定
+    //    $(document).on("click","#redDiv",function(){
+    //        alert("红色的div被点击了");
+    //    })
+    //利用委托监听绑定事件
+    $(document).delegate("#redDiv", "click", function () {
+        alert("点击成功");
+    });
+</script>
+</html>
