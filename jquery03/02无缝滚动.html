@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrap">
+    <ul id="content2">
+        <li class="select">
+            <img src="img/01.jpg">
+        </li>
+        <li>
+            <img src="img/02.jpg">
+        </li>
+        <li>
+            <img src="img/03.jpg">
+        </li>
+        <li>
+            <img src="img/04.jpg">
+        </li>
+        <li>
+            <img src="img/05.jpg">
+        </li>
+    </ul>
+    <ul id="nav">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var index = 0;
+    var timer = null;
+
+    //    $("#nav li").mouseover(function () {
+    //        index = $(this).index();
+    //        $("#nav li").eq(index).addClass("select").siblings().removeClass("select");
+    //        var left = -index * 520;
+    //        $("#content2").animate({"left": left});
+    //    });
+    timer = setInterval(function () {
+        index++;
+        if (index == 5) {
+            index = 0;
+            var left = -index * 520;
+            $("#nav li").eq(index).addClass("select").siblings().removeClass("select");
+            $("#content2").css("left", 0).animate({"left": left});
+        } else {
+            var left = -index * 520;
+            $("#nav li").eq(index).addClass("select").siblings().removeClass("select");
+            $("#content2").animate({"left": left});
+        }
+
+
+    }, 1000);
+</script>
+</html>

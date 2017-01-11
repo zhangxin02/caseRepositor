@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrap">
+    <ul id="content">
+        <li class="select">
+            <img src="img/01.jpg">
+        </li>
+        <li>
+            <img src="img/02.jpg">
+        </li>
+        <li>
+            <img src="img/03.jpg">
+        </li>
+        <li>
+            <img src="img/04.jpg">
+        </li>
+        <li>
+            <img src="img/05.jpg">
+        </li>
+    </ul>
+    <ul id="nav">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    var index = 0;
+    var beforeIndex = 0;
+    var timer = null;
+    var maxLength = $("#nav li").length;
+    start();
+    $("#nav li").mouseover(function () {
+        index = $(this).index();
+        move(true);
+        clearInterval(timer);
+    }).mouseout(function () {
+        start();
+
+    });
+    function start() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            index++;
+            if (index == maxLength) {
+                index = 0;
+            }
+            move(false);
+
+        }, 1000);
+    }
+    function move(flag) {
+        $("#nav li").eq(index).addClass("select").siblings().removeClass("select");
+        //从nav从左移到右
+        if (flag) {
+            if (index > beforeIndex) {
+                //自己出来  其余的图片复位
+                $("#content li").eq(index).stop().css({"left": 520}).stop().animate({"left": 0});
+                //设置之前图片的离开方式
+                $("#content li").eq(beforeIndex).css({"left": "0"}).stop().animate({"left": "-520px"});
+
+            } else if (index < beforeIndex) { //从nav从右移到左
+                //自己出来  其余的图片复位
+                $("#content li").eq(index).stop().css({"left": -520}).stop().animate({"left": 0});
+                //设置之前图片的离开方式
+                $("#content li").eq(beforeIndex).css({"left": "0"}).stop().animate({"left": "520px"});
+            }
+        } else {
+            //自己出来  其余的图片复位
+            $("#content li").eq(index).stop().css({"left": 520}).stop().animate({"left": 0});
+            //设置之前图片的离开方式
+            $("#content li").eq(beforeIndex).css({"left": "0"}).stop().animate({"left": "-520px"});
+        }
+        beforeIndex = index;
+    }
+</script>
+</html>

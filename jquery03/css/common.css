@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+ul li {
+  list-style: none; }
+
+#wrap {
+  height: 280px;
+  width: 520px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden; }
+
+#nav {
+  position: absolute;
+  height: 20px;
+  width: 200px;
+  left: 160px;
+  top: 240px;
+  background-color: rgba(22, 22, 22, 0.6);
+  border-radius: 10px; }
+  #nav li {
+    float: left;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: rgba(134, 33, 200, 0.6);
+    text-align: center;
+    line-height: 14px;
+    margin-left: 21.66667px;
+    margin-top: 3px; }
+  #nav li.select {
+    background-color: rgba(156, 66, 100, 0.8); }
+
+#content2 {
+  position: absolute;
+  width: 2600px;
+  height: 280px;
+  left: 0;
+  top: 0; }
+  #content2 li {
+    height: 280px;
+    width: 520px;
+    float: left; }
+    #content2 li img {
+      display: block;
+      height: 280px;
+      width: 520px; }
+
+#wrap3 {
+  height: 300px;
+  width: 760px;
+  margin: 50px auto;
+  overflow: hidden;
+  position: relative; }
+
+#content3 {
+  height: 300px;
+  width: 760px;
+  position: relative; }
+  #content3 li {
+    position: absolute;
+    height: 300px;
+    width: 760px;
+    display: none; }
+    #content3 li img {
+      position: absolute;
+      height: 300px;
+      width: 760px;
+      left: -760px;
+      top: 0; }
+  #content3 .select {
+    display: block; }
+
+#content {
+  position: absolute;
+  overflow: hidden;
+  height: 280px;
+  width: 520px;
+  left: 0;
+  top: 0; }
+  #content li {
+    position: absolute;
+    height: 280px;
+    width: 520px;
+    left: 520px;
+    top: 0; }
+    #content li img {
+      display: block;
+      height: 280px;
+      width: 520px; }
+  #content li.select {
+    left: 0; }
+
+header {
+  height: 600px;
+  width: 1000px;
+  margin: 0 auto; }
+
+.louti {
+  height: 600px;
+  width: 1000px;
+  margin: 0 auto; }
+
+nav {
+  position: fixed;
+  left: 50px;
+  top: 200px;
+  display: none; }
+  nav li {
+    list-style: none;
+    height: 32px;
+    width: 32px;
+    text-align: center;
+    line-height: 32px;
+    border: 1px dotted #cdcdcd;
+    position: relative;
+    overflow: hidden; }
+    nav li span {
+      position: absolute;
+      left: 0;
+      top: 32px;
+      height: 32px;
+      width: 32px;
+      display: inline-block; }
+
+nav li.select span {
+  top: 0;
+  background-color: red; }
+
+nav li:hover span {
+  top: 0;
+  background-color: #594d64;
+  cursor: pointer; }
+
+nav li.top {
+  background-color: red; }
+
+/*# sourceMappingURL=common.css.map */

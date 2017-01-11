@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //ajax 异步无刷新技术
+    //html+css渲染页面
+    //javascript事件去触发服务器请求
+    //在利用ajax去服务器请求数据
+    //数据请求完毕后 利用dom去生成页面元素
+
+    $.ajax({
+        type: "get",
+        url: "some.php",
+        data: "name=John&location=Boston",
+        success: function(msg){
+            alert( "Data Saved: " + msg );
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="wrap3">
+    <ul id="content3">
+        <li style="background: url('images/bg1.jpg')">
+            <img src="images/con1.png"/>
+            <img src="images/text1.png"/>
+        </li>
+        <li style="background: url('images/bg2.jpg')">
+            <img src="images/con2.png"/>
+            <img src="images/text2.png"/>
+        </li>
+        <li style="background: url('images/bg3.jpg')">
+            <img src="images/con3.png"/>
+            <img src="images/text3.png"/>
+        </li>
+        <li style="background: url('images/bg4.jpg')">
+            <img src="images/con4.png"/>
+            <img src="images/text4.png"/>
+        </li>
+        <li style="background: url('images/bg5.jpg')">
+            <img src="images/con5.png"/>
+            <img src="images/text5.png"/>
+        </li>
+    </ul>
+    <ul id="nav">
+        <li class="select">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    //    $("#content3 li").eq(0).fadeIn(500, function () {
+    //        $(this).find("img").eq(0).animate({"left": 0}, function () {
+    //            $(this).next().animate({"left": 0});
+    //        });
+    //    });
+
+
+    var index = 0;
+    var timer = null;
+    var length = $("#nav li").length;
+    show(index);
+
+    $("#nav li").mouseover(function () {
+        index = $(this).index();
+        show(index);
+        clearInterval(timer);
+
+    }).mouseout(function () {
+        start();
+    });
+
+
+    start();
+
+    function start() {
+        clearInterval(timer);
+        timer = setInterval(function () {
+            index++;
+            if (index == length) {
+                index = 0;
+            }
+            show(index)
+
+        }, 2000);
+    }
+    function show(index) {
+        $("#nav li").eq(index).addClass("select").siblings().removeClass("select");
+
+        $("#content3 li").eq(index).fadeIn(500, function () {
+            $(this).find("img").eq(0).animate({"left": 0}, function () {
+                $(this).next().animate({"left": 0});
+            });
+        }).siblings().fadeOut(function () {
+            $(this).find("img").css("left", -760);
+        });
+    }
+
+
+</script>
+</html>
