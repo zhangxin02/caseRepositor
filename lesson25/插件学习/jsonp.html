@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script src="js/jquery-1.11.3.js"></script>
+<script>
+    $.ajax({
+        url:"https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su",
+        data:{wd:"shi"},
+        dataType:"jsonp",
+        jsonp:"cb",
+        success:function(data){
+            alert(data);
+        }
+    });
+</script>
+</html>

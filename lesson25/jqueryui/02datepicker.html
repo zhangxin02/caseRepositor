@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">-->
+    <!--<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">-->
+    <link href="../jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet">
+    <style>
+        .ui-datepicker-trigger {
+            height: 20px;
+            width: 20px;
+            margin-top: 10px;;
+        }
+    </style>
+</head>
+<body>
+时间控件:<input type="text" id="startDate"/>
+另一个时间控件:<input type="text" id="endDate">
+</body>
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script>
+    $(function () {
+//    $("#startDate").datepicker();
+        //$("#startDate").datepicker().datepicker("option", "showAnim", "slideDown");
+        $("#startDate").datepicker({
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            changeMonth: true,
+            changeYear: true,
+//            numberOfMonths: 2,
+            showButtonPanel: false,
+            dateFormat: "yy年mm月dd日",
+            //  showOn: "button",
+//            buttonImage: "images/1.png",
+//            buttonImageOnly: true,
+//            altField: "#endDate",
+//            altFormat: "yy-mm-dd",
+            minDate: 0,
+            maxDate: "+1M",
+            defaultDate: "+1w",
+            changeMonth: true,
+            showWeek: true,
+            firstDay: 1,
+            onClose: function (selectedDate) {
+                $("#endDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+        $("#endDate").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: "yy年mm月dd日",
+            onClose: function (selectedDate) {
+                $("#startDate").datepicker("option", "maxDate", selectedDate);
+            }
+        });
+    });
+</script>
+</html>

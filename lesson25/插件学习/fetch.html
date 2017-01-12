@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//    fetch("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su=aaa", {mode: "cors"})
+//            .then(function (data) {
+//                alert("aaa")
+//            });
+    fetch("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy", {
+        method: "post",
+        mode: "no-cors",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body:'su=aaa'
+    }).then(function(res) {
+        console.log("Response succeeded?", JSON.stringify(res.ok));
+        console.log(JSON.stringify(res));
+    }).catch(function(e) {
+        console.log("fetch fail", JSON.stringify(params));
+    });
+</script>
+</html>
