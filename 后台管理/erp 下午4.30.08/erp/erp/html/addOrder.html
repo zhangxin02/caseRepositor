@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.av8djs.xyz/erp/css/style.css"/>
+	</head>
+	<script language=javascript src='http://www.av8djs.xyz/user/js/jquery-1.9.0.min.js'></script>
+	<script language=javascript src='http://www.av8djs.xyz/filter.js'></script>
+	<body>
+		<header>
+			<h1><img src="../images/admin_logo.png"/></h1>
+			<ul>
+				<li><a href="http://www.av8djs.xyz/erp/index.html"><img src="../images/home.png"/>站点首页</a></li>
+				<li><a href="userEdit.html"><img src="../images/user.png"/>用户中心</a></li>
+				<li><a href="javascript:void(0)" onclick="logout()"><img src="../images/exit.png"/>安全退出</a></li>
+			</ul>
+		</header>
+        <aside class="left_aside">
+        	<ul>
+        		<li>
+        			<dl>
+        				<dt>商品列表</dt>       				
+        				<dd><a href="../index.html">商品详情</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>仓库列表</dt>
+					    <dd><a href="warehouse.html">仓库信息</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>库存管理</dt>
+        				<!--当前链接则添加class:active-->
+					    <dd><a href="addGood.html">新增商品</a></dd>
+					    <dd><a href="ruku.html">入库商品</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>订单管理</dt>
+					    <dd><a href="addOrder.html" class="active">添加订单</a></dd>
+        				<dd><a href="undoneOrder.html">未完成订单</a></dd>
+					    <dd><a href="doneOrder.html">已完成订单</a></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        </aside>
+        <section class="wrap">
+        	<div class="content">        		
+			    <section>
+			      <h2><strong style="color:grey;">添加订单</strong></h2>
+			      <form>
+			      <ul class="ulColumn2">			      
+			       <li>
+			        <span class="item_name" style="width:120px;">商品ID：</span>
+			        <input id="goodId" type="text" required="required" class="textbox textbox_295"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品数量：</span>
+			        <input id="goodNum" type="text" required="required" class="textbox textbox_225"/> 个
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;"></span>
+			        <input id="submit" type="button" value="提交" class="link_btn"/>
+			       </li>
+			      </ul>
+			      </form>
+			    </section>
+        	</div>
+        </section>
+	</body>
+	<script>
+		var idInput=document.getElementById("goodId");
+		var numInput=document.getElementById("goodNum");
+		var btn=document.getElementById("submit");
+		var time=new Date();
+		var year=time.getFullYear();
+		var month=time.getMonth()+1;
+		var day=time.getDate();
+		var hour=time.getHours();
+		var minute=time.getMinutes();
+		var sec=time.getSeconds();
+		var createTime=year+"-"+month+"-"+day+" "+hour+":"+minute+":"+sec;
+		
+		btn.onclick=function(){
+				var url = "http://www.av8djs.xyz/php/order/addOrder.php?createtime="+createTime+"&gid="+idInput.value+"&num="+numInput.value;
+				$.ajax({
+					type:"get",
+					url:url,
+					success:function(data){
+						if(data=="1"){
+							alert("添加成功！")
+							window.location.href="undoneOrder.html";
+						}else if(data=="-2"){
+							alert("该商品不存在！")
+						}else if(data=="-1"){
+							alert("下单失败,库存不足！")
+						}else{
+							alert("新增失败！");
+						}
+					}
+				})
+		}
+	</script>
+</html>

@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+body,ul,li,dl,dt,dd,p,ol,h1,h2,h3,h4,h5,h6,form,img,table,aside,fieldset,legend{margin:0; padding:0;}
+ul,li,ol{list-style:none;}
+img{border:0; }
+a{text-decoration:none; color:#333;}
+h1,h2,h3,h4,h5,h6{font-weight:100;}
+body{font-size:12px; font-family:"微软雅黑";}
+input,a{outline:none;} 
+.fl{float:left;} 
+.fr{float:right;} 
+body,html{width:100%;height:100%;overflow: hidden;}
+
+
+
+header{height:48px;width:100%;background:url(../images/top.jpg) repeat-x 0 0;position:fixed;top:0;z-index:999;} 
+header .logo{display:flex;width:160px;margin-left:30px;padding-top:12px;color: #fff ;align-items:center;}
+header .logo span{text-decoration:underline;margin:0 5px;}
+
+header .userNav{margin:10px 10px 0 0;} 
+header .userNav li{display: inline-block;margin:0 0 0 10px;background:#262626;border-radius:50%;box-shadow: 0 1px 0 #4e4e4e;-webkit- box-shadow: 0 1px 0 #4e4e4e;-moz-box-
+shadow: 0 1px 0 #4e4e4e;} 
+header .userNav li a{display: block;height:28px;width:28px;} 
+header .userNav li .search{background:url(../images/usernav/search.png) no-repeat 9px 9px;}
+header .userNav li .screen{background:url(../images/usernav/screen.png) no-repeat 9px 9px;}
+header .userNav li .settings{background:url(../images/usernav/settings.png) no-repeat 9px 9px;}
+header .userNav li .logout{background:url(../images/usernav/logout.png) no-repeat 9px 9px;}
+
+aside{width:100px;height:100%;position:absolute;z-index:99;display: flex;align-items:center;padding-top:48px;box-sizing:border-box;background:url(../images/sidebar.jpg);transition:all 1s;}
+aside .flipbtn{position:absolute;right:-15px;border:0;width:30px;height:30px;border-radius:50%;font-size:25px;transition:all 0.5s;}
+aside .borders{flex-grow:1;border-top: 1px solid #555555;border-bottom: 1px solid #2e2e2e;padding:15px 0;color:#fff;text-align: center;position:relative;}
+aside .massages{height:100%;display: flex;flex-direction:column;}
+aside .borders img{display: block;margin:5px auto;}
+aside .borders:after{content:"";width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(0,0,0,0.3);transition:all 0.5s;}
+aside .borders:hover:after{background:rgba(0,0,0,0);}
+
+aside .massages .loginuser{}
+aside .massages .loginuser img{height:70px;width:70px;display: inline-block;}
+
+section{width:100%;height:100%;position:absolute;display: flex;justify-content:center;align-items:center;align-items:center;padding-top:48px;padding-left:100px;box-sizing:border-box;background:url(../images/body.jpg);}
+section .content{height: 80%;width:90%;background:#fff;position: absolute;}
+section .headnav{width:100%;height:10%;border-bottom:1px solid #bbb;box-sizing:border-box;padding-left: 20px;display: flex;align-items:center;}
+section .headnav span{margin-left: 10px;}
+section .headnav img{height:16px;}
+section .bugbottom{width:100%;height:7%;border-top:1px solid #bbb;box-sizing:border-box;display: flex;justify-content:center;align-items:center;}
+section .bugbottom a{height:20px;width:20px;border:1px solid #bbb;margin:0 5px;text-align: center;line-height: 20px;transition:all .5s;}
+section .bugbottom a:hover{background:rgba(0,0,0,0.3);}
+section .buglist{width:100%;height:83%;box-sizing:border-box;padding:20px 50px;overflow:auto;}
+
+table{border-spacing:0;border-left:1px solid #CCC;border-top:1px solid #CCC;border-bottom:1px solid #CCC;border-radius:15px;width:100%;}
+td{border-bottom:1px solid #CCC;border-right:1px solid #CCC;padding:10px;text-align: center;}
+
+thead td{background:url(../images/breadcrumbs.png) repeat-x 0 0/cover;}
+thead:nth-child(1){border-radius:15px 15px 0 0;}
+tr:nth-last-child(1){border-radius: 0 0 15px 15px;}
+
+thead td:nth-child(1){border-radius:15px 0 0 0;}
+thead td:nth-last-child(1){border-radius:0 15px 0 0;}
+tr:nth-last-child(1) td:nth-last-child(1){border-radius: 0 0 15px 0;}
+tr:nth-last-child(1) td:nth-child(1){border-radius: 0 0 0 15px;}
+
+
+
+
+
+
+
+#buginfo,#id,#desc,#createTime,#creater,#testState,#changeState{width:200px;float:right;height:30px;border-radius:6px;margin-right:10px;}
+
+#update{width:310px;background:url(../images/sidebar.jpg);color:#fff;overflow: hidden;display: none;position:absolute;top:13%;left:0;right:0;margin:0 auto;}
+#update label{float:left;height:30px;display:inline-block;line-height:30px;margin-left:10px;}
+#update li{height:30px;list-style:none;padding:10px 0;}
+#updatebtn{width:100px;height:30px;text-align:center;display:block;margin:10px auto 10px;border-radius:6px;}
+
+
+

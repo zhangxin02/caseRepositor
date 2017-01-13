@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.av8djs.xyz/erp/css/style.css"/>
+	</head>
+	<script language=javascript src='http://www.av8djs.xyz/user/js/jquery-1.9.0.min.js'></script>
+	<script language=javascript src='http://www.av8djs.xyz/filter.js'></script>
+	<body>
+		<header>
+			<h1><img src="../images/admin_logo.png"/></h1>
+			<ul>
+				<li><a href="http://www.av8djs.xyz/erp/index.html"><img src="../images/home.png"/>站点首页</a></li>
+				<li><a href="userEdit.html"><img src="../images/user.png"/>用户中心</a></li>
+				<li><a href="javascript:void(0)" onclick="logout()"><img src="../images/exit.png"/>安全退出</a></li>
+			</ul>
+		</header>
+        <aside class="left_aside">
+        	<ul>
+        		<li>
+        			<dl>
+        				<dt>商品列表</dt>       				
+        				<dd><a href="../index.html">商品详情</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>仓库列表</dt>
+					    <dd><a href="warehouse.html">仓库信息</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>库存管理</dt>
+        				<!--当前链接则添加class:active-->
+					    <dd><a href="addGood.html" class="active">新增商品</a></dd>
+					    <dd><a href="ruku.html">入库商品</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>订单管理</dt>
+					    <dd><a href="addOrder.html">添加订单</a></dd>
+        				<dd><a href="undoneOrder.html">未完成订单</a></dd>
+					    <dd><a href="doneOrder.html">已完成订单</a></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        </aside>
+        <section class="wrap">
+        	<div class="content">        		
+			    <section>
+			      <h2><strong style="color:grey;">修改商品信息</strong></h2>
+			      <form>
+			      <ul class="ulColumn2">
+			       <li>
+			        <span class="item_name" style="width:120px;">商品类型：</span>
+			        <input id="goodType" type="text" required="required" class="textbox textbox_225" placeholder="商品的类型,如'phone'..."/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品名称：</span>
+			        <input id="goodName" type="text" required="required" class="textbox textbox_295" placeholder="商品的名称,如'iphone'..."/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品价格：</span>
+			        <input id="goodPrice" type="text" required="required" class="textbox"/> 元
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">仓库：</span>
+			        <select id="kidSelect" class="select">
+			         <option value="0">选择仓库</option>
+			        </select>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品描述：</span>
+			        <textarea id="goodDesc" placeholder="要上架的商品详情描述" required="required" class="textarea" style="width:500px;height:100px;"></textarea>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;"></span>
+			        <input id="submit" type="button" value="提交" class="link_btn"/>
+			       </li>
+			      </ul>
+			      </form>
+			    </section>
+        	</div>
+        </section>
+	</body>
+	<script>
+		var typeInput=document.getElementById("goodType");
+		var nameInput=document.getElementById("goodName");
+		var priceInput=document.getElementById("goodPrice");
+		var descTextarea=document.getElementById("goodDesc");
+		var kidSelect=document.getElementById("kidSelect");
+		var content=location.search.substring(1);//?id=7&gname=ddd&type=bbbbb&price=123&num=666&kid=1&descs=ddddddddd&kname=日用品
+		var btn=document.getElementById("submit");
+		
+		var list=content.split("&");
+		var id=list[0].split("=")[1];
+		var gname=decodeURI(list[1].split("=")[1]);
+		var type=decodeURI(list[2].split("=")[1]);
+		var price=list[3].split("=")[1];
+		var kid=list[5].split("=")[1];
+		var descs=decodeURI(list[6].split("=")[1]);
+		var kname=decodeURI(list[7].split("=")[1]);
+		
+		window.onload=function(){
+			typeInput.value=type;
+			nameInput.value=gname;
+			priceInput.value=price;
+			descTextarea.value=descs;
+			$.ajax({
+				type:"get",
+				url:"http://www.av8djs.xyz/php/good/selectStore.php",
+				success:function(result){
+					var data=JSON.parse(result);
+					for(var i=0;i<data.length;i++){
+						var desc=data[i]["descs"];
+						var opt=document.createElement("option");
+						opt.innerHTML=desc;
+						opt.value=data[i]["id"];
+						kidSelect.appendChild(opt);
+						if(data[i]["id"]==kid){
+							opt.selected = true;
+						}
+					}
+				}
+			})
+		}
+		btn.onclick=function(){
+			var type=typeInput.value;
+			var gname=nameInput.value;
+			var price=priceInput.value;
+			var kid=kidSelect.value;
+			var desc=descTextarea.value;
+			var goodId=id;
+			if(kidSelect.value){
+				var url = "http://www.av8djs.xyz/php/good/addGood.php?kid="+kidSelect.value+"&gname="+nameInput.value+"&type="+typeInput.value+"&price="+priceInput.value+"&desc="+descTextarea.value+"&id="+goodId;
+				$.ajax({
+					type:"get",
+					url:url,
+					success:function(data){
+						if(data=="1"){
+							window.location.href="../index.html";
+						}else{
+							alert("修改失败！");
+						}
+					}
+				})
+			}else{
+				alert("请选择仓库!");
+			}
+		}
+	</script>
+</html>

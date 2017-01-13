@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.av8djs.xyz/erp/css/style.css"/>
+	</head>
+	<script language=javascript src='http://www.av8djs.xyz/user/js/jquery-1.9.0.min.js'></script>
+	<script language=javascript src='http://www.av8djs.xyz/filter.js'></script>
+	<body>
+		<header>
+			<h1><img src="../images/admin_logo.png"/></h1>
+			<ul>
+				<li><a href="http://www.av8djs.xyz/erp/index.html"><img src="../images/home.png"/>站点首页</a></li>
+				<li><a href="userEdit.html"><img src="../images/user.png"/>用户中心</a></li>
+				<li><a href="javascript:void(0)" onclick="logout()"><img src="../images/exit.png"/>安全退出</a></li>
+			</ul>
+		</header>
+        <aside class="left_aside">
+        	<ul>
+        		<li>
+        			<dl>
+        				<dt>商品列表</dt>
+        				<!--当前链接则添加class:active-->
+        				<dd><a href="../index.html">商品详情</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>仓库列表</dt>
+					    <dd><a href="warehouse.html" class="active">仓库信息</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>库存管理</dt>
+					    <dd><a href="addGood.html">新增商品</a></dd>
+					    <dd><a href="ruku.html">入库商品</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>订单管理</dt>      				
+					    <dd><a href="addOrder.html">添加订单</a></dd>
+        				<dd><a href="undoneOrder.html">未完成订单</a></dd>
+					    <dd><a href="doneOrder.html">已完成订单</a></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        </aside>
+        <section class="wrap">
+        	<div class="content">
+        		<section>
+			      <div class="page_title">
+			       <h2 class="fl">商品详情</h2>
+			      </div>
+			      <table class="table">
+			       <tr>
+			        <th>仓库ID</th>
+			        <th>仓库名称</th>
+			        <th>仓库容量</th>
+			        <th>当前数量</th>
+			        <!--<th>操作</th>-->
+			       </tr>
+			      </table>
+			    </section>			    
+        	</div>
+        </section>
+	</body>
+	<script>
+		var table=document.querySelectorAll(".table")[0];		
+		function init(){
+				$.ajax({
+				type:"get",
+				url:"http://www.av8djs.xyz/php/good/selectStore.php",
+				success:function(result){
+					var good=JSON.parse(result);
+					var firstTr=table.children[0];
+					table.innerHTML="";
+					table.appendChild(firstTr);
+					for(var i=0;i<good.length;i++){
+						var tr=document.createElement("tr");
+						tr.style.textAlign="center";
+						var td=document.createElement("td");
+						td.innerHTML=good[i]["id"];
+						tr.appendChild(td);
+						var td=document.createElement("td");
+						td.innerHTML=good[i]["descs"];
+						tr.appendChild(td);
+						var td=document.createElement("td");
+						td.innerHTML=good[i]["maxNum"];
+						tr.appendChild(td);
+						var td=document.createElement("td");
+						td.innerHTML=good[i]["num"];
+						tr.appendChild(td);
+//						var td=document.createElement("td");
+//						var span=document.createElement("span");
+//						span.innerHTML="删除";
+//						span.setAttribute("data_id",good[i]["id"])
+//						span.style.cursor="pointer";
+//						span.onclick=function(){
+//							var id=this.getAttribute("data_id");
+//							$.ajax({
+//								type:"get",
+//								url:"http://www.av8djs.xyz/php/good/deleteGood.php?id="+id,
+//								callback:function(data){
+//									if(data=="1"){
+//										init();
+//									}else{
+//										alert("删除失败！")
+//									}
+//								}
+//							})
+//						}						
+//						td.appendChild(span);
+//						var br=document.createElement("br");
+//						td.appendChild(br);
+//						var br=document.createElement("br");
+//						td.appendChild(br);
+//						var edit=document.createElement("a");
+//						edit.innerHTML="编辑";
+//						edit.href="html/editGood.html?id="+good[i]["id"]+"&gname="+good[i]["gname"]+"&type="+good[i]["type"]+"&price="+good[i]["price"]+"&num="+good[i]["num"]+"&kid="+good[i]["kid"]+"&descs="+good[i]["descs"]+"&kname="+good[i]["kname"];
+//						td.appendChild(edit);
+//						tr.appendChild(td);
+						table.appendChild(tr);
+					}					
+				}
+			})
+		}
+		window.onload=function(){
+			init();
+		}
+	</script>
+</html>

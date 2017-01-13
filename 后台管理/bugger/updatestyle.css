@@ -1,0 +1,20 @@
+
+    *{margin:0;
+    padding:0;
+    }
+    
+    input{outline: none;font-size:16px;}
+
+    #buginfo,#id,#desc,#createTime,#creater,#testState,#changeState{
+    width:200px;float:right;height:30px;
+    border-radius:6px;margin-right:10px; 
+    }
+
+    #update{width:310px;background:rgba(34, 26, 31, 0.4)}
+    #update label{float:left;height:30px;display:inline-block;line-height:30px;
+        
+        }
+    #update li{height:50px;list-style:none;padding-top:6px;}
+    
+    #updatebtn{width:100px;height:30px;text-align:center;margin-left:90px;
+       border-radius:6px;background:agba(25, 25, 25, 0.3);}

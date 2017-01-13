@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.av8djs.xyz/erp/css/style.css"/>
+	</head>
+	<script language=javascript src='http://www.av8djs.xyz/user/js/jquery-1.9.0.min.js'></script>
+	<script language=javascript src='http://www.av8djs.xyz/filter.js'></script>
+	<body>
+		<header>
+			<h1><img src="../images/admin_logo.png"/></h1>
+			<ul>
+				<li><a href="http://www.av8djs.xyz/erp/index.html"><img src="../images/home.png"/>站点首页</a></li>
+				<li><a href="userEdit.html"><img src="../images/user.png"/>用户中心</a></li>
+				<li><a href="javascript:void(0)" onclick="logout()"><img src="../images/exit.png"/>安全退出</a></li>
+			</ul>
+		</header>
+        <aside class="left_aside">
+        	<ul>
+        		<li>
+        			<dl>
+        				<dt>商品列表</dt>       				
+        				<dd><a href="../index.html">商品详情</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>仓库列表</dt>
+					    <dd><a href="warehouse.html">仓库信息</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>库存管理</dt>
+        				<!--当前链接则添加class:active-->
+					    <dd><a href="addGood.html">新增商品</a></dd>
+					    <dd><a href="ruku.html" class="active">入库商品</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>订单管理</dt>
+					    <dd><a href="addOrder.html">添加订单</a></dd>
+        				<dd><a href="undoneOrder.html">未完成订单</a></dd>
+					    <dd><a href="doneOrder.html">已完成订单</a></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        </aside>
+        <section class="wrap">
+        	<div class="content">        		
+			    <section>
+			      <h2><strong style="color:grey;">商品入库</strong></h2>
+			      <form>
+			      <ul class="ulColumn2">
+			       <li>
+			        <span class="item_name" style="width:120px;">商品ID：</span>
+			        <input id="goodId" type="text" required="required" class="textbox textbox_295"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品数量：</span>
+			        <input id="goodNum" type="text" required="required" class="textbox"/> 个
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;"></span>
+			        <input id="gobtn" type="button" value="入库" class="link_btn"/>
+			       </li>
+			      </ul>
+			      </form>
+			    </section>
+        	</div>
+        </section>
+	</body>
+	<script>
+		var numInput=document.getElementById("goodNum");
+		var idInput=document.getElementById("goodId");
+		var btn=document.getElementById("gobtn");
+		
+		btn.onclick=function(){
+			var num=numInput.value;
+			var goodId=idInput.value;
+//			alert(num);
+				var url = "http://www.av8djs.xyz/php/good/addGood.php?num="+num+"&id="+goodId+"&numTime="+Math.random();
+				$.ajax({
+					type:"get",
+					url:url,
+					success:function(data){
+						if(data=="-1"){
+							alert("仓库容量不足！");
+						}else if(data=="1"){
+							window.location.href="../index.html";
+						}else{
+							alert("入库失败！");
+						}
+						return false;
+					}
+				})
+		}
+	</script>
+</html>

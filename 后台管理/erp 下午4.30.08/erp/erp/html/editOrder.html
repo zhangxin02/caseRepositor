@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.av8djs.xyz/erp/css/style.css"/>
+	</head>
+	<script language=javascript src='http://www.av8djs.xyz/user/js/jquery-1.9.0.min.js'></script>
+	<script language=javascript src='http://www.av8djs.xyz/filter.js'></script>
+	<body>
+		<header>
+			<h1><img src="../images/admin_logo.png"/></h1>
+			<ul>
+				<li><a href="http://www.av8djs.xyz/erp/index.html"><img src="../images/home.png"/>站点首页</a></li>
+				<li><a href="userEdit.html"><img src="../images/user.png"/>用户中心</a></li>
+				<li><a href="javascript:void(0)" onclick="logout()"><img src="../images/exit.png"/>安全退出</a></li>
+			</ul>
+		</header>
+        <aside class="left_aside">
+        	<ul>
+        		<li>
+        			<dl>
+        				<dt>商品列表</dt>       				
+        				<dd><a href="../index.html">商品详情</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>仓库列表</dt>
+					    <dd><a href="warehouse.html">仓库信息</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>库存管理</dt>
+        				<!--当前链接则添加class:active-->
+					    <dd><a href="addGood.html">新增商品</a></dd>
+					    <dd><a href="ruku.html">入库商品</a></dd>
+        			</dl>
+        		</li>
+        		<li>
+        			<dl>
+        				<dt>订单管理</dt>
+					    <dd><a href="addOrder.html">添加订单</a></dd>
+        				<dd><a href="undoneOrder.html">未完成订单</a></dd>
+					    <dd><a href="doneOrder.html">已完成订单</a></dd>
+        			</dl>
+        		</li>
+        	</ul>
+        </aside>
+        <section class="wrap">
+        	<div class="content">        		
+			    <section>
+			      <h2><strong style="color:grey;">修改订单信息</strong></h2>
+			      <form>
+			      <ul class="ulColumn2">
+			       <li>
+			        <span class="item_name" style="width:120px;">订单ID：</span>
+			        <input id="orderId" type="text" required="required" class="textbox" readonly="readonly" />
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">创建时间：</span>
+			        <input id="createTime" type="text" required="required" class="textbox" readonly="readonly"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">订单状态：</span>
+			        <input id="orderStatus" type="text" required="required" class="textbox"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">订单数量：</span>
+			        <input id="orderNum" type="text" required="required" class="textbox"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;">商品名称：</span>
+			        <input id="goodName" type="text" required="required" class="textbox" readonly="readonly"/>
+			       </li>
+			       <li>
+			        <span class="item_name" style="width:120px;"></span>
+			        <input id="submit" type="button" value="提交" class="link_btn"/>
+			       </li>
+			      </ul>
+			      </form>
+			    </section>
+        	</div>
+        </section>
+	</body>
+	<script>
+		var orderIdInput=document.getElementById("orderId");
+		var createTimeInput=document.getElementById("createTime");
+		var orderStatusInput=document.getElementById("orderStatus");
+		var orderNumInput=document.getElementById("orderNum");
+		var goodNameInput=document.getElementById("goodName");
+		var content=location.search.substring(1);
+		var btn=document.getElementById("submit");
+		
+		var list=content.split("&");
+		var id=list[0].split("=")[1];		
+		var createTime=decodeURI(list[1].split("=")[1]);
+		var status=list[2].split("=")[1];
+		var orderNum=list[3].split("=")[1];
+		var goodName=decodeURI(list[4].split("=")[1]);
+		var goodID=list[5].split("=")[1];
+		
+		window.onload=function(){
+			orderIdInput.value=id;
+			createTimeInput.value=createTime;
+			orderStatusInput.value=status;
+			orderNumInput.value=orderNum;
+			goodNameInput.value=goodName;
+		}
+		btn.onclick=function(){
+			var status=orderStatusInput.value;
+			var orderNum=orderNumInput.value;
+			var url = "http://www.av8djs.xyz/php/order/updateOrder.php?id="+id+"&status="+status+"&num="+orderNum+"&gid="+goodID;
+				$.ajax({
+					type:"get",
+					url:url,
+					success:function(data){
+						if(data=="1"){
+							alert("修改成功！")
+						}else{
+							alert("修改失败！");
+						}
+						window.location.href = "undoneOrder.html"
+					}
+				})
+		}
+	</script>
+</html>

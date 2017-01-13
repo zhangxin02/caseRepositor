@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="../css/houtai.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="logo fl">
+            <img src="../images/logo.gif"><span class="zhanghu">admin</span>点击退出
+        </a>
+        <ul class="userNav fr">
+            <li><a href="#" class="search"></a></li>
+            <li><a href="#" class="screen"></a></li>
+            <li><a href="#" class="settings"></a></li>
+            <li><a href="#" class="logout"></a></li>
+        </ul>
+    </header>
+    <aside>
+        <div class="massages fl">
+            <div class="loginuser borders">
+                <img src="../images/user.png" />
+                <span class="zhanghu">admin</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/users.png" />
+                <span>用户管理</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/bugs.png" />
+                <span>bug列表</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/daijiejue.png" />
+                <span>待解决bug</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/yijiejue.png" />
+                <span>已解决bug</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/tijiao.png" />
+                <span>提交bug</span>
+            </div>
+            <div class="borders">
+                <img src="../images/mainnav/other.png" />
+                <span>其他</span>
+            </div>          
+        </div>
+        <input type="button" class="flipbtn fr" value="+">
+    </aside>
+    <section>
+        <div class="content">
+            <div class="headnav">
+                
+            </div>
+            <div class="buglist">
+               
+            </div>
+            <div id="update">
+                    <ul class="demo">
+                        <li><label for="buginfo">Buginfo:</label><input id="buginfo" type="text"></li>
+                        <li><label for="id">ID:</label><input id="id" type="text"></li>
+                        <li><label for="desc">Desc:</label><input id="desc" type="text"></li>
+                        <li><label for="createTime">CreateTime:</label><input id="createTime" type="text"></li>
+                        <li><label for="creater">Creater:</label><input id="creater" type="text"></li>
+                        <li><label for="testState">TestState:</label><input id="testState" type="text"></li>
+                        <li><label for="changeState">ChangeState:</label><input id="changeState" type="text"></li>
+                    </ul>
+                    <button id="updatebtn">Add</button>
+                </div>
+            <div class="bugbottom">
+                <a href="#">&lt</a>
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&gt</a>
+            </div>
+            <span style="position:absolute;top:5px;right:0;width:500px;">  
+                *testState为测试人员测试状态，changeState为开发人员修改状态，00表示待解决bug红色显示，01表示开发人员已修改绿色显示，11表示测试人员测试通过，确认bug已修复
+            </span>
+        </div>
+    </section>
+</body>
+<script type="text/javascript" src="../js/ajax.js"></script>
+<script type="text/javascript">
+    var flipbtn = document.getElementsByClassName("flipbtn")[0];
+    var n=0;
+    flipbtn.onclick = function()
+    {
+        var aside = document.getElementsByTagName("aside")[0];
+        var section = document.getElementsByTagName("section")[0];
+        if(n==0)
+        {
+            n++; 
+            aside.style.left=-100+"px"; 
+            section.style.paddingLeft = "0";
+            flipbtn.style.transform = "rotate(135deg)";
+        }
+        else
+        {
+            n=0;
+            aside.style.left=0+"px";
+            section.style.paddingLeft = 100+"px";
+            flipbtn.style.transform = "rotate(0deg)";
+        }
+          
+    }
+
+</script>
+<script src="../js/houtai.js"></script>
+</html>

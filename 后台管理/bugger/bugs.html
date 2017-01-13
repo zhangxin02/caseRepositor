@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        #tab{width:240px;}
+        #pull{width:30px;height:20px;line-height:20px;border:1px solid;list-style:none;float:left;}
+        
+    </style>
+</head>
+<body>
+<button id="btn">点击</button>
+    <div id="dolo"></div> 
+</body>
+<script>
+var dolo = document.getElementById("dolo");
+var btn = document.getElementById("btn");
+btn.onclick = function(){
+    var $ = {
+        ajax: function (json) {
+            var req = new XMLHttpRequest();
+            req.open(json.type, json.url, true);
+            req.send();
+            req.onreadystatechange = function () {
+                if (req.readyState == 4 && req.status == 200) {
+                    var text = req.responseText;
+                    json.callback(text);
+                }
+            }
+        }
+    }
+        
+
+      $.ajax({
+        type: "get",
+        url: "bugs.php",
+        callback: function (result) {
+            var json = JSON.parse(result);
+            var tab=document.createElement("ul")
+            dolo.appendChild(tab)
+            tab.id="tab";
+            for(var i=0;i<json.length;i++) 
+            {
+                var arr=json[i];
+                 for(var j=0;j<arr.length;j++)
+                 {
+                     var  lilist=document.createElement("li")
+                      tab.appendChild(lilist)
+                      lilist.id="pull";
+                      lilist.innerHTML=arr[j];     
+                }
+            }
+        }
+        
+    });  
+  }
+
+    </script>
+</html>
+
+
+
