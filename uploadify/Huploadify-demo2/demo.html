@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>uploadify</title>
+<link rel="stylesheet" type="text/css" href="Huploadify.css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.Huploadify.js"></script>
+<style type="text/css">
+</style>
+<script type="text/javascript">
+$(function(){
+	$('#upload').Huploadify({
+		auto:true,
+		fileTypeExts:'*.jpg;*.png;*.exe',//允许上传的文件类型，格式'*.jpg;*.doc'
+		multi:true,//是否允许选择多个文件
+		formData:{key:123456,key2:'vvvv'},//发送给服务端的参数，格式：{key1:value1,key2:value2}
+		fileSizeLimit:9999,//允许上传的文件大小，单位KB
+		showUploadedPercent:true,//是否实时显示上传的百分比，如20%
+		showUploadedSize:true,//是否实时显示已上传的文件大小，如1M/2M
+		removeTimeout:9999999,//上传完成后进度条的消失时间，单位毫秒
+		uploader:'upload.php',//文件提交的地址
+		onUploadStart:function(){
+			//alert('开始上传');
+			},
+		onInit:function(){
+			//alert('初始化');
+			},
+		onUploadComplete:function(){
+			//alert('上传完成');
+			},
+		onDelete:function(file){
+			console.log('删除的文件：'+file);
+			console.log(file);
+		}
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="upload"></div>
+</body>
+</html>
