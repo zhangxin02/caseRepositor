@@ -1,0 +1,51 @@
+@charset "utf-8";
+/*css Document*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img,div { margin:0; padding:0; font-family: "微软雅黑"; }
+fieldset, img, input{ border:0; }
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol,li { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:12px; margin:0; }
+input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+table { border-collapse:collapse; }
+body { color:#333; padding:5px 0; font:12px/20px "SimSun","微软雅黑","Arial Narrow",HELVETICA; background:#fff;/* overflow-y:scroll;*/ }
+a { text-decoration:none; }
+a:hover, a:active, a:focus { color:aqua;}
+
+#details{width: 100%; min-height:1000px; height: auto !important; height: 1000px;overflow: hidden;  background: #f6f6f6; position: relative;}
+#goods_lis{width: 1180px; min-height:600px; height: auto !important; height: 600px; overflow: hidden; position: relative; margin: 0 auto;}
+.details_text{width: 1180px; height: 60px; margin: 0 auto; font-size:22px; line-height: 60px;}
+#goods_lis li{height: 270px; width: 300px; float: left; margin:0 20px 20px 0; position: relative; border: 1px solid #dedede; overflow: hidden; background: #fff;}
+.pic1{height: 170px; width: 300px; float: left; overflow: hidden;}
+.pic1 img{height:200px; width: 350px;}
+.pic_title{height:40px; padding: 10px 10px 0px 10px; font-size: 14px; margin-bottom: 10px; float: left; overflow: hidden; text-overflow:ellipsis ;}
+.discount{float: right; height: 20px; width: 40px; margin-top: 5px; background: #f70941; border-radius: 3px; color: #fff; text-align: center;}
+.goods_price{width: 110px; height: 30px; margin:3px 5px 0 0; float: right; color: #f70941; font-size: 12px;}
+.goods_price b{font-size:30px;}
+.shop_car{float: left; cursor: pointer; width: 75px; margin-left:20px; border: 1px solid #FDC721; border-radius: 4px; text-align: center; height:28px; line-height:28px;background:#f70941; color: #fff;}
+#goods_lis .shade{position: absolute; top: 0; z-index: 1;height:166px; width:188px; padding:5px 56px 0 56px; background: rgba(0,0,0,0.8); color: #fff;display:none;}
+.shade p{text-align: center; font-size: 14px; overflow: hidden; height:25px;width: 188px; white-space: nowrap; text-overflow: ellipsis;}
+.shade .go_time{height:30px;}
+.cost{text-align: center;font-size: 14px; height:32px;}
+.goods_prices b{font-size: 30px;}
+.shade .go_details{width:190px ; height: 40px; border: 1px solid #fff; line-height: 40px; font-size: 16px; border-radius: 3px;}
+ #shopping_car{ height:100%; width: 320px; background: #f1efef; position: fixed; right: -327px; top: 0px; z-index:3; border: 3px solid #faadad; border-radius: 5px;}
+.car_button img{height: 100px; width: 100px;  border-radius: 50%;}
+.car_button{height: 100px; overflow: hidden;  width: 100px; position: fixed; bottom:100px; cursor: pointer; right:200px;}
+.car_num{height:25px; width:25px; border-radius: 50%; background: #00FFFF; text-align: center; line-height:25px; position: absolute; top:0px; left:0px;}
+.car_lis{height:500px; width:320px; overflow:auto;}
+.car_lis li{height:80px; padding:10px; width:280px; float:left; margin-bottom: 20px; border-top:2px solid #dcfaa7; background: #fff;}
+.car_pic{height:80px; width:120px; float: left; border: 1px solid #74A8ED;}
+.pic_conter{height:42px; width:150px ; overflow: hidden; float:left; margin-left: 5px;}
+.meney{float:left; height:22px; padding-top: 10px; width:150px; margin-left: 5px; color: #F70941; font-size:16px;}
+.meney span{float: right; color: #999; font-size: 12px;}
+.meney font{float: right; padding-right:10px; color: #00FFFF; font-size: 14px;}
+.shanchu{height: 30px; width: 320px; background: #fff;}
+.shanchu span{cursor:pointer; float: right; height: 30px; width: 30px; font-size: 30px;}
+.add_to{width:240px; height:30px; padding: 15px 40px ; background:rgba(97,143,248,0.5); font-size: 14px; position: absolute; bottom: 0; left: 0;}
+.nums{width:28px; border: 1px solid #ADFF2F;}
+.add_to button{float: right; height: 28px; width: 80px; font-size:12px; color:#fff; background: red; border: 1px solid yellow; border-radius: 4px; text-align: center; line-height: 26px;}
+.add_num{display: inline-block; width:60px; font-size: 18px; height: 20px; color: #F70941;}
+.delete{cursor: pointer;}

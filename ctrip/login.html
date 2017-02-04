@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员登录 - 携程旅行网</title>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/login.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+	</head>
+	<body>
+		<!--top-->
+		<div id="top">
+			<h1 id="logo"><a href="#"><img src="img/logo.png" alt="logo"/></a></h1>
+		</div>
+		<!--main-->
+		<div id="main">
+			<div id="main-left">
+				<img id="main-left-picture" alt="网络或许不佳"/>
+			</div>
+			
+			<div id="main-right">
+				<div class="form-top">
+					<font>会员登录</font><span><a href="enroll.html">立即注册</a>，享积分换礼,返现等专属优惠！</span>
+				</div>
+				<div class="form">
+					<div class="radios fieldset">
+						<input type="radio" id="rad0" name="same" checked="checked"/>&nbsp;普通登录&nbsp;&nbsp;
+						<input type="radio" id="rad1" name="same" />&nbsp;手机动态密码登录
+					</div>
+					<div class="login_name fieldset">
+						<span>登录名</span><input type="text" id="user_name" class="focus_back" placeholder="  用户名/卡号/手机/邮箱"/>
+					</div>
+					<div class="login_phone fieldset">
+						<span>手机号</span><input type="text" class="focus_back" id="user_phone" placeholder=" 请输入注册手机号"/>
+					</div>
+					<div id="login_pass" class="fieldset">
+						<span>密&nbsp;码</span><input type="password" class="focus_back" id="user_pass" /> <font id="forgetpass"><a href="#">忘记密码？</a></font>   
+					</div>
+					<div class="code fieldset">
+						<span id="code_name">验证码</span><input type="text" id="code_text" class="focus_back" placeholder=" 不区分大小写" />
+						<font id="code_pass"></font>
+					</div>
+					<div id="dynamic" class="fieldset">
+						<span>密&nbsp;码</span><input type="password" placeholder=" 动态密码" class="focus_back" id="phone_pass" /><button id="send_pass">发送动态密码</button>
+					</div>
+					<div id="hint" class="fieldset">
+						<p class="p_html"></p>
+					</div>
+					<div class="setcookie fieldset">
+						<input type="checkbox"  id="changeCheck" checked="checked" />&nbsp;&nbsp; 30天内自动登录
+					</div>
+					<input type="button" id="sub" onmouseup="login1()" value="登录"/>
+				</div>
+				<div class="form-footer">
+					<ul>
+						<li><a href="#">合作卡登录</a></li>
+						<li><a href="#">公司客户登录</a></li>
+						<li><a href="#">福利平台登录</a></li>
+					</ul>
+					<p class="login-way">您还可以使用以下方式登录：</p>
+					<table>
+						<tr>
+							<td><a href="#" class="alipay">支付宝</a></td>
+							<td><a href="#" class="QQ">QQ</a></td>
+							<td><a href="#" class="baidu">百度</a></td>
+						</tr>
+						<tr>
+							<td><a href="#" class="sina">新浪微博</a></td>
+							<td><a href="#" class="wechat">微信</a></td>
+							<td><a href="#" class="us">网易</a></td>
+							<td><a href="#" class="renren">人人网</a></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		<!--footer-->
+		<div id="footer">
+			<table>
+				<tr>
+					<td class="first_td"><a href="#">免费注册</a></td>
+					<td><a href="#">网站导航</a></td>
+					<td><a href="#">宾馆索引</a></td>
+					<td><a href="#">服务说明</a></td>
+					<td><a href="#">关于携程</a></td>
+					<td><a href="#">企业公民</a></td>
+					<td><a href="#">诚聘英才</a></td>
+					<td><a href="#">分销联盟</a></td>
+					<td><a href="#">企业礼品卡采购</a></td>
+					<td><a href="#">代理合作</a></td>
+					<td><a href="#">广告业务</a></td>
+					<td><a href="#">联系我们</a></td>
+					<td><a href="#">我要提建议</a></td>
+				</tr>
+			</table>
+			<p>Copyright© 1999-2016, ctrip.com. all rights reserved.</p>
+		</div>
+	</body>
+</html>

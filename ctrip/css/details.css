@@ -1,0 +1,60 @@
+@charset "utf-8";
+/*css Document*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img,div { margin:0; padding:0; font-family: "微软雅黑"; }
+fieldset, img, input{ border:0; }
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol,li { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:12px; margin:0; }
+input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+table { border-collapse:collapse; }
+body { color:#333; padding:5px 0; font:12px/20px "SimSun","微软雅黑","Arial Narrow",HELVETICA; background:#fff;/* overflow-y:scroll;*/ }
+a { text-decoration:none; }
+a:hover, a:active, a:focus { color:aqua;}
+
+#details_plc{overflow: hidden; width: 1180px; min-height: 500px; height: auto !important; height: 500px; margin: 10px auto; position: relative;}
+.pic_left{height: 335px; width: 500px; float: left; border: 1px solid #999;}
+.pic_img{height: 280px; width:500px; overflow: hidden; position: relative;}
+.middle{height: 280px; width:500px;}
+.pic_dd{height: 30px; width:500px; background: rgba(0,0,0,0.4); text-indent: 20px; line-height: 30px; color: #fff; position: absolute; bottom: 0; left: 0; white-space: nowrap; overflow: hidden; text-overflow:ellipsis;}
+.min{height: 50px; width: 500px; float: left; margin-top:5px; overflow: hidden;}
+.min li{height: 48px; width:93px; border:1px solid #fff; margin:0 2px; float: left;}
+.min img{height: 48px; width: 93px;}
+.pic_right{float: left;  position: relative; padding: 10px 20px 0 10px; height:323px; width: 646px; border: 2px solid #999; border-left: 0;}
+.pic_right_top{height:24px; width: 646px; padding-top: 6px; border-bottom: 1px solid #dedede;}
+.pic_right_top li{float: left; border-right: 1px solid #dedede; height: 20px; width: 33%; font-size: 14px; text-align: center; color: #666; line-height: 20px;}
+.pic_right_top .last_li{border-right: 0;}
+.pic_main{ height: 286px; width: 646px; padding-top: 6px;}
+.det_p{float: left; height:64px; line-height: 27px; font-size: 22px;}
+.main_massage{float: left; height:80px; width:626px; padding: 10px; border-radius:6px; background: #fcf9ea;}
+.massage_top{width: 626px; height:52px; border-bottom: 1px dashed #dedede;}
+.mass_left{float:left; height: 100%; width:320px;}
+.mass_right{float:right; height:100%; width:240px ;}
+.mass_td0{font-size: 32px; color: #FF8400;}
+.mass_td0 span{font-size: 12px;}
+.mass_td1{color: #666;}
+.mass_td3{width:50px;}
+.mass_td3 span{display: inline-block; width: 40px; height: 18px; background: red; border-radius: 3px; text-align: center; line-height: 18px; color: #fff;}
+.mass_td4{text-decoration: underline; color: #666;}
+.mass_td5{color: #0A56BB; font-size:32px ;}
+.mass_td5 span{font-size: 12px;}
+.mass_td6{color: #666; text-decoration: underline;}
+.mass_td7{color:#666;}
+.massage_bottom{ line-height: 30px;}
+.massage_bottom a{color: #1D67DD;}
+.serve{float: left; height: 50px; width:626px; padding-top: 10px; padding-left:4px;}
+.serve li{float: left; height:18px; padding: 0 4px; margin-right: 5px; line-height: 18px; color: #666; background: #e9f3f3; border: 1px solid #dedede; border-radius: 2px;}
+.serve .first_li{border: 0; background: none; font-weight: 900; padding-right: 20px;}
+.btn_left{width: 178px; height:38px; cursor: pointer; border: 1px solid #FF0000; border-radius: 3px; font-size: 16px;line-height: 36px; text-align: center; float: left; margin: 0px 10px 0 50px;}
+.click_left{background: #fbe6ee; color: #FF0000;}
+.click_right{background:#FF0000 ; color: #fff;}
+
+/******************放大图*********************/
+.big_pic{position: absolute; top: 0; left: 0; height: 280px; width:280px; overflow:hidden; display: none;}
+.big_bg{height:400px; width:714px; position: absolute;}
+.small{display:none; position: absolute; top: 0; left: 0 ;height: 196px; width: 196px; background: rgba(251,127,5,0.3);}
+
+/***********广告*****************/
+.down_app{display: block;height: 156px; width: 1180px; border-radius: 8px; background: url(../img/down_app.jpg) no-repeat; margin: 30px auto; float: left; }

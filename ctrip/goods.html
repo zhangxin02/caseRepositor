@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/goods.css" />
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/goods.js"></script>
+		<script src="js/index.js"></script>
+	</head>
+	<body>
+		<!--top-->
+		<div id="top">
+			<h1 id="logo"><a href="index.html"><img src="img/logo.png"/></a></h1>
+			<div class="top_seek">
+				<input type="text" id="top_text" placeholder=" 搜索城市/酒店/旅游/景点门票/交通" />
+				<button id="top_btn"></button>
+			</div>
+			<div class="top_right">
+					<ul>
+						<li class="country">Global Sites<b class="arrow"></b></li>
+						<li class="service"><a href="#">客服中心</a></td>
+						<li class="number">国内：<font>400-830-6666</font><b class="arrow_blue"></b> </li>
+						<li class="phone"><a href="#"></a></li>
+						<li class="wechat"><a href="#"></a></li>
+					</ul>
+			</div>
+			<div class="countrys">
+				<ul>
+					<li class="countrys_language0"><a href="#">香港（繁体）</a></li>
+					<li class="countrys_language1"><a href="#">Hong Kong(English)</a></li>
+					<li class="countrys_language2"><a href="#">English</a></li>
+					<li class="countrys_language3"><a href="#"></a></li>
+					<li class="countrys_language4"><a href="#"></a></li>
+					<li class="countrys_language5"><a href="#">Singapore</a></li>
+					<li class="countrys_language6"><a href="#">Bahasa Malaysia</a></li>
+					<li class="countrys_language7"><a href="#"></a></li>
+					<li class="countrys_language8"><a href="#">Francais</a></li>
+					<li class="countrys_language9"><a href="#">Deutsch</a></li>
+					<li class="countrys_language10"><a href="#">Espanol</a></li>
+					<li class="countrys_language11"><a href="#"></a></li>
+				</ul>
+			</div>
+			<div class="numbers">
+				<ul>
+					<li><span>(或)</span><font>400-820-6666</font></li>
+					<li><span>香港:</span><font>+852-3069-9966</font></li>
+					<li><span>海外:</span><font>+86-21-3406-4888</font></li>
+				</ul>
+			</div>
+			<div class="phones">
+				<div class="arrows"></div>
+				<p class="phone_top">手机扫描快速下载</p>
+				<img src="img/er_ctrip_app.jpg" />
+				<p class="phone_footer">携程旅行手机版></p>
+			</div>
+			<div class="weixing">
+				<div class="arrows"></div>
+				<p class="phone_top">订阅号:helloctrip</p>
+				<img src="img/er_ctrip_wechat.jpg" />
+				<p class="phone_footer">扫一扫,领旅行福利</p>
+			</div>
+		</div>
+		<!--nav-->
+		<div id="nav0">
+			<div id="nav">
+				<table class="nav_table">
+					<tr>
+						<td id="td0"><a href="index.html">首页</a></td>
+						<td id="td1"><a href="#">酒店<b></b></a></td>
+						<td id="td2"><a href="#">旅游<b></b></a></td>
+						<td id="td3"><a href="#">机票<b></b></a></td>
+						<td id="td4"><a href="#">火车<b></b></a></td>
+						<td id="td5"><a href="#">汽车票<b></b></a></td>
+						<td id="td6"><a href="#">用车<b></b></a></td>
+						<td id="td7"><a href="#">门票<b></b></a></td>
+						<td id="td8"><a href="#">团购<b></b></a></td>
+						<td id="td9"><a href="#">攻略</a></td>
+						<td id="td10"><a href="#">全球购<b></b></a></td>
+						<td id="td11"><a href="#">礼品卡<b></b></a></td>
+						<td id="td12"><a href="#">商旅<b></b></a></td>
+						<td id="td13"><a href="#">邮轮</a></td>
+						<td id="td14"><a href="#">天海邮轮</a></td>
+						<td id="td15"><a href="#">更多<b></b></a></td>
+					</tr>
+				</table>
+				<div class="nav_login">
+					<p><i class="login_top"></i><a href="login.html">登陆</a><a>&nbsp;|&nbsp;</a><a href="enroll.html">注册</a></p>
+					<p><a href="#" class="nav_bottom">我的携程</a><b class="login_change"></b></p>
+				</div>
+				<div class="login_show">
+					<button>登 录</button>
+					<p><a href="#">全部订单</a></p>
+					<p><a href="#">手机号查订单</a></p>
+				</div>
+			</div>
+		</div>
+		<!--nav_option-->
+		<div id="nav_option">
+			<div class="option_index">
+				<table class="option_index_tab">
+					<tr>
+						<td class="index0"><a href="#">国际旅行直通车<b></b></a></td>
+						<td class="index1"><a href="#"><i></i>海外酒店</a></td>
+						<td class="index2"><a href="#"><i></i>国际机票</a></td>
+						<td class="index3"><a href="#"><i></i>国际租车</a></td>
+						<td class="index4"><a href="#"><i></i>国际•台湾火车票</a></td>
+						<td class="index5"><a href="#"><i></i>出境旅游</a></td>
+						<td class="index6"><a href="#"><i></i>顶级游</a></td>
+						<td class="index7"><a href="#"><i></i>海外门票</a></td>
+						<td class="index8"><a href="#"><i></i>签证</a></td>
+						<td class="index9"><a href="#"><i></i>出境保险</a></td>
+						<td class="index10"><a href="#"><i></i>出境wifi</a></td>
+					</tr>
+				</table>
+			</div>
+			<div class="nav1">
+				<table>
+					<tr>
+						<td><a href="#" class="first">国内酒店</a></td>
+						<td><a href="#">海外酒店</a></td>
+						<td><a href="#">海外名宿+短租</a></td>
+						<td><a href="#">团购</a></td>
+						<td><a href="#">特价酒店</a></td>
+						<td><a href="#">途家公寓</a></td>
+						<td><a href="#">酒店+景点</a></td>
+						<td><a href="#">客栈名宿</a></td>
+						<td><a href="#">会场+团队房</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop">
+					<a href="#"><i></i>酒店订单></a>
+				</div>
+			</div>
+			
+			<div class="nav2">
+				<table>
+					<tr>
+						<td><a href="#" class="first">旅游首页</a></td>
+						<td><a href="#">周日游</a></td>
+						<td><a href="#">跟团游</a></td>
+						<td><a href="#">自行游</a></td>
+						<td><a href="#">邮轮</a></td>
+						<td><a href="#">酒店+景点</a></td>
+						<td><a href="#">当地玩乐</a></td>
+						<td><a href="#">主题游</a></td>
+						<td><a href="#">定制旅行</a></td>
+						<td><a href="#">游学</a></td>
+						<td><a href="#">签证</a></td>
+						<td><a href="#">企业会将</a></td>
+						<td><a href="#">顶级游</a></td>
+						<td><a href="#">爱玩户外</a></td>
+						<td><a href="#">保险</a></td>
+						<td><a href="#">特卖汇</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao2"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop2">
+					<a href="#"><i></i>旅行订单></a>
+				</div>
+			</div>
+			
+			<div class="nav3">
+				<table>
+					<tr>
+						<td><a href="#" class="first">国内机票</a></td>
+						<td><a href="#">国际机票</a></td>
+						<td><a href="#">特价机票</a></td>
+						<td><a href="#">机+酒</a></td>
+						<td><a href="#">航班动态</a></td>
+						<td><a href="#">自己选座</a></td>
+						<td><a href="#">退票改签</a></td>
+						<td><a href="#">机场攻略</a></td>
+						<td><a href="#">机场巴士</a></td>
+						<td><a href="#">公务员通道</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao3"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop3">
+					<a href="#"><i></i>机票订单></a>
+				</div>
+			</div>
+			
+			<div class="nav4">
+				<table>
+					<tr>
+						<td><a href="#" class="first">国内火车票</a></td>
+						<td><a href="#">国际·台湾火车票</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao4"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop4">
+					<a href="#"><i></i>火车票订单></a>
+				</div>
+			</div>
+			
+			<div class="nav5">
+				<table>
+					<tr>
+						<td><a href="#" class="first">汽车票</a></td>
+						<td><a href="#">机场巴士</a></td>
+						<td><a href="#">船票</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao5"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop5">
+					<a href="#"><i></i>汽车票订单></a>
+				</div>
+			</div>
+			
+			<div class="nav6">
+				<table>
+					<tr>
+						<td><a href="#" class="first">用车首页</a></td>
+						<td><a href="#">国际租车</a></td>
+						<td><a href="#">国际接送机</a></td>
+						<td><a href="#">国内租车</a></td>
+						<td><a href="#">国内接送机/火车</a></td>
+						<td><a href="#">国内包车</a></td>
+						<td><a href="#">海外包车</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao6"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop6">
+					<a href="#"><i></i>用车订单></a>
+				</div>
+			</div>
+			
+			<div class="nav7">
+				<table>
+					<tr>
+						<td><a href="#" class="first">国内门票</a></td>
+						<td><a href="#">海外门票</a></td>
+						<td><a href="#">当地玩乐</a></td>
+						<td><a href="#">出境wifi</a></td>
+						<td><a href="#">周末游</a></td>
+						<td><a href="#">迪士尼</a></td>
+						<td><a href="#">机场停车</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao7"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop7">
+					<a href="#"><i></i>门票订单></a>
+				</div>
+			</div>
+			
+			<div class="nav8">
+				<table>
+					<tr>
+						<td><a href="#" class="first">团购首页</a></td>
+						<td><a href="#">酒店</a></td>
+						<td><a href="#">门票</a></td>
+						<td><a href="#">旅游</a></td>
+						<td><a href="#">美食</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao8"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop8">
+					<a href="#"><i></i>团购订单></a>
+				</div>
+			</div>
+			<div class="nav9"></div>
+			<div class="nav10">
+				<table>
+					<tr>
+						<td><a href="#" class="first">名店购</a></td>
+						<td><a href="#">退税</a></td>
+						<td><a href="#">银联特惠</a></td>
+						<td><a href="#">万千赏</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao10"><img src="img/jiaobiao.png"/></div>
+			</div>
+			
+			<div class="nav11">
+				<table>
+					<tr>
+						<td><a href="#" class="first">礼品卡首页</a></td>
+						<td><a href="#">礼品卡+</a></td>
+						<td><a href="#">礼品卡套餐</a></td>
+						<td><a href="#">存款证明</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao11"><img src="img/jiaobiao.png"/></div>
+				<div class="grogshop11">
+					<a href="#"><i></i>礼品卡订单></a>
+				</div>
+			</div>
+			
+			<div class="nav12">
+				<table>
+					<tr>
+						<td><a href="#" class="first">商旅首页</a></td>
+						<td><a href="#">企业差旅平台</a></td>
+						<td><a href="#">会议旅行</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao12"><img src="img/jiaobiao.png"/></div>
+			</div>
+			<div class="nav13"></div>
+			<div class="nav14"></div>
+			<div class="nav15">
+				<table>
+					<tr>
+						<td><a href="#" class="first">积分商城</a></td>
+						<td><a href="#">合作卡</a></td>
+					</tr>
+				</table>
+				<div class="jiaobiao15"><img src="img/jiaobiao.png"/></div>
+			</div>
+		</div>
+		<div id="details">
+			<p class="details_text">猜你喜欢</p>
+			<ul id="goods_lis">
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="0">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="1">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="2">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="3">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="4">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="5">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="6">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="7">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+				<li>
+					<a href="#" class="pic1">
+						<img/>
+					</a>
+					<p class="pic_title"></p>
+					<span class="goods_price">
+						<dfn>￥</dfn>
+							<b></b>
+							<i>起</i>
+					</span>
+					<p class="shop_car" id="8">加入购物车</p>
+					<font class="discount"></font>
+					<a class="shade" href="details.html">
+						<p class="shade_top"></p>
+						<p class="shade_moild"></p>
+						<p class="go_time"></p>
+						<div class="cost">
+							<del>
+								<dfn>￥</dfn>
+								<font></font>
+							</del>
+							<span class="goods_prices">
+								<dfn>￥</dfn>
+								<b></b>
+								<i>起</i>
+							</span>
+						</div>
+						<p class="go_details">查看详情</p>
+					</a>
+				</li>
+				
+			</ul> 
+			
+			<p class="copyright">Copyright©1999-2016, ctrip.com. All rights reserved. | ICP证：沪B2-20050130</p>
+			<p class="wangbei">沪公网备31010502000018号</p>
+			<p class="complain">旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨上海市旅游网站落实诚信建设主体责任承诺书</p>
+			<ul class="end">
+				<li class="end0"><a href="#">信用评级</a></li>
+				<li class="end1"><a href="#">上海工商</a></li>
+				<li class="end2"><a href="#"></a></li>
+				<li class="end3"><a href="#">网络社会征信网</a></li>
+				<li class="end4"><a href="#"></a></li>
+				<li class="end5"><a href="#"></a></li>
+				<li class="end6"><a href="#"></a></li>
+				<li class="end7"><a href="#"></a></li>
+				<li class="end8"><a href="#"></a></li>
+			</ul>
+		
+		</div>
+		<div class="car_button">
+			<img src="img/shoping_car.jpg" />
+			<div class="car_num"></div>
+		</div>
+		<div id="shopping_car">
+			<p class="shanchu"><span href="#"> × </span></p>
+				<ul class="car_lis"></ul>
+				<div class="add_to">
+					合计：<span class="add_num"></span>元
+					<button>一键购买</button>
+				
+				</div>
+		</div>
+		<div id="ctrip_ad">
+			<div class="ad_main">
+				<div class="tongyong"></div>
+				<div class="phone_code">
+					<p>手机扫描二维码&nbsp;&nbsp;下载客户端</p>
+					<div class="ctrip_code"></div>
+					<div class="down">iPhone下载</div>
+					<div class="down">Android下载</div>
+				</div>
+				<div class="wexin_code">
+					<p>关注微信公众号</p>
+					<div class="x">×</div>
+					<div class="code_img"></div>
+				</div>
+			</div>
+		</div>
+		<div class="ctrip_ad_left"></div>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*css Document*/
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; font-family: "微软雅黑"; }
+fieldset, img { border:none; }
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","微软雅黑";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:12px; margin:0; }
+input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+table { border-collapse:collapse; }
+body { color:#333; padding:5px 0; font:12px/20px "SimSun","微软雅黑","Arial Narrow",HELVETICA; background:#fff;/* overflow-y:scroll;*/ }
+a { text-decoration:none; }
+a:visited { color:#666; }
+a:hover, a:active, a:focus { color:#ff8400;  }
+
+#top{height:80px; width: 1050px; margin: 0 auto; padding-top: 20px;}
+#main{height: 590px; width: 1050px; margin: 0 auto;}
+#main-left{height: 499px; width: 440px; background: aquamarine; float: left; margin-left:100px;}
+#main-right{height:490px; width:366px; padding:20px 30px ; border: 1px solid #7ecef4; float: right; position: relative;}
+.form{font-size: 14px; }
+.form-top{height:32px; border-bottom:1px solid #afeae7;}
+.form-top span{float: right;}
+.form-top font{float: left; font-size: 16px;}
+.radios{height:30px; padding:19px 0 0 80px;}
+.login_name,#login_pass,.code,#dynamic,.login_phone{padding-left:30px ; height:48px;}
+#user_name,#user_pass,#user_phone{height: 30px; width: 210px; border: 1px solid #dcdada; border-top-color:#a1a0a0; border-left-color: #a1a0a0;}
+#code_text{height:30px; width:102px; border: 1px solid #d0cece; float: left; margin-top:5px; border-top-color:#a1a0a0; border-left-color: #a1a0a0;}
+.fieldset span{display: inline-block; width:52px; font-size: 14px;}
+#code_name{float: left; line-height: 40px;}
+#forgetpass{font-size: 12px;}
+#code_pass{height:38px; width: 100px; text-align: center; cursor: pointer; line-height: 38px; font-weight: 900; margin-left: 10px; background:url(../img/bg11.jpg); float: left; color: #333;}
+.setcookie{height:38px; padding:6px 0 0 80px; }
+#sub{display: block;height: 36px; width: 210px; border: 1px solid #f39800; background:#f8bd0b;
+text-align: center; line-height: 36px; font-weight:900; font-size:18px; color:#fff; border-radius: 5px;margin-left:85px ;}
+#sub:hover{background: #FF8400;}
+.form-footer{height:147px; width:394px; padding:24px 0 0 32px ; background: #fdf9f6; position: absolute; left: 0; bottom: 0;}
+.form-footer ul{height:52px; width:394px;}
+.form-footer li{float: left; height: 30px; width: 112px; margin:0 14px 22px 0;}
+.form-footer li a{display: block; height: 28px; width:110px;border: 1px solid #f39800; text-align: center; line-height: 28px; color: #f39800;
+border-radius: 4px;}
+.form-footer li a:hover{background:#f8bd0b; color: #fff;}
+.login-way{height:30px;}
+.form-footer table a{display: block; height: 27px; width:60px; padding-left: 20px; color: #333;}
+.alipay{background: url(../img/bg_ico.png) no-repeat 0 -380px;}
+.QQ{background: url(../img/bg_ico.png) no-repeat 0 -316px;}
+.baidu{background: url(../img/bg_ico.png) no-repeat 0 -990px;}
+.sina{background: url(../img/bg_ico.png) no-repeat 0 -223px;}
+.wechat{background: url(../img/bg_ico.png) no-repeat 0 -947px;}
+.us{background: url(../img/bg_ico.png) no-repeat 0 -253px;}
+.renren{background: url(../img/bg_ico.png) no-repeat 0 -445px;}
+#footer{height:40px; width: 1050px; border-top:1px dashed #7ecef4; margin: 0 auto; padding-top:20px;}
+#footer table{float: left; margin-left: 60px; height: 14px; width: 925px;}
+#footer td{padding: 0 9px; border-left: 1px solid #f198f7;}
+#footer .first_td{border: 0;}
+#footer td a{color: #025b8f;}
+#footer p{text-align: center;}
+#hint{width:210px; height:24px; border: 1px solid #f6b37f; background: #fef4d8; margin-left: 82px; display: none;}
+#hint p{padding-left: 28px; background: url(../img/bg_ico.png) no-repeat 5px -188px;}
+#phone_pass{ float: left; height:30px; width:102px; border: 1px solid #d0cece;margin-top:5px; border-top-color:#a1a0a0; border-left-color: #a1a0a0;}
+#send_pass{float: left; height: 32px; border: 1px solid #07add1; color:#025B8F; background:#d5f7fe; margin:5px 0 0 10px; border-radius:3px;}
+#send_pass:hover{background: #0395b5; color: #fff;}
+#dynamic span{float: left; line-height: 40px;}
+#dynamic{display: none;}
+#login_pass{ display:block;}
+.login_phone{display: none;}

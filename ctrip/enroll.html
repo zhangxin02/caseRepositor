@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>会员注册</title>
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/enroll.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="css/enroll.css" type="text/css" />
+	</head>
+	<body>
+		<!--logo-->
+		<div id="top">
+			<h1 id="logo"><a href="#"><img src="img/logo.png" alt="logo"/></a></h1>
+			<div class="enroll_top"> <a href="login.html">登录</a>&nbsp;|&nbsp;<a href="#">客服中心</a></div>
+		</div>
+		<!--main-->
+		<div id="main">
+			<div class="main_top">
+				<div id="plan">
+					<ul>
+						<li>
+							<span class="green"></span>
+							<p class="green_ball"></p>
+							<font class="green_text">填写</font>
+						</li>
+						<li>
+							<span class="gray"></span>
+							<p class="gray_ball"></p>
+							<font class="gray_text">验证</font>
+						</li>
+						<li>
+							<span class="gray"></span>
+							<p class="gray_ball"></p>
+							<font class="gray_text">注册成功</font>
+						</li>
+					</ul>
+				</div>
+				<div class="plan_botton">
+					<strong>会员注册</strong>&nbsp;注册成功可获<font>1000</font>积分 + <span>返现</span>特权！
+				</div>
+			</div>
+			<div class="main_form">
+				<form name="enroll" method="get">
+					<fieldset>
+						<span>手机号</span><input id="user_phone" class="same" type="text" placeholder=" 可用作登录名" />
+					</fieldset>
+					
+					<fieldset id="hint0">
+						<p class="p_html0">验证码错误</p>
+					</fieldset>
+					
+					<fieldset>
+						<span>Email</span><input id="user_email" class="same" type="text" placeholder=" 可用作登录名" />
+						<font class="email">填写Email并通过验证，可额外获得<strong>200</strong>积分 ！</font>
+					</fieldset>
+					
+					<fieldset id="hint1">
+						<p class="p_html1"></p>
+					</fieldset>
+					
+					<fieldset>
+						<span>密码</span><input id="user_pass" class="same" type="password" placeholder=" 6-25位字母、数字和符号" />
+						<ul>
+							<li class="pass_vigor0">弱</li>
+							<li class="pass_vigor1">中</li>
+							<li class="pass_vigor2">强</li>
+						</ul>
+					</fieldset>
+					
+					<fieldset id="hint2">
+						<p class="p_html2">验证码错误</p>
+					</fieldset>
+					
+					<fieldset>
+						<span>确认密码</span><input class="same" id="affirm_pass" type="text" placeholder=" 再次输入密码" />
+					</fieldset>
+					
+					<fieldset id="hint3">
+						<p class="p_html3">验证码错误</p>
+					</fieldset>
+					
+					<fieldset class="check">
+						<input type="checkbox" id="checked" checked="checked" />同意<font>《《携程旅行网服务协议》》</font>
+					</fieldset>
+					
+					<fieldset>
+					<input type="submit" id="sub" value="下一步，验证" />
+					</fieldset>
+					
+					<span class="matter"><a href="#">注册遇到问题？</a></span>
+				</form>
+			</div>
+			<a class="main_right" href="#">
+				<p>合作卡会员注册> </p>
+			</a>
+			
+			
+		</div>
+		<!--footer-->
+		<div id="footer">
+			<table>
+				<tr>
+					<td><a href="#">免费注册</a></td>
+					<td><a href="#">网站导航</a></td>
+					<td><a href="#">宾馆索引</a></td>
+					<td><a href="#">服务说明</a></td>
+					<td><a href="#">关于携程</a></td>
+					<td><a href="#">企业公民</a></td>
+					<td><a href="#">诚聘英才</a></td>
+					<td><a href="#">分销联盟</a></td>
+					<td><a href="#">企业礼品卡采购</a></td>
+					<td><a href="#">代理合作</a></td>
+					<td><a href="#">广告业务</a></td>
+					<td><a href="#">联系我们</a></td>
+					<td class="last_td"><a href="#">我要提建议</a></td>
+				</tr>
+			</table>
+			<p>Copyright© 1999-2016, ctrip.com. all rights reserved.</p>
+		</div>
+	</body>
+</html>
