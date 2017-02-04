@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="iconfont/iconfont.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<script src="js/tools.js"></script>
+		<script src="js/index.js"></script>
+		<script src="js/jquery-1.10.1.min.js"></script>
+
+	</head>
+
+	<body style="background:#f8faf7">
+		<!--头部导航-->
+		<div class="index-header">
+			<div class="index">
+				<div class="left fl">
+					<span id="username">Hi,请</span>
+					<a href="login.html">登录 </a>
+					<a href="regist.html">注册</a>
+					<script>
+						if(getCookie("username") != "") {
+							$("#username").html("欢迎" + getCookie("username") + "来到一号店");
+							$(".left").find("a").hide();
+						}
+					</script>
+				</div>
+				<div class="right fr">
+					<ul class="right-ul fl">
+						<li>
+							<a href="index.html">我的1号店<em></em></a>
+						</li>
+						<li>
+							<a href="#">收藏夹<em></em></a>
+						</li>
+						<li>
+							<a href="#"><i class="phone"></i>掌上1号店<em></em></a>
+						</li>
+						<li>
+							<a href="#">企业采购<em></em></a>
+						</li>
+						<li>
+							<a href="#">客户服务<em></em></a>
+						</li>
+						<li>
+							<a href="#">网站导航<em></em></a>
+						</li>
+					</ul>
+					<div class="aboutme fl">
+						关注我们:
+						<a href=""></a>
+						<a href=""></a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="rightShopCart">sss</div>
+		<!--头部banner-->
+		<div class="index top-banner">
+			<span class="openOrClose">展开</span>
+			<img src="img/index-header01.jpg" style="display: none;" />
+			<img src="img/index-header02.jpg" />
+		</div>
+		<script>
+			$(".openOrClose").click(function(){
+				$(this).html()=="展开"?$(this).html("收起"):$(this).html("展开");
+				$(this).next().css("display")=="block"?$(this).next().css("display","none") : $(this).next().css("display","block");
+				$(this).next().next().css("display")=="block"?$(this).next().next().css("display","none") : $(this).next().next().css("display","block");
+			});
+		</script>
+		<div class="indexbanner">
+			<!--头部搜索-->
+			<div class="index top-search">
+				<div class="ts-left fl">
+					<a href="#"><img src="img/top-search.gif" width="210px" height="110px" /></a>
+				</div>
+				<div class="ts-middle fl">
+					<div class="from">
+						<span>商品</span>
+						<input type="text" placeholder="1元领 百万免单" />
+						<button>搜索</button>
+					</div>
+					<div class="alink">
+						<a href="#">家居买2付1</a>
+						<a href="#">纸巾</a>
+						<a href="#">薏仁粉</a>
+						<a href="#">黄酒</a>
+						<a href="#">护发素</a>
+						<a href="#">保温杯</a>
+						<a href="#">羽绒服</a>
+						<a href="#">瓜子</a>
+						<a href="#">保鲜盒</a>
+
+					</div>
+				</div>
+				<div class="ts-right">
+					<a id="shopCart"><em></em>购物车</a>
+					<script>
+						shopCartClick();
+					</script>
+				</div>
+			</div>
+
+			<!--导航-->
+			<div class="index header">
+				<ul>
+					<li>
+						<a href="#" class="active">所有商品分类</a>
+					</li>
+					<li>
+						<a href="#" class="light">首页</a>
+					</li>
+					<li>
+						<a href="#" class="light">自营超市</a>
+					</li>
+					<li>
+						<a href="#" class="light">1号团</a>
+					</li>
+					<li>
+						<a href="list.html">1号商城</a>
+					</li>
+					<li>
+						<a href="#">闪购</a>
+					</li>
+					<li>
+						<a href="#">活色生鲜</a>
+					</li>
+					<li>
+						<a href="#">医药</a>
+					</li>
+					<li>
+						<a href="#">1号海购</a>
+					</li>
+					<li>
+						<a href="#">电器城</a>
+					</li>
+				</ul>
+			</div>
+			<div class="index header-banner">
+				<ul class="ber-left fl">
+					<li>
+						<h3>
+						<i class="iconfont icon-nvxie"></i>
+						<a href="#">进口食品</a>、
+						<a href="#">生鲜</a>、
+						<a href="#">海购</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-shipin"></i>
+						<a href="#">食品</a>、
+						<a href="#">饮料</a>、
+						<a href="#">酒</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-xiebao"></i>
+						<a href="#">母婴</a>、
+						<a href="#">玩具</a>、
+						<a href="#">童装</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-jiayongdianqi"></i>
+						<a href="#">厨卫清洁</a>、
+						<a href="#">纸</a>、
+						<a href="#">清洁剂</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-nvxie"></i>
+						<a href="#">家装</a>、
+						<a href="#">宠物</a>、
+						<a href="#">家居</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-shumashouji"></i>
+						<a href="#">美妆、个人护理</a>、
+						<a href="#">洗护</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-nvzhuangneiyi"></i>
+						<a href="#">女装内衣</a>、
+						<a href="#">男装</a>、
+						<a href="#">珠宝</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-nvxie"></i>
+						<a href="#">鞋靴</a>、
+						<a href="#">箱包</a>、
+						<a href="#">运动户外</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-jiayongdianqi"></i>
+						<a href="#">大家电、小家电</a>、
+						<a href="#">汽车</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-nvxie"></i>
+						<a href="#">保健滋补</a>、
+						<a href="#">医药</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-huwai"></i>
+						<a href="#">礼品卡</a>、
+						<a href="#">旅游</a>、
+						<a href="#">图书</a>
+					</h3>
+					</li>
+					<li>
+						<h3>
+						<i class="iconfont icon-jiafang"></i>
+						<a href="#">母婴</a>、
+						<a href="#">童装</a>、
+						<a href="#">玩具</a>
+					</h3>
+					</li>
+				</ul>
+				<div class="item-1-1 fl"><img src="img/index-ban1.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban2.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban3.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban4.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban5.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban6.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban7.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban8.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban5.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban4.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban2.png" /></div>
+				<div class="item-1-1 fl"><img src="img/index-ban1.png" /></div>
+				<script>
+					$(".ber-left li").mouseover(function() { //绑定事件效果
+						var index = $(this).index();
+						$(".item-1-1").eq(index).addClass("select").siblings().removeClass("select");
+					});
+					$(".header-banner").hover(null, function() {
+						$(".item-1-1").removeClass("select");
+					});
+				</script>
+				<div class="ber-middle fl" id="index-lbt">
+					<!--轮播图-->
+					<ul>
+						<li><img src="img/index-banner1.png" /></li>
+						<li><img src="img/index-banner2.png" /></li>
+						<li><img src="img/index-banner3.png" /></li>
+						<li><img src="img/index-banner4.png" /></li>
+						<li><img src="img/index-banner5.png" /></li>
+					</ul>
+					<div class="previndex">&lt;</div>
+					<div class="nextindex">&gt;</div>
+					<div class="dot">
+						<span class="active"></span><span></span><span></span><span></span><span></span>
+					</div>
+				</div>
+				<script>
+					var index = 0;
+					var count = 0;
+					$(".dot span").mouseover(function() {
+						count++;
+						index = $(this).index();
+						$(this).addClass("active").siblings().removeClass("active");
+						$("#index-lbt ul li").eq(index).css({
+							"z-index": count
+						});
+					});
+
+					var timer = setInterval(function() {
+						next();
+					}, 2000);
+
+					$("#index-lbt").mouseover(function() {
+						clearInterval(timer);
+					});
+
+					$("#index-lbt").mouseout(function() {
+						timer = setInterval(function() {
+							next();
+						}, 2000);
+					});
+					//上一个
+					$(".previndex").click(function() {
+						index--;
+						count++;
+						if(index < 0) {
+							index = 4;
+						}
+						$(".dot span").eq(index).addClass("active").siblings().removeClass("active");
+						$("#index-lbt ul li").eq(index).css({
+							"z-index": count
+						});
+					});
+					//下一个
+					$(".nextindex").click(function() {
+						next();
+					});
+
+					function next() {
+						index++;
+						count++;
+						if(index > 4) {
+							index = 0;
+						}
+						$(".dot span").eq(index).addClass("active").siblings().removeClass("active");
+						$("#index-lbt ul li").eq(index).css({
+							"z-index": count
+						});
+					}
+				</script>
+
+				<div class="ber-right fl">
+					<dl class="mod_yhd_notice">
+						<dt>快讯</dt>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+						<dl>
+							<a href="#"><b>【优选】</b><span>嘿！你的2016年度账单来了</span></a>
+						</dl>
+					</dl>
+					<div id="tab">
+						<div class="tabTit">
+							<a>充值中心</a>
+							<a>网页游戏</a>
+							<a>1号钱包</a>
+						</div>
+						<div class="tabContent">
+							<div style="display: block;">
+								<p>收益日结，收益赚high</p>
+								<img src="img/tab1.png" />
+							</div>
+							<div>
+								<p>收益日结，收益赚high</p>
+								<img src="img/tab01.jpg" />
+								<img src="img/tab02.jpg" />
+							</div>
+							<div>
+								<p>收益日结，收益赚high</p>
+								<img src="img/tab1.png" />
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--图片列表-->
+		<div class="index piclist">
+			<img src="img/piclist01.png" height="176px" width="1200px" />
+			<ul>
+				<li>
+					<a href="#"><img src="img/piclist02.png" height="145px" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist03.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist04.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist05.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist02.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist02.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist03.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist04.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist05.png" /></a>
+				</li>
+				<li>
+					<a href="#"><img src="img/piclist05.png" /></a>
+				</li>
+			</ul>
+		</div>
+		<!--你的活动专属-->
+		<div class="index hdzs">
+			<h3 class="hdzs-tit">你的活动专属</h3>
+			<div class="hdzs-list">
+				<div class="hdzs-left fl">
+					<em class="hdzs-em-left"></em>
+				</div>
+				<div class="hdzs-midle fl">
+					<ul class="hdzs-midle-ul fl">
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs01.png" /></div>
+								<p class="dis_name">沐浴用品2</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs02.png" /></div>
+								<p class="dis_name">茶叶2</p>
+								<p class="dis_sale">满2件7.5折</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs03.png" /></div>
+								<p class="dis_name">个护美妆2</p>
+								<p class="dis_sale">买2付1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs02.png" /></div>
+								<p class="dis_name">沐浴用品2</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs03.png" /></div>
+								<p class="dis_name">沐浴用品2</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs01.png" /></div>
+								<p class="dis_name">沐浴用品2</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs01.png" /></div>
+								<p class="dis_name">沐浴用品</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs02.png" /></div>
+								<p class="dis_name">茶叶</p>
+								<p class="dis_sale">满2件7.5折</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs03.png" /></div>
+								<p class="dis_name">个护美妆</p>
+								<p class="dis_sale">买2付1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs02.png" /></div>
+								<p class="dis_name">沐浴用品</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs03.png" /></div>
+								<p class="dis_name">沐浴用品</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<div class="dis_img"><img src="img/hdzs01.png" /></div>
+								<p class="dis_name">沐浴用品</p>
+								<p class="dis_sale">买1送1</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="hdzs-right fl"><em class="hdzs-em-right"></em></div>
+			</div>
+		</div>
+		<div class="index split-content">
+			<div class="big_pic"><img src="img/splitcon01.png" /></div>
+			<div class="small_pic border_right">
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+			</div>
+			<div class="small_pic">
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+			</div>
+			<div class="big_pic"><img src="img/splitcon02.png" /></div>
+			<div class="small_pic">
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+				<figure>
+					<strong>进口美味</strong>
+					<p>1家人的洋礼</p>
+					<figcaption>
+						<img src="img/splitcon03.png" />
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+
+		<!--主体内容-->
+		<div class="index maincontent">
+			<div id="menu" class="floor_left_box">
+				<ul>
+					<li>1L
+						<span>食品</span>
+					</li>
+					<li>2L
+						<span>饮料</span>
+					</li>
+					<li>3L
+						<span>厨卫</span>
+					</li>
+					<li class="top">TOP</li>
+				</ul>
+			</div>
+			<!--进口食品导航-->
+			<div class="louti">
+				<div class="index menu-top">
+					<div class="mt-left fl">
+						<a href="#" class="bt">进口</a>
+						<em class="bt"> • </em>
+						<a href="#" class="bt">食品</a>
+					</div>
+					<div class="mt-right fr">
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>
+					</div>
+				</div>
+				<!--进口食品内容-->
+				<div class="index menu-content">
+					<div class="mc-a fl">
+						<ul>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+						</ul>
+						<figure class="fl mc-fig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption>
+								<img src="img/mc01.png" width="190" height="160" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-b fl">
+						<img src="img/mc01.png" class="mcimg" />
+						<div class="dot" id="dot1">
+							<span class="active"></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<script>
+						nrshow();
+
+						function nrshow() {
+							var index1 = 0;
+							$("#dot1 span").mouseover(function() {
+								index1 = $(this).index();
+								$(this).addClass("active").siblings().removeClass("active");
+								$(".mcimg").attr("src", "img/mc0" + (index1 + 1) + ".png");
+								clearInterval(nrtimer);
+							});
+							var nrtimer = setInterval(function() {
+								show();
+							}, 1000);
+
+							function show() {
+								index1++;
+								if(index1 >= 3) {
+									index1 = 0;
+								}
+								$("#dot1 span").eq(index1).addClass("active").siblings().removeClass("active");
+								$(".mcimg").attr("src", "img/mc0" + (index1 + 1) + ".png");
+							};
+						}
+					</script>
+					<div class="mc-c fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-d fl">
+						<figure class="mc-bigfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc05.png" width="190" height="290" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-e fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+
+			</div>
+			<div class="louti">
+				<div class="index menu-top">
+					<div class="mt-left fl">
+						<a href="#" class="bt">食品饮料</a>
+					</div>
+					<div class="mt-right fr">
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>
+					</div>
+				</div>
+				<!--进口食品内容-->
+				<div class="index menu-content">
+					<div class="mc-a fl">
+						<ul>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+						</ul>
+						<figure class="fl mc-fig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption>
+								<img src="img/mc01.png" width="190" height="160" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-b fl">
+						<img src="img/mc02.png" />
+						<div class="dot">
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+						</div>
+					</div>
+					<div class="mc-c fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-d fl">
+						<figure class="mc-bigfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc05.png" width="190" height="290" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-e fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+
+			</div>
+			<div class="louti">
+				<div class="index menu-top">
+					<div class="mt-left fl">
+						<a href="#" class="bt">个护厨卫</a>
+					</div>
+					<div class="mt-right fr">
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>|
+						<a href="#">钜惠风暴</a>|
+						<a href="#">进口冲饮</a>
+					</div>
+				</div>
+				<!--进口食品内容-->
+				<div class="index menu-content">
+					<div class="mc-a fl">
+						<ul>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+							<li>
+								<a href="#">进口牛奶</a>
+							</li>
+							<li>
+								<a href="#">进口饼干</a>
+							</li>
+							<li>
+								<a href="#">进口坚果</a>
+							</li>
+						</ul>
+						<figure class="fl mc-fig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption>
+								<img src="img/mc01.png" width="190" height="160" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-b fl">
+						<img src="img/mc02.png" />
+						<div class="dot">
+							<span>1</span>
+							<span>2</span>
+							<span>3</span>
+						</div>
+					</div>
+					<div class="mc-c fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-d fl">
+						<figure class="mc-bigfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc05.png" width="190" height="290" />
+							</figcaption>
+						</figure>
+					</div>
+					<div class="mc-e fl">
+						<figure class="mc-smallfig border-bottom">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+						<figure class="mc-smallfig">
+							<strong>进口美味</strong>
+							<p>进口超级福利</p>
+							<figcaption class="figcap">
+								<img src="img/mc04.png" width="190" height="110" />
+							</figcaption>
+						</figure>
+					</div>
+				</div>
+
+			</div>
+			<script>
+				lt();
+
+				function lt() {
+					var indexlt = 0;
+					$("#menu li:not(.top)").click(function() {
+						indexlt = $(this).index();
+						$(this).find("span").addClass("active");
+						$(this).siblings().find("span").removeClass("active");
+						var top = $(".louti").eq(indexlt).offset().top; //找到每一个div距离顶部的距离
+						$("body,html").stop().animate({
+							"scrollTop": top - $(".louti").eq(indexlt).height()
+						});
+
+					});
+					//返回顶部
+					$(".top").click(function() {
+						$("body,html").stop().animate({
+							"scrollTop": 0
+						});
+					});
+
+					//页面滚动的时候,让左边导航出现
+					$(window).scroll(function() {
+						var top = $(this).scrollTop();
+						//第一个div距离页面顶部的高度
+						var firsttop = $(".louti").eq(0).offset().top - $(".louti").eq(0).height();
+						if(top > firsttop) {
+							$("#menu").show();
+						} else {
+							$("#menu").hide();
+						}
+						//循环所有的楼层
+						//找到楼层中满足条件的楼层 然后终止循环
+						//找到相对应的index
+						$(".louti").each(function(index) {
+							//index表示每一个索引
+							var itemTop = $(this).offset().top;
+							if(itemTop > top) { //找到满足的index后 立刻终止
+								$("#menu li").eq(index).find("span").addClass("active");
+								$("#menu li").eq(index).siblings().find("span").removeClass("active");
+								return false;
+							}
+						});
+					});
+				}
+			</script>
+		</div>
+		<div class="index footer">
+			<div class="f1">
+				<a href="#">
+					<img src="img/footer01.png" />
+					<b>正品保障</b>
+					<span>正品行货 放心选购</span>
+				</a>
+				<a href="#">
+					<img src="img/footer02.png" />
+					<b>售后无忧</b>
+					<span>7天无理由退货</span>
+				</a>
+				<a href="#">
+					<img src="img/footer03.png" />
+					<b>准时送达</b>
+					<span>收货时间由你做主</span>
+				</a>
+				<a href="#">
+					<img src="img/footer04.png" />
+					<b>帮助中心</b>
+					<span>您的购物帮助指南</span>
+				</a>
+			</div>
+			<div class="f2">
+				<div class="f2-ul">
+					<h1>新手入门</h1>
+					<ul>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">会员制度</a>
+						</li>
+						<li>
+							<a href="#">订单查询</a>
+						</li>
+						<li>
+							<a href="#">发票制度</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>支付方式</h1>
+					<ul>
+						<li>
+							<a href="#">货到付款</a>
+						</li>
+						<li>
+							<a href="#">网上支付</a>
+						</li>
+						<li>
+							<a href="#">银行转账</a>
+						</li>
+						<li>
+							<a href="#">礼品卡支付</a>
+						</li>
+						<li>
+							<a href="#">其他支付</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>配送服务</h1>
+					<ul>
+						<li>
+							<a href="#">配送范围及运费</a>
+						</li>
+						<li>
+							<a href="#">配送进度查询</a>
+						</li>
+						<li>
+							<a href="#">自提服务</a>
+						</li>
+						<li>
+							<a href="#">商品验货与签收</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>售后保障</h1>
+					<ul>
+						<li>
+							<a href="#">退换货政策</a>
+						</li>
+						<li>
+							<a href="#">退换货流程</a>
+						</li>
+						<li>
+							<a href="#">退款说明</a>
+						</li>
+						<li>
+							<a href="#">延保说明页面</a>
+						</li>
+						<li>
+							<a href="#">联系客服</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>商家合作</h1>
+					<ul>
+						<li>
+							<a href="#">商家入驻</a>
+						</li>
+						<li>
+							<a href="#">商必赢</a>
+						</li>
+						<li>
+							<a href="#">平台规则</a>
+						</li>
+						<li>
+							<a href="#">企业采购</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>APP更优惠</h1>
+					<img src="img/footer05.png" alt="1号店客户端二维码" />
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>加微信查订单</h1>
+					<img src="img/footer06.png" alt="1号店官方微信二维码" />
+				</div>
+			</div>
+			<div class="f3">
+				<p>
+					<a href="#">关于1号店</a>|
+					<a href="#">我们的团队</a>|
+					<a href="#">网站联盟</a>|
+					<a href="#">热门搜索</a>|
+					<a href="#">友情链接</a>|
+					<a href="#">1号店社区</a>|
+					<a href="#">诚征英才</a>|
+					<a href="#">商家登录</a>|
+					<a href="#">供应商登录</a>|
+					<a href="#">放心搜</a>|
+					<a href="#">1号店新品</a>|
+					<a href="#">沃尔玛</a>
+				</p>
+				<p>
+					<a href="#">沪ICP备14050023号</a>|
+					<a href="#">合字B1.B2-20130004</a>|
+					<a href="#">营业执照</a>|
+					<a href="#">互联网药品信息服务资格证</a>|
+					<a href="#">互联网药品交易服务资格证</a>
+				</p>
+				<p>Copyright &copy; 1号店网上超市 2007-2016，All Rights Reserved</p>
+			</div>
+			<div class="f4">
+				<a href="#"><img src="img/footpic01.png" /></a>
+				<a href="#"><img src="img/footpic02.png" /></a>
+				<a href="#"><img src="img/footpic03.png" /></a>
+				<a href="#"><img src="img/footpic04.png" /></a>
+				<a href="#"><img src="img/footpic05.png" /></a>
+				<a href="#"><img src="img/footpic06.png" /></a>
+				<a href="#"><img src="img/footpic07.png" /></a>
+				<a href="#"><img src="img/footpic08.png" /></a>
+				<a href="#"><img src="img/footpic09.png" /></a>
+			</div>
+		</div>
+	</body>
+
+</html>

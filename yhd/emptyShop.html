@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/login.css" rel="stylesheet" />
+		<link href="css/shopcart.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+
+		<script src="js/jquery.js"></script>
+		<script src="js/tools.js"></script>
+		<script src="js/goods.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		
+	</head>
+
+	<body>
+		<div class="login">
+			<div class="login-header">
+				<h1 class="login-h1 fl"><a href="index.html"><img src="img/log.jpg" width="53" height="48"/></a>
+					<a href="#" class="logcart">购物车</a>
+				</h1>
+				<div class="login-right fr">
+					您好，欢迎<span class="uname">xxx</span>光临1号店！
+					<script>
+						if(getCookie("username") == "") {
+							$(".uname").hide();
+						} else {
+							$(".uname").html(getCookie("username"));
+						}
+					</script>
+					<div class="login-help fr">
+						<a href="#"><i></i>帮助中心<em></em></a>
+						<ul class="login-help-ul">
+							<li>
+								<a href="">包裹跟踪</a>
+							</li>
+							<li>
+								<a href="">常见问题</a>
+							</li>
+							<li>
+								<a href="">在线退换货</a>
+							</li>
+							<li>
+								<a href="">在线投诉</a>
+							</li>
+							<li>
+								<a href="">配送范围</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="shopmain">
+			<div class="shocontent">
+				<div class="emptyshop">
+					<dl>
+						<dt></dt>
+						<dd id="tit">您的1号店购物车还是空的</dd>
+						<dd id="money">请立即登录查看</dd>
+						<dd>
+							<a href="login.html" class="log">立即登录</a>
+						</dd>
+					</dl>
+					<script>
+						if(getCookie("priceTotal")!=""&&getCookie("username")!=""){
+							$("#tit").html("您所购买的所有商品");
+							$("#money").html("总计："+getCookie("priceTotal")+" 元");
+							$(".log").html("立即支付");
+						}
+					</script>
+				</div>
+				<div class="hdzs">
+					<div class="cart_nav">猜你喜欢</div>
+					<div class="hdzs-list">
+						<div class="hdzs-left fl">
+							<em class="hdzs-em-left"></em>
+						</div>
+						<div class="hdzs-midle fl">
+							<div id="effect" class="ui-widget-content ui-corner-all">
+								已成功加入购物车
+							</div>
+							<ul class="hdzs-midle-ul fl">
+								<!--<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs02.png" /></div>
+										<p class="dis_name">短幅抽取式面纸*4包...</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs03.png" /></div>
+										<p class="dis_name">个护美妆2</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs02.png" /></div>
+										<p class="dis_name">沐浴用品2</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs03.png" /></div>
+										<p class="dis_name">沐浴用品2</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs01.png" /></div>
+										<p class="dis_name">沐浴用品2</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs01.png" /></div>
+										<p class="dis_name">沐浴用品</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs02.png" /></div>
+										<p class="dis_name">茶叶</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs03.png" /></div>
+										<p class="dis_name">个护美妆</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs02.png" /></div>
+										<p class="dis_name">沐浴用品</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs03.png" /></div>
+										<p class="dis_name">沐浴用品</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<div class="dis_img"><img src="img/hdzs01.png" /></div>
+										<p class="dis_name">沐浴用品</p>
+										<p class="dis_sale">加入购物车</p>
+									</a>
+								</li>-->
+							</ul>
+						</div>
+						<div class="hdzs-right fl"><em class="hdzs-em-right"></em></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="simplefooter">
+			<a href="" target="_blank">沪ICP备13044278号</a>|
+			<a href="#">合字B1.B2-20130004</a>|
+			<a href="" target="_blank">营业执照</a>
+			<p>Copyright &copy;1号店网上超市 2007-2016，All Rights Reserved</p>
+		</div>
+	</body>
+	<script>
+		bindData();
+		shopCartMove();
+	</script>
+
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/login.css" rel="stylesheet" />
+		<link href="css/shopcart.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+		<script src="js/tools.js"></script>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/goods.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+
+	</head>
+
+	<body>
+		<div id="dialog" title="确认删除吗？" style="display: none;">
+			<p>删除后将无法恢复</p>
+		</div>
+		<div class="login">
+			<div class="login-header">
+				<h1 class="login-h1 fl"><a href="login.html"><img src="img/log.jpg" width="53" height="48"/></a>
+					<a href="#" class="logcart">购物车</a>
+				</h1>
+				<div class="login-right fr">
+					您好，欢迎<span class="uname">xxx</span>光临1号店！
+					<script>
+						if(getCookie("username") == "") {
+							$(".uname").hide();
+						} else {
+							$(".uname").html(getCookie("username"));
+						}
+					</script>
+					<div class="login-help fr">
+						<a href="#"><i></i>帮助中心<em></em></a>
+						<ul class="login-help-ul">
+							<li>
+								<a href="">包裹跟踪</a>
+							</li>
+							<li>
+								<a href="">常见问题</a>
+							</li>
+							<li>
+								<a href="">在线退换货</a>
+							</li>
+							<li>
+								<a href="">在线投诉</a>
+							</li>
+							<li>
+								<a href="">配送范围</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="shopmain">
+			<div class="shocontent">
+				<table id="cartTable">
+					<thead>
+						<tr>
+							<th><label>
+            <input class="check-all check" type="checkbox"/>&nbsp;&nbsp;全选</label></th>
+							<th>商品</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>小计</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!--<tr>
+							<td class="checkbox"><input class="check-one check" type="checkbox" /></td>
+							<td class="goods"><img src="img/list04.jpg" width="60" height="60" alt="" />
+								<a href="#">Fujifilm/富士 instax mini 25</a>
+							</td>
+							<td class="price">640.60</td>
+							<td class="count"><span class="reduce"></span>
+								<input class="count-input" type="text" value="1" />
+								<span class="add">+</span></td>
+							<td class="subtotal">640.60</td>
+							<td class="operation"><span class="delete">删除</span></td>
+						</tr>-->
+					</tbody>
+				</table>
+				<div class="foot" id="foot">
+					<a class="fl delete" id="deleteAll" href="javascript:;">全部删除</a>
+					<div class="fr closing" onclick="getTotal();">结 算</div>
+					<input type="hidden" id="cartTotalPrice" />
+					<div class="fr total">合计：￥<span id="priceTotal">0.00</span></div>
+					<div class="fr selected" id="selected">已选商品<span id="selectedTotal">0</span>件</div>
+				</div>
+				<div class="hdzs">
+					<div class="cart_nav">猜你喜欢</div>
+					<div class="hdzs-list">
+						<div class="hdzs-left fl">
+							<em class="hdzs-em-left"></em>
+						</div>
+						<div class="hdzs-midle fl">
+							<div id="effect" class="ui-widget-content ui-corner-all">
+								已成功加入购物车
+							</div>
+							<ul class="hdzs-midle-ul fl">
+								<script>
+									bindData();
+									shopCartMove();
+								</script>
+							</ul>
+						</div>
+						<div class="hdzs-right fl"><em class="hdzs-em-right"></em></div>
+					</div>
+				</div>
+
+			</div>
+			<script>
+				showData();
+				//全选
+				$(".check-all").click(function() {
+					$("tbody").find(".check-one").prop("checked", $(this).prop("checked"));
+					getMoney();
+				});
+				//tbody里的checkbox
+				$(".check-one").click(function() {
+					isCkAll();
+					getMoney();
+				});
+
+				//判断所有的check是否被选中,全部选中则变全选框状态
+				function isCkAll() {
+					var ckcount = 0;
+					$("tbody tr").find(".check-one").each(function() {
+						if($(this).prop("checked")) {
+							ckcount++;
+						}
+					});
+					if(ckcount == $("tbody tr .check-one").length) {
+						$(".check-all").prop("checked", true);
+					} else {
+						$(".check-all").prop("checked", false);
+					}
+				}
+				//减
+				$(".reduce").click(function() {
+					var coninp = $(this).next(); //找到input
+					var parent = $(this).parent();
+					coninp.val() > 1 ? coninp.val(coninp.val() * 1 - 1) : $(this).html("");
+					parent.next().html((parent.prev().html() * coninp.val()).toFixed(2));
+					setCookie($(this).attr("data-id") + "_goodsNum", coninp.val(), 3);
+					getMoney();
+				});
+				//加
+				$(".add").click(function() {
+					var coninp = $(this).prev(); //找到input
+					var red = $(this).prev().prev(); //找到减号
+					var parent = $(this).parent();
+					coninp.val(coninp.val() * 1 + 1);
+					coninp.val() > 1 ? red.html("-") : red.html("");
+					parent.next().html((parent.prev().html() * coninp.val()).toFixed(2));
+					setCookie($(this).attr("data-id") + "_goodsNum", coninp.val(), 3);
+					getMoney();
+				});
+
+				//根据状态来显示总金额
+				function getMoney() {
+					var price = 0;
+					var count = 0;
+					$("tbody tr").each(function(index, val) {
+						var ck = $(this).find("input[type='checkbox']");
+						var subtotal = $(this).find(".subtotal").html() * 1;
+						var countInput = $(this).find("input[type='text']").val() * 1;
+						if(ck.prop("checked")) {
+							price += subtotal;
+							count += countInput;
+						}
+					});
+					$("#selectedTotal").html(count);
+					$("#priceTotal").html(price.toFixed(2));
+				}
+				//删除
+				$(".delete").not("#deleteAll").click(function() {
+					var that = this;
+					$("#dialog").dialog({
+						buttons: {
+							"确认": function() {
+								$(that).parent().parent().remove(); //删除整行	
+								clearcook($(that).attr("data-id"));
+								$(this).dialog("close");
+							},
+							"取消": function() {
+								$(this).dialog("close");
+							}
+						}
+					});
+				});
+
+				function clearcook(id) {
+					if(id) {
+						setCookie(id + "_goodsNum", "", -1);
+						setCookie(id + "_goodsId", '', -1);
+						setCookie(id + "_goodsName", '', -1);
+						setCookie(id + "_goodsPic", '', -1);
+						setCookie(id + "_goodsPrice", '', -1);
+					}
+				}
+				//全部删除
+				$("#deleteAll").click(function() {
+					$("#dialog").dialog({
+						autoOpen: true,
+						show: {
+							effect: "blind",
+							duration: 1000
+						},
+						hide: {
+							effect: "explode",
+							duration: 1000
+						},
+						buttons: {
+							"确认": function() {
+								for(var i = 0; i < $("tbody tr").length; i++) {
+									clearcook($("tbody tr").eq(i).attr("data-id"));
+								}
+								$("tbody").remove();
+								$("#priceTotal").html("0.00");
+								$("#selectedTotal").html("0");
+								$(this).dialog("close");
+							},
+							"取消": function() {
+								$(this).dialog("close");
+							}
+						}
+					});
+				});
+				
+				//立即结算
+				function getTotal(){
+					location.href="emptyShop.html";
+					setCookie("priceTotal",$("#priceTotal").html());
+				}
+			</script>
+		</div>
+		<div class="simplefooter">
+			<a href="" target="_blank">沪ICP备13044278号</a>|
+			<a href="#">合字B1.B2-20130004</a>|
+			<a href="" target="_blank">营业执照</a>
+			<p>Copyright &copy;1号店网上超市 2007-2016，All Rights Reserved</p>
+		</div>
+	</body>
+
+</html>

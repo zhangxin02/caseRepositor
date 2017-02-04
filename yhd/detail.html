@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/detail.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+		<script src="js/tools.js"></script>
+		<script src="js/jquery-1.10.1.min.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+	</head>
+
+	<body>
+		<!--http://item.yhd.com/item/70121377?tc=2.0.5.70121377.2&tp=4.270456.m6178352_5.2.1000.LaDadCz-10-8T94D&ti=58VWwi-->
+		<div class="index-header">
+			<div class="index">
+				<div class="left fl">
+					<span id="username">Hi,请</span>
+					<a href="login.html">登录 </a>
+					<a href="regist.html">注册</a>
+					<script>
+						if(getCookie("username") != "") {
+							$("#username").html("欢迎" + getCookie("username") + "来到一号店");
+							$(".left").find("a").hide();
+						}
+					</script>
+				</div>
+				<div class="right fr">
+					<ul class="right-ul fl">
+						<li>
+							<a href="index.html">我的1号店<em></em></a>
+							<ul class="right-ul-m2">
+								<li>
+									<a href="">包裹跟踪</a>
+								</li>
+								<li>
+									<a href="">常见问题</a>
+								</li>
+								<li>
+									<a href="">在线退换货</a>
+								</li>
+								<li>
+									<a href="">在线投诉</a>
+								</li>
+								<li>
+									<a href="">配送范围</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">收藏夹<em></em></a>
+						</li>
+						<li>
+							<a href="#"><i class="phone"></i>掌上1号店<em></em></a>
+						</li>
+						<li>
+							<a href="#">企业采购<em></em></a>
+						</li>
+						<li>
+							<a href="#">客户服务<em></em></a>
+						</li>
+						<li>
+							<a href="#">网站导航<em></em></a>
+						</li>
+					</ul>
+					<div class="aboutme fl">
+						关注我们:
+						<a href=""></a>
+						<a href=""></a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="index shop_box">
+			<img src="img/detailbanner.jpg" width="1200" height="120" />
+		</div>
+		<div class="index mod_detail_crumb">
+			<a href="#"><strong>进口食品、进口牛奶</strong></a>>
+			<a href="#">进口糖果/巧克力</a>>
+			<a href="#">进口巧克力</a>>
+			<a href="#">进口果仁巧克力</a>>
+			<a href="#">费列罗</a>
+		</div>
+		<div class="index fm_detail_one">
+			<div class="l">
+				<div id="proImg">
+					<img src="fdjimg/small1.jpg" id="smallImg" />
+					<div id="shadow"></div>
+				</div>
+				<div id="bigProImg">
+					<img src="fdjimg/big1.jpg" id="bigImg" />
+				</div>
+				<ul id="proCrumb">
+					<li><img src="fdjimg/small1.jpg" alt="" data-src="fdjimg/big1.jpg"></li>
+					<li><img src="fdjimg/small2.jpg" alt="" data-src="fdjimg/big2.jpg"></li>
+					<li><img src="fdjimg/small3.jpg" alt="" data-src="fdjimg/big3.jpg"></li>
+					<li><img src="fdjimg/small4.jpg" alt="" data-src="fdjimg/big4.jpg"></li>
+				</ul>
+			</div>
+			<script>
+				$("#proImg").mousemove(function(e) {
+					var evt = window.event || e;
+					var proW = $("#proImg").width();
+					var proH = $("#proImg").height();
+					var x = evt.pageX - $("#shadow").width() / 2 - parseInt($(".l").css('marginLeft'));
+					var y = evt.pageY - $("#shadow").height() / 2 - parseInt($(".l").offset().top);
+
+					x = x <= 0 ? 0 : x;
+					y = y <= 0 ? 0 : y;
+					var maxX = proW - $("#shadow").width();
+					var maxY = proH - $("#shadow").height();
+					x = x >= maxX ? maxX : x;
+					y = y >= maxY ? maxY : y;
+					var bigX = -$("#bigImg").width() * x / proW;
+					var bigY = -$("#bigImg").height() * y / proH;
+					$("#shadow").css({
+						"left": x,
+						"top": y
+					});
+					$("#bigImg").css({
+						"left": bigX,
+						"top": bigY
+					});
+					$("#shadow").show();
+					$("#bigProImg").show();
+				});
+				$("#proImg").mouseout(function() {
+					$("#shadow").hide();
+					$("#bigProImg").hide();
+				});
+				$("#proCrumb").find("img").mouseover(function() {
+					$("#smallImg").attr("src", $(this).attr("src"));
+					$("#bigImg").attr("src", $(this).attr("data-src"));
+				});
+			</script>
+			<div class="main_content">
+				<div class="mod_detailInfo_proName">
+					<p class="mh">费列罗 巧克力进口巧克力花束高档礼盒装圣诞礼物送女友送朋友</p>
+					<p class="subhead">下单就送圣诞帽和圣诞袜，袜子里会有礼物哦~</p>
+				</div>
+				<div class="mod_detailInfo_priceSales ">
+					<p class="price">价格<b>￥139</b></p>
+					<p class="postage">
+						<a href="#">支持免运费</a>
+					</p>
+					<p class="Msgsales">已售<span class="link">10</span>件</p>
+				</div>
+				<div class="mod_detailInfo_promotion">
+					<p>促销<span>本店铺单笔满¥128，赠送<a class="link" href="#">百诺 英式麦丽素牛奶巧克力30g袋装 怀旧食品</a></span></p>
+				</div>
+				<div class="mod_detailInfo_addressbox">
+					<p><span>送货至</span>该商品免运费，由<b class="link">上海趣淘食品专营店</b>配送并提供售后服务</p>
+					<p>
+						本商品由1号店入驻商家提供</p>
+				</div>
+				<div class="mod_cuputing">
+					<div id="effect" class="ui-widget-content ui-corner-all">
+					已成功加入购物车
+				</div>
+					<div class="computing_item fl"><input type="text" value="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span></div>
+					<a class="shopping_act">加入购物车</a>
+					<script>
+						$(".shopping_act").click(function() {
+							var id = "a001";
+							var num = $(this).prev().find("input").val();
+							var tit = $(this).parent().parent().find(".mh").html();
+							var money = $(this).parent().parent().find(".price b").html().substring(1);
+							//console.log(num + "/"+tit+"/"+money)
+							$("#effect").show("shake", 500, function() {
+								setTimeout(function() {
+									$("#effect:visible").removeAttr("style").fadeOut();
+								}, 1000);
+								var getCok = document.cookie;
+								var godId = getCookie(id + "_goodsId"); //得到cookie中的商品Id
+								var godNum = getCookie(id); //得到cookie中的商品数量
+								if(id == godId) {
+									setCookie(id + "_goodsNum", godNum * 1 + num, 3); //直接累加商品
+								} else {
+									setCookie(id + "_goodsId", id, 3);
+									setCookie(id + "_goodsName", tit, 3);
+									setCookie(id + "_goodsPic", "list04.jpg", 3);
+									setCookie(id + "_goodsPrice", money, 3);
+									setCookie(id + "_goodsNum", num, 3);
+								}
+							});
+
+						});
+						//加
+						$(".add").click(function() {
+							var ipt = $(this).parent().prev();
+							ipt.val(ipt.val() * 1 + 1);
+						});
+						//减
+						$(".dis_decrease").click(function() {
+							var ipt = $(this).parent().prev();
+							if(ipt.val() > 0) {
+								ipt.val(ipt.val() * 1 - 1);
+							}
+
+						});
+					</script>
+				</div>
+				<div class="mod_detailInfor_ensure">
+					<a href="#">保障</a>
+					<a href="#">正品保障</a>
+					<a href="#">假一赔三</a>
+					<a href="#">按时发货</a>
+				</div>
+			</div>
+			<div class="r">
+				<figure>
+					<img src="img/list02.jpg" />
+					<figcaption>
+						<p>Baci/芭喜 榛仁夹...</p>
+						<p><b>1号店自营</b></p>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/list01.jpg" />
+					<figcaption>
+						<p>Baci/芭喜 榛仁夹...</p>
+						<p><b>1号店自营</b></p>
+					</figcaption>
+				</figure>
+				<figure>
+					<img src="img/list03.jpg" />
+					<figcaption>
+						<p>Baci/芭喜 榛仁夹...</p>
+						<p><b>1号店自营</b></p>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+		<div class="index fm_detail_two">
+			<div class="mod_inshop_box">
+				<h1 class="box_hd">商品分类</h1>
+				<ul class="cat-item-ch">
+					<li>
+						<span>></span>
+						<a href="#">专区首页</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">视频站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">新闻站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">数据库</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">职业</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">精彩专题</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">魔兽论坛</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">专区首页</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">视频站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">新闻站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">数据库</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">职业</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">精彩专题</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">魔兽论坛</a>
+					</li>
+				</ul>
+				<h1 class="box_hd">热销商品排行榜</h1>
+				<ul class="cat-item-ch">
+					<li>
+						<span>></span>
+						<a href="#">专区首页</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">视频站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">新闻站</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">数据库</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">职业</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">精彩专题</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">魔兽论坛</a>
+					</li>
+					<li>
+						<span>></span>
+						<a href="#">专区首页</a>
+					</li>
+				</ul>
+				<script>
+					$(".box_hd").click(function() {
+						$(this).next().slideToggle(1000);
+					});
+				</script>
+			</div>
+			<div class="grid_18">
+				<div class="des_tab" id="des_tab">
+					<a href="#">商品介绍</a>
+					<a href="#">评价</a>
+					<a href="#">规格及包装</a>
+					<a href="#">售后服务</a>
+					<a href="#">商品问答</a>
+				</div>
+				<div class="mod_similar fl">
+					<div class="active">
+						<figure class="mod_search_pro">
+							<img src="img/list01.jpg" height="230px" width="230px" />
+							<figcaption>
+								<p class="proPrice">￥35</p>
+								<p class="proName">
+									<a href="#">
+										益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+								</p>
+							</figcaption>
+						</figure>
+						<figure class="mod_search_pro">
+							<img src="img/list02.jpg" height="230px" width="230px" />
+							<figcaption>
+								<p class="proPrice">￥35</p>
+								<p class="proName">
+									<a href="#">
+										益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+								</p>
+							</figcaption>
+						</figure>
+						<figure class="mod_search_pro">
+							<img src="img/list03.jpg" height="230px" width="230px" />
+							<figcaption>
+								<p class="proPrice">￥35</p>
+								<p class="proName">
+									<a href="#">
+										益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+								</p>
+							</figcaption>
+						</figure>
+						<figure class="mod_search_pro">
+							<img src="img/list04.jpg" height="230px" width="230px" />
+							<figcaption>
+								<p class="proPrice">￥35</p>
+								<p class="proName">
+									<a href="#">
+										益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+								</p>
+							</figcaption>
+						</figure>
+					</div>
+					<div>
+						<dl class="des_info">
+							<dt>规格参数</dt>
+							<dd>产地：意大利</dd>
+							<dd>制作工艺：非手工巧克力</dd>
+							<dd>包装：礼盒装</dd>
+							<dd>生产厂商：费列罗公司</dd>
+							<dd>食品保质期：10个月</dd>
+							<dd>品牌：费列罗</dd>
+							<dd>形状：粒状</dd>
+							<dd>生产日期：近期</dd>
+							<dd>储藏方法：通风、干燥、阴凉</dd>
+							<dd>可可脂含量：22%及以下</dd>
+							<dd>净重(g)：1000</dd>
+							<dd>进货日期：近期</dd>
+							<dd>储藏方法：通风、干燥、阴凉</dd>
+							<dd>可可脂含量：22%及以下</dd>
+							<dd>净重(g)：1000</dd>
+							<dd>进货日期：近期</dd>
+							<dd>生产厂商：费列罗公司</dd>
+							<dd>食品保质期：10个月</dd>
+							<dd>品牌：费列罗</dd>
+							<dd>形状：粒状</dd>
+						</dl>
+					</div>
+					<div class="desitem">
+						<h4>规格参数</h4>
+						<dl class="standard">
+							<dt>产地</dt>
+							<dd><label>产地</label>意大利</dd>
+						</dl>
+						<dl class="standard">
+							<dt>基本信息</dt>
+							<dd><label>可可脂含量</label>22%及以下</dd>
+							<dd><label>制作工艺</label>非手工巧克力</dd>
+							<dd><label>形状</label>粒状</dd>
+						</dl>
+						<dl class="standard">
+							<dt>规格</dt>
+							<dd><label>净重(g)</label>1000</dd>
+						</dl>
+						<dl class="standard">
+							<dt>食品安全信息</dt>
+							<dd><label>生产日期</label>近期<label>进货日期</label>近期</dd>
+							<dd><label>生产厂商</label>费列罗公司<label>储藏方法</label>通风、干燥、阴凉</dd>
+							<dd><label>配料表</label>可可脂、可可液块等<label>食品保质期</label>10个月</dd>
+						</dl>
+					</div>
+					<div class="deservice">
+						<h4>服务承诺</h4>
+						<p>网站所售产品均为厂商正品，如有任何问题可与我们客服人员联系，我们会在第一时间跟您沟通处理。我们将争取以更具竞争力的价格、更优质的服务来满足您最大的需求。开箱验货：签收时在付款后与配送人员当面核对：商品及配件、应付金额、商品数量及发货清单、发票（如有）、赠品（如有）等；如存在包装破损、商品错误、商品短缺、商品存在质量问题等影响签收的因素，请您可以拒收全部或部分商品，相关的赠品，配件或捆绑商品应一起当场拒收；为了保护您的权益，建议您尽量不要委托他人代为签收；如由他人代为签收商品而没有在配送人员在场的情况下验货，则视为您所订购商品的包装无任何问题</p>
+						<h4>温馨提示</h4>
+						<p>网站所售产品均为厂商正品，如有任何问题可与我们客服人员联系，我们会在第一时间跟您沟通处理。我们将争取以更具竞争力的价格、更优质的服务来满足您最大的需求。开箱验货：签收时在付款后与配送人员当面核对：商品及配件、应付金额、商品数量及发货清单、发票（如有）、赠品（如有）等；如存在包装破损、商品错误、商品短缺、商品存在质量问题等影响签收的因素，请您可以拒收全部或部分商品，相关的赠品，配件或捆绑商品应一起当场拒收；为了保护您的权益，建议您尽量不要委托他人代为签收；如由他人代为签收商品而没有在配送人员在场的情况下验货，则视为您所订购商品的包装无任何问题</p>
+					</div>
+					<div class="goodwd">
+						<p> 因厂家更改商品包装、场地、附配件等不做提前通知，以下内容仅供参考！给您带来的不变还请谅解。谢谢 </p>
+					</div>
+				</div>
+			</div>
+			<script>
+				$("#des_tab").find("a").mouseover(function() {
+					$(this).addClass("active").siblings().removeClass("active");
+					$(".mod_similar").find("div").eq($(this).index()).show().siblings().hide();
+				});
+			</script>
+			<div class="detailview">
+				<img src="img/detail.png" width="770px" />
+				<img src="img/detail01.png" width="770px" />
+				<img src="img/detail02.png" width="770px" />
+				<img src="img/detail03.png" width="770px" />
+				<img src="img/detail04.png" width="770px" />
+				<img src="img/detail05.png" width="770px" />
+				<img src="img/detail06.png" width="770px" />
+				<img src="img/detail07.png" width="770px" />
+			</div>
+		</div>
+		<div class="index footer">
+			<div class="f1">
+				<a href="#">
+					<img src="img/footer01.png" />
+					<b>正品保障</b>
+					<span>正品行货 放心选购</span>
+				</a>
+				<a href="#">
+					<img src="img/footer02.png" />
+					<b>售后无忧</b>
+					<span>7天无理由退货</span>
+				</a>
+				<a href="#">
+					<img src="img/footer03.png" />
+					<b>准时送达</b>
+					<span>收货时间由你做主</span>
+				</a>
+				<a href="#">
+					<img src="img/footer04.png" />
+					<b>帮助中心</b>
+					<span>您的购物帮助指南</span>
+				</a>
+			</div>
+			<div class="f2">
+				<div class="f2-ul">
+					<h1>新手入门</h1>
+					<ul>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">会员制度</a>
+						</li>
+						<li>
+							<a href="#">订单查询</a>
+						</li>
+						<li>
+							<a href="#">发票制度</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>支付方式</h1>
+					<ul>
+						<li>
+							<a href="#">货到付款</a>
+						</li>
+						<li>
+							<a href="#">网上支付</a>
+						</li>
+						<li>
+							<a href="#">银行转账</a>
+						</li>
+						<li>
+							<a href="#">礼品卡支付</a>
+						</li>
+						<li>
+							<a href="#">其他支付</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>配送服务</h1>
+					<ul>
+						<li>
+							<a href="#">配送范围及运费</a>
+						</li>
+						<li>
+							<a href="#">配送进度查询</a>
+						</li>
+						<li>
+							<a href="#">自提服务</a>
+						</li>
+						<li>
+							<a href="#">商品验货与签收</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>售后保障</h1>
+					<ul>
+						<li>
+							<a href="#">退换货政策</a>
+						</li>
+						<li>
+							<a href="#">退换货流程</a>
+						</li>
+						<li>
+							<a href="#">退款说明</a>
+						</li>
+						<li>
+							<a href="#">延保说明页面</a>
+						</li>
+						<li>
+							<a href="#">联系客服</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>商家合作</h1>
+					<ul>
+						<li>
+							<a href="#">商家入驻</a>
+						</li>
+						<li>
+							<a href="#">商必赢</a>
+						</li>
+						<li>
+							<a href="#">平台规则</a>
+						</li>
+						<li>
+							<a href="#">企业采购</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>APP更优惠</h1>
+					<img src="img/footer05.png" alt="1号店客户端二维码" />
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>加微信查订单</h1>
+					<img src="img/footer06.png" alt="1号店官方微信二维码" />
+				</div>
+			</div>
+			<div class="f3">
+				<p>
+					<a href="#">关于1号店</a>|
+					<a href="#">我们的团队</a>|
+					<a href="#">网站联盟</a>|
+					<a href="#">热门搜索</a>|
+					<a href="#">友情链接</a>|
+					<a href="#">1号店社区</a>|
+					<a href="#">诚征英才</a>|
+					<a href="#">商家登录</a>|
+					<a href="#">供应商登录</a>|
+					<a href="#">放心搜</a>|
+					<a href="#">1号店新品</a>|
+					<a href="#">沃尔玛</a>
+				</p>
+				<p>
+					<a href="#">沪ICP备14050023号</a>|
+					<a href="#">合字B1.B2-20130004</a>|
+					<a href="#">营业执照</a>|
+					<a href="#">互联网药品信息服务资格证</a>|
+					<a href="#">互联网药品交易服务资格证</a>
+				</p>
+				<p>Copyright &copy; 1号店网上超市 2007-2016，All Rights Reserved</p>
+			</div>
+			<div class="f4">
+				<a href="#"><img src="img/footpic01.png" /></a>
+				<a href="#"><img src="img/footpic02.png" /></a>
+				<a href="#"><img src="img/footpic03.png" /></a>
+				<a href="#"><img src="img/footpic04.png" /></a>
+				<a href="#"><img src="img/footpic05.png" /></a>
+				<a href="#"><img src="img/footpic06.png" /></a>
+				<a href="#"><img src="img/footpic07.png" /></a>
+				<a href="#"><img src="img/footpic08.png" /></a>
+				<a href="#"><img src="img/footpic09.png" /></a>
+			</div>
+		</div>
+
+	</body>
+
+</html>

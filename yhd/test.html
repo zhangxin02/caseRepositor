@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+		<style>
+			.toggler {
+				width: 500px;
+				height: 200px;
+			}
+			
+			#button {
+				padding: .5em 1em;
+				text-decoration: none;
+			}
+			
+			#effect {
+				width: 240px;
+				height: 100px;
+				line-height: 100px;
+				text-align: center;
+				border: 10px solid #cccccc;
+				font-weight: bold;
+				display: none;
+			}
+		</style>
+		<script>
+			$(function() {
+				// 根据选择菜单值设置特效
+				$("#button").click(function() {
+					$("#effect").show("shake", 500, function() {
+						setTimeout(function() {
+							$("#effect:visible").removeAttr("style").fadeOut();
+						}, 1000);
+					});
+
+				});
+			});
+			
+			var str="a001_goodsId=a001; a001_goodsName=Oldenburger%E6%AC%A7%E5%BE%B7%E5%A0%A1%20%E8%B6%85%E9%AB%98%E6%B8%A9%E7%81%AD%E8%8F%8C%E5%85%A8%E8%84%82%E7%89%9B%E5%A5%B6%20%E7%BA%AF%E7%89%9B%E5%A5%B6%201L/%E7%9B%92*12%E7%9B%92/%E7%AE%B1%20%E5%BE%B7%E5%9B%BD%E8%BF%9B%E5%8F%A3; a001_goodsPic=list02.jpg; a001_goodsPrice=99; a001_goodsNum=1; a003_goodsId=a003; a003_goodsName=MUH/%E7%94%98%E8%92%82%E7%89%A7%E5%9C%BA%20%E7%89%A7%E7%89%8C%E5%85%A8%E8%84%82%E7%BA%AF%E7%89%9B%E5%A5%B6(%E7%81%AD%E8%8F%8C%E4%B9%B3)%20200mlx27; a003_goodsPic=list03.jpg; a003_goodsPrice=109.9; a003_goodsNum=1";
+			
+			function showData() {
+				var firstcode = "_goodsId";
+				//显示数据列表
+				for(var i = 0; i < str.length; i++) {
+					var index = str.indexOf(firstcode, i);
+					if(index == i) {
+						var gId = str.substring(index - 4, index).trim();
+						console.log(gId);
+					}
+				}
+			}
+			showData();
+		</script>
+	</head>
+
+	<body>
+
+		<div id="effect" class="ui-widget-content ui-corner-all">
+			已成功加入购物车
+		</div>
+
+		<select name="effects" id="effectTypes">
+			<option value="blind">百叶窗特效（Blind Effect）</option>
+			<option value="bounce">反弹特效（Bounce Effect）</option>
+			<option value="clip">剪辑特效（Clip Effect）</option>
+			<option value="drop">降落特效（Drop Effect）</option>
+			<option value="explode">爆炸特效（Explode Effect）</option>
+			<option value="fold">折叠特效（Fold Effect）</option>
+			<option value="highlight">突出特效（Highlight Effect）</option>
+			<option value="puff">膨胀特效（Puff Effect）</option>
+			<option value="pulsate">跳动特效（Pulsate Effect）</option>
+			<option value="scale">缩放特效（Scale Effect）</option>
+			<option value="shake">震动特效（Shake Effect）</option>
+			<option value="size">尺寸特效（Size Effect）</option>
+			<option value="slide">滑动特效（Slide Effect）</option>
+		</select>
+
+		<a href="#" id="button" class="ui-state-default ui-corner-all">运行特效</a>
+
+	</body>
+
+</html>

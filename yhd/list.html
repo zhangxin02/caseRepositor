@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/list.css" rel="stylesheet" />
+		<link href="css/pagination.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/jquery-ui.min.css">
+		<script src="js/jquery.js"></script>
+		<script src="js/tools.js"></script>
+		<script src="js/jquery.pagination.js"></script>
+		<script src="js/jquery-ui.min.js"></script>
+	</head>
+
+	<body>
+		<div class="index-header">
+			<div class="index">
+				<div class="left fl">
+					<span id="username">Hi,请</span>
+					<a href="login.html">登录 </a>
+					<a href="regist.html">注册</a>
+					<script>
+					if(getCookie("username")!=""){
+						$("#username").html("欢迎"+getCookie("username")+"来到一号店");
+						$(".left").find("a").hide();
+					}
+					</script>
+				</div>
+				<div class="right fr">
+					<ul class="right-ul fl">
+						<li>
+							<a href="index.html">我的1号店<em></em></a>
+							<ul class="right-ul-m2">
+								<li>
+									<a href="">包裹跟踪</a>
+								</li>
+								<li>
+									<a href="">常见问题</a>
+								</li>
+								<li>
+									<a href="">在线退换货</a>
+								</li>
+								<li>
+									<a href="">在线投诉</a>
+								</li>
+								<li>
+									<a href="">配送范围</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">收藏夹<em></em></a>
+						</li>
+						<li>
+							<a href="#"><i class="phone"></i>掌上1号店<em></em></a>
+						</li>
+						<li>
+							<a href="#">企业采购<em></em></a>
+						</li>
+						<li>
+							<a href="#">客户服务<em></em></a>
+						</li>
+						<li>
+							<a href="#">网站导航<em></em></a>
+						</li>
+					</ul>
+					<div class="aboutme fl">
+						关注我们:
+						<a href=""></a>
+						<a href=""></a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="list">
+			<!--头部搜索-->
+			<div class="index top-search">
+				<div class="ts-left fl">
+					<a href="index.html"><img src="img/loginIco.png" width="210" height="72" /></a>
+				</div>
+				<div class="ts-middle fl">
+					<div class="from">
+						<span>商品</span>
+						<input type="text" placeholder="1元领 百万免单" />
+						<button>搜索</button>
+					</div>
+					<div class="alink">
+						<a href="#">家居买2付1</a>
+						<a href="#">纸巾</a>
+						<a href="#">薏仁粉</a>
+						<a href="#">黄酒</a>
+						<a href="#">护发素</a>
+						<a href="#">保温杯</a>
+						<a href="#">羽绒服</a>
+						<a href="#">瓜子</a>
+						<a href="#">保鲜盒</a>
+
+					</div>
+				</div>
+				<div class="ts-right">
+					<a id="shopCart"><em></em>购物车</a>
+					<script>
+						shopCartClick();
+
+						function shopCartClick() {
+							$("#shopCart").click(function() {
+								if(getCookie("username") == "") {
+									location.href = "emptyShop.html";
+								} else {
+									location.href = "shopCart.html"
+								}
+							})
+						}
+					</script>
+				</div>
+			</div>
+
+			<!--导航-->
+			<div class="index header">
+				<ul>
+					<li>
+						<a href="#" class="active">所有商品分类</a>
+					</li>
+					<li>
+						<a href="#" class="light">首页</a>
+					</li>
+					<li>
+						<a href="#" class="light">自营超市</a>
+					</li>
+					<li>
+						<a href="#" class="light">1号团</a>
+					</li>
+					<li>
+						<a href="list.html">1号商城</a>
+					</li>
+					<li>
+						<a href="#">闪购</a>
+					</li>
+					<li>
+						<a href="#">活色生鲜</a>
+					</li>
+					<li>
+						<a href="#">医药</a>
+					</li>
+					<li>
+						<a href="#">1号海购</a>
+					</li>
+					<li>
+						<a href="#">电器城</a>
+					</li>
+				</ul>
+			</div>
+			<div class="index mod_search_crumb">
+				<a href="#" class="fl">零食特产、粮油</a>
+				<div class="searchinput fl">
+					<input type="text" placeholder="在结果中查找" />
+					<em></em>
+				</div>
+				<span class="fr">共61371条</span>
+			</div>
+			<ul class="index brandWrap">
+				<li>
+					<span class="guide_title">糖果/巧克力</span>
+					<div class="guide_main">
+						<a href="#">糖果</a>
+						<a href="#">婚庆时刻</a>
+						<a href="#">巧克力</a>
+						<a href="#">果冻/布丁</a>
+						<a href="#">龟苓膏</a>
+					</div>
+				</li>
+				<li class="brandWrap-ico">
+					<span class="guide_title">品牌</span>
+					<ul class="guide_con">
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+						<li>
+							<a href="#"><img src="img/goods01.jpg" /></a>
+						</li>
+					</ul>
+
+				</li>
+				<li><span class="guide_title">糖果/巧克力</span>
+					<div class="guide_main">
+						<a href="#">糖果</a>
+						<a href="#">婚庆时刻</a>
+						<a href="#">巧克力</a>
+						<a href="#">果冻/布丁</a>
+						<a href="#">龟苓膏</a>
+					</div>
+				</li>
+				<li><span class="guide_title">包装方式</span>
+					<div class="guide_main">
+						<a href="#">袋装</a>
+						<a href="#">礼盒装</a>
+						<a href="#">盒装</a>
+						<a href="#">罐装</a>
+						<a href="#">条装</a>
+						<a href="#">碗装</a>
+						<a href="#">婚庆装</a>
+						<a href="#">杯装</a>
+					</div>
+				</li>
+				<li><span class="guide_title">进口/国产</span>
+					<div class="guide_main">
+						<a href="#">进口</a>
+						<a href="#">国产</a>
+					</div>
+				</li>
+			</ul>
+			<div class="index mod_search_select">
+				<div class="mss-top">
+					<a href="#">综合</a>
+					<a href="#">销量</a>
+					<a href="#">新品</a>
+					<a href="#">评论</a>
+					<a href="#" id="mssprice">价格</a>
+				</div>
+				<div class="mss-bottom">
+					<ul>
+						<li><span class="check_agreement"></span><span>1号店自营</span></li>
+						<li><span class="check_agreement"></span><span>商家包邮</span></li>
+						<li><span class="check_agreement"></span><span>进口</span></li>
+					</ul>
+
+				</div>
+			</div>
+
+		</div>
+		<div class="index listcon" id="listcontent">
+			<!--<figure class="mod_search_pro">
+				<img src="img/list01.jpg" height="230px" width="230px" />
+				<figcaption>
+					<p class="proPrice">￥35</p>
+					<p class="proName">
+						<a href="#">
+							益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+					</p>
+					<div class="item_act">
+						<input type="text" placeholder="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span>
+						<a class="shopping_act">加入购物车</a>
+					</div>
+					<p class="storeName">1号店自营</p>
+				</figcaption>
+			</figure>
+			<figure class="mod_search_pro">
+				<img src="img/list01.jpg" height="230px" width="230px" />
+				<figcaption>
+					<p class="proPrice">￥35</p>
+					<p class="proName">
+						<a href="#">
+							益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+					</p>
+					<div class="item_act">
+						<input type="text" placeholder="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span>
+						<a class="shopping_act">加入购物车</a>
+					</div>
+					<p class="storeName">1号店自营</p>
+				</figcaption>
+			</figure>
+			<figure class="mod_search_pro">
+				<img src="img/list01.jpg" height="230px" width="230px" />
+				<figcaption>
+					<p class="proPrice">￥35</p>
+					<p class="proName">
+						<a href="#">
+							益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+					</p>
+					<div class="item_act">
+						<input type="text" placeholder="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span>
+						<a class="shopping_act">加入购物车</a>
+					</div>
+					<p class="storeName">1号店自营</p>
+				</figcaption>
+			</figure>
+			<figure class="mod_search_pro">
+				<img src="img/list01.jpg" height="230px" width="230px" />
+				<figcaption>
+					<p class="proPrice">￥35</p>
+					<p class="proName">
+						<a href="#">
+							益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+					</p>
+					<div class="item_act">
+						<input type="text" placeholder="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span>
+						<a class="shopping_act">加入购物车</a>
+					</div>
+					<p class="storeName">1号店自营</p>
+				</figcaption>
+			</figure>
+			<figure class="mod_search_pro">
+				<img src="img/list01.jpg" height="230px" width="230px" />
+				<figcaption>
+					<p class="proPrice">￥35</p>
+					<p class="proName">
+						<a href="#">
+							益达 木糖醇 无糖口香糖 清爽草莓味 56g/瓶 + 益达 含木糖醇 无糖口 益达 含木糖醇 无糖口香糖 </a>
+					</p>
+					<div class="item_act">
+						<input type="text" placeholder="1" />
+						<span><a class="add">+</a><a class="dis_decrease">-</a></span>
+						<a class="shopping_act">加入购物车</a>
+					</div>
+					<p class="storeName">1号店自营</p>
+				</figcaption>
+			</figure>
+		-->
+		</div>
+		<div id="Pagination" class="pagination"></div>
+		<script>
+			$(function() {
+				$("#mssprice").click(function() { //按照价格排序
+					showData(true);
+				});
+				showData(false);
+
+				function showData(isPrice) {
+					$.ajax({
+						type: "get",
+						url: "php/list.php?type=all",
+						dataType: "json",
+						success: function(res) {
+							var length = res.length; //得到所有数据条数
+							if(isPrice) {
+								res = res.sort(function(a, b) { //排序
+									return a[2] - b[2];
+								});
+							}
+							$("#Pagination").pagination(length, {
+								num_edge_entries: 1, //边缘页数
+								items_per_page: 5, //每页显示1项
+								num_display_entries: 4, //主体页数距离上一页，下一页面紧挨着显示的框数	
+								prev_text: "上一页",
+								next_text: "下一页",
+								callback: function(pageIndex) {
+									pageIndex = pageIndex + 1;
+									var first = (pageIndex - 1) * this.items_per_page;
+									var end = (pageIndex * this.items_per_page) > length ? length : pageIndex * this.items_per_page;
+									$("#listcontent").html("");
+									for(var i = first; i < end; i++) {
+										var fig = $("<figure>");
+										fig.addClass("mod_search_pro");
+										var img = $("<img>");
+										img.attr({
+											"src": "img/" + res[i][1] + "",
+											"height": "230px",
+											"width": "230px"
+										});
+										fig.append(img);
+										var figc = $("<figcaption>");
+										var p = $("<p>");
+										p.addClass("proPrice").html("￥" + res[i][2]);
+										figc.append(p);
+
+										var p = $("<p>");
+										p.addClass("proName");
+										var a = $("<a>");
+										a.attr("href", "detail.html?itemid=" + res[i][0]);
+										a.html(res[i][3]);
+										p.append(a);
+										figc.append(p);
+
+										var div = $("<div>");
+										div.addClass("item_act");
+										var inptxt = $("<input>");
+										inptxt.attr({
+											"type": "text",
+											"value": "1"
+										});
+										div.append(inptxt);
+
+										var span = $("<span>");
+										var a = $("<a>");
+										a.addClass("add").html("+");
+										a.click(function() {
+											var inpval = $(this).parent().prev().val();
+											$(this).parent().prev().val(inpval * 1 + 1);
+										});
+										span.append(a);
+										var a = $("<a>");
+										a.addClass("dis_decrease").html("-");
+										a.click(function() {
+											var inpval = $(this).parent().prev().val();
+											if(inpval > 1) {
+												$(this).parent().prev().val(inpval * 1 - 1);
+											}
+										});
+										span.append(a);
+										div.append(span);
+
+										var a = $("<a>");
+										a.addClass("shopping_act").html("加入购物车");
+										a.attr("data-id", res[i][0]);
+										a.click(function() {
+											var id=$(this).attr("data-id");
+											var num = $(this).prev().prev().val(); //数量
+											var p=$(this).parent().prev().children(0).html();//名称
+											var money=$(this).parent().prev().prev().html().substring(1);//金额
+											var pic=($(this).parent().prev().prev()).parent().prev().attr("src").split("/")[1];//图片
+											//console.log(p+"/"+money+"/"+pic)
+											$("#effect").show("shake", 500, function() {												
+												setTimeout(function() {
+													$("#effect:visible").removeAttr("style").fadeOut();
+												}, 1000);
+												var getCok = document.cookie;
+												var godId = getCookie(id + "_goodsId"); //得到cookie中的商品Id
+												var godNum = getCookie(id); //得到cookie中的商品数量
+												if(id == godId) {
+													setCookie(id + "_goodsNum", godNum * 1 + num, 3); //直接累加商品
+												} else {
+													setCookie(id + "_goodsId", id, 3);
+													setCookie(id + "_goodsName", p, 3);
+													setCookie(id + "_goodsPic", pic, 3);
+													setCookie(id + "_goodsPrice",money, 3);
+													setCookie(id + "_goodsNum", num, 3);
+												}
+											});
+
+										});
+										div.append(a);
+										figc.append(div);
+
+										var p = $("<p>");
+										p.addClass("storeName").html(res[i][4]);
+										figc.append(p);
+
+										fig.append(figc);
+										$("#listcontent").append(fig);
+									}
+								}
+							});
+						}
+					});
+				}
+
+			});
+		</script>
+		<div class="index footer">
+			<div id="effect" class="ui-widget-content ui-corner-all">
+				已成功加入购物车
+			</div>
+			<div class="f1">
+				<a href="#">
+					<img src="img/footer01.png" />
+					<b>正品保障</b>
+					<span>正品行货 放心选购</span>
+				</a>
+				<a href="#">
+					<img src="img/footer02.png" />
+					<b>售后无忧</b>
+					<span>7天无理由退货</span>
+				</a>
+				<a href="#">
+					<img src="img/footer03.png" />
+					<b>准时送达</b>
+					<span>收货时间由你做主</span>
+				</a>
+				<a href="#">
+					<img src="img/footer04.png" />
+					<b>帮助中心</b>
+					<span>您的购物帮助指南</span>
+				</a>
+			</div>
+			<div class="f2">
+				<div class="f2-ul">
+					<h1>新手入门</h1>
+					<ul>
+						<li>
+							<a href="#">购物流程</a>
+						</li>
+						<li>
+							<a href="#">会员制度</a>
+						</li>
+						<li>
+							<a href="#">订单查询</a>
+						</li>
+						<li>
+							<a href="#">发票制度</a>
+						</li>
+						<li>
+							<a href="#">常见问题</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>支付方式</h1>
+					<ul>
+						<li>
+							<a href="#">货到付款</a>
+						</li>
+						<li>
+							<a href="#">网上支付</a>
+						</li>
+						<li>
+							<a href="#">银行转账</a>
+						</li>
+						<li>
+							<a href="#">礼品卡支付</a>
+						</li>
+						<li>
+							<a href="#">其他支付</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>配送服务</h1>
+					<ul>
+						<li>
+							<a href="#">配送范围及运费</a>
+						</li>
+						<li>
+							<a href="#">配送进度查询</a>
+						</li>
+						<li>
+							<a href="#">自提服务</a>
+						</li>
+						<li>
+							<a href="#">商品验货与签收</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>售后保障</h1>
+					<ul>
+						<li>
+							<a href="#">退换货政策</a>
+						</li>
+						<li>
+							<a href="#">退换货流程</a>
+						</li>
+						<li>
+							<a href="#">退款说明</a>
+						</li>
+						<li>
+							<a href="#">延保说明页面</a>
+						</li>
+						<li>
+							<a href="#">联系客服</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul">
+					<h1>商家合作</h1>
+					<ul>
+						<li>
+							<a href="#">商家入驻</a>
+						</li>
+						<li>
+							<a href="#">商必赢</a>
+						</li>
+						<li>
+							<a href="#">平台规则</a>
+						</li>
+						<li>
+							<a href="#">企业采购</a>
+						</li>
+					</ul>
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>APP更优惠</h1>
+					<img src="img/footer05.png" alt="1号店客户端二维码" />
+				</div>
+				<div class="f2-ul" style="padding-left: 30px;">
+					<h1>加微信查订单</h1>
+					<img src="img/footer06.png" alt="1号店官方微信二维码" />
+				</div>
+			</div>
+			<div class="f3">
+				<p>
+					<a href="#">关于1号店</a>|
+					<a href="#">我们的团队</a>|
+					<a href="#">网站联盟</a>|
+					<a href="#">热门搜索</a>|
+					<a href="#">友情链接</a>|
+					<a href="#">1号店社区</a>|
+					<a href="#">诚征英才</a>|
+					<a href="#">商家登录</a>|
+					<a href="#">供应商登录</a>|
+					<a href="#">放心搜</a>|
+					<a href="#">1号店新品</a>|
+					<a href="#">沃尔玛</a>
+				</p>
+				<p>
+					<a href="#">沪ICP备14050023号</a>|
+					<a href="#">合字B1.B2-20130004</a>|
+					<a href="#">营业执照</a>|
+					<a href="#">互联网药品信息服务资格证</a>|
+					<a href="#">互联网药品交易服务资格证</a>
+				</p>
+				<p>Copyright &copy; 1号店网上超市 2007-2016，All Rights Reserved</p>
+			</div>
+			<div class="f4">
+				<a href="#"><img src="img/footpic01.png" /></a>
+				<a href="#"><img src="img/footpic02.png" /></a>
+				<a href="#"><img src="img/footpic03.png" /></a>
+				<a href="#"><img src="img/footpic04.png" /></a>
+				<a href="#"><img src="img/footpic05.png" /></a>
+				<a href="#"><img src="img/footpic06.png" /></a>
+				<a href="#"><img src="img/footpic07.png" /></a>
+				<a href="#"><img src="img/footpic08.png" /></a>
+				<a href="#"><img src="img/footpic09.png" /></a>
+			</div>
+		</div>
+
+	</body>
+	<script>
+		ck();
+		//处理选中样式
+		function ck() {
+			var flag = true;
+			$(".check_agreement").click(function() {
+				if(flag) {
+					$(this).addClass("active");
+					flag = false;
+				} else {
+					$(this).removeClass("active");
+					flag = true;
+				}
+
+			});
+		}
+	</script>
+
+</html>

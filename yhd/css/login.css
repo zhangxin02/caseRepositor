@@ -1,0 +1,372 @@
+body {
+	background: #fcfcfc;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+
+.login {
+	background: #fff;
+}
+
+.main {
+	background: url(../img/regist_topshadow.png) repeat-x
+}
+
+.login-header,
+.simplefooter,
+.main-content {
+	width: 1194px;
+	margin: auto;
+}
+
+.login-header {
+	height: 64px;
+	padding-top: 16px;
+}
+
+.login-h1 img {
+	width: 146px;
+	height: 54px;
+}
+
+.login-right {
+	color: #999;
+}
+
+.login-right>a {
+	color: #06c;
+}
+
+.login-right>a:hover {
+	color: red;
+}
+
+
+/*帮助中心*/
+
+.login-help {
+	width: 90px;
+	position: relative;
+	margin-left: 30px;
+	height: 24px;
+	border: 1px solid #fff;
+}
+
+.login-help>a {
+	float: left;
+}
+
+.login-help:hover {
+	border-right: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px dashed #ccc;
+}
+
+.login-help:hover .login-help-ul {
+	display: block;
+}
+
+.login-help>a>em {
+	background: url(../img/indexhead_sprite_new.png) no-repeat -190px 0;
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	vertical-align: middle;
+	margin-left: 6px;
+}
+
+.login-help>a>i {
+	background: url(../img/regist.png) no-repeat right top;
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 6px;
+}
+
+.login-help-ul {
+	position: absolute;
+	top: 22px;
+	right: -1px;
+	border: 1px solid #ccc;
+	border-top: none;
+	display: none;
+	z-index: 999;
+}
+
+.login-help-ul>li {
+	height: 24px;
+	line-height: 24px;
+	border-bottom: 1px dashed #ccc;
+	color: #333;
+	width: 90px;
+	text-align: center;
+}
+
+.login-help-ul>li:last-child {
+	border-bottom: none;
+}
+
+.login-help-ul>li>a:hover {
+	color: #f60;
+}
+
+
+/*主体*/
+
+.main-content {
+	height: 426px;
+	box-sizing: border-box;
+	padding: 26px 110px 0;
+}
+
+.main-content-left {
+	height: 400px;
+	box-sizing: border-box;
+	padding: 44px 62px 44px 0;
+}
+
+.main-content-left>a>img {
+	height: 315px;
+	width: 510px;
+}
+
+.main-content-right {
+	height: 392px;
+	width: 320px;
+	background: #ffffff;
+	padding: 8px 40px 0;
+}
+
+.yz {
+	height: 36px;
+	line-height: 36px;
+	background: #fff7d1;
+	border: 1px solid #e5debc;
+	visibility:hidden;
+}
+
+.yz>em {
+	height: 30px;
+	width: 36px;
+	display: inline-block;
+	background: url(../img/login.png) no-repeat right -150px;
+	vertical-align: middle;
+}
+
+.right-div2 {
+	height: 40px;
+	line-height: 40px;
+}
+
+.right-div2>span {
+	font-size: 14px;
+	color: #666;
+	font-weight: bold;
+}
+
+.right-div2>a {
+	float: right;
+	color: #06c;
+}
+
+.right-div5 {
+	height: 40px;
+	line-height: 40px;
+}
+
+.right-div5>p {
+	float: left;
+}
+
+.right-div5>p>input {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.right-div5>span {
+	float: right;
+}
+.check_agreement{
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 6px;
+	height: 13px;
+	width: 13px;
+	background: url(../img/login.png) no-repeat -347px -270px;
+	cursor: pointer;
+}
+.active{
+	display: inline-block;
+	vertical-align: middle;
+	padding-right: 6px;
+	height: 13px;
+	width: 13px;
+	background: url(../img/login.png) no-repeat -347px -330px;
+	cursor: pointer;
+}
+.auto_tips{color: #f00; margin-left: 7px;display: none;}
+
+.ipt {
+	margin: 0 0 10px;
+	background: #fff;
+	border: 1px solid #dedede;
+}
+
+.loginbtn>button {
+	height: 58px;
+	border: 0;
+	background: #ff3c3c;
+	color: #fff;
+	font-size: 16px;
+	width: 100%;
+	text-shadow: 1px 1px 1px #ff7373;
+	font-family: "Microsoft YaHei";
+	border-radius: 3px;
+}
+
+.ipt>input {
+	height: 58px;
+	width: 230px;
+	border: 0;
+}
+
+.ipt>em {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	margin: 0 20px;
+	background: url(../img/login.png) no-repeat;
+}
+
+.ipt .txtico {
+	background-position: -50px 0;
+}
+
+.ipt .pwdico {
+	background-position: -150px 0;
+}
+
+.simplefooter {
+	text-align: center;
+	height: 100px;
+	padding-top: 20px;
+	line-height: 20px;
+}
+
+.simplefooter>a:hover {
+	color: #c00;
+}
+
+.main-regist {
+	height: 530px;
+	background: #fcfcfc url(../img/r_icon1.png) no-repeat;
+	border-bottom: 1px solid #f4f4f4;
+	border-top: 1px solid #e1e1e1;
+}
+
+.main-regist-content {
+	width: 330px;
+	margin: auto;
+}
+
+.main-regist-content>h4 {
+	text-align: center;
+	font: bold 24px/50px "microsoft yahei";
+	color: #333;
+	margin-top: 40px;
+}
+
+.main-regist-content>ul>li {
+	position: relative;
+	width: 100%;
+	height: 50px;
+	margin: 8px 0;
+}
+
+.y_same_label {
+	position: absolute;
+	display: inline-block;
+	width: 70px;
+	font: 14px/50px "sisum";
+	text-align: right;
+	left: -80px;
+}
+
+.y_tips_words {
+	position: absolute;
+	display: inline-block;
+	font: 12px "sisum";
+	right: -196px;
+	top: 9px;
+	width: 160px;
+	color: #666;
+	background:#fff4d7;
+	padding: 10px;
+	display: none;
+	
+}
+.writeok{
+	display: inline-block;
+	vertical-align: middle;	
+	width: 23px;
+	height: 23px;
+	position: absolute;
+	top: 14px;
+	right: -28px;
+	background:url(../img/regist_new.png) no-repeat -50px 0;
+	display: none;
+}
+
+.main-regist-content input {
+	width: 100%;
+	border: 0;
+	text-indent: 10px;
+	border: 1px solid #cfcfcf;
+}
+
+.main-regist-content .yzm {
+	width: 50%;
+	float: left;
+}
+
+.yzm-btn {
+	border: none;
+	height: 50px;
+	width: 46%;
+	float: right;
+	font: bold 14px/52px "sisum";
+	color: #fff;
+	background: #57565f;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.main-regist-content input,
+.y_agreement_btn {
+	height: 50px;
+}
+
+.y_agreement_word {
+	height: 50px;
+	line-height: 50px;
+	padding-left: 12px;	
+}
+
+.y_agreement_word>a {
+	color: #06c;
+}
+
+.y_agreement_btn {
+	width: 100%;
+	text-align: center;
+	background: #ff3c3c;
+	color: #fff;
+	border: none;
+	border-radius: 2px;
+	font: normal 16px/52px "microsoft yahei";
+}
+
+.y_agreement_btn:hover {
+	background: #d72226;
+}
