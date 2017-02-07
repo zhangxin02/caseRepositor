@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>link事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .expander {
+            border: 1px solid black;
+            width: 250px;
+        }
+
+        .expander > .title {
+            background-color: black;
+            color: white;
+            padding: .1em .3em;
+            cursor: pointer;
+        }
+
+        .expander > .body {
+            padding: .1em .3em;
+        }
+    </style>
+</head>
+<body ng-app="app">
+<div ng-controller="expandController">
+    <expand title="title" content="content">
+
+    </expand>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("expandController", function ($scope) {
+        $scope.title = "我是标题一";
+        $scope.content = "大家好 毕源又在打瞌睡";
+    })
+    app.directive("expand", function () {
+        return {
+            replace: true,
+            transclude: true,
+            scope:{
+                title:'=title',
+                content:'=content'
+            },
+            template: '<div class="expander">'
+            + '<div class="title" ng-click="show(isShow)" >{{title}}</div>'
+            + '<div class="body" ng-show="isShow">{{content}}</div>'
+            + '</div>',
+            link: function (scope, element, attr) {
+                scope.isShow = true;
+                scope.show = function (state) {
+                    scope.isShow = !state
+                }
+            }
+        }
+    })
+</script>
+</html>

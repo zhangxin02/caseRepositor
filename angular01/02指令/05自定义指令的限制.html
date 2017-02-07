@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="app">
+
+<header ng-controller="headerController">
+    <my-header content="content" >
+
+    </my-header>
+</header>
+
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("headerController", function ($scope) {
+        $scope.content = "加入我们";
+    });
+
+ //指令与控制器之间的传值
+    app.directive("myHeader", function () {
+        return {
+            restrict: "EAC", //限制使用方式
+            scope:{
+              text:"=content"
+            },
+            template: "<ul><li>首页</li><li>商品详情</li><li>{{text}}</li></ul>",
+            replace: true,//是否将标签全部替换
+            transclude: true
+        }
+    })
+    //指令中的内容是死的   如果变活(获取controller中的数据)
+</script>
+</html>

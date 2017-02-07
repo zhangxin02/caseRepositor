@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="app">
+<my-header>
+    加入我们
+</my-header>
+<div my-header></div>
+<div class="my-header"></div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.directive("myHeader", function () {
+        return {
+            restrict:"EAC", //限制使用方式
+            template: "<ul><li>首页</li><li>商品详情</li><li ng-transclude></li></ul>",
+            replace:true ,//是否将标签全部替换
+            transclude:true
+        }
+    })
+    //指令中的内容是死的   如果变活(获取controller中的数据)
+</script>
+</html>

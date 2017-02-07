@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="app">
+<my-header>
+</my-header>
+<div my-header></div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.directive("myHeader", function () {
+        return {
+            template: "<ul><li>首页</li><li>商品详情</li></ul>"
+        }
+    })
+</script>
+</html>

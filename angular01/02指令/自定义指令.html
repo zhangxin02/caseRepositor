@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body ng-app='myApp' ng-controller="myController">
+		<my-header text="content"></my-header>
+		<div my-header></div>
+		<div class="my-header"></div>
+	</body>
+	<script src="js/angular.js"></script>
+	<script>
+		var app=angular.module("myApp",[]);
+		app.controller("myController",function($scope){
+			$scope.content="联系我们";
+		});
+		app.directive("myHeader",function(){
+			return {
+				restrict:'EAC',
+				scope:{con:'=text'},
+				template:"<ul><li>首页</li><li>详情</li><li>{{con}}</li></ul>",
+				replace:true
+				
+			};
+		});
+	</script>
+</html>

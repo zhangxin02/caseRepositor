@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车详情列表</title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#content {
+				margin: 50px auto;
+				width: 840px;
+			}
+			
+			.header .header-detail {
+				width: 120px;
+				float: left;
+				display: inline-block;
+				background-color: #cccccc;
+				height: 30px;
+				line-height: 30px;
+				font-size: larger;
+				text-align: center;
+			}
+			
+			.select {
+				height: 18px;
+				width: 18px;
+			}
+			
+			.tr .tr_detail {
+				width: 120px;
+				float: left;
+				display: inline-block;
+				background-color: #FFFFFF;
+				height: 50px;
+				line-height: 50px;
+				font-size: larger;
+				text-align: center;
+			}
+			
+			.tr .tr_detail img {
+				margin-top: 5px;
+				height: 35px;
+				width: 100px;
+				border-radius: 5px;
+				box-shadow: 0 0 5px red;
+			}
+			
+			.detail_num span {
+				padding-left: 10px;
+				padding-right: 10px;
+				text-align: center;
+				width: 20px;
+				border: 1px solid #cdcdcd;
+				background-color: #cdcdcd;
+			}
+			
+			.detail_num .add,
+			.detail_num .sub {
+				background-color: #666666;
+				color: red;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			
+			.tr_detail .delete:hover {
+				color: red;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+</html>
+
+<body>
+	<div id="content" ng-app="myCar" ng-controller="carController">
+		<div class="header">
+			<div class="header-detail"><input type="checkbox" class="select-all select" ng-model="master" ng-click="all(master,data)" ng-checked="allck">&nbsp;全选</div>
+			<div class="header-detail">图片</div>
+			<div class="header-detail">详情</div>
+			<div class="header-detail">单价</div>
+			<div class="header-detail">数量</div>
+			<div class="header-detail">小计</div>
+			<div class="header-detail">操作</div>
+		</div>
+		<div class="tr_list">
+			<div class="tr" ng-repeat="x in data">
+				<div class="tr_detail"><input ng-model="y" ng-checked="master" ng-click="chk(x,y)" type="checkbox" class="select"></div>
+				<div class="tr_detail detail_img"><img ng-src="{{x.src}}" /></div>
+				<div class="tr_detail detail_info" ng-bind="x.info"></div>
+				<div class="tr_detail detail_price" ng-bind="x.price" ng-model="price"></div>
+				<div class="tr_detail detail_num">
+					<span class="sub" ng-click="reduce(this)">-</span>
+					<span class="num" ng-model="num" ng-bind="x.num">1</span>
+					<span class="add" ng-click="add(this)">+</span>
+				</div>
+				<div class="tr_detail detail_total_price" ng-bind="x.num*x.price"></div>
+				<div class="tr_detail"><span class="delete" ng-click="delete(x.id)">删除</span></div>
+			</div>
+		</div>
+		<h2 ng-bind="subtotal()"></h2><h2 ng-bind="subcount()"></h2>
+	</div>
+</body>
+<script src="js/jquery.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/data.js"></script>
+<script>
+	var app = angular.module("myCar", []);
+	app.controller("carController", function($scope) {
+		$scope.choseArr = []; //定义数组用于存放前端显示  
+		var str = ""; //  
+		var flag = ''; //是否点击了全选，是为a  
+		$scope.y =false; //默认未选中  	   
+		$scope.all = function(c, v) { //全选  
+			if(c == true) {
+				$scope.y = true;
+				//$scope.choseArr=angular.copy(v);
+				for(var i = 0; i < v.length; i++) {
+					//$scope.choseArr[i] = '' + v[i].id + '';
+					$scope.choseArr.push(v[i]);
+				}
+			} else {
+				$scope.y = false;
+				$scope.choseArr = [];
+			}
+			flag = 'a';
+			console.log($scope.choseArr);
+		};
+		
+		$scope.chk = function(z, x) { //单选或者多选			
+			if(x == true) { //选中  
+				$scope.choseArr.push(z);
+			} else {
+				var index=$.inArray(z, $scope.choseArr);
+				$scope.choseArr.splice(index,1);
+			}
+			if($scope.choseArr.length == $scope.data.length) {
+				$scope.allck = true;
+			} else {
+				$scope.allck = false;
+			}
+			//console.log($scope.choseArr);
+			
+			//console.log($scope.choseArr.length+"/"+$scope.data.length);  
+		};
+
+//		$scope.chk = function(z, x) { //单选或者多选
+//			if(flag == 'a') { //在全选的基础上操作  
+//				str = $scope.choseArr.join(',') + ',';
+//			}
+//			if(x == true) { //选中  
+//				str = str + z + ',';
+//			} else {
+//				str = str.replace(z + ',', ''); //取消选中  
+//			}
+//			$scope.choseArr =(str.substr(0, str.length - 1)).split(',');
+//			var dex = $scope.choseArr.indexOf(""); //判断数组中有没有"",有的话返回值大于等于0，没有返回-1
+//			if(dex >= 0) {
+//				$scope.choseArr.splice(dex, 1);
+//			} //删除数组中的"";
+//			if($scope.choseArr.length == $scope.data.length) {
+//				$scope.allck = true;
+//			} else {
+//				$scope.allck = false;
+//			}
+//			console.log($scope.choseArr);
+//			
+//			//console.log($scope.choseArr.length+"/"+$scope.data.length);  
+//		};
+		
+//		//总计
+		$scope.subtotal=function(){
+			var x=0;//总计
+			 if($scope.choseArr.length!=0){//没有选择一个的时候提示
+                for(var i=0;i<$scope.choseArr.length;i++){
+                //alert($scope.choseArr.length);
+				//console.log($scope.choseArr[i]);//遍历选中的id
+                x+=$scope.choseArr[i].price*$scope.choseArr[i].num;
+            }
+           };			
+			return "总计："+x;
+		};
+		$scope.subcount=function(){
+			var count=0;
+			 if($scope.choseArr.length!=0){//没有选择一个的时候提示
+                for(var i=0;i<$scope.choseArr.length;i++){
+                //alert($scope.choseArr.length);
+				//console.log($scope.choseArr[i]);//遍历选中的id
+                count+=$scope.choseArr[i].num;
+            }
+           };			
+			return "数量："+count;
+		};
+	
+		$scope.add = function(obj) {
+			obj.x.num = obj.x.num + 1;
+			$scope.updatNum(obj.x.id, obj.x.num);
+		};
+		$scope.reduce = function(obj) {
+			obj.x.num = obj.x.num - 1 > 1 ? obj.x.num - 1 : 1;
+			$scope.updatNum(obj.x.id, obj.x.num);
+		};
+
+		//修改数量
+		$scope.updatNum = function(id, num) {
+			var obj = JSON.parse(localStorage.getItem("a_" + id));
+			obj.num = num;
+			localStorage.setItem("a_" + id, JSON.stringify(obj));
+		};
+		$scope.data = (function() {
+			var list = [];
+			for(var i = 0; i < localStorage.length; i++) {
+				var val = JSON.parse(localStorage.getItem(localStorage.key(i))); //得到每条数据
+				list.push(val);
+			}
+			return list;
+		})();
+
+		$scope.delete = function(id) {
+			if(confirm("确认删除")) {
+				localStorage.removeItem("a_" + id);
+			}
+		};
+
+	});
+</script>
+
+</html>

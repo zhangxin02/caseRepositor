@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-app="myapp" ng-controller="mycontroller">
+    <hello speak="content">
+        美女
+    </hello>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("myapp", []);
+    app.controller("mycontroller", function ($scope) {
+        $scope.content = "今天天气真好";
+    });
+    app.directive("hello", function () { //自定义指令
+        return {
+            replace: true,
+            restrict: "EAC",
+            transclude: true,
+            scope:{
+              speak:"=speak"
+            },
+            template: "<div>hello,<span ng-transclude></span>{{speak}}</div>"
+        }
+    });
+
+</script>
+</html>

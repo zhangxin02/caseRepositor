@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>link事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .expander {
+            border: 1px solid black;
+            width: 250px;
+        }
+
+        .expander > .title {
+            background-color: black;
+            color: white;
+            padding: .1em .3em;
+            cursor: pointer;
+        }
+
+        .expander > .body {
+            padding: .1em .3em;
+        }
+    </style>
+</head>
+<body ng-app="app" ng-controller="accordionController">
+<accordion>
+    <expand ng-repeat="x in list" title="x.title" content="x.content">
+    </expand>
+</accordion>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("accordionController", function ($scope) {
+        $scope.list = [
+            {title: "标题一", content: "我是标题一的内容"},
+            {title: "标题二", content: "2222222"},
+            {title: "标题三", content: "3333333"},
+        ]
+    });
+      app.directive("expand", function () {
+        return {
+            replace: true,
+            transclude: true,
+            scope: {
+                title: '=title',
+                content: '=content'
+            },
+            require: "^accordion",
+            template: '<div class="expander">'
+            + '<div class="title" ng-click="show(isShow)" >{{title}}</div>'
+            + '<div class="body" ng-show="isShow" ng-model="isShow">{{content}}</div>'
+            + '</div>',
+            link: function (scope, element, attr, accordionController) {
+                scope.isShow = false;
+                accordionController.gotoList(scope); //获取所有的数据
+                scope.show = function (state) {
+                    accordionController.open(scope);
+
+                }
+            }
+        }
+    })
+    app.directive("accordion", function () {  //自定义的指令上面不能指定controller
+        return {
+            replace: true,
+            transclude: true,
+            template: "<div ng-transclude=''></div>",
+            controller: function () {
+                var scopeList = [];
+                this.gotoList = function (scope) {
+                    scopeList.push(scope);
+                }
+                this.open = function (scope) {
+                    for (var i = 0; i < scopeList.length; i++) {
+                        if (scope == scopeList[i]) {
+                            scope.isShow = true;
+                        } else {
+                            scopeList[i].isShow = false;
+                        }
+                    }
+                }
+            }
+        }
+    });
+  
+</script>
+</html>
