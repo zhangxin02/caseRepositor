@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车详情列表</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #content {
+            margin: 50px auto;
+            width: 840px;
+        }
+
+        .header .header-detail {
+            width: 120px;
+            float: left;
+            display: inline-block;
+            background-color: #cccccc;
+            height: 30px;
+            line-height: 30px;
+            font-size: larger;
+            text-align: center;
+        }
+
+        .select {
+            height: 18px;
+            width: 18px;
+        }
+
+        .tr .tr_detail {
+            width: 120px;
+            float: left;
+            display: inline-block;
+            background-color: #FFFFFF;
+            height: 50px;
+            line-height: 50px;
+            font-size: larger;
+            text-align: center;
+        }
+
+        .tr .tr_detail img {
+            margin-top: 5px;
+            height: 35px;
+            width: 100px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px red;
+        }
+
+        .detail_num span {
+            padding-left: 10px;
+            padding-right: 10px;
+            text-align: center;
+            width: 20px;
+            border: 1px solid #cdcdcd;
+            background-color: #cdcdcd;
+        }
+
+        .detail_num .add, .detail_num .sub {
+            background-color: #666666;
+            color: red;
+            font-weight: bold;
+        }
+
+        .tr_detail .delete:hover {
+            color: red;
+        }
+
+    </style>
+</head>
+</html>
+<body>
+<div id="content" ng-app="myCar">
+    <div class="header">
+        <div class="header-detail"><input type="checkbox" class="select-all select">&nbsp;全选</div>
+        <div class="header-detail">图片</div>
+        <div class="header-detail">详情</div>
+        <div class="header-detail">单价</div>
+        <div class="header-detail">数量</div>
+        <div class="header-detail">小计</div>
+        <div class="header-detail">操作</div>
+    </div>
+    <div class="tr_list" ng-controller="myController">
+        <div class="tr" ng-repeat="c in data">
+            <div class="tr_detail"><input type="checkbox" class="select"></div>
+            <div class="tr_detail detail_img"><img ng-src={{c.src}}/></div>
+            <div class="tr_detail detail_info" ng-bind="c.info"></div>
+            <div class="tr_detail detail_price" ng-bind="c.price" ng-model="c.price"></div>
+            <div class="tr_detail detail_num"><span class="sub" ng-click="reduce(this)">-</span><span
+                    class="num" ng-bind="c.num" ng-model="c.num">1</span><span
+                    class="add" ng-click="add(this)">+</span>
+            </div>
+            <div class="tr_detail detail_total_price" ng-bind="c.num*c.price"></div>
+            <div class="tr_detail"><span class="delete">删除</span></div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("myCar", []);
+    app.controller("myController", function ($scope) {
+        $scope.reduce = function (obj) {
+            var id = obj.c.id, num = obj.c.num;
+            obj.c.num = num - 1 > 1 ? num - 1 : 1;//双向数据绑定
+            $scope.updateLocalStorage(id, obj.c.num);
+        }
+        $scope.add = function (obj) {
+            var id = obj.c.id, num = obj.c.num;
+            obj.c.num = num + 1;//双向数据绑定
+            $scope.updateLocalStorage(id, obj.c.num);
+        }
+
+        $scope.updateLocalStorage = function (id, num) {  //在控制器中声明了一个公共的方法
+            var key = "a_" + id;
+            var value = JSON.parse(localStorage.getItem(key)); //获取需要更新的值（通过key获取）
+            value.num = num;
+            localStorage.setItem(key, JSON.stringify(value));//进行覆盖更新
+
+        }
+        //从本地存储中取出数据
+        $scope.data = (function () {
+            var list = [];
+            for (var i = 0; i < localStorage.length; i++) {
+                var key = localStorage.key(i); //获取key值
+                if (key.indexOf("a_") != -1) { //key值是否包含a_
+                    var value = JSON.parse(localStorage.getItem(key)); //key相对应的值  值是字符串
+                    list.push(value);
+                }
+            }
+            return list;
+        })();
+    });
+
+</script>
+</html>

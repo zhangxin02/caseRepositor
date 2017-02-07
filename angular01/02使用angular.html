@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myController">
+    <!--{{student.name}}年年{{student.age}}岁-->
+    <span ng-bind="student.name"></span>年年
+    <span ng-bind="student.age"></span>岁
+</div>
+<div ng-controller="scoreController">
+    <span ng-bind="yuwen"></span>
+</div>
+<div ng-controller="jobController">
+    职位:<span ng-bind="job.desc"></span>
+    待遇:<span ng-bind="job.salary"></span>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("myApp", []); //声明一个angular的模块 叫做myApp
+    app.controller("myController", function ($scope) {
+        var student = {
+            name: "beibei",
+            age: 18
+        }
+        $scope.student = student;
+    });
+    app.controller("scoreController", function ($scope) {
+        $scope.yuwen = 66;
+    })
+
+    app.controller("jobController", function ($scope) {
+        $scope.job = {desc: "前端工程师", salary: 10000};
+    });
+    //ng-app
+    //ng-controller
+    //ng-model
+    //ng-bind
+    //{{}}
+</script>
+</html>

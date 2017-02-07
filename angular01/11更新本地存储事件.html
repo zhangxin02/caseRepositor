@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载所有数据</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #list {
+            width: 1000px;
+            height: 600px;
+            margin: 50px auto;
+        }
+
+        #list ul {
+            list-style: none;
+        }
+
+        #list ul li {
+            width: 240px;
+            height: 190px;
+            margin-left: 8px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            position: relative;
+            float: left;
+        }
+
+        #list ul li div.img {
+            padding: 4px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #cdcdcd;
+            border: 1px solid #cdcdcd;
+            margin-top: 10px;
+        }
+
+        #list ul li div img {
+            width: 230px;
+            height: 180px;
+        }
+
+        #list ul li div.detail {
+            margin: 5px;
+            color: #559999;
+            float: left;
+            width: 240px;
+        }
+
+        #list ul li span.price {
+            float: right;
+            color: #cc0033;;
+            margin-right: 8px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body ng-app="app">
+<div id="list">
+    <ul ng-controller="objController">
+        <li ng-repeat="t in  list |orderBy:'price'">
+            <div class="img">
+                <img ng-src={{t.src}}>
+            </div>
+            <div class="detail">
+                <span ng-bind="t.info"></span>
+                <button ng-click="intoShopCar(this)">加入购物车</button>
+                <span class="price" ng-bind="t.price|filterPrice">
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script src="js/data.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.filter("filterPrice", function () {
+        return function (e) {
+            return "特价" + Number(e).toFixed(2) + "$";
+        }
+    });
+    app.controller("objController", function ($scope) {
+        $scope.list = goods;
+        $scope.yellow = "yellow";
+        $scope.red = "red";
+        $scope.price = 100;
+
+        $scope.intoShopCar = function (obj) {
+            var object = obj.t;
+            var id = object.id, info = object.info, price = object.price, src = object.src;
+            var key = "a_" + id;
+
+            //新增的时候 如果有数据 就进行更新（累加）
+            //新增的时候  没有数据  进行新增
+            var value = JSON.parse(localStorage.getItem(key));
+            if (value) { //存在就更新
+                value.num = value.num + 1;
+            } else {
+                value = {id: id, info: info, price: price, src: src, num: 1};
+            }
+            localStorage.setItem(key, JSON.stringify(value));
+            //利用localStorage将数据写入到本地
+        }
+
+    });
+    //声明方式一
+    /*
+     angular.module("app", ["myModule"]);
+     angular.module("myModule", []).controller("objController", ["$scope", function ($scope) {
+     var obj = {
+     id: "0001",
+     src: "images/1.jpg",
+     desc: " 我是萌萌哒",
+     price: 16,
+     }
+     $scope.obj = obj;
+     $scope.name = "dalei";
+     }])
+     */
+
+    //ng-app
+    //ng-controller   mvc
+    //$scope
+    //{{属性}}  {{对象.属性}}
+    //ng-bind
+    //ng-src (ng-class ng-style)
+    //ng-repeat
+    //过滤器（number orderby）
+
+    //自定义过滤器
+
+</script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加载所有数据</title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #list {
+            width: 1000px;
+            height: 600px;
+            margin: 50px auto;
+        }
+
+        #list ul {
+            list-style: none;
+        }
+
+        #list ul li {
+            width: 240px;
+            height: 190px;
+            margin-left: 8px;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            position: relative;
+            float: left;
+        }
+
+        #list ul li div.img {
+            padding: 4px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #cdcdcd;
+            border: 1px solid #cdcdcd;
+            margin-top: 10px;
+        }
+
+        #list ul li div img {
+            width: 230px;
+            height: 180px;
+        }
+
+        #list ul li div.detail {
+            margin: 5px;
+            color: #559999;
+            float: left;
+            width: 240px;
+        }
+
+        #list ul li span.price {
+            float: right;
+            color: #cc0033;;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body ng-app="app">
+<div id="list">
+    <ul ng-controller="objController">
+        <li>
+            <div class="img">
+                <img ng-src={{obj.src}}>
+            </div>
+            <div class="detail">
+                <span ng-bind="obj.desc"></span>
+                <span class="price" ng-bind="obj.price">
+                </span>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+<script src="js/angular.js"></script>
+<script>
+    var app = angular.module("app", []);
+    app.controller("objController", function ($scope) {
+        var obj = {
+            id: "0001",
+            src: "images/1.jpg",
+            desc: " 我是萌萌哒",
+            price: 16,
+        }
+        $scope.obj = obj;
+    });
+    //声明方式一
+    /*
+     angular.module("app", ["myModule"]);
+     angular.module("myModule", []).controller("objController", ["$scope", function ($scope) {
+     var obj = {
+     id: "0001",
+     src: "images/1.jpg",
+     desc: " 我是萌萌哒",
+     price: 16,
+     }
+     $scope.obj = obj;
+     $scope.name = "dalei";
+     }])
+     */
+
+
+</script>
+</html>
